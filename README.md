@@ -37,6 +37,8 @@ Econ-Agent-Skills/
 │       │   ├── course-navigation.md
 │       │   ├── large-file-strategy.md
 │       │   ├── slide-fidelity.md
+│       │   ├── visuals-and-homework.md
+│       │   ├── latex-outputs.md
 │       │   ├── expert-teaching.md
 │       │   ├── mathematical-reasoning.md
 │       │   ├── macroeconomics.md
@@ -47,7 +49,8 @@ Econ-Agent-Skills/
 │       └── templates/
 │           ├── course-map.md
 │           ├── lecture-index.md
-│           └── notation-registry.md
+│           ├── notation-registry.md
+│           └── simple-notes.tex
 ├── tests/
 │   ├── professor-evaluation.md
 │   └── validate_skills.py
@@ -97,6 +100,16 @@ Store your course Slides, syllabi, homework, reading materials and figures in yo
 After creating the output, verify the cloud file's name, type, ID and parent folder, then return the **verified cloud link**. If cloud save fails, report it explicitly; a chat attachment or temporary local file alone does not satisfy the cloud delivery requirement.
 
 See [Cloud Drive Workflow](skills/econ-phd-professor/references/cloud-drive-workflow.md). **Course-specific generated indexes go in Drive `Agent Outputs/`**, while their reusable empty templates remain here in GitHub.
+
+## Visual teaching, homework and default file formats
+
+The Professor may use **all relevant graphs, tables, and diagrams already included in the original Slides**; there is no special numerical restriction on source figures. It may **create new visualizations only when doing so materially improves conceptual understanding** (such as a binding constraint, equilibrium response or dynamic path). It must not invent or redraw an unseen figure as if inspected.
+
+When the course folder contains Homework/Problem Sets, connect the actual task statements to the relevant Slides, models and mathematical methods so examples and course review reflect **what students are being asked to understand**. Respect each course's academic integrity and AI-use instructions, and keep homework-specific assumptions or notation distinct from the lecture's.
+
+**Default when you ask Professor to create a file without specifying its format:** save **both** an editable `.tex` and a compiled `.pdf` with matching base filenames in the verified cloud `Agent Outputs/` folder. Use the plain [LaTeX `article` template](skills/econ-phd-professor/templates/simple-notes.tex) rather than an elaborate design. The file must compile and each cloud output must be verified. If you explicitly request another format or just one of the pair, follow that instead. Ordinary conversation does not generate unsolicited files.
+
+See [Visuals and Homework](skills/econ-phd-professor/references/visuals-and-homework.md) and [TeX/PDF Outputs](skills/econ-phd-professor/references/latex-outputs.md).
 
 ## Learning philosophy
 
