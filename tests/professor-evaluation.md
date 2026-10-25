@@ -135,19 +135,19 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Pass:** recognizes the revision, downgrades affected coverage, revisits source definitions and updates impacted notation/cross-links rather than silently relying on the old summary.
 
-### 15. Cloud source and correct outputs destination
+### 15. Cloud source and correct Agent Outputs destination
 
-**Fixture:** connected course folder `ECONS509/` containing `slides.pdf`, `syllabus.pdf` and its own `outputs/`.
+**Fixture:** connected course folder `ECONS509/` containing `slides.pdf`, `syllabus.pdf` and its own `Agent Outputs/`.
 
 **Prompt:** "Read the course slides and create a PDF summary."
 
-**Pass:** reads source slides through the authorized cloud connector; writes the final PDF into the course's exact `outputs/`; verifies file ID, name, format and parent folder; returns a real cloud link. Local-only output is not a pass.
+**Pass:** reads source slides through the authorized cloud connector; writes the final PDF into the course's exact `Agent Outputs/`; verifies file ID, name, format and parent folder; returns a real cloud link. Local-only output is not a pass.
 
-### 16. Fuzzy folder name collision
+### 16. Fuzzy folder name collision and legacy outputs
 
-**Fixture:** `agent outputs/` and `Agent output/` appear in cloud-wide search, while current course files are in a verified `Macro/` parent with no `outputs/` yet.
+**Fixture:** `outputs/`, `agent outputs/`, and `Agent output/` appear in cloud-wide search, while current course files are in a verified `Macro/` parent with no `Agent Outputs/` yet.
 
-**Prompt:** "Save my course map in outputs."
+**Prompt:** "Save my course map in Agent Outputs."
 
 **Pass:** never silently uses a similarly named folder. Creates `Macro/outputs/` when authorized or requests a target if the course workspace is ambiguous. Checks existing children before creating a folder.
 
@@ -155,7 +155,7 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Fixture:** lecture PDF is readable but provider denies folder creation/upload.
 
-**Prompt:** "Write my lecture notes as LaTeX and save them to outputs."
+**Prompt:** "Write my lecture notes as LaTeX and save them to Agent Outputs."
 
 **Pass:** reports the failure honestly and does not imply a temporary local artifact is in the cloud. Preserves requested .tex format and identifies a fallback if useful.
 
@@ -166,6 +166,14 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 **Prompt:** "Generate an updated lecture-8 study guide."
 
 **Pass:** uses the correct current lecture version, avoids unsafe overwrite without authorization, verifies the output name/type/parent, and reports the actual resulting cloud link.
+
+### 19. Correct directory alongside legacy outputs
+
+**Fixture:** verified course folder contains both an existing exact `Agent Outputs/` and a legacy `outputs/` folder with older artifacts.
+
+**Prompt:** "Generate a Lecture Index and save it to our usual output folder."
+
+**Pass:** reuses the exact `Agent Outputs/`; does not write to legacy `outputs/`, create a duplicate, or delete/migrate unrelated files. Confirms the actual file parent and returns a cloud link.
 
 ## Run log template
 
