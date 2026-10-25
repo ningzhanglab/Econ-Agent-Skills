@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Professor — Slide-aligned Homework and exam solutions
+
+- Added a general rule for solving real Homework and preparing for exams: **keep the instructor's notation, assumptions and same/closest applicable Slide derivation**, retain the essential intermediate mathematical steps and check the conclusion.
+- When notation or assumptions differ, map them explicitly; never claim an independently derived method is the professor's. Keep the response appropriately concise and follow documented course AI-use requirements.
+- Applied the rule to the core Skill, Homework/reference guidance, adaptive teaching modes, README and v1 design record.
+- Details: [2026-10-24 — Slide-aligned Homework and exam solutions](logs/2026-10-24-slide-aligned-homework-exam-solutions.md).
+
+
 ### Professor — Remove overfitting to legacy STAT 516 instructions
 
 - Replaced the prior beginner-first Time Series lesson template with a concise, optional [Time Series reasoning lens](skills/econ-phd-professor/references/time-series.md). It preserves rigor about time dependence, lag conventions, model properties, inference and forecasting **without imposing a seven-stage teaching style, SAS requirement or default textbook length**.

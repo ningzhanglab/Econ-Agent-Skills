@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — Slide-aligned Homework and exam solutions](2026-10-24-slide-aligned-homework-exam-solutions.md).
+
 - [2026-10-24 — Remove legacy STAT 516 template overfit](2026-10-24-remove-legacy-time-series-template-overfit.md).
 
 - [2026-10-24 — Professor Time Series beginner-first learning lens](2026-10-24-professor-time-series-learning-lens.md).
