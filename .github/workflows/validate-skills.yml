@@ -14,3 +14,10 @@ jobs:
           python-version: "3.12"
       - name: Check skill metadata and links
         run: python tests/validate_skills.py
+      - name: Install a minimal TeX toolchain for compilation smoke test
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-base latexmk
+      - name: Test course state, source contracts and minimal TeX compilation
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+
