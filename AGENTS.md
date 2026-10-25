@@ -18,6 +18,13 @@ These are repository-maintenance instructions, not the runtime instructions of a
 - Do not present `econ-research-agent` as implemented until it has actually been created and tested.
 - Make focused changes. Do not rewrite unrelated skills or overwrite past logs.
 
+## Design priority and proportionate evaluation
+
+- **Teaching-first:** prioritize learner intent, accurate economic mechanism, rigor, visual comprehension and targeted Homework links. Keep file management and indexing as supporting, on-demand tasks; avoid adding another top-level Skill or expanding rules merely to encode every example.
+- **Progressive reference loading:** the core `SKILL.md` should route to detailed references, not copy them wholesale. Do not require the full Course Map, Figure Index, LaTeX compiler or cloud-upload workflow for a focused equation explanation.
+- **Proportionate tests:** for editorial/pedagogical architecture changes, review affected content/links and let existing CI run; no mandatory new multi-file benchmarks, new PDF Handbooks, repeated cloud round-trips or new test cases. Add focused regressions **only** if a new executable feature/bug warrants them. Run a real lecture or end-to-end cloud delivery test when the relevant behavior materially changes or the user specifically asks.
+- Record truthfully whether checks passed or were not run, and keep previous test results as dated historical evidence.
+
 ## Required change logging
 
 **For every meaningful repository change**, complete all of these within the same PR/commit series:

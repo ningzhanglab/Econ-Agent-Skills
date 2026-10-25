@@ -8,6 +8,15 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Design — Teach first, route workflows on demand
+
+- Reorganized `econ-phd-professor` around learner intent and six adaptive explanation modes rather than a fixed multi-step file/indexing process.
+- Added a focused [Teaching Design](skills/econ-phd-professor/references/teaching-design.md) reference integrating exact-notation mathematics, visual intuition, Homework and economics depth without mandatory headings or extra artifacts.
+- Simplified core reference routing while keeping all source integrity, original-figure provenance, course mapping, and exact private `Agent Outputs/` + default TeX/PDF requirements.
+- Added proportional evaluation guidance: preserve existing CI, but prioritize Skill design and limit new end-to-end or multi-file tests to significant changes.
+- Details: [2026-10-24-professor-teaching-first-design.md](logs/2026-10-24-professor-teaching-first-design.md).
+
+
 ### Real-course visual-first test — ECONS 509 DSDP + PS1
 
 - Produced a separately versioned **18-page** Visual-Enhanced Volume III, versus the prior 15-page text/math-only version, with five embedded vector diagrams explaining borrowing constraints, VFI bounds, policy transitions, Howard, and solution-accuracy layers.

@@ -15,6 +15,14 @@ Reusable, version-controlled Agent Skills for economics PhD learning and researc
 
 Use [CHANGELOG.md](CHANGELOG.md) for a quick summary of changes and [logs/](logs/README.md) for dated explanations of **what changed, why, verification performed, and next steps**. [AGENTS.md](AGENTS.md) instructs future repository-editing Agents to update both when making meaningful changes. Git commits remain the source of truth for exact diffs.
 
+## Teaching-first design
+
+The Professor chooses an **explanation mode before tools**: quick clarification, conceptual intuition, formal derivation, method/model comparison, whole-lecture learning, or real Homework tutoring. The task determines depth, source retrieval and whether a diagram adds insight. A narrow question does **not** trigger a course inventory, generated PDF or file uploads.
+
+The reusable [Teaching Design](skills/econ-phd-professor/references/teaching-design.md) reference coordinates economic mechanisms, math, graphics and Homework without imposing a rigid section sequence. Keep the original slide's notation and distinguish verified figures from independent illustrations. The existing cloud workflow is invoked for source access or **requested file generation**, not to dominate ordinary tutoring.
+
+**Development focus:** improve pedagogical clarity and rigorous reasoning first; use existing structural CI as a lightweight guard. Reserve new full-course/TeX/cloud round-trip trials for substantial behavior or delivery changes, not every wording edit.
+
 ## What makes Professor different?
 
 The Professor treats slides as the **source of the local model**, not the limit of economics knowledge. It may add theoretical intuition, examples, counterexamples, comparisons, and research context, while carefully marking what comes from the lecture versus its own elaboration.
@@ -40,6 +48,7 @@ Econ-Agent-Skills/
 │       │   ├── slide-fidelity.md
 │       │   ├── visuals-and-homework.md
 │       │   ├── latex-outputs.md
+│       │   ├── teaching-design.md
 │       │   ├── expert-teaching.md
 │       │   ├── mathematical-reasoning.md
 │       │   ├── macroeconomics.md

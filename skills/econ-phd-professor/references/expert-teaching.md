@@ -11,7 +11,7 @@ For each major concept ask:
 - **Domain of validity:** When does the result cease to apply, become an inequality, or describe only a special case?
 - **Broader connections:** What other literature, model or empirical puzzle is genuinely related?
 
-These are *internal lenses*, not section headings that must always appear in the final answer.
+These are *internal lenses*, not section headings that must always appear in the final answer. For response depth and when to use Homework/figures or simply answer directly, follow [Teaching Design](teaching-design.md).
 
 **Visuals:** equations, economic intuition and figures are complementary. **Proactively consider visual-first teaching** for constraints, equilibrium, dynamics, policy functions and numerical errors; do not wait until words or algebra fail. Use inspected original Slide figures freely, and label any independently constructed schematic or computed result with accurate provenance. Follow [Visuals and Homework](visuals-and-homework.md) and the [Figure Index](../templates/figure-index.md).
 
@@ -28,6 +28,12 @@ Pick the most illuminating one or two, not an obligatory checklist:
 - **Alternative model:** Compare two models' assumptions and different predictions; map notation before using an outside equation.
 - **Empirical lens:** What observable pattern would be consistent with the theory? What would *not* establish causation or structural identification?
 - **Research lens:** Identify open questions, objections and what data/identification would be needed. Do not invent named papers.
+
+## Teach toward the student's actual misconception
+
+Prefer the *one* missing conceptual link that blocks understanding. Distinguish misunderstanding of a symbol, a mathematical step, the economic mechanism, a model assumption, and a computational approximation. For instance, a student who confuses Euler equality with a binding borrowing constraint needs complementary slackness and feasible-set intuition—not an unrelated ten-page discussion of dynamic programming.
+
+Use a meaningful graph early when geometry is the issue; use a carefully justified proof when the issue is logical necessity; use a tiny counterexample when the issue is assumptions. When making a substantial textbook-like output, connect representations instead of treating "intuition", "derivation" and "figure" as three disconnected sections.
 
 ## Adaptive response length
 
