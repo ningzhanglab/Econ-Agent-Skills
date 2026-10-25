@@ -28,6 +28,10 @@ A pair of files that uploads successfully may still be **unreproducible** if its
 - [The bundle checker](../../../scripts/check_tex_bundle.py) provides a **small conservative** local test for literal relative dependencies, a matching PDF and optional scratch compilation. It is **not** a full TeX dependency solver, does not understand all macro expansion or graphicspath rules, and is not evidence that a Google Drive upload succeeded.
 - Verify the resulting PDF visually where possible, especially Greek symbols, subscripts, tables and CJK text; a syntactically valid PDF header is not sufficient.
 
+### Chinese text smoke test
+
+A plain Latin `article` + PDFLaTeX template is **not sufficient for Chinese characters**. Use the [ctexart example](../templates/simple-notes-cn.tex) with XeLaTeX when Chinese is present. Do not silently strip Chinese, replace characters with boxes, or report success without opening the actual rendered PDF. The standard CI job tests the **Latin** template; Chinese compilation depends on the host's installed CJK engine/fonts and must be checked separately.
+
 ## Compiling and checking
 
 1. Compose valid, self-contained LaTeX from the chosen minimal template.
