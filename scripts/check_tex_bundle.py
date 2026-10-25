@@ -56,7 +56,10 @@ def missing_dependencies(tex: Path) -> list[str]:
 
 
 def is_pdf(path: Path) -> bool:
-    return path.is_file() and path.stat().st_size > 1024 and path.open("rb").read(5) == b"%PDF-"
+    if not path.is_file() or path.stat().st_size <= 1024:
+        return False
+    with path.open("rb") as fh:
+        return fh.read(5) == b"%PDF-"
 
 
 def choose_engine(source: str) -> str:
