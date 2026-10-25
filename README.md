@@ -33,6 +33,7 @@ Econ-Agent-Skills/
 │       ├── SKILL.md
 │       ├── agents/openai.yaml
 │       ├── references/
+│       │   ├── cloud-drive-workflow.md
 │       │   ├── course-navigation.md
 │       │   ├── large-file-strategy.md
 │       │   ├── slide-fidelity.md
@@ -79,11 +80,21 @@ The Professor can perform an optional **Course Onboarding** step before semester
 4. Mark each item **DISCOVERED**, **INDEXED**, **REVIEWED** (with exact ranges), or **BLOCKED**; disclose missing figures or dependencies and unverified order.
 5. For each question, use the index to locate relevant slides and **reopen the original source** before teaching. Update only affected indexes when new material arrives.
 
-The templates are reusable, but their **completed course-specific copies belong in the student's private Project / Drive / local course folder**. Do not commit private slides or generated course records to this public skill library without explicit authorization and appropriate rights.
+The templates are reusable, but **requested completed course-specific copies belong in the course's private cloud `outputs/` folder**. Do not commit private slides or generated course records to this public skill library without explicit authorization and appropriate rights.
 
 Read [Course Navigation](skills/econ-phd-professor/references/course-navigation.md) and [Large-File Strategy](skills/econ-phd-professor/references/large-file-strategy.md). This is a workflow specification, **not** automatic background indexing, permanent storage, host file permission, or a guarantee every PDF/diagram can be processed at once.
 
 **Example onboarding request:** "Use $econ-phd-professor to map this entire Macroeconomics course. Respect syllabus order, infer prerequisite links separately, index accessible lectures, keep each lecture's notation, identify unavailable figures, and report what has actually been reviewed."
+
+## Cloud Drive: inputs and generated outputs
+
+Store your course Slides, syllabi, homework, reading materials and figures in your connected cloud workspace (Google Drive when available). This public GitHub repository stores **reusable Skill rules, templates and development logs**, not private course materials.
+
+**When you request a file**, the Professor must save the final PDF, Word, LaTeX, notes, course map, lecture index or other generated artifact in the verified active course workspace's **exact `outputs/` folder**. If the inputs live in drive root, use root `outputs/`; an exact destination provided by the user always takes priority. Create the folder only if it is absent and creation is authorized. Do not guess between similarly named folders such as `agent outputs` and `output`.
+
+After creating the output, verify the cloud file's name, type, ID and parent folder, then return the **verified cloud link**. If cloud save fails, report it explicitly; a chat attachment or temporary local file alone does not satisfy the cloud delivery requirement.
+
+See [Cloud Drive Workflow](skills/econ-phd-professor/references/cloud-drive-workflow.md). **Course-specific generated indexes go in Drive `outputs/`**, while their reusable empty templates remain here in GitHub.
 
 ## Learning philosophy
 
