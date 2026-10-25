@@ -74,9 +74,34 @@ def compile_in_scratch(tex: Path) -> tuple[bool, str]:
     engine = choose_engine(source)
     with tempfile.TemporaryDirectory(prefix="econ-tex-check-") as temp:
         destination = Path(temp)
-        shutil.copytree(tex.parent, destination / "bundle", dirs_exist_ok=True)
         run_dir = destination / "bundle"
-        target = run_dir / tex.name
+        run_dir.mkdir()
+        root = tex.parent.resolve()
+        pending = [tex]
+        copied: set[Path] = set()
+        while pending:
+            current = pending.pop()
+            source_path = current.resolve()
+            if source_path in copied:
+                continue
+            copied.add(source_path)
+            relative = source_path.relative_to(root)
+            out = run_dir / relative
+            out.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source_path, out)
+            # Only copy the literal static dependencies required by this TeX.
+            # Do not copy the user's entire potentially huge Agent Outputs folder.
+            for line in source_path.read_text(encoding="utf-8").splitlines():
+                active = re.split(r"(?<!\\)%", line, maxsplit=1)[0]
+                for match in DEP_RE.finditer(active):
+                    command, name = match.groups()
+                    ref = Path(name.strip())
+                    candidates = ([root / ref] if ref.suffix else
+                                  [(root / ref).with_suffix(ext) for ext in EXTENSIONS[command]])
+                    for candidate in candidates:
+                        if candidate.is_file() and candidate.resolve().is_relative_to(root):
+                            pending.append(candidate)
+                            break
         cmd = [exe, engine, "-interaction=nonstopmode", "-halt-on-error", "-file-line-error", tex.name]
         try:
             result = subprocess.run(cmd, cwd=run_dir, capture_output=True, text=True, timeout=120, check=False)
