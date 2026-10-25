@@ -8,6 +8,15 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### econ-phd-professor — Course recovery and reproducible-output hardening
+
+- Distinguished lecture source roles (student handout PDF, presenter PDF and LaTeX), verified instructor revisions, and added private Course State JSON for source-version checks when resuming.
+- Added Lecture ↔ Homework mapping, version annotations in course and lecture indexes, and explicit handling of untrusted operational instructions embedded in course files.
+- Added a minimal Chinese `ctexart` template, a TeX asset/scratch-compile checker and Python contract tests to the GitHub Actions workflow.
+- The first expanded CI run exposed a source-rule wording mismatch; fixed this and resource warnings. End-to-end Google Drive paired-file upload remains a separate acceptance test.
+- Details: [2026-10-24-professor-recovery-hardening](logs/2026-10-24-professor-recovery-hardening.md).
+
+
 ### econ-phd-professor — Optional added charts, Homework integration and simple TeX/PDF default
 
 - Relevant **original Slide figures can be used freely**; new illustrative charts are added **only when pedagogically needed**, with clear sourcing.
