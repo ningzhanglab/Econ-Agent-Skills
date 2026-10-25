@@ -16,7 +16,7 @@ Use the accompanying [minimal template](../templates/simple-notes.tex) as the de
 - Load needed math packages such as amsmath and amssymb; add graphicx, TikZ or PGFPlots when an actually useful explanatory figure needs them. **A simple article template does not mean text-only teaching.** Avoid decoration, not genuine economic visuals.
 - Keep the **original lecture's mathematical notation** exactly, including primes, expectations, indices and sign conventions; outside examples must be explicitly labeled and mapped.
 - A brief document should stay brief. Add sections for homework connections or assumptions only when relevant, not as mandatory boilerplate.
-- For a **substantial requested beginner-oriented textbook/study guide**, include a useful table of contents, introduce prerequisites before complex arguments, place inspected graphs/tables and interpretations alongside their lessons, and check actual layout as well as mathematical accuracy. A quick one-page explanation does not need a table of contents.
+- For a **substantial requested study guide or textbook**, choose a table of contents when useful for navigation, organize needed prerequisites coherently, integrate source-verified figures/tables where relevant, and check the layout as well as mathematical accuracy. Do not impose a particular length or chapter structure; a short explanation rarely needs a table of contents.
 - When the user requests Chinese text, use a minimal Unicode-capable LaTeX setup appropriate to the available environment (e.g., \`ctexart\` with XeLaTeX if installed); if the needed TeX packages/fonts are missing, report the issue rather than silently dropping Chinese characters or presenting an uncompiled PDF.
 
 ## Reproducible output bundle

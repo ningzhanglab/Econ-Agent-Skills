@@ -29,7 +29,7 @@ See the [Teaching Design](skills/econ-phd-professor/references/teaching-design.m
 
 ## Time Series: specialized teaching without another Skill
 
-Time Series is taught through the existing [Econ PhD Professor](skills/econ-phd-professor/SKILL.md) plus an on-demand [Time Series teaching lens](skills/econ-phd-professor/references/time-series.md). This reference supports true beginner-to-rigorous progression, explicit intermediate calculations, original professor notation, purposeful ACF/PACF plots, ARMA/ARIMA reasoning and SAS interpretation. A course's syllabus, original notes, secondary class notes, teaching-style examples, Homework rules and output folder live in its **private Project or Drive**, not inside the reusable public Skill. This does **not** introduce a second Time Series Skill or require every economics lecture to follow a seven-step template.
+Time Series is covered by the existing [Econ PhD Professor](skills/econ-phd-professor/SKILL.md) with an optional [Time Series reasoning lens](skills/econ-phd-professor/references/time-series.md) for technical questions about processes, ARMA/ARIMA, ACF/PACF, testing, forecasting and diagnostics. The lens is **not a STAT 516-specific script** and does not mandate beginner-level explanations, a fixed lesson sequence, SAS, a textbook format or a file output. The Professor adapts to the learner's actual request and verified course sources. Course-specific syllabus, preferred style examples, assignments and destinations live in the corresponding **private Project or Drive**, not as universal public Skill defaults.
 
 ## Teaching-first design
 

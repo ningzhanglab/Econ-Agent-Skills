@@ -8,6 +8,13 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Professor — Remove overfitting to legacy STAT 516 instructions
+
+- Replaced the prior beginner-first Time Series lesson template with a concise, optional [Time Series reasoning lens](skills/econ-phd-professor/references/time-series.md). It preserves rigor about time dependence, lag conventions, model properties, inference and forecasting **without imposing a seven-stage teaching style, SAS requirement or default textbook length**.
+- Refined Econometrics, LaTeX guidance and README; actual course and current user requests now determine depth and output.
+- Historical course-specific instructions remain historical context, not global Skill requirements. Details: [design correction](logs/2026-10-24-remove-legacy-time-series-template-overfit.md).
+
+
 ### Professor — Beginner-first Time Series learning (same Skill)
 
 - Added [Time Series teaching lens](skills/econ-phd-professor/references/time-series.md) inside the existing Professor Skill (not another Skill) with flexible beginner-to-rigorous teaching, justified derivations, original notation, relevant ACF/PACF visuals, SAS interpretation, concise Homework vs comprehensive guide modes.
