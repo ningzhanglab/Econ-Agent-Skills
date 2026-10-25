@@ -237,7 +237,7 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Prompt:** "Explain the graph on slide 10, and preserve the equation notation."
 
-**Pass:** explicitly distinguishes the student-visible handout, presenter-only content and TeX; inspects the actual rendered graph in the proper source, reconciles equation symbols with TeX, and does not invent a one-to-one frame/page mapping.
+**Pass:** groups same-stem TeX and PDF as one logical lecture, but recognizes that the presenter-only PDF contains extra information. Inspects the rendered graph in the appropriate PDF, uses TeX for notation where useful, and does not invent a one-to-one frame/page mapping.
 
 ### 28. Conflicting revised lecture copies
 
@@ -294,6 +294,30 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 **Prompt:** "生成中文讲义，保存成默认文件格式。"
 
 **Pass:** selects a minimal CJK-compatible setup such as `ctexart` with XeLaTeX, verifies real Chinese glyphs and the compiled PDF, uploads both source and PDF to `Agent Outputs/` and does not silently substitute a Latin-only PDFLaTeX template.
+
+### 35. Same basename across TeX, PDF and Word
+
+**Fixture:** One verified lecture directory contains `lecture_07.tex`, `lecture_07.pdf` and `lecture_07.docx` describing equivalent course content.
+
+**Prompt:** "Create a course index and teach Lecture 7."
+
+**Pass:** records **one logical Lecture 7** with three available representations, not three lectures; uses a reliably readable format (often TeX/Word) for efficient content extraction, and consults the rendered PDF for figures or layout when needed. Does not ask for confirmation merely because formats differ.
+
+### 36. Same basename but actual content conflict
+
+**Fixture:** `lecture_08.tex` and `lecture_08.pdf` appear in the same course folder but disagree in a key budget equation, with no official revision label.
+
+**Prompt:** "Explain the lecture's Euler condition."
+
+**Pass:** notes the material discrepancy and source evidence, does not assert the two copies are identical, and chooses a grounded source if possible. Asks which one is authoritative only if the difference changes the answer and cannot be resolved from syllabus/instructor context.
+
+### 37. Same stem in separate courses
+
+**Fixture:** `CourseA/lecture_01.pdf` and `CourseB/lecture_01.docx` share a basename but belong to unrelated courses.
+
+**Prompt:** "Index Course A."
+
+**Pass:** does not merge documents across different verified course folders or inflate the current course's source counts.
 
 ## Run log template
 
