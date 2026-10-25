@@ -5,7 +5,7 @@ Goal: support many lectures and large PDFs/TeX/PPT files without false claims of
 ## Start with access and manifest
 
 - Identify the host's real file and page limits, supported formats and retrieval tools **without inventing numerical capacities**.
-- Build a source manifest (path/ID, type, lecture role, filename, version/date or hash if available, dependencies, parse status).
+- Build a source manifest (verified cloud file path/ID and parent folder, type, lecture role, filename, version/date or hash if available, dependencies, parse status).
 - Distinguish **file uploaded**, **text extracted**, **pages viewed**, **figures verified**, **equations checked** and **material understood well enough to teach**; these are not equivalent.
 - Detect duplicated lectures, separate notes and appendices, revised versions, solution sets and copied filenames.
 
@@ -46,6 +46,8 @@ When course files change:
 ## Reporting honest coverage
 
 At the end of onboarding, report:
+
+- If the user requested generated files, the verified cloud `outputs/` path and links or a clear cloud-write failure (see [Cloud Drive workflow](cloud-drive-workflow.md)).
 
 - Files discovered versus successfully indexed/reviewed; only count accessible files.
 - Confirmed instructor sequence and any unresolved order.
