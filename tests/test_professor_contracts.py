@@ -39,6 +39,15 @@ class CourseContracts(unittest.TestCase):
             self.assertIn(token.lower(), doc.lower())
         self.assertIn("course-state.example.json", doc)
 
+    def test_equivalent_multiformat_lecture_grouping(self):
+        doc = (SKILL / "references/course-state-and-sources.md").read_text(encoding="utf-8").lower()
+        for term in (".tex", ".docx", ".pdf", "filename stem", "one logical", "ask a brief clarification"):
+            self.assertIn(term, doc)
+        nav = (SKILL / "references/course-navigation.md").read_text(encoding="utf-8")
+        self.assertIn("Group same-basename", nav)
+        idx = (SKILL / "templates/lecture-index.md").read_text(encoding="utf-8")
+        self.assertIn("Grouped formats", idx)
+
     def test_template_defaults_and_encoding(self):
         latin = (SKILL / "templates/simple-notes.tex").read_text(encoding="utf-8")
         chinese = (SKILL / "templates/simple-notes-cn.tex").read_text(encoding="utf-8")
