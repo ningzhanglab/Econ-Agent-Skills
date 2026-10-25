@@ -19,6 +19,10 @@ Apply when the user's lecture files reside in a connected cloud drive, or when t
 5. If multiple plausible course workspaces or exact destination folders remain, resolve by evidence or ask one targeted destination question. Never put files in an arbitrary unrelated folder.
 6. Folder names `outputs`, `agent outputs`, `Agent output`, `output`, and `generated` do **not** qualify as the exact name `Agent Outputs`. If both legacy `outputs` and the correct `Agent Outputs` exist under the same verified course folder, **reuse `Agent Outputs`**. Do not rename or remove legacy folders without authorization.
 
+## Source selection and saved-course recovery
+
+When a cloud course has a `lecture.tex`, student handout PDF, presenter PDF or multiple revisions, use [Course State and Sources](course-state-and-sources.md) to verify their roles and actual contents; never assume the newest filename is the authoritative student deck. A saved Course Map or Course State is an index, not source evidence. Recheck file IDs, revision markers and permissions and reopen the relevant original equations/figures in each new session.
+
 ## Read and teach from cloud sources
 
 - Use cloud file/folder discovery and metadata to locate the course version and source. Read primary slide pages and relevant neighboring definitions; do not mistake search snippets or indexes for reading source.
