@@ -19,7 +19,7 @@ Do not silently reorder lectures as if the inferred conceptual order is what the
 4. For each lecture that you can access, create a **lightweight lecture index** using [the lecture-index template](../templates/lecture-index.md): sections, slide/page locators, assumptions, definitions, model dependencies and figures. **Do not perform deep commentary on every page during onboarding** unless explicitly requested.
 5. Create a course-scoped **notation registry** from [the notation template](../templates/notation-registry.md) only for symbols actually observed. Scope symbols to lecture and equation/model; same symbol in another lecture does **not** imply same meaning.
 6. Add conceptual links across lectures, but label each as **explicit** (stated by lecturer), **derived** (logically follows from materials), or **provisional** (inferred teaching connection). Note conflicting assumptions or notation.
-7. Produce a user-facing overview with what is confirmed, what remains provisional, missing files/figures, and where to begin studying. Keep any course-specific generated maps in the **user's private course workspace**, not this public Skill repository.
+7. Produce a user-facing overview with what is confirmed, what remains provisional, missing files/figures, and where to begin studying. When requested as files, save completed course maps, lecture indexes and notation registries in the **verified private course workspace's exact `outputs/` folder** via [Cloud Drive workflow](cloud-drive-workflow.md). Do not save them in this public Skill repository.
 
 ## Progressive verification states
 
@@ -53,6 +53,6 @@ For a specific question:
 
 ## Storage & privacy
 
-The skill is reusable; course-specific maps and indexes are artifacts of a particular private course. Keep them alongside the user's course files, in their Project/private Drive/local workspace as authorized. Do not send copyrighted/private course materials, answer keys, or identifiable learner notes to the public \`Econ-Agent-Skills\` repo by default.
+The skill is reusable; course-specific maps and indexes are artifacts of a particular private course. Use the user's connected cloud workspace and put requested persistent course artifacts in its **`outputs/` folder**, separate from source Slides. Verify successful cloud upload and the output parent folder. If the cloud connector lacks write access, disclose this rather than falsely reporting success. See [Cloud Drive workflow](cloud-drive-workflow.md). Do not send copyrighted/private course materials, answer keys, or identifiable learner notes to the public \`Econ-Agent-Skills\` repo by default.
 
 Use [the large-file strategy](large-file-strategy.md) for bounded scanning, ingestion and refresh.
