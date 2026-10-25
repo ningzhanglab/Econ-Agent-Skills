@@ -37,6 +37,16 @@ If the lecturer intentionally introduces a result before its mathematical tools,
 | --- | --- | --- | --- | --- |
 | [Name] | [Lxx] | [Why this model?] | [Source-linked] | [Related topic] |
 
+## Visual learning map and source coverage
+
+For a source-backed visual index, use [the Figure Index template](figure-index.md) rather than treating a TeX figure filename as a viewed graph.
+
+| Lecture/model | Reviewed original figure (source and page) | New useful teaching schematic (if appropriate) | Actual computed plot (data/method) | Unseen or blocked figures |
+| --- | --- | --- | --- | --- |
+| [Lecture] | [image or rendered PDF, REVIEWED range] | [clearly labeled independent schematic] | [computed results only] | [TeX reference with no visually inspected image] |
+
+Use **no image quota**. Plan visuals proactively when they clarify mechanics, constraints, dynamics, equilibria, or algorithms. Source data and independently illustrated concepts must never be conflated.
+
 ## Lecture ↔ Homework alignment
 
 This section is based on **verified assignment files**, not merely schedule guesses. Use a separate [Homework Map template](homework-map.md) when the course has many exercises.
