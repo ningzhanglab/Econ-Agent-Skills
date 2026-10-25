@@ -11,6 +11,10 @@ Reusable, version-controlled Agent Skills for economics PhD learning and researc
 | [econ-phd-professor](skills/econ-phd-professor/SKILL.md) | Learn graduate economics from lecture slides with domain expertise, economic intuition, derivations, and cross-field connections | **v0.1 — ready for evaluation** |
 | econ-research-agent | Literature review, research question development, methods, and critical research assessment | **Planned — not yet available** |
 
+## Change history and logs
+
+Use [CHANGELOG.md](CHANGELOG.md) for a quick summary of changes and [logs/](logs/README.md) for dated explanations of **what changed, why, verification performed, and next steps**. [AGENTS.md](AGENTS.md) instructs future repository-editing Agents to update both when making meaningful changes. Git commits remain the source of truth for exact diffs.
+
 ## What makes Professor different?
 
 The Professor treats slides as the **source of the local model**, not the limit of economics knowledge. It may add theoretical intuition, examples, counterexamples, comparisons, and research context, while carefully marking what comes from the lecture versus its own elaboration.
