@@ -15,10 +15,13 @@
 - Coverage status: DISCOVERED / INDEXED / REVIEWED (ranges) / BLOCKED
 - Included/external dependencies and missing figures:
 
-## Source versions and roles
+## Logical document, formats and revisions
 
-- Preferred rendered handout PDF (if verified):
-- Source TeX (if verified), presenter PDF and other role-specific variants:
+- Shared filename stem and verified course folder:
+- Grouped formats (.tex / .pdf / .docx / .doc) and their file IDs:
+- Preferred **readable representation for this task** and why:
+- Rendered PDF inspected for visuals/layout? What range:
+- Distinct presenter/handout views or actual revisions (if any):
 - Instructor-noted revisions / timestamps / file IDs:
 - Conflicts in equation, figure or frame numbering:
 - Reason for source selection:
