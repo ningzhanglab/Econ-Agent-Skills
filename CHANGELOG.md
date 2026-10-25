@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Test — ECONS 509 Volume III, source-grounded DSDP + PS1 teaching
+
+- Added a 15-page Chinese DSDP teaching companion grounded in the original Lecture and PS1, including Bellman contraction, policy-induced Markov distribution, Howard=Newton, residual-gradient and Euler/KKT derivations, with explicit PS1(a)--(h) mapping.
+- Uploaded and verified TeX/PDF in the exact private `Agent Outputs/`; SHA-256 of both downloaded formats matched local sources; clean-directory XeLaTeX rebuild matched PDF page count and text.
+- Lecture rendered overlays, numerical solver runs and independent economics grading remain outside this test.
+- Details: [2026-10-24-professor-dsdp-ps1-lecture-handbook.md](logs/2026-10-24-professor-dsdp-ps1-lecture-handbook.md).
+
+
 ### Test — ECONS 509 detailed quantitative methods (Volume II)
 
 - Added a 20-page Chinese deep-dive companion to the existing 22-page course Handbook, with detailed DSDP/CSDP/DLDP/SE derivations and PS1–PS3 learning links.
