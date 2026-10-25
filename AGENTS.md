@@ -25,6 +25,13 @@ These are repository-maintenance instructions, not the runtime instructions of a
 - **Proportionate tests:** for editorial/pedagogical architecture changes, review affected content/links and let existing CI run; no mandatory new multi-file benchmarks, new PDF Handbooks, repeated cloud round-trips or new test cases. Add focused regressions **only** if a new executable feature/bug warrants them. Run a real lecture or end-to-end cloud delivery test when the relevant behavior materially changes or the user specifically asks.
 - Record truthfully whether checks passed or were not run, and keep previous test results as dated historical evidence.
 
+## Learning Logs versus development logs
+
+- GitHub `logs/` contains **Skill maintenance and release events only**. Do not persist a student's learning history, original Homework, private lecture content or raw conversation transcript there.
+- Private course `Agent Outputs/Learning Logs/` is used **only when the user requests a study log** (or has explicitly opted into a supported saving convention), following [the Learning Logs reference](skills/econ-phd-professor/references/learning-log.md).
+- A normal math question must not automatically create files. The reusable template is stored in GitHub; completed logs are course-specific Markdown, so they are not required to be generic TeX/PDF pairs.
+- Never claim an automatic end-of-chat or background write merely because a Markdown Skill instructs it.
+
 ## v1 stability rule
 
 Use [DESIGN_V1.md](DESIGN_V1.md) as the agreed architecture. Do not add a new top-level Skill, compulsory concept-map file, extra mandatory workflow or repeated end-to-end benchmarking just because another improvement is imaginable. Cross-lecture links belong to Teaching Design/Course Navigation/Course Map. Require a specific observed failure, new requirement or demonstrated missing capability for future changes; prefer the smallest fix. Keep ordinary editorial verification proportional.

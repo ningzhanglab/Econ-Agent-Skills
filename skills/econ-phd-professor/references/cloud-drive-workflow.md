@@ -39,6 +39,12 @@ When a cloud course has same-basename `lecture.tex`, `lecture.pdf`, `lecture.doc
 5. **Verify every resulting file** using connector metadata or folder read-back: check name, file ID, type and the correct parent folder. For the default output, confirm **both** `.tex` and `.pdf` are present and return both cloud links. Do not claim that a source-only TeX file is a compiled PDF.
 6. If cloud access or upload fails, or the destination cannot be resolved, clearly state what **was and was not saved**. A local fallback may be provided but must not be described as a cloud upload. If just one of the default `.tex`/`.pdf` pair uploads, treat delivery as **incomplete**, report the exact successful file and failed file, and do not delete or overwrite the uploaded item without authorization.
 
+## Optional private Learning Logs
+
+When the student explicitly asks to save a study-session recap, follow [Learning Logs](learning-log.md). Store a **brief Markdown `.md` summary** in the active verified course's `Agent Outputs/Learning Logs/` subfolder. This is a deliberate exception to the general TeX/PDF teaching-document default, because the user requested a log. Create the child folder only when needed and authorized; **never** store private Learning Logs under the public repository `logs/`.
+
+Before appending to an existing dated file, read the current file and preserve earlier sessions. When the provider cannot safely append or replace the full file, create a collision-safe dated session file; do not overwrite silently. Verify cloud name, parent folder and file ID. A learning log is not background recording or a full transcript.
+
 ## Generated course indexes
 
 When asked to persist a course map, lecture index or notation registry, store the completed course-specific artifact in the active cloud `Agent Outputs/`. Link it to the source file versions. When new lectures arrive, read and update relevant indexes carefully rather than assuming prior summaries remain current. Keep courses separated by actual folder ancestry and clear filenames.

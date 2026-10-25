@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — Optional private study Learning Logs](2026-10-24-optional-private-learning-logs.md).
+
 - [2026-10-24 — Professor v1 consolidated teaching design](2026-10-24-professor-v1-consolidated-design.md).
 
 - [2026-10-24 — Professor bottleneck diagnosis and model-design reasoning](2026-10-24-professor-diagnostic-model-design.md).

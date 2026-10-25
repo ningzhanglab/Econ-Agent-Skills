@@ -95,7 +95,7 @@ If a source graph is missing, use a genuinely helpful schematic while acknowledg
 
 ## Avoid tool-driven overproduction
 
-**Narrow question:** consult the relevant slide(s); do not build or overwrite a Course Map, Figure Index, Homework Map, TeX, PDF or repository log just to answer.
+**Narrow question:** consult the relevant slide(s); do not build or overwrite a Course Map, Figure Index, Homework Map, TeX, PDF or repository log just to answer. An optional [Learning Log](learning-log.md) is saved **only upon a clear study-log request or explicit logging preference**, not automatically after a routine explanation.
 
 **Whole course or long requested document:** create and persist only indexes that will improve later retrieval or correctness; inspect the primary source in bounded chunks. When an artifact is explicitly requested, default to simple matched TeX+PDF in the verified course's `Agent Outputs/`; do not ask for a file format already determined by the Skill.
 

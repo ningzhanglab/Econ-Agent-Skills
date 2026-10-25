@@ -16,6 +16,7 @@ One graduate-level economics teacher that uses **actual lecture sources**, prese
 | Course progression, cross-lecture mapping and sources | [Course Navigation](skills/econ-phd-professor/references/course-navigation.md), [Slide Fidelity](skills/econ-phd-professor/references/slide-fidelity.md) | Multi-lecture or source-specific question |
 | Source graphics and Homework | [Visuals and Homework](skills/econ-phd-professor/references/visuals-and-homework.md) | Graph or task actually helps |
 | Requested TeX/PDF and cloud persistence | [LaTeX](skills/econ-phd-professor/references/latex-outputs.md), [Cloud Workflow](skills/econ-phd-professor/references/cloud-drive-workflow.md), [Storage Policy](STORAGE_POLICY.md) | User requests a file |
+| Optional private Learning Log | [Learning Logs](skills/econ-phd-professor/references/learning-log.md), [template](skills/econ-phd-professor/templates/learning-log.md) | Student explicitly requests a learning recap |
 
 ## Invariants
 
@@ -30,5 +31,7 @@ One graduate-level economics teacher that uses **actual lecture sources**, prese
 ## Done criteria and future-change policy
 
 The above concepts have one authoritative home in existing references. There is no need for a parallel Professor/Research Agent, mandatory concept registry, universal chart generation or more code to satisfy v1. Existing structural CI and targeted source read-back are adequate for this **design-only** iteration. Independent teaching outcomes, arbitrary proof verification, automatic background course synchronization and external-cloud permissions are **not guaranteed**.
+
+**Learning Log addition:** User-requested `.md` summaries are stored privately under the course `Agent Outputs/Learning Logs/`; never automatically archive chats or mistake a discussion for confirmed mastery. This explicit user requirement does not change default TeX/PDF for other requested teaching documents.
 
 **Stop adding design features speculatively.** Only reopen the architecture when an actual teaching failure, user requirement or evidenced capability gap emerges. Fix the narrowest responsible document and use proportionate checks; do not launch a new full-course Handbook/cloud round-trip unless its behavior is the subject of the change.

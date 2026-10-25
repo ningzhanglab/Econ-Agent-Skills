@@ -139,6 +139,18 @@ Read [Course Navigation](skills/econ-phd-professor/references/course-navigation.
 
 **Example onboarding request:** "Use $econ-phd-professor to map this entire Macroeconomics course. Respect syllabus order, infer prerequisite links separately, index accessible lectures, keep each lecture's notation, identify unavailable figures, and report what has actually been reviewed."
 
+## Optional private Learning Logs
+
+When you say **"记录今天的学习"** or **"Save today's learning log"**, the Professor can save a short session summary containing the **topics actually studied, key questions, important clarifications, relevant verified Lecture/Homework connections, unresolved questions and next-session suggestions**.
+
+- **Where:** the verified current course's `Agent Outputs/Learning Logs/YYYY-MM-DD.md`, not the public GitHub `logs/` directory.
+- **Format:** editable Markdown, with a reusable [Learning Log template](skills/econ-phd-professor/templates/learning-log.md).
+- **Default:** **on demand only**. The Skill does not invisibly record ordinary chats, work in the background or automatically run when you close a conversation.
+- **Existing logs:** read before appending; if a safe update is impossible, create a unique dated session file instead of overwriting.
+- **Later study:** a saved log can help locate earlier questions and remaining gaps, but original course materials remain authoritative; it does not prove a topic was mastered.
+
+See [Learning Log guidance](skills/econ-phd-professor/references/learning-log.md).
+
 ## Cloud Drive: inputs and generated outputs
 
 **Required exact folder name: `Agent Outputs` (including capitalization and space).** This is the repository-wide rule in [Storage Policy](STORAGE_POLICY.md); it supersedes the older `outputs/` convention.

@@ -8,6 +8,15 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Professor — Add optional course Learning Logs
+
+- Added a concise editable Markdown [Learning Log template](skills/econ-phd-professor/templates/learning-log.md) and [opt-in workflow](skills/econ-phd-professor/references/learning-log.md) for study-session topics, questions, clarifications, verified Lecture/Homework links and open issues.
+- Learning notes are **private course artifacts**, separate from public GitHub development logs. They are saved **on demand**, not automatically after every chat; existing dated notes are read before safe append, or a separate filename is used to avoid data loss.
+- Integrated log routing into the Professor, Drive guidance, teaching architecture and README without changing the default TeX/PDF convention for other requested files.
+- Initialized an ECONS 509 `Agent Outputs/Learning Logs/2026-10-24.md` setup-only file, with no fabricated learning/mastery claims.
+- Details: [2026-10-24 optional private Learning Logs](logs/2026-10-24-optional-private-learning-logs.md).
+
+
 ### Professor v1 — Consolidated design and cross-lecture reasoning
 
 - Integrated cross-lecture economic transfer: verified common objects, changes in primitives/closure versus numerical/empirical methods, notation mapping, limits and explicit/derived/provisional source evidence.
