@@ -27,6 +27,10 @@ A Professor should distinguish whether the student's obstacle is **notation/timi
 
 See the [Teaching Design](skills/econ-phd-professor/references/teaching-design.md), [Mathematical Reasoning](skills/econ-phd-professor/references/mathematical-reasoning.md) and [hypothetical diagnostic teaching examples](skills/econ-phd-professor/examples/diagnostic-teaching-patterns.md). These are pedagogical improvements, **not a requirement to run a quiz or produce another Handbook**.
 
+## Time Series: specialized teaching without another Skill
+
+Time Series is taught through the existing [Econ PhD Professor](skills/econ-phd-professor/SKILL.md) plus an on-demand [Time Series teaching lens](skills/econ-phd-professor/references/time-series.md). This reference supports true beginner-to-rigorous progression, explicit intermediate calculations, original professor notation, purposeful ACF/PACF plots, ARMA/ARIMA reasoning and SAS interpretation. A course's syllabus, original notes, secondary class notes, teaching-style examples, Homework rules and output folder live in its **private Project or Drive**, not inside the reusable public Skill. This does **not** introduce a second Time Series Skill or require every economics lecture to follow a seven-step template.
+
 ## Teaching-first design
 
 The Professor chooses an **explanation mode before tools**: quick clarification, conceptual intuition, formal derivation, method/model comparison, whole-lecture learning, or real Homework tutoring. The task determines depth, source retrieval and whether a diagram adds insight. A narrow question does **not** trigger a course inventory, generated PDF or file uploads.

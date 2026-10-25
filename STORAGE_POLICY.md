@@ -5,7 +5,7 @@ Applies to all present and future skills in this repository, including `econ-phd
 ## Inputs and outputs
 
 - Read lecture Slides, PDF/TeX files, syllabus, assignments, figures, data and readings from the user's **authorized connected cloud workspace**. Do not put private course material in this public GitHub skills repository.
-- Unless the user explicitly requests another destination for a task, save **every requested generated file** in the verified active course folder's direct child **`Agent Outputs/`**, retaining its requested name and format.
+- Unless the user explicitly requests another destination for a task, save **every requested generated file** in the verified active course folder's direct child **`Agent Outputs/`**, retaining its requested name and format. **An explicitly selected existing course folder (even with a different literal name) overrides the default for that course**; verify its ID and do not create a second output folder solely to enforce the default name.
 - If sources are genuinely at cloud drive root with no course folder, use the verified root `Agent Outputs/`.
 - An ordinary chat explanation is not a request to create a file.
 

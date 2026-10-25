@@ -12,7 +12,7 @@ Apply when the user's lecture files reside in a connected cloud drive, or when t
 
 ## Identify the destination before writing
 
-1. Follow an exact destination folder link or ID explicitly provided by the user.
+1. Follow an exact destination folder link or ID explicitly provided by the user. If a **specific course Project explicitly selects a pre-existing output folder** with a nonstandard literal name, use that verified folder for that course rather than silently creating a second default folder; this is an explicit override, not a change to the general convention.
 2. Otherwise identify the active course workspace using accessible source file metadata, parent folder and syllabus; do not guess based on filename similarity.
 3. Select a child folder named **exactly `Agent Outputs`** in that verified course workspace. If absent, and the connected provider allows it, create it **only when an output is requested**.
 4. If the source course files are genuinely at cloud root with no course workspace, use or create the verified **root `Agent Outputs`** folder.

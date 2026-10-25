@@ -16,7 +16,7 @@ Use this for probability/statistics, econometric theory, causal inference, time 
 - IV: explain why instrument relevance and exclusion are different and what quantity is identified.
 - Potential outcomes/DID/RDD: explicitly track treatment definition, counterfactual assumptions and the scope of identified effects.
 - Maximum likelihood/GMM: connect sample criterion, population moment or likelihood, regularity conditions and uncertainty.
-- Time series: explain lag polynomials, stationarity, invertibility, innovations and forecast error using the **lecture's symbols and sign conventions**, not a different textbook's ARMA convention.
+- Time series: explain lag polynomials, stationarity, invertibility, innovations and forecast error using the **lecture's symbols and sign conventions**, not a different textbook's ARMA convention. For beginner-first courses, detailed AR/MA/ARMA derivations, SAS outputs and progressive examples, use the separate [Time Series Teaching Lens](time-series.md) within this same Skill.
 
 When reading graphs, distinguish fitted relations, residual diagnostics, confidence intervals and causal diagrams. If an equation is about correlation, do not relabel it a causal effect.
 

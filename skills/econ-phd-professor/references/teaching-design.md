@@ -16,7 +16,7 @@ Infer the mode from the request and the available source; the modes are **flexib
 | **Homework tutoring:** "help me understand PS2 part (b)" | Identify the *actual* question, underlying model and technique; explain the economics and help the learner reason or check independent work | Read the assignment's specific restrictions; never invent a part or blur student-only work and AI support |
 | **Research connection:** what literature/model extension means | First answer the lecture's economics, then mark the outside extension explicitly | Verify external claims when needed; don't turn a teaching question into an unrelated research workflow |
 
-**Depth is separate from length.** A rigorous short answer can be better than a 5-page note. A long handbook should develop understanding instead of padding with formula repetition.
+**Depth is separate from length.** A rigorous short answer can be better than a 5-page note. A long handbook should develop understanding instead of padding with formula repetition. When a student explicitly requests **textbook teaching from zero**, spend explanation effort on definitions, transparent examples and justified intermediate steps before applying the general PhD-level claims; do not turn the preferred long-lesson arc into mandatory sections for a quick answer. See [Time Series](time-series.md) for a subject-specific example.
 
 ## Diagnose the learning bottleneck (without claiming to read the learner's mind)
 

@@ -8,6 +8,15 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Professor — Beginner-first Time Series learning (same Skill)
+
+- Added [Time Series teaching lens](skills/econ-phd-professor/references/time-series.md) inside the existing Professor Skill (not another Skill) with flexible beginner-to-rigorous teaching, justified derivations, original notation, relevant ACF/PACF visuals, SAS interpretation, concise Homework vs comprehensive guide modes.
+- Connected the reference to core Skill routing, Econometrics, Teaching Design and LaTeX output guidance.
+- Clarified that an explicitly user-selected **existing course output folder** overrides the generic `Agent Outputs` name; this avoids accidentally duplicating a course's already verified nonstandard `Agent output` folder.
+- Reviewed the STAT 516 course folder and confirmed the specified teaching-style companion exists; **no private course files were committed to GitHub, and no Handbook or unnecessary cloud test was generated**.
+- Details: [Time Series teaching lens development log](logs/2026-10-24-professor-time-series-learning-lens.md).
+
+
 ### Professor — Add optional course Learning Logs
 
 - Added a concise editable Markdown [Learning Log template](skills/econ-phd-professor/templates/learning-log.md) and [opt-in workflow](skills/econ-phd-professor/references/learning-log.md) for study-session topics, questions, clarifications, verified Lecture/Homework links and open issues.
