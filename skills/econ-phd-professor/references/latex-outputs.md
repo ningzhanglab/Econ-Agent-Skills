@@ -13,7 +13,7 @@ Regular chat explanations do **not** automatically create a file.
 Use the accompanying [minimal template](../templates/simple-notes.tex) as the default structure. The goal is readable economics notes, not a decorative publication design:
 
 - \`article\` class, conventional title/section/subsection hierarchy, normal margins, clean paragraphs.
-- Load only needed packages: \`amsmath\`, \`amssymb\` for economics math, optional \`graphicx\` when actually including figures. Avoid elaborate header/footer systems, color themes, slides/Beamer, complex custom macros and heavyweight template dependencies by default.
+- Load needed math packages such as amsmath and amssymb; add graphicx, TikZ or PGFPlots when an actually useful explanatory figure needs them. **A simple article template does not mean text-only teaching.** Avoid decoration, not genuine economic visuals.
 - Keep the **original lecture's mathematical notation** exactly, including primes, expectations, indices and sign conventions; outside examples must be explicitly labeled and mapped.
 - A brief document should stay brief. Add sections for homework connections or assumptions only when relevant, not as mandatory boilerplate.
 - When the user requests Chinese text, use a minimal Unicode-capable LaTeX setup appropriate to the available environment (e.g., \`ctexart\` with XeLaTeX if installed); if the needed TeX packages/fonts are missing, report the issue rather than silently dropping Chinese characters or presenting an uncompiled PDF.
@@ -51,4 +51,4 @@ A local generated PDF or a successful LaTeX syntax check alone does not prove th
 - Explicit "LaTeX source only": deliver TeX only.
 - Default without a format: deliver **both** \`.tex\` and \`.pdf\`.
 
-When using lesson visuals in the document, follow [Visual Teaching and Homework](visuals-and-homework.md): original source-slide figures may be freely incorporated as needed; *new* figures should only be added when they meaningfully clarify a topic.
+For substantial lecture notes or Handbooks, plan useful diagrams along with equations and Homework connections. Use original **inspected** Slide figures freely; proactively include independently labeled analytical schematics or actual computed plots for constraints, dynamics, equilibria and numerical errors. Do not impose a figure count or text-first requirement. Verify source coverage using the [Figure Index](../templates/figure-index.md) and follow [Visual Teaching and Homework](visuals-and-homework.md); keep figure paths and assets reproducible.
