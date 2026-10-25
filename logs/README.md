@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — Professor Cloud Drive input and `outputs/` delivery policy](2026-10-24-professor-cloud-outputs.md).
+
 - [2026-10-24 — Professor course navigation and large-file strategy](2026-10-24-professor-course-navigation.md).
 
 - [2026-10-24 — Professor v0.1 dynamic-programming lecture smoke test](2026-10-24-professor-dldp-smoke-test.md).
