@@ -40,6 +40,15 @@
 | --- | --- | --- | --- | --- | --- |
 | [p. X / frame title] | [section] | [supported claim] | [exact symbols] | [image missing?] | INDEXED |
 
+## Figure provenance and pedagogical use
+
+- [Figure Index template](figure-index.md) (fill privately if this lecture has figures or needs substantial illustrated teaching):
+- Original images or rendered PDF pages **actually visually inspected**:
+- TeX-only figures located but not yet viewed:
+- Equations/assumptions the figures illuminate:
+- Optional independently constructed schematic (label as independent, not an original plot):
+- Computed numerical figures (only with actual method, data and parameters):
+
 ## Local notation references
 
 - See private [notation registry](notation-registry.md).
