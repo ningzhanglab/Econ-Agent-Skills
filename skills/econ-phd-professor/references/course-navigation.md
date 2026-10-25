@@ -13,7 +13,7 @@ Do not silently reorder lectures as if the inferred conceptual order is what the
 
 ## Onboarding procedure — inventory first
 
-0. If previous course indexes exist, use [Course State and Source Selection](course-state-and-sources.md) to verify saved IDs and versions before relying on them. Classify slide TeX, student handout PDF, presenter PDF, homework/code and different revisions as different **roles**, not duplicate versions by filename alone.
+0. If previous course indexes exist, use [Course State and Source Selection](course-state-and-sources.md) to verify saved IDs and versions. **Group same-basename `.tex`/PDF/Word within the verified course folder as one logical document by default**, then distinguish truly different handout/presenter versions, revisions and homework/code by evidence rather than extension alone.
 1. Enumerate only the files **actually accessible** in the workspace. Record file names, formats, accessible locations and relationships (lecture, syllabus, homework, solution, reading, image, appendix, code).
 2. Inspect the syllabus/table of contents if present. Determine course identifier and dates only from sources; if absent, build a **provisional** sequence using lecture numbers and internal titles, without pretending the order is confirmed.
 3. Draft a compact **course map** using [the course-map template](../templates/course-map.md). Each lecture entry gets a stable local ID, source locator, order evidence, central questions, models and coverage status.
