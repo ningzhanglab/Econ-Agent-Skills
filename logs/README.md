@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — ECONS 509 Volume II: deep mathematical teaching and verified cloud delivery](2026-10-24-professor-econs509-deep-dive-volume-ii.md).
+
 - [2026-10-24 — ECONS 509 real handbook, paired cloud upload and round-trip test](2026-10-24-professor-econs509-handbook-e2e.md).
 
 - [2026-10-24 — Add active Markdown reference-link regression test](2026-10-24-active-link-validation.md).

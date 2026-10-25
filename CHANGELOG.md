@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Test — ECONS 509 detailed quantitative methods (Volume II)
+
+- Added a 20-page Chinese deep-dive companion to the existing 22-page course Handbook, with detailed DSDP/CSDP/DLDP/SE derivations and PS1–PS3 learning links.
+- Saved TeX and PDF in the verified private `Agent Outputs/`; re-downloaded both; cloud TeX SHA matched local and compiled again to a 20-page PDF with identical extracted text to cloud PDF.
+- Missing source visual assets and independent teaching review remain untested; no raw course materials or handbook contents committed to this public repository.
+- Details: [2026-10-24-professor-econs509-deep-dive-volume-ii.md](logs/2026-10-24-professor-econs509-deep-dive-volume-ii.md).
+
+
 ### Test — ECONS 509 end-to-end whole-course handbook
 
 - Built a 22-page Chinese course handbook from eight real Lecture TeX sources, the Syllabus and PS1--PS3; compiled XeLaTeX into PDF.
