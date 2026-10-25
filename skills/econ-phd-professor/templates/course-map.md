@@ -1,6 +1,6 @@
 # Course Map — [Course Title]
 
-> **Cloud outputs:** This is a reusable template in GitHub. When the user requests a completed file, save that filled artifact to the verified current course's cloud `outputs/` folder and return the cloud link. Follow [Cloud Drive workflow](../references/cloud-drive-workflow.md).
+> **Cloud outputs:** This is a reusable template in GitHub. When the user requests a completed file, save that filled artifact to the verified current course's cloud `Agent Outputs/` folder and return the cloud link. Follow [Cloud Drive workflow](../references/cloud-drive-workflow.md).
 
 > **Generated course-specific artifact:** copy this template into a **private** course workspace. Do not fill it with proprietary lectures and commit it to the public Skill repo.
 >
