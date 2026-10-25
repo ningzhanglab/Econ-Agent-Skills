@@ -38,5 +38,7 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — Professor v0.1 dynamic-programming lecture smoke test](2026-10-24-professor-dldp-smoke-test.md).
+
 - [2026-10-24 — Add repository change logging](2026-10-24-logging-system.md).
 - [2026-10-24 — Initial Professor v0.1](2026-10-24-professor-v0.1.md).
