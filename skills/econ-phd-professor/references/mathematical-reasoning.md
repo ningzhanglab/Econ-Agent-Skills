@@ -20,6 +20,17 @@ Never silently swap a prime for t+1, a sequence constraint for a scalar constrai
 - For stochastic models, preserve order of expectation and nonlinear functions; do not imply E[f(X)] = f(E[X]) without justification.
 - For general equilibrium, close markets and consistency conditions where needed; do not infer aggregate comparative statics from a partial-equilibrium sign alone.
 
+## Choose proofs, counterexamples and numerical checks carefully
+
+- Restate the **exact** proposition, quantifiers, conditioning and assumptions before deriving or challenging it. Separate source assumptions from supplemental ones.
+- Show the pivotal mathematical step and distinguish necessary from sufficient conditions. A first-order equality need not prove an unconstrained optimum.
+- For a **counterexample**, change a specific assumption, confirm the construction is feasible (and consistent with equilibrium if that matters), and verify it refutes the **same** claim.
+- At a boundary, rederive KKT/complementarity and multiplier signs using the source's constraint convention; do not automatically apply an interior Euler equality.
+- For comparative statics, state what is held fixed and whether prices/aggregates adjust.
+- For computations, separate stopping criteria, theoretical bounds, Bellman residuals, policy/Euler errors and market clearing. These are not interchangeable proof of correctness.
+
+Explain the economic meaning of the **step on which the conclusion turns**, rather than offering a long generic calculation.
+
 ## What if a slide skips steps?
 
 Work out the missing steps **in the slide's notation**, explicitly describing them as supplementary derivation. If crucial assumptions are missing, state which ones make the derivation valid. For a potential error, preserve the source version first and offer a clearly labeled correction rather than silently rewriting the course material.

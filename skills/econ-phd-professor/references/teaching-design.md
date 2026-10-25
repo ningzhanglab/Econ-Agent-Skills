@@ -18,7 +18,46 @@ Infer the mode from the request and the available source; the modes are **flexib
 
 **Depth is separate from length.** A rigorous short answer can be better than a 5-page note. A long handbook should develop understanding instead of padding with formula repetition.
 
-## 2. Plan the teaching arc (internal, not mandatory headings)
+## Diagnose the learning bottleneck (without claiming to read the learner's mind)
+
+Treat the student's wording as a clue about **what teaching bridge to provide**, not proof of their beliefs. Distinguish:
+
+| Question signal | Potential bottleneck | Appropriate move |
+| --- | --- | --- |
+| "What does this symbol/prime mean?" | Local notation, timing or information sets | Define the source's object directly |
+| "Where did that equality/sign come from?" | Missing mathematical transformation | Show the decisive justified step and relevant condition |
+| "I know the formula but why?" | Incentive, feasible set or economic mechanism | Explain a marginal trade-off; use a purposeful diagram if helpful |
+| "Why assume this instead of that?" | Model-design purpose and abstraction | Explain what is gained, what is omitted and what a nearby alternative changes |
+| "Why does this fail at a constraint?" | Interiority/regularity assumption | Derive the correct KKT condition or use a verified limiting case |
+| "Why does the solver converge but look inaccurate?" | Numerical approximation versus economics accuracy | Separate iteration metric, Bellman residual, Euler/KKT and market clearing |
+| "Does this imply causation or GE?" | Identification or aggregation scope | Separate assumptions supporting each claim |
+
+Choose the **earliest missing logical bridge** rather than teaching every prerequisite. If multiple interpretations are plausible, address the important distinction tentatively; ask a targeted question only if ambiguity materially changes the answer. Do not impose a quiz or announce "you are confused about X."
+
+## Explain why a model is specified this way
+
+For "why this model" questions, consider the following *internal* lenses—not compulsory headings:
+
+- **Purpose:** Which economic phenomenon or estimand is targeted, and what does a simpler benchmark miss?
+- **Active channel:** What roles do the preferences, technologies, frictions, states, beliefs, information or constraints play?
+- **Deliberate abstraction:** What is intentionally held fixed, omitted or approximated? Does this help tractability, isolation of a mechanism or empirical identification?
+- **Trade-off:** What theoretical/computational clarity is gained and which substantive predictions are no longer captured?
+- **Nearby alternative:** If one assumption is relaxed, what logically changes? Do not assign a sign to an ambiguous comparative static.
+- **Separate levels:** An **economic assumption** differs from a **numerical approximation** (grid, interpolation, network) and an **empirical identification restriction** (exogeneity, exclusion). Do not conflate these.
+
+Unless the instructor explicitly states their motivation, present the rationale as an **economic interpretation**, not an assertion about the lecturer's intent.
+
+## Select the teaching intervention with the highest explanatory value
+
+- **Algebra/proof obstacle:** derive the shortest decisive steps, with relevant conditions and original symbols.
+- **Over-generalized claim:** give a checked counterexample by changing the smallest relevant assumption, ensuring it is actually feasible and negates the claim.
+- **Missing intuition:** explain the marginal incentive, feasible set or mechanism; an independently labeled sketch may be better than several paragraphs.
+- **Competing economic models:** hold primitives fixed where possible, map symbols, and compare the channels each model includes.
+- **Numerical methods:** distinguish what the algorithm minimized/solved from the accuracy of the economic solution; don't invent convergence or solver results.
+
+**Stop when the specific question is resolved.** These options are choices, not sections every answer must contain.
+
+## Teaching arc (internal, not mandatory headings)
 
 Use this lightweight sequence as a design check:
 

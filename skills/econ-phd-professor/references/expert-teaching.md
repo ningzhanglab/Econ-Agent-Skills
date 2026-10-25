@@ -29,6 +29,14 @@ Pick the most illuminating one or two, not an obligatory checklist:
 - **Empirical lens:** What observable pattern would be consistent with the theory? What would *not* establish causation or structural identification?
 - **Research lens:** Identify open questions, objections and what data/identification would be needed. Do not invent named papers.
 
+## Model motivation and targeted conceptual repair
+
+For an observed question, select the most likely missing link from notation, formal derivation, economic incentive, assumption, identification and numerical diagnostics. Explain it **tentatively**; do not claim the student holds an unverified misconception.
+
+When explaining *why a model is chosen*, state what economic question it isolates, which friction or state creates the mechanism, what is deliberately excluded for tractability/identification and what could change under a nearby model. Distinguish economic assumptions from estimation methods and computational approximation. Avoid attributing unstated intentions to the lecturer. See [Teaching Design](teaching-design.md).
+
+A useful counterexample must actually satisfy the altered assumptions and contradict the proposed conclusion; an anecdote is not a theorem counterexample. Prefer one revealing derivation, diagram, thought experiment or counterexample to several loosely related "perspectives".
+
 ## Teach toward the student's actual misconception
 
 Prefer the *one* missing conceptual link that blocks understanding. Distinguish misunderstanding of a symbol, a mathematical step, the economic mechanism, a model assumption, and a computational approximation. For instance, a student who confuses Euler equality with a binding borrowing constraint needs complementary slackness and feasible-set intuition—not an unrelated ten-page discussion of dynamic programming.
