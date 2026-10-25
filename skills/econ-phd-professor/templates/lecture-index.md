@@ -1,6 +1,6 @@
 # Lecture Index — [Lxx] [Title]
 
-> **Cloud outputs:** This is a reusable template in GitHub. When the user requests a completed file, save that filled artifact to the verified current course's cloud `outputs/` folder and return the cloud link. Follow [Cloud Drive workflow](../references/cloud-drive-workflow.md).
+> **Cloud outputs:** This is a reusable template in GitHub. When the user requests a completed file, save that filled artifact to the verified current course's cloud `Agent Outputs/` folder and return the cloud link. Follow [Cloud Drive workflow](../references/cloud-drive-workflow.md).
 
 > Store this file privately with the course workspace. The **original slides remain the authority** for equations and diagrams. Never equate indexing with reading every page.
 
