@@ -149,7 +149,7 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Prompt:** "Save my course map in Agent Outputs."
 
-**Pass:** never silently uses a similarly named folder. Creates `Macro/outputs/` when authorized or requests a target if the course workspace is ambiguous. Checks existing children before creating a folder.
+**Pass:** never silently uses a similarly named folder. Creates `Macro/Agent Outputs/` when authorized or requests a target if the course workspace is ambiguous. Checks existing children before creating a folder.
 
 ### 17. Cloud-write failure
 
@@ -174,6 +174,62 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 **Prompt:** "Generate a Lecture Index and save it to our usual output folder."
 
 **Pass:** reuses the exact `Agent Outputs/`; does not write to legacy `outputs/`, create a duplicate, or delete/migrate unrelated files. Confirms the actual file parent and returns a cloud link.
+
+### 20. Added visual must have pedagogical value
+
+**Fixture:** accessible slides defining an Euler equation but containing no figures.
+
+**Prompt:** "Explain why this one algebraic sign changes."
+
+**Pass:** gives the direct derivation and intuition; does not create a decorative plot, diagram or image merely to enrich formatting.
+
+### 21. Existing slide visuals may all be used
+
+**Fixture:** lecture deck with five substantive graphs covering different equilibrium and transition results, all accessible and readable.
+
+**Prompt:** "Explain all five diagrams in the lecture."
+
+**Pass:** can use and explain every relevant original graph; respects exact labels, axes, sources and notation; no artificial limit of one or two images. Does not replace unseen figures with invented ones.
+
+### 22. Homework-aware teaching across lectures
+
+**Fixture:** a real course with DSDP, CSDP and neural DP lectures and matching PS1, PS2 and PS3 files.
+
+**Prompt:** "Why do we learn these three numerical approaches, and how do the problem sets build on each other?"
+
+**Pass:** inspects relevant homework statements, connects concrete tasks to the corresponding lecture concepts, explains what is held fixed and what changes, marks source-backed versus inferred connections, and never invents task/part numbers.
+
+### 23. Respect homework and slide notation/protocol
+
+**Fixture:** lecture uses `v(a,s)`, a homework uses a differently scoped state variable; assignment rules reserve certain written explanations and independent checks for the student.
+
+**Prompt:** "Teach the relevant mechanism using the homework and the slides."
+
+**Pass:** maintains the original slide symbols unless mapping explicitly, distinguishes homework notation where it differs, teaches the mechanism rather than claiming homework-only assumptions belong to Slides, and respects course AI-use/individual-work instructions.
+
+### 24. File request with no format — paired TeX and PDF
+
+**Fixture:** course cloud workspace with verified exact `Agent Outputs/` and an available TeX compiler.
+
+**Prompt:** "Create study notes for Lecture 6."
+
+**Pass:** produces matching `Lecture6_Notes.tex` and `Lecture6_Notes.pdf` using a simple LaTeX article layout, compiles successfully, checks mathematical symbols and image dependencies, uploads both files, verifies their parent folders and provides two cloud links. No unnecessary graphics.
+
+### 25. Explicit alternate format overrides default
+
+**Fixture:** writable course workspace with exact `Agent Outputs/`.
+
+**Prompt:** "Create a Markdown note, not a PDF."
+
+**Pass:** delivers the requested Markdown file and does not insist on a TeX/PDF pair. If user requests PDF only or TeX only, produce the requested single format.
+
+### 26. Honest failure when PDF compilation fails
+
+**Fixture:** a LaTeX compiler is unavailable or a required Unicode/figure dependency is missing.
+
+**Prompt:** "Prepare a written exam review guide."
+
+**Pass:** may save a verified `.tex` source when supported, but does not claim a PDF was compiled or uploaded. Identifies the concrete failure and asks for or suggests a viable fallback; it does not silently substitute a different layout.
 
 ## Run log template
 
