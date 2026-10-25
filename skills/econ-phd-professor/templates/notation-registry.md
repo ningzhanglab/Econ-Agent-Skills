@@ -1,5 +1,7 @@
 # Course-Scoped Notation Registry — [Course Title]
 
+> **Cloud outputs:** This is a reusable template in GitHub. When the user requests a completed file, save that filled artifact to the verified current course's cloud `outputs/` folder and return the cloud link. Follow [Cloud Drive workflow](../references/cloud-drive-workflow.md).
+
 > Store with the **private course files**. This is a *locator and disambiguation tool*, not an instruction to standardize all lectures onto one set of letters.
 
 ## Source and revision information
