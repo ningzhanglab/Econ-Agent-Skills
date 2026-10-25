@@ -25,6 +25,10 @@ These are repository-maintenance instructions, not the runtime instructions of a
 - **Proportionate tests:** for editorial/pedagogical architecture changes, review affected content/links and let existing CI run; no mandatory new multi-file benchmarks, new PDF Handbooks, repeated cloud round-trips or new test cases. Add focused regressions **only** if a new executable feature/bug warrants them. Run a real lecture or end-to-end cloud delivery test when the relevant behavior materially changes or the user specifically asks.
 - Record truthfully whether checks passed or were not run, and keep previous test results as dated historical evidence.
 
+## v1 stability rule
+
+Use [DESIGN_V1.md](DESIGN_V1.md) as the agreed architecture. Do not add a new top-level Skill, compulsory concept-map file, extra mandatory workflow or repeated end-to-end benchmarking just because another improvement is imaginable. Cross-lecture links belong to Teaching Design/Course Navigation/Course Map. Require a specific observed failure, new requirement or demonstrated missing capability for future changes; prefer the smallest fix. Keep ordinary editorial verification proportional.
+
 ## Required change logging
 
 **For every meaningful repository change**, complete all of these within the same PR/commit series:

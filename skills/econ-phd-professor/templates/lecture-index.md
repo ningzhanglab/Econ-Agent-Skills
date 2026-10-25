@@ -68,6 +68,14 @@
 - Inferred conceptual prerequisites (labeled as such):
 - Differences in models, assumptions and symbols:
 
+## Meaningful transfer to another lecture (only if relevant)
+
+- Both original source locators and verified common economic object:
+- What remains fixed vs. changes economically, in equilibrium closure, solver, or identification:
+- Local notation mapping and where it breaks:
+- Evidence: explicitly instructor-stated, derived, or provisional analogy:
+- Verified relevant Homework task (if useful); conclusion that cannot be transferred:
+
 ## Retrieval notes
 
 - For a question about [topic], revisit original [pages/frame numbers].

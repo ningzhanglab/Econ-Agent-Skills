@@ -8,6 +8,15 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Professor v1 — Consolidated design and cross-lecture reasoning
+
+- Integrated cross-lecture economic transfer: verified common objects, changes in primitives/closure versus numerical/empirical methods, notation mapping, limits and explicit/derived/provisional source evidence.
+- Simplified on-demand course indexing, corrected the course-retrieval numbering error, and updated existing Course Map/Lecture Index instead of adding another required concept registry.
+- Created [DESIGN_V1.md](DESIGN_V1.md) as the final architecture and **stop rule** for speculative design churn. README now labels a v1 design baseline without overstating independent teaching validation.
+- No new Handbook, cloud upload or benchmark; existing CI retained for proportional regression checks.
+- Details: [v1 consolidated design](logs/2026-10-24-professor-v1-consolidated-design.md).
+
+
 ### Professor — Diagnose misconceptions and explain why models are designed this way
 
 - Added question-to-bottleneck teaching guidance covering notation, missing mathematical steps, incentives, modeling assumptions, identification and numerical approximation, without ungrounded claims about a student's understanding.

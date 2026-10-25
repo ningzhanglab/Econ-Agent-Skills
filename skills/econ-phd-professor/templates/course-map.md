@@ -31,6 +31,16 @@ Use syllabus order when available. If no syllabus exists, mark inferred order **
 
 If the lecturer intentionally introduces a result before its mathematical tools, retain that instructor order above and show conceptual prerequisites separately here.
 
+## Cross-lecture mechanism/method comparison (optional)
+
+Use only for multi-lecture study. Each source must have an actual locator or an explicitly provisional status.
+
+| Lecture A source | Lecture B source | Shared economic object | Fixed vs changed primitives/market closure | Economic vs numerical vs identification difference | Notation mapping and limits | Meaning / verified Homework | Evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Lxx, page] | [Lyy, page] | [verified object] | [precise comparison] | [which layer changes] | [qualified, or none] | [economic implication and actual task if checked] | explicit / derived / provisional |
+
+Similar equations alone are insufficient. Prefer one meaningful bridge over many weak analogies. No separate compulsory Concept Map file.
+
 ## Course-wide model map
 
 | Model or topic | Primary lecture(s) | Core economic question | Key assumptions | Useful related lectures |

@@ -11,19 +11,27 @@ Maintain **both** rather than conflating them:
 
 Do not silently reorder lectures as if the inferred conceptual order is what the lecturer taught. Multiple valid orders can coexist.
 
+## Proportionate source and index work
+
+A focused equation question needs the relevant original, not a Course Map. A syllabus overview may need one lightweight map. A persistent course project can use more indexes **only when useful or requested**; Course Map, Lecture Index, Notation Registry, Homework Map, Figure Index and JSON state are NOT six mandatory deliverables.
+
 ## Onboarding procedure — inventory first
 
 0. If previous course indexes exist, use [Course State and Source Selection](course-state-and-sources.md) to verify saved IDs and versions. **Group same-basename `.tex`/PDF/Word within the verified course folder as one logical document by default**, then distinguish truly different handout/presenter versions, revisions and homework/code by evidence rather than extension alone.
 1. Enumerate only the files **actually accessible** in the workspace. Record file names, formats, accessible locations and relationships (lecture, syllabus, homework, solution, reading, image, appendix, code).
 2. Inspect the syllabus/table of contents if present. Determine course identifier and dates only from sources; if absent, build a **provisional** sequence using lecture numbers and internal titles, without pretending the order is confirmed.
-3. Draft a compact **course map** using [the course-map template](../templates/course-map.md). Each lecture entry gets a stable local ID, source locator, order evidence, central questions, models and coverage status.
-4. For each lecture that you can access, create a **lightweight lecture index** using [the lecture-index template](../templates/lecture-index.md): sections, slide/page locators, assumptions, definitions, model dependencies and figures. **Do not perform deep commentary on every page during onboarding** unless explicitly requested.
-5. For figure-bearing lectures, build a **Figure Index** from [the template](../templates/figure-index.md) with actual asset/PDF locators and visual-review status. Discover LaTeX references using [the read-only inventory tool](../../../scripts/inventory_tex_figures.py) if useful; prefer visually checking source images or corresponding rendered handout PDF pages, never equate a TeX reference with having seen the image.
+3. When a course overview or reusable index would help, draft a compact **course map** using [the course-map template](../templates/course-map.md). Each lecture entry gets a stable local ID, source locator, order evidence, central questions, models and coverage status.
+4. For the lectures relevant to the user's scope, create a **lightweight lecture index** only when useful using [the lecture-index template](../templates/lecture-index.md): sections, slide/page locators, assumptions, definitions, model dependencies and figures. **Do not perform deep commentary on every page during onboarding** unless explicitly requested.
+5. For relevant figure-bearing lectures, build a **Figure Index** if needed from [the template](../templates/figure-index.md) with actual asset/PDF locators and visual-review status. Discover LaTeX references using [the read-only inventory tool](../../../scripts/inventory_tex_figures.py) if useful; prefer visually checking source images or corresponding rendered handout PDF pages, never equate a TeX reference with having seen the image.
 6. Create a course-scoped **notation registry** from [the notation template](../templates/notation-registry.md) only for symbols actually observed. Scope symbols to lecture and equation/model; same symbol in another lecture does **not** imply same meaning.
 7. Add conceptual links across lectures, but label each as **explicit** (stated by lecturer), **derived** (logically follows from materials), or **provisional** (inferred teaching connection). Note conflicting assumptions or notation.
-8. When homework is accessible, create a grounded **Lecture ↔ Homework** map using [the Homework Map template](../templates/homework-map.md). Record actual problem/part locators, linked lecture/model, skills tested and confidence; do not treat Homework as a replacement for Slides or claim to have seen inaccessible solutions.
+8. When relevant Homework is accessible and a reusable map helps, create a grounded **Lecture ↔ Homework** map using [the Homework Map template](../templates/homework-map.md). Record actual problem/part locators, linked lecture/model, skills tested and confidence; do not treat Homework as a replacement for Slides or claim to have seen inaccessible solutions.
 9. When a persistent course-onboarding output is requested, store a compact [Course State JSON](../templates/course-state.example.json) alongside user-facing TeX/PDF summaries. The checkpoint assists future source/version checks but does not replace original slides.
 10. Produce an overview of confirmed versus provisional sequencing, source coverage, missing figures, and next learning steps. When requested as files, save completed course maps, lecture indexes, homework maps and notation registries in the **verified private workspace's exact `Agent Outputs/` folder** via [Cloud Drive workflow](cloud-drive-workflow.md). Do not save them in this public Skill repository.
+
+## Cross-lecture economic transfer
+
+Use the [Teaching Design transfer protocol](teaching-design.md) to compare **both verified lecture sources**: common economic object; same/different preferences, technology, frictions and information; market/equilibrium closure versus numerical solver or statistical identification; precise source-symbol mapping; and why the distinction matters. Record links as explicit, derived or provisional. An equation's familiar form is not proof of equivalent models. The [Course Map](../templates/course-map.md) contains an optional comparison table; do not add another mandatory concept registry.
 
 ## Progressive verification states
 
@@ -43,9 +51,9 @@ For a specific question:
 1. In a new session, first find and verify existing Course State/Map and source versions when available; otherwise begin with accessible course files. Identify relevant lecture and slide(s) using the map and index. If question is ambiguous, use the best grounded scope and state uncertainty; ask a targeted clarification only if essential.
 2. **Reopen original source** at those slide/page locators and inspect neighboring assumptions, definitions and figures. An index or prior summary is a navigation aid, not authoritative proof of an equation.
 3. Distinguish TeX source, current handout PDF, presenter PDF and revisions as described in [Course State and Sources](course-state-and-sources.md). Load notation scoped to the **current lecture/model**, check whether the intended symbol appears in another lecture with different meaning, and do not silently merge them.
-4. Open one or two prerequisite lectures or related models only when necessary; distinguish their notation and assumptions explicitly.
-6. Explain at the requested depth; optionally refine indexes as new verified details become available, if workspace write access exists. Otherwise return a short update the user can save.
-7. When new files are added or corrected, revise the map/index for affected material and document invalidated cross-links; do not regenerate everything by default.
+4. Open related/prerequisite lectures only when the connection matters; explicitly distinguish their model assumptions, closure, numerical methods and notation.
+5. Explain at the requested depth; update a persisted index only if relevant and authorized.
+6. When source revisions change a model, invalidate affected links and recheck them, not the entire course.
 
 ## Mixed material and source precedence
 

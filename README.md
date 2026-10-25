@@ -2,13 +2,19 @@
 
 Reusable, version-controlled Agent Skills for economics PhD learning and research.
 
-> **Status:** Professor Skill v0.1 implemented. Research Agent is planned but **not** implemented.
+> **Status:** Professor v1 design baseline established. Research Agent is planned but **not** implemented.
+
+## v1 design: teaching first, architecture stable
+
+The Professor's [v1 design baseline](DESIGN_V1.md) unifies question-first teaching, exact source notation, useful source-backed graphs, relevant Homework, and precise conceptual bridges across lectures. It distinguishes **economic assumptions, equilibrium closure, numerical approximation and econometric identification**, rather than equating all similar equations. Course indexing and cloud export remain on-demand support.
+
+**Design is complete for this baseline; this is not a claim of independent learning-outcome certification.** Do not extend the architecture again without a concrete teaching defect or explicitly requested new feature.
 
 ## Skills catalog
 
 | Skill | Purpose | Status |
 | --- | --- | --- |
-| [econ-phd-professor](skills/econ-phd-professor/SKILL.md) | Learn graduate economics from lecture slides with domain expertise, economic intuition, derivations, and cross-field connections | **v0.1 — ready for evaluation** |
+| [econ-phd-professor](skills/econ-phd-professor/SKILL.md) | Learn graduate economics from lecture slides with domain expertise, economic intuition, derivations, and cross-field connections | **v1 design baseline; quality evaluation ongoing** |
 | econ-research-agent | Literature review, research question development, methods, and critical research assessment | **Planned — not yet available** |
 
 ## Change history and logs

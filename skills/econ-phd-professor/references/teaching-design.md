@@ -57,6 +57,19 @@ Unless the instructor explicitly states their motivation, present the rationale 
 
 **Stop when the specific question is resolved.** These options are choices, not sections every answer must contain.
 
+## Connect economic ideas across lectures without flattening models
+
+A cross-lecture answer needs a **real bridge**, not a list of similar topics. For each relevant link:
+
+1. **Shared object:** identify the same choice, state, equilibrium condition, estimand, mathematical technique or mechanism from verified lecture locators on both sides.
+2. **What stays fixed and what changes:** separate economic primitives (preferences, technology, shocks, frictions, information), equilibrium closure (partial/general, market-clearing prices), numerical approach (grid/spline/neural approximation) and econometric identification. Similar Bellman equations do **not** mean identical models.
+3. **Notation:** teach each lecture in its native symbols; provide a qualified mapping when definitions and timing genuinely match. State when no valid one-to-one mapping exists.
+4. **Economic meaning:** explain how the change affects feasibility, prediction, welfare, equilibrium feedback, numerical accuracy or identification. Do not invent empirical or solver findings.
+5. **Evidence level:** mark links **explicit in the source**, **derived under stated assumptions** or **provisional teaching analogy**. Reopen actual relevant Homework statements before naming problem parts.
+6. **Teaching payoff:** explain why seeing the connection helps the current question. For a narrow question use *one strong link and one consequential difference*. A course-wide table is optional, not a reason to generate another map.
+
+*Illustrative only:* The same general savings question might be approached with a finite grid, continuous interpolation or neural approximation; these change the numerical representation and error diagnostics, not necessarily the household economics. Adding stationary market clearing introduces a new equilibrium-consistency condition, not merely a faster household solver. **Verify each actual lecture's assumptions** before applying this analogy.
+
 ## Teaching arc (internal, not mandatory headings)
 
 Use this lightweight sequence as a design check:
@@ -65,12 +78,12 @@ Use this lightweight sequence as a design check:
 2. **Choose the core economic idea** — What is being optimized/identified, what changes and why, and what misconception is most likely?
 3. **Choose representations together** — Use equations, verbal intuition, original inspected figures, clearly labeled analytic schematics, and actual computed plots **as complementary options**. For constraints, equilibria, dynamics and approximation error, proactively consider a figure. No minimum or maximum image count.
 4. **Build the explanation** — If the question is simple, answer directly. If it is deep, show why the result holds, interpret it economically, and add a targeted example or limitation.
-5. **Transfer** — If Homework is genuinely relevant, connect a verified task to the lecture method and explain the *skill* it tests; otherwise skip it. For extended lessons, identify a useful self-check or next connection.
+5. **Transfer** — If it genuinely helps, connect a verified Homework task or a second lecture: state the common economic object, changed assumptions or method, and what the student learns. Otherwise skip it.
 6. **Trim** — Remove duplicate paragraphs, unnecessary background, boilerplate figure captions, elaborate headings and operational status chatter that do not help learning.
 
 The student should normally see the *teaching*, not the internal planning process.
 
-## 3. Keep source, inference and illustration distinct
+## Keep source, inference and illustration distinct
 
 - **Lecture source:** exact model, original notation, assumptions, figures and source locators as actually read.
 - **Derived:** mathematical/economic consequence justified from source plus explicitly stated extra assumptions.
@@ -80,7 +93,7 @@ The student should normally see the *teaching*, not the internal planning proces
 
 If a source graph is missing, use a genuinely helpful schematic while acknowledging it is **not** the instructor's unseen graph. A figure-index locator does not mean the figure has been visually inspected.
 
-## 4. Avoid tool-driven overproduction
+## Avoid tool-driven overproduction
 
 **Narrow question:** consult the relevant slide(s); do not build or overwrite a Course Map, Figure Index, Homework Map, TeX, PDF or repository log just to answer.
 
@@ -92,7 +105,7 @@ If a source graph is missing, use a genuinely helpful schematic while acknowledg
 
 An Agent's ability to manage many files should never be the *headline* of an economics answer.
 
-## 5. Economics PhD depth without rigid answer templates
+## Economics PhD depth without rigid answer templates
 
 Prioritize the deepest **useful** explanation:
 
@@ -103,7 +116,7 @@ Prioritize the deepest **useful** explanation:
 
 For a complete lecture, a possible learning thread is: **economic question → primitives and notation → key mechanism → diagram/equation → derivation or algorithm → what can go wrong → a verified Homework connection**. It is **not** a required sequence or list of headings. Reorder or omit elements for the learner's actual need.
 
-## 6. Lightweight editorial quality check
+## Lightweight editorial quality check
 
 Before responding, ask internally:
 - Is the central economics claim correct under the stated assumptions?
