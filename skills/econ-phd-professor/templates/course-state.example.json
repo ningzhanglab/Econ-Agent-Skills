@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "course_id": "COURSE-ID",
+  "course_folder": {
+    "provider": "google_drive",
+    "id": "REPLACE_WITH_VERIFIED_COURSE_FOLDER_ID",
+    "verified": false
+  },
+  "syllabus": {
+    "file_id": null,
+    "version": null,
+    "verified": false
+  },
+  "artifacts": {
+    "course_map_file_id": null,
+    "homework_map_file_id": null
+  },
+  "lectures": [
+    {
+      "lecture_id": "L01",
+      "instructor_order": null,
+      "order_status": "provisional",
+      "preferred_source": {
+        "file_id": null,
+        "role": "handout_pdf",
+        "selection_reason": "Not yet verified"
+      },
+      "alternatives": [],
+      "revision_marker": null,
+      "coverage": {
+        "status": "DISCOVERED",
+        "reviewed_ranges": [],
+        "missing_assets": []
+      },
+      "notation_conflicts": [],
+      "homework_links": []
+    }
+  ],
+  "unresolved_conflicts": [],
+  "last_verified": null,
+  "notes": "Example only. Verify every source reference before claiming it is current."
+}
