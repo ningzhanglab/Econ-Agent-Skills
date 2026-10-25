@@ -8,6 +8,15 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Repository storage policy — Exact Agent Outputs folder
+
+- Corrected the default cloud folder name from `outputs/` to **`Agent Outputs/`** for the Professor and future skills, with exact capitalization and spacing.
+- Reused the existing Econs 509 `Agent Outputs` folder and moved the prior Course Map there; verified the Google Drive file parent.
+- Introduced repository-wide [STORAGE_POLICY.md](STORAGE_POLICY.md), updated teaching/reference/templates, and added a regression case for coexistence with legacy `outputs`.
+- Prior dated change logs remain historical records; this change supersedes their older output-folder convention.
+- Details: [2026-10-24-agent-outputs-convention](logs/2026-10-24-agent-outputs-convention.md).
+
+
 ### econ-phd-professor — Cloud sources and mandatory cloud outputs
 
 - Defined connected cloud drive (Google Drive when available) as the source of course Slides and supporting files.
