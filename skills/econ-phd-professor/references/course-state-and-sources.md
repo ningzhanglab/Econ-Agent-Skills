@@ -37,7 +37,7 @@ Use [the JSON example](../templates/course-state.example.json) as an illustrativ
 
 1. Identify the current course workspace and existing \`Agent Outputs/\`; locate a suitable previously generated Course State/Map **using real Drive metadata**, not remembered guesses.
 2. Read the saved state/map, then check relevant source file existence and current version/mtime against the saved identifiers.
-3. If unchanged, use it as a **navigation index**, open the original target slide or homework section and verify exact notation/figures before substantive teaching.
+3. If unchanged, use it as a **navigation index**, reopen the original target slide or homework section and verify exact notation/figures before substantive teaching.
 4. If changed or inaccessible, invalidate just affected entries, dependencies, notation mappings and homework links. Record any stale assumption and report a blocked source honestly.
 5. Persist an updated state only if the current task calls for saved artifacts and permissions permit. If permission fails, return a concise, clearly labeled suggested update; do not claim the cloud was updated.
 
