@@ -1,25 +1,36 @@
 # Visual Teaching and Homework Connections
 
-## Teaching visuals: selective additions, unlimited use of source visuals
+## Visual-first when pedagogically valuable
 
-**Default:** explain a model or derivation using prose and equations first; introduce a *new* chart, diagram or table **only when it materially improves understanding** of the economic mechanism, equilibrium, comparative statics, dynamic paths or results.
+**Mathematics, economic intuition and diagrams are complementary teaching tools.** Do not require prose or equations to fail before considering an original figure or an independently constructed diagram. Proactively evaluate whether visualizing a mechanism would help the student understand the model. Use **no arbitrary figure minimum or maximum**.
 
-Examples that can justify a new visual:
-- A phase diagram showing state dynamics or a stable/unstable region where signs alone are confusing.
-- An annotated budget constraint or binding borrowing limit when geometry explains a corner solution.
-- A value/policy function or error curve comparison when shape, nonlinearity or scaling is the subject.
-- A simple causal/identification diagram when the assumptions cannot be conveyed clearly by equations alone.
+Use a teaching decision rather than a quota:
 
-A small sign error or one-line algebra question usually does **not** justify a decorative chart. Do not force diagrams into every output or turn.
+- **Short algebra or notation repair:** usually answer directly; a diagram may distract.
+- **Constraints, intertemporal trade-offs, corner solutions, policy/value functions, comparative statics, welfare and market clearing:** proactively consider a correctly annotated graph or qualitative schematic.
+- **Dynamic systems, transition paths, identification and algorithmic workflows:** consider a phase diagram, timeline or process diagram.
+- **Numerical methods and approximation:** compare policy/value curves, interpolation, convergence or error *when genuine model output or an analytically justified illustration is available*. Do not invent computed output.
+- **Long lecture or Handbook:** plan a coherent progression joining economic question, model equations, mechanisms, figures, numerical interpretation and relevant Homework. The most instructive order can begin with a visual rather than with formal algebra.
+- **Original Slides figures:** reuse all figures that help learning, without numerical limits, *provided the figure itself was inspected*. TeX image references alone are not visual evidence.
 
-**Exception: original slides' visuals.** When the lecture itself contains graphs, tables, diagrams, figures or images, use and explain as many of them as the question/lecture requires. There is **no artificial cap** on the number of source figures. The selective-addition rule applies only to *new visuals created by the Agent*, not the existing lecture content.
+### Source figure recovery
 
-- Confirm the original visual is actually accessible and inspected. LaTeX \`\\includegraphics\` without the referenced asset is not enough to claim having seen a plot.
-- Preserve exact axes, units, curve labels, symbols, timing and comparative-static direction from the slide. Interpret rather than silently redraw or relabel the original.
-- When reproducing an original image inside a generated document, use the authorized source asset when available; keep a source locator/caption. Avoid made-up or approximated "copies" of unreadable figures.
-- For newly generated plots, label them **illustrative/simulated** unless backed by actual source data. Use parameters from the slide only if verified; otherwise mark assumed illustrative parameters. Explain which assumptions make the plotted relationships valid.
-- If including a figure in a LaTeX deliverable, include the necessary source assets in the same verified \`Agent Outputs/\` folder or a stable relative subfolder, and ensure the \`.tex\` can compile there. Use \`graphicx\` only when graphics are actually included.
-- Do not confuse aesthetic complexity with pedagogical value; choose the simplest visual that clarifies the mechanism.
+1. Inspect original lecture image files when accessible. In TeX sources inspect referenced `\\includegraphics` assets, nested source inputs and the actual course folder.
+2. If a referenced image is unavailable, check the **corresponding rendered lecture handout PDF page** for an embedded figure; presenter PDFs may differ. Do not infer page numbers from TeX frame indices.
+3. For substantive lectures, create a source-grounded [Figure Index](../templates/figure-index.md). The optional [figure inventory helper](../../../scripts/inventory_tex_figures.py) can find static references but cannot see image content.
+4. If original asset and rendered PDF are both inaccessible, record the figure as not viewed or blocked. A new independent conceptual schematic may still be used to teach the model, but **must not pretend to reproduce the unseen source plot**.
+
+Preserve inspected source axes, units, symbols, curve labels, timing and comparative-static direction. Distinguish what the image actually shows from a separate economic inference.
+
+### Label generated visuals correctly
+
+- **Original lecture figure:** label the verified source slide or image ID/page and describe only inspected content.
+- **Independent analytical schematic:** state model assumptions and mark it clearly as an independent illustration, not an original figure. Qualitative sketches may be not to scale.
+- **Computed or simulated plot:** use actual generated or verified data and source-linked parameters, and disclose assumptions, numerical method and error information. Never draw arbitrary curves and call them solver output.
+
+Whenever a figure is used, connect its axes or arrows to the nearby equation and an economic implication. Distinguish a shift from movement along a curve and partial from general equilibrium when relevant.
+
+A minimal LaTeX template means **simple formatting**, not a text-only restriction. Load `graphicx`, TikZ or PGFPlots if a useful visual needs them; keep dependencies reproducible inside `Agent Outputs/` with correct relative paths. Only when a new chart adds pedagogical value, rather than decorative variety, should it be created.
 
 ## Homework as a guide to what matters
 
