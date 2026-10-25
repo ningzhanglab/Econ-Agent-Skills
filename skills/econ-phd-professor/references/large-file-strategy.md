@@ -47,7 +47,7 @@ When course files change:
 
 At the end of onboarding, report:
 
-- If the user requested generated files, the verified cloud `outputs/` path and links or a clear cloud-write failure (see [Cloud Drive workflow](cloud-drive-workflow.md)).
+- If the user requested generated files, the verified cloud `Agent Outputs/` path and links or a clear cloud-write failure (see [Cloud Drive workflow](cloud-drive-workflow.md)).
 
 - Files discovered versus successfully indexed/reviewed; only count accessible files.
 - Confirmed instructor sequence and any unresolved order.
