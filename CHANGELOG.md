@@ -8,6 +8,15 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### econ-phd-professor — Add whole-course navigation and large-file handling
+
+- Added syllabus-aware onboarding, separate instructor and prerequisite orders, lecture-level indexing, scoped notation registry and honest DISCOVERED / INDEXED / REVIEWED / BLOCKED coverage.
+- Added bounded ingestion and source-reopening strategy for large courses, PDFs, TeX dependencies and missing graphics.
+- Created private-workspace course map, lecture index and notation templates; expanded manual regression cases for course sequencing, revisions, scale and notation conflicts.
+- No lecture/course data were committed to this public repository.
+- Details: [2026-10-24-professor-course-navigation](logs/2026-10-24-professor-course-navigation.md).
+
+
 ### econ-phd-professor — Manual smoke test on a dynamic-programming lecture
 
 - Tested expert economic interpretation, mathematical reasoning, notation fidelity, borrowing-limit constraints, and appropriate handling of unavailable visual assets.

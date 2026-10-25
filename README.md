@@ -33,14 +33,20 @@ Econ-Agent-Skills/
 │       ├── SKILL.md
 │       ├── agents/openai.yaml
 │       ├── references/
+│       │   ├── course-navigation.md
+│       │   ├── large-file-strategy.md
 │       │   ├── slide-fidelity.md
 │       │   ├── expert-teaching.md
 │       │   ├── mathematical-reasoning.md
 │       │   ├── macroeconomics.md
 │       │   ├── microeconomics.md
 │       │   └── econometrics.md
-│       └── examples/
-│           └── bellman-teaching-example.md
+│       ├── examples/
+│       │   └── bellman-teaching-example.md
+│       └── templates/
+│           ├── course-map.md
+│           ├── lecture-index.md
+│           └── notation-registry.md
 ├── tests/
 │   ├── professor-evaluation.md
 │   └── validate_skills.py
@@ -62,6 +68,22 @@ Econ-Agent-Skills/
 - "Explain this proof from the lecture. Show the missing steps **without changing notation**."
 - "What does this graph imply? Distinguish what the graph directly shows from additional theory."
 - "How does this result relate to a different economic model, and where does the analogy break down?"
+
+## Whole-course workflows and large collections
+
+The Professor can perform an optional **Course Onboarding** step before semester-long tutoring. A course map is **not** a claim to have fully read every file. Start with accessible materials and syllabus; keep the lecturer's sequence and the conceptual prerequisite sequence separate.
+
+1. Inventory only accessible syllabi, lecture PDFs/PPTs/TeX files, linked figures, homework and readings.
+2. Build a provisional [Course Map](skills/econ-phd-professor/templates/course-map.md), then a [Lecture Index](skills/econ-phd-professor/templates/lecture-index.md) for each accessible lecture.
+3. Track each lecture's **own** notation with the [Notation Registry](skills/econ-phd-professor/templates/notation-registry.md). The same letter can mean different things in different lectures.
+4. Mark each item **DISCOVERED**, **INDEXED**, **REVIEWED** (with exact ranges), or **BLOCKED**; disclose missing figures or dependencies and unverified order.
+5. For each question, use the index to locate relevant slides and **reopen the original source** before teaching. Update only affected indexes when new material arrives.
+
+The templates are reusable, but their **completed course-specific copies belong in the student's private Project / Drive / local course folder**. Do not commit private slides or generated course records to this public skill library without explicit authorization and appropriate rights.
+
+Read [Course Navigation](skills/econ-phd-professor/references/course-navigation.md) and [Large-File Strategy](skills/econ-phd-professor/references/large-file-strategy.md). This is a workflow specification, **not** automatic background indexing, permanent storage, host file permission, or a guarantee every PDF/diagram can be processed at once.
+
+**Example onboarding request:** "Use $econ-phd-professor to map this entire Macroeconomics course. Respect syllabus order, infer prerequisite links separately, index accessible lectures, keep each lecture's notation, identify unavailable figures, and report what has actually been reviewed."
 
 ## Learning philosophy
 

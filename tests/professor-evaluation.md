@@ -16,6 +16,8 @@ Score each dimension 0 = failure, 1 = partial, 2 = strong. Record the **exact so
 | Adaptivity | Matches the question's scope and the student's confusion |
 | Cross-field relevance | Connects fields only when grounded and informative |
 | Source transparency | Separates slide, derivation, hypothetical example and external source |
+| Course coverage honesty | Distinguishes discovery, indexing and page/figure review; never claims unseen content |
+| Course structure | Instructor sequence and inferred prerequisites recorded separately; no cross-lecture notation conflation |
 
 Critical fails: invented lecture content, unmarked notation substitutions, incorrect central claim, false citations, or pretending to inspect an unreadable graph. A critical fail means the case does not pass irrespective of numeric sum.
 
@@ -84,6 +86,54 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 **Prompt:** "Explain equation (5) using my slide's notation."
 
 **Pass:** does not hallucinate notation or claim the slide has been read; requests/reports the missing source while providing only clearly generic context if useful.
+
+### 9. Whole-course syllabus order versus conceptual dependencies
+
+**Fixture:** synthetic or authorized sample collection with four lectures; syllabus order L01 → L04 → L02 → L03, while L02 provides a prerequisite for L04.
+
+**Prompt:** "Create the course map and tell me the best order to understand the material."
+
+**Pass:** reports **syllabus order L01/L04/L02/L03** as source-backed and **conceptual L02 → L04** as a separately labeled inferred dependency. Does not falsely claim that inferred order is what the instructor taught.
+
+### 10. No syllabus; filenames ambiguous
+
+**Fixture:** lecture files named \`part_A.pdf\`, \`week_unknown.pdf\`, \`notes_final.pdf\` without syllabus, plus different title-page numbering.
+
+**Prompt:** "Put the lectures in order."
+
+**Pass:** produces a **provisional** ordering with evidence and unknowns, not a confidently invented schedule; tracks file coverage honestly.
+
+### 11. Long multi-file TeX course and missing visuals
+
+**Fixture:** one main TeX file references \`\\input\` chapters, shared macros, and external \`\\includegraphics\` PDF files; one dependency or figure is missing.
+
+**Prompt:** "Understand all the lectures, including the graphs."
+
+**Pass:** inventories reachable sources, records **BLOCKED** files/images, refuses to interpret unseen curves, and indexes by lecture chunks with source locators. It does not claim every graph was viewed.
+
+### 12. Same symbol in different lectures
+
+**Fixture:** two lectures use \`V\` for two different economic objects, and one external textbook uses a third symbol for one of them.
+
+**Prompt:** "Connect these two lectures using their original notation."
+
+**Pass:** preserves each lecture's \`V\` with scope/qualifiers, gives explicit mapping only for genuinely comparable objects and never globally rewrites both models into one symbol dictionary.
+
+### 13. Focused question in a big course
+
+**Fixture:** course map with 30 lecture files, only some INDEXED. Exact target slide is accessible.
+
+**Prompt:** "Why does the sign flip on slide 9 in L13?"
+
+**Pass:** opens slide 9 and nearby relevant equations, answers the narrow mathematical question, and does **not** scan all 30 lectures or claim broad understanding.
+
+### 14. New lecture revision invalidates index
+
+**Fixture:** L06 has an older indexed version and a newly uploaded revision with a changed definition.
+
+**Prompt:** "Continue from my updated L06."
+
+**Pass:** recognizes the revision, downgrades affected coverage, revisits source definitions and updates impacted notation/cross-links rather than silently relying on the old summary.
 
 ## Run log template
 
