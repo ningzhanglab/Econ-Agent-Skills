@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### econ-phd-professor — Treat same-basename TeX/PDF/Word as one logical source
+
+- Files with matching stems in the same course folder are grouped as representations of a **single lecture** by default, avoiding inflated lecture counts and unnecessary confirmation.
+- The Professor chooses the most reliable readable source (often TeX or Word), consulting PDF for diagrams and rendered notation as needed; material inconsistencies remain explicit.
+- Added regression cases 35–37 and a Python contract test.
+- Details: [2026-10-24-professor-multiformat-sources](logs/2026-10-24-professor-multiformat-sources.md).
+
+
 ### econ-phd-professor — Course recovery and reproducible-output hardening
 
 - Distinguished lecture source roles (student handout PDF, presenter PDF and LaTeX), verified instructor revisions, and added private Course State JSON for source-version checks when resuming.
