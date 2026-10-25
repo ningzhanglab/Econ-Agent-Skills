@@ -13,13 +13,16 @@ Do not silently reorder lectures as if the inferred conceptual order is what the
 
 ## Onboarding procedure — inventory first
 
+0. If previous course indexes exist, use [Course State and Source Selection](course-state-and-sources.md) to verify saved IDs and versions before relying on them. Classify slide TeX, student handout PDF, presenter PDF, homework/code and different revisions as different **roles**, not duplicate versions by filename alone.
 1. Enumerate only the files **actually accessible** in the workspace. Record file names, formats, accessible locations and relationships (lecture, syllabus, homework, solution, reading, image, appendix, code).
 2. Inspect the syllabus/table of contents if present. Determine course identifier and dates only from sources; if absent, build a **provisional** sequence using lecture numbers and internal titles, without pretending the order is confirmed.
 3. Draft a compact **course map** using [the course-map template](../templates/course-map.md). Each lecture entry gets a stable local ID, source locator, order evidence, central questions, models and coverage status.
 4. For each lecture that you can access, create a **lightweight lecture index** using [the lecture-index template](../templates/lecture-index.md): sections, slide/page locators, assumptions, definitions, model dependencies and figures. **Do not perform deep commentary on every page during onboarding** unless explicitly requested.
 5. Create a course-scoped **notation registry** from [the notation template](../templates/notation-registry.md) only for symbols actually observed. Scope symbols to lecture and equation/model; same symbol in another lecture does **not** imply same meaning.
 6. Add conceptual links across lectures, but label each as **explicit** (stated by lecturer), **derived** (logically follows from materials), or **provisional** (inferred teaching connection). Note conflicting assumptions or notation.
-7. When homework is accessible, create a grounded **Lecture ↔ Homework** map: assignment number/part → relevant lecture/model/technique; include source locators and distinguish instructor-provided task statements from inferred educational links. Use [Visuals and Homework](visuals-and-homework.md) for selective teaching use. Do not claim to have reviewed inaccessible homework or solutions.
+7. When homework is accessible, create a grounded **Lecture ↔ Homework** map using [the Homework Map template](../templates/homework-map.md) and relevant task parts. The links are source-grounded and may connect several lectures to one assignment; do not treat Homework as an authoritative replacement for lecture slides. To do so, use the existing task descriptors and locate appropriate lecture/model/technique; include source IDs and confidence. The map may be persisted privately in `Agent Outputs/` when requested.
+8. When a persistent course-onboarding output is requested, store a compact [Course State JSON](../templates/course-state.example.json) alongside any user-facing TeX/PDF summaries. This machine-readable checkpoint aids resumed sessions but does not replace the original slides or default human-readable deliverables.
+9. Produce a user-facing overview with what is confirmed, what remains provisional, missing files/figures, and where to begin studying.: assignment number/part → relevant lecture/model/technique; include source locators and distinguish instructor-provided task statements from inferred educational links. Use [Visuals and Homework](visuals-and-homework.md) for selective teaching use. Do not claim to have reviewed inaccessible homework or solutions.
 8. Produce a user-facing overview with what is confirmed, what remains provisional, missing files/figures, and where to begin studying. When requested as files, save completed course maps, lecture indexes and notation registries in the **verified private course workspace's exact `Agent Outputs/` folder** via [Cloud Drive workflow](cloud-drive-workflow.md). Do not save them in this public Skill repository.
 
 ## Progressive verification states
@@ -37,9 +40,9 @@ A lecture can be INDEXED overall while particular pages are REVIEWED. Never mark
 
 For a specific question:
 
-1. Identify relevant lecture and slide(s) using the map and index. If question is ambiguous, use the best grounded scope and state uncertainty; ask a targeted clarification only if essential.
+1. In a new session, first find and verify existing Course State/Map and source versions when available; otherwise begin with accessible course files. Identify relevant lecture and slide(s) using the map and index. If question is ambiguous, use the best grounded scope and state uncertainty; ask a targeted clarification only if essential.
 2. **Reopen original source** at those slide/page locators and inspect neighboring assumptions, definitions and figures. An index or prior summary is a navigation aid, not authoritative proof of an equation.
-3. Load notation scoped to the **current lecture/model**, check whether the intended symbol appears in another lecture with different meaning, and do not silently merge them.
+3. Distinguish TeX source, current handout PDF, presenter PDF and revisions as described in [Course State and Sources](course-state-and-sources.md). Load notation scoped to the **current lecture/model**, check whether the intended symbol appears in another lecture with different meaning, and do not silently merge them.
 4. Open one or two prerequisite lectures or related models only when necessary; distinguish their notation and assumptions explicitly.
 5. Explain at the requested depth; optionally refine indexes as new verified details become available, if workspace write access exists. Otherwise return a short update the user can save.
 6. When new files are added or corrected, revise the map/index for affected material and document invalidated cross-links; do not regenerate everything by default.
