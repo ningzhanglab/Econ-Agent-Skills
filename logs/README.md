@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — Professor: adaptive visuals, Homework connections and minimal TeX/PDF outputs](2026-10-24-professor-visuals-homework-texpdf.md).
+
 - [2026-10-24 — Set exact cloud destination to Agent Outputs](2026-10-24-agent-outputs-convention.md).
 
 - [2026-10-24 — Professor Cloud Drive input and `outputs/` delivery policy](2026-10-24-professor-cloud-outputs.md).
