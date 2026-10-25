@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Fix — TeX asset recursion and safe partial cloud delivery
+
+- Fixed TeX/PDF validation so binary figure assets are copied without attempting UTF-8 decoding, and nested `\\input` dependencies are checked recursively.
+- Added a real figure-bearing LaTeX scratch-compilation regression and fail-closed handling for dynamic `\\graphicspath` / bibliographies.
+- Clarified that a generated file is not saved to Google Drive until a supported file-reference upload is verified; partial `.tex`/`.pdf` uploads are reported as incomplete.
+- Details: [2026-10-24-tex-bundle-and-upload-validation](logs/2026-10-24-tex-bundle-and-upload-validation.md).
+
+
 ### econ-phd-professor — Treat same-basename TeX/PDF/Word as one logical source
 
 - Files with matching stems in the same course folder are grouped as representations of a **single lecture** by default, avoiding inflated lecture counts and unnecessary confirmation.

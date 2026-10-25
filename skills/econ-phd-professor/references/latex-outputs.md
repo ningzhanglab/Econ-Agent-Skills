@@ -25,7 +25,7 @@ A pair of files that uploads successfully may still be **unreproducible** if its
 - Keep figures under a stable relative directory such as `Agent Outputs/figures/` or include self-contained TeX plotting code only when justified. Do **not** rely on absolute temporary paths, unexplained network links or missing TeX macro files.
 - Check the `\input`, `\include` and `\includegraphics` references used in the actual generated TeX. When the user requests downloadable standalone reproducibility, include all required assets in the delivered bundle and use stable relative paths.
 - After uploading, a strong reproducibility check is: re-download the `.tex`, `.pdf` and declared dependencies into a **clean directory**, then compile again there and inspect the rendered PDF.
-- [The bundle checker](../../../scripts/check_tex_bundle.py) provides a **small conservative** local test for literal relative dependencies, a matching PDF and optional scratch compilation. It is **not** a full TeX dependency solver, does not understand all macro expansion or graphicspath rules, and is not evidence that a Google Drive upload succeeded.
+- [The bundle checker](../../../scripts/check_tex_bundle.py) recursively checks literal relative `\input`, `\include`, and `\includegraphics` dependencies (including binary PDF/PNG/JPG assets), matching PDF, and optional scratch compilation. It **rejects** unsupported dynamic bibliography/`\graphicspath` references requiring manual review. It is **not** a general TeX dependency solver or evidence of Google Drive upload success.
 - Verify the resulting PDF visually where possible, especially Greek symbols, subscripts, tables and CJK text; a syntactically valid PDF header is not sufficient.
 
 ### Chinese text smoke test

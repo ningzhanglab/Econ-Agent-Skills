@@ -70,6 +70,91 @@ class CourseContracts(unittest.TestCase):
             file.write_text(r"\input{../secret}", encoding="utf-8")
             self.assertTrue(any("outside" in s for s in bundle.missing_dependencies(file)))
 
+    def test_binary_figure_is_not_decoded_as_utf8(self):
+        # The previous compiler walked every asset as text, failing on binary PDFs.
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            tex = folder / "notes.tex"
+            figures = folder / "figures"
+            figures.mkdir()
+            (figures / "image.pdf").write_bytes(b"%PDF-" + b"\xff" * 2048)
+            tex.write_text(r"\includegraphics{figures/image.pdf}", encoding="utf-8")
+            self.assertEqual(bundle.missing_dependencies(tex), [])
+            errors, dependencies = bundle._resolve_dependencies(tex)
+            self.assertEqual(errors, [])
+            self.assertEqual(len(dependencies), 2)
+
+    def test_nested_input_missing_figure_is_detected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            tex = folder / "notes.tex"
+            chapters = folder / "chapters"
+            chapters.mkdir()
+            tex.write_text(r"\input{chapters/part}", encoding="utf-8")
+            (chapters / "part.tex").write_text(
+                r"\includegraphics{figures/missing}", encoding="utf-8"
+            )
+            errors = bundle.missing_dependencies(tex)
+            self.assertTrue(any("missing includegraphics" in msg for msg in errors), errors)
+
+    def test_nested_asset_relative_to_main_and_external_blocked(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            (folder / "chapters").mkdir()
+            (folder / "figures").mkdir()
+            tex = folder / "notes.tex"
+            tex.write_text(r"\input{chapters/part}", encoding="utf-8")
+            (folder / "chapters/part.tex").write_text(
+                r"\includegraphics{figures/plot.png}", encoding="utf-8"
+            )
+            (folder / "figures/plot.png").write_bytes(b"\x89PNG\r\n\x1a\n" + b"\xff" * 128)
+            problems, files = bundle._resolve_dependencies(tex)
+            self.assertEqual(problems, [])
+            self.assertEqual(len(files), 3)
+            (folder / "chapters/part.tex").write_text(r"\input{../outside}", encoding="utf-8")
+            self.assertTrue(any("outside bundle" in x for x in bundle.missing_dependencies(tex)))
+
+    def test_dynamic_graphicspath_cannot_pass_silently(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tex = Path(tmp) / "notes.tex"
+            tex.write_text(r"\graphicspath{{figures/}}", encoding="utf-8")
+            self.assertTrue(any("unsupported" in x for x in bundle.missing_dependencies(tex)))
+
+    @unittest.skipUnless(shutil.which("latexmk") and shutil.which("pdflatex"),
+                         "TeX engine not available")
+    def test_figure_pdf_and_nested_input_compile_together(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "figures").mkdir()
+            (root / "chapters").mkdir()
+            fig_tex = root / "figures/figure.tex"
+            fig_tex.write_text(
+                r"\documentclass{article}\pagestyle{empty}\begin{document}"
+                r"\rule{2cm}{1cm}\end{document}", encoding="utf-8"
+            )
+            comp = subprocess.run(
+                ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", fig_tex.name],
+                cwd=fig_tex.parent, capture_output=True, text=True, timeout=90,
+            )
+            self.assertEqual(comp.returncode, 0, comp.stdout[-1500:])
+            tex = root / "notes.tex"
+            tex.write_text(
+                "\\documentclass{article}\n"
+                "\\usepackage{graphicx}\n"
+                "\\begin{document}\n"
+                "\\input{chapters/part}\n"
+                "\\end{document}\n", encoding="utf-8"
+            )
+            (root / "chapters/part.tex").write_text(
+                r"\includegraphics[width=2cm]{figures/figure.pdf}", encoding="utf-8"
+            )
+            result = subprocess.run(
+                ["latexmk", "-pdf", "-interaction=nonstopmode", "-halt-on-error", tex.name],
+                cwd=root, capture_output=True, text=True, timeout=120,
+            )
+            self.assertEqual(result.returncode, 0, result.stdout[-1500:])
+            self.assertEqual(bundle.validate(tex, compile_requested=True), [])
+
     def test_no_extra_chart_or_homework_without_source(self):
         doc = (SKILL / "references/visuals-and-homework.md").read_text(encoding="utf-8").lower()
         self.assertIn("only when", doc)
