@@ -9,6 +9,10 @@ Applies to all present and future skills in this repository, including `econ-phd
 - If sources are genuinely at cloud drive root with no course folder, use the verified root `Agent Outputs/`.
 - An ordinary chat explanation is not a request to create a file.
 
+## Professor's default file formats
+
+For `econ-phd-professor`, if the user requests a generated teaching/study file but **does not specify a format**, deliver **both a matched `.tex` source and a compiled `.pdf`**, using a minimal LaTeX article template. Save and independently verify **both** files in the same `Agent Outputs/` folder. An explicit single or alternative format overrides this default. Chat explanations do not create files. See [TeX/PDF Outputs](skills/econ-phd-professor/references/latex-outputs.md).
+
 ## Exact destination workflow
 
 1. Use an exact user-provided folder link/ID when supplied. Otherwise determine course folder through source file parents, syllabus and metadata; do not guess from filenames.
