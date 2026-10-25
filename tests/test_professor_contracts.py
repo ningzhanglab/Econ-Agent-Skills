@@ -80,6 +80,65 @@ class CourseContracts(unittest.TestCase):
         ])
         self.assertTrue(result["logical_documents"][0]["needs_review"])
 
+    def test_visual_first_policy_and_figure_index(self):
+        skill = (SKILL / "SKILL.md").read_text(encoding="utf-8").lower()
+        visual = (SKILL / "references/visuals-and-homework.md").read_text(encoding="utf-8").lower()
+        expert = (SKILL / "references/expert-teaching.md").read_text(encoding="utf-8").lower()
+        index = (SKILL / "templates/figure-index.md").read_text(encoding="utf-8")
+        self.assertIn("visuals as a first-class", skill)
+        self.assertIn("do not wait for prose", skill)
+        self.assertIn("visual-first", visual)
+        self.assertIn("rendered lecture handout pdf", visual)
+        self.assertIn("proactively", expert)
+        self.assertIn("RENDERED_PDF_VISUALLY_REVIEWED", index)
+        self.assertIn("ASSET_LOCATED_NOT_VISUALLY_REVIEWED", index)
+
+    def test_figure_inventory_honestly_tracks_assets_and_nested_tex(self):
+        path = ROOT / "scripts/inventory_tex_figures.py"
+        spec_fig = importlib.util.spec_from_file_location("figure_inventory", path)
+        figure_module = importlib.util.module_from_spec(spec_fig)
+        spec_fig.loader.exec_module(figure_module)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "figures").mkdir()
+            (root / "chapters").mkdir()
+            (root / "figures/policy.pdf").write_bytes(b"%PDF-" + b"\xff" * 1500)
+            main = root / "lecture.tex"
+            main.write_text(
+                "\\section{Savings}\n"
+                "\\includegraphics{figures/policy}\n"
+                "\\input{chapters/methods}\n", encoding="utf-8"
+            )
+            (root / "chapters/methods.tex").write_text(
+                "\\frametitle{Numerical errors}\n"
+                "\\includegraphics{figures/missing}\n"
+                "% \\includegraphics{commented}\n"
+                "\\begin{tikzpicture}\n", encoding="utf-8"
+            )
+            result = figure_module.inventory(main)
+            records = result["figure_references"]
+            self.assertEqual(len(records), 3)
+            self.assertEqual(records[0]["asset_status"], "ASSET_LOCATED_NOT_VISUALLY_REVIEWED")
+            self.assertEqual(records[0]["asset"], "figures/policy.pdf")
+            self.assertEqual(records[1]["asset_status"], "ASSET_NOT_FOUND")
+            self.assertEqual(records[2]["asset_status"], "INLINE_FIGURE_NOT_VISUALLY_REVIEWED")
+            self.assertTrue(all(not x["visually_inspected"] for x in records))
+            self.assertEqual(len(result["source_files"]), 2)
+
+    def test_figure_inventory_blocks_parent_traversal(self):
+        path = ROOT / "scripts/inventory_tex_figures.py"
+        spec_fig = importlib.util.spec_from_file_location("figure_inventory", path)
+        figure_module = importlib.util.module_from_spec(spec_fig)
+        spec_fig.loader.exec_module(figure_module)
+        with tempfile.TemporaryDirectory() as tmp:
+            main = Path(tmp) / "lecture.tex"
+            main.write_text("\\includegraphics{../private/graph}\n", encoding="utf-8")
+            result = figure_module.inventory(main)
+            self.assertEqual(
+                result["figure_references"][0]["asset_status"],
+                "OUTSIDE_SOURCE_FOLDER"
+            )
+
     def test_template_defaults_and_encoding(self):
         latin = (SKILL / "templates/simple-notes.tex").read_text(encoding="utf-8")
         chinese = (SKILL / "templates/simple-notes-cn.tex").read_text(encoding="utf-8")

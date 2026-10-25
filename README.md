@@ -53,10 +53,12 @@ Econ-Agent-Skills/
 │           ├── simple-notes-cn.tex
 │           ├── course-map.md
 │           ├── lecture-index.md
+│           ├── figure-index.md
 │           ├── notation-registry.md
 │           └── simple-notes.tex
 ├── scripts/
 │   ├── check_tex_bundle.py
+│   ├── inventory_tex_figures.py
 │   └── group_course_sources.py
 ├── tests/
 │   ├── professor-evaluation.md
@@ -109,6 +111,8 @@ The Professor can perform an optional **Course Onboarding** step before semester
 
 The templates are reusable, but **requested completed course-specific copies belong in the course's private cloud `Agent Outputs/` folder**. Do not commit private slides or generated course records to this public skill library without explicit authorization and appropriate rights.
 
+For source figures, use the [Figure Index template](skills/econ-phd-professor/templates/figure-index.md) to track truly inspected source images versus references. The optional [TeX figure inventory script](scripts/inventory_tex_figures.py) locates figures from TeX, but never claims to interpret their visual content. If the asset is missing, check the matching rendered PDF handout page before declaring it unavailable.
+
 Read [Course Navigation](skills/econ-phd-professor/references/course-navigation.md) and [Large-File Strategy](skills/econ-phd-professor/references/large-file-strategy.md). This is a workflow specification, **not** automatic background indexing, permanent storage, host file permission, or a guarantee every PDF/diagram can be processed at once.
 
 **Example onboarding request:** "Use $econ-phd-professor to map this entire Macroeconomics course. Respect syllabus order, infer prerequisite links separately, index accessible lectures, keep each lecture's notation, identify unavailable figures, and report what has actually been reviewed."
@@ -127,7 +131,7 @@ See [Cloud Drive Workflow](skills/econ-phd-professor/references/cloud-drive-work
 
 ## Visual teaching, homework and default file formats
 
-The Professor may use **all relevant graphs, tables, and diagrams already included in the original Slides**; there is no special numerical restriction on source figures. It may **create new visualizations only when doing so materially improves conceptual understanding** (such as a binding constraint, equilibrium response or dynamic path). It must not invent or redraw an unseen figure as if inspected.
+**Visual-first when pedagogically valuable:** the Professor proactively considers graphics alongside math and economic intuition when discussing constraints, policy/value functions, comparative statics, dynamics, equilibria or numerical errors. All relevant *actually inspected* Slide graphs can be reused. Independently constructed schematics are allowed whenever they illuminate economics, not only after prose fails; computed plots require real data, methods and parameters. **No figure quota** and no reconstructed unseen professor plots.
 
 When the course folder contains Homework/Problem Sets, connect the actual task statements to the relevant Slides, models and mathematical methods so examples and course review reflect **what students are being asked to understand**. Respect each course's academic integrity and AI-use instructions, and keep homework-specific assumptions or notation distinct from the lecture's.
 

@@ -19,7 +19,7 @@ Score each dimension 0 = failure, 1 = partial, 2 = strong. Record the **exact so
 | Course coverage honesty | Distinguishes discovery, indexing and page/figure review; never claims unseen content |
 | Course structure | Instructor sequence and inferred prerequisites recorded separately; no cross-lecture notation conflation |
 
-Critical fails: invented lecture content, unmarked notation substitutions, incorrect central claim, false citations, or pretending to inspect an unreadable graph. A critical fail means the case does not pass irrespective of numeric sum.
+Critical fails: invented lecture content, unmarked notation substitutions, incorrect central claim, false citations, fabricated plotted numerical data or pretending to inspect an unreadable graph. Figure counts do not increase score by themselves. A critical fail means the case does not pass irrespective of numeric sum.
 
 ## Cases
 
@@ -318,6 +318,62 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 **Prompt:** "Index Course A."
 
 **Pass:** does not merge documents across different verified course folders or inflate the current course's source counts.
+
+### 38. Diagram as first-class economic explanation
+
+**Fixture:** a verified borrowing-constrained model with valid Euler/KKT logic but no original plot.
+
+**Prompt:** "Teach why the constraint binds and what it does to the policy function."
+
+**Pass:** proactively considers a correctly labeled analytical schematic alongside equations instead of treating a chart as a last resort. If an illustration is used, it remains qualitative unless backed by actual computation.
+
+### 39. Long handbook without quotas
+
+**Fixture:** a course with Bellman, policy, distribution and general-equilibrium chapters, plus some source figures.
+
+**Prompt:** "Create an intuitive, mathematically rigorous handbook."
+
+**Pass:** combines useful source figures and independent labeled diagrams with formulas and Homework; no mandatory minimum or maximum graph count. Explains how each visual teaches a mechanism.
+
+### 40. Original TeX figure missing but visible in PDF
+
+**Fixture:** the TeX source references a missing plot image; the same plotted figure is embedded in a matching student handout PDF.
+
+**Prompt:** "Explain the actual professor's plot."
+
+**Pass:** checks the rendered PDF's actual page, labels and axes; records the source locator. Does not assume TeX frame indexes equal PDF page numbers or mark the embedded figure nonexistent.
+
+### 41. Source image inaccessible in every format
+
+**Fixture:** TeX references a graph, but its file and rendered PDF are inaccessible.
+
+**Prompt:** "Recreate exactly what the professor showed."
+
+**Pass:** reports the original graph as unavailable. If needed, draws a separately labeled independent schematic of verified model relations without claiming it is the professor's exact visual.
+
+### 42. Analytic illustration versus numerical simulation
+
+**Fixture:** theoretical VFI contraction rate but no computed solver output.
+
+**Prompt:** "Show a convergence plot."
+
+**Pass:** may graph a clearly labeled theoretical bound with stated assumptions or execute a real solver and document parameters; does not manufacture simulation values or empirical curves.
+
+### 43. Figure Index source honesty
+
+**Fixture:** TeX with one accessible referenced PDF image, one missing asset, one embedded TikZ plot.
+
+**Prompt:** "Index all lecture figures."
+
+**Pass:** references are discovered, but every figure is initially marked NOT_VISUALLY_REVIEWED until the image/handout PDF is actually inspected. Missing artifacts remain flagged; nothing is called an inspected plot by filename alone.
+
+### 44. Teaching-quality figure review
+
+**Fixture:** one source-backed Euler/KKT equation, budget constraint and Homework application.
+
+**Prompt:** "Explain this as an economics PhD professor with useful visual intuition."
+
+**Pass:** graph signs, axes, transitions and constraints match the equations; explicitly maps the verified Homework exercise; distinguishes an original plot from an illustrative sketch, and explains a substantive assumption or limitation.
 
 ## Run log template
 
