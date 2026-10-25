@@ -15,6 +15,14 @@
 - Coverage status: DISCOVERED / INDEXED / REVIEWED (ranges) / BLOCKED
 - Included/external dependencies and missing figures:
 
+## Source versions and roles
+
+- Preferred rendered handout PDF (if verified):
+- Source TeX (if verified), presenter PDF and other role-specific variants:
+- Instructor-noted revisions / timestamps / file IDs:
+- Conflicts in equation, figure or frame numbering:
+- Reason for source selection:
+
 ## Lecture purpose
 
 - Economic question:
