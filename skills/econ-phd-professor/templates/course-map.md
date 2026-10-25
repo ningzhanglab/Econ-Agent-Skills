@@ -37,6 +37,24 @@ If the lecturer intentionally introduces a result before its mathematical tools,
 | --- | --- | --- | --- | --- |
 | [Name] | [Lxx] | [Why this model?] | [Source-linked] | [Related topic] |
 
+## Lecture ↔ Homework alignment
+
+This section is based on **verified assignment files**, not merely schedule guesses. Use a separate [Homework Map template](homework-map.md) when the course has many exercises.
+
+| Homework & part | Source locator | Related lecture / slide locator | Model and economic question | Method or conceptual skill | Confidence |
+| --- | --- | --- | --- | --- | --- |
+| [PS1(a)] | [verified file ID/page] | [L05, original frame/page] | [household problem] | [Bellman / VFI] | explicit / derived / provisional |
+
+Record which assignments were only discovered, indexed, actually reviewed or unavailable; don't invent tasks, part numbers or a solution key.
+
+## Source role/version decisions
+
+- Current handout PDFs and presenter PDFs:
+- Corresponding original TeX source IDs / revisions:
+- Explicit instructor revision notices:
+- Unresolved equation, chart or pagination differences:
+- Last source check and saved [Course State](course-state.example.json):
+
 ## Notation and conflicts
 
 - Course-specific registry: [path to private notation-registry.md]
