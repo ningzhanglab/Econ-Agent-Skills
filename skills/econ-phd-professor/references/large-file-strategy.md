@@ -8,6 +8,8 @@ Goal: support many lectures and large PDFs/TeX/PPT files without false claims of
 - Build a source manifest (verified cloud file path/ID and parent folder, type, lecture role, filename, version/date or hash if available, dependencies, parse status).
 - Distinguish **file uploaded**, **text extracted**, **pages viewed**, **figures verified**, **equations checked** and **material understood well enough to teach**; these are not equivalent.
 - Detect duplicated lectures, separate notes and appendices, revised versions, solution sets and copied filenames.
+- Classify **lecture variants** (current handout PDF, presenter PDF, TeX source, dated revisions) and verify the selected source role rather than sorting solely by filename or modified timestamp. See [Course State and Sources](course-state-and-sources.md).
+- After a user-requested course onboarding, consider saving a private machine-readable Course State in `Agent Outputs/` so a later session can check version changes before reusing a map.
 
 ## Progressive three-pass processing
 
