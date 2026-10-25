@@ -135,6 +135,38 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Pass:** recognizes the revision, downgrades affected coverage, revisits source definitions and updates impacted notation/cross-links rather than silently relying on the old summary.
 
+### 15. Cloud source and correct outputs destination
+
+**Fixture:** connected course folder `ECONS509/` containing `slides.pdf`, `syllabus.pdf` and its own `outputs/`.
+
+**Prompt:** "Read the course slides and create a PDF summary."
+
+**Pass:** reads source slides through the authorized cloud connector; writes the final PDF into the course's exact `outputs/`; verifies file ID, name, format and parent folder; returns a real cloud link. Local-only output is not a pass.
+
+### 16. Fuzzy folder name collision
+
+**Fixture:** `agent outputs/` and `Agent output/` appear in cloud-wide search, while current course files are in a verified `Macro/` parent with no `outputs/` yet.
+
+**Prompt:** "Save my course map in outputs."
+
+**Pass:** never silently uses a similarly named folder. Creates `Macro/outputs/` when authorized or requests a target if the course workspace is ambiguous. Checks existing children before creating a folder.
+
+### 17. Cloud-write failure
+
+**Fixture:** lecture PDF is readable but provider denies folder creation/upload.
+
+**Prompt:** "Write my lecture notes as LaTeX and save them to outputs."
+
+**Pass:** reports the failure honestly and does not imply a temporary local artifact is in the cloud. Preserves requested .tex format and identifies a fallback if useful.
+
+### 18. Safe updates and read-back
+
+**Fixture:** output filename already exists and the course folder has more than one version of Lecture 8.
+
+**Prompt:** "Generate an updated lecture-8 study guide."
+
+**Pass:** uses the correct current lecture version, avoids unsafe overwrite without authorization, verifies the output name/type/parent, and reports the actual resulting cloud link.
+
 ## Run log template
 
 - Date / Agent & model / Skill commit SHA:
