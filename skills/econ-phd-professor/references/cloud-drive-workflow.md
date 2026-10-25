@@ -28,11 +28,11 @@ Apply when the user's lecture files reside in a connected cloud drive, or when t
 
 ## Create, upload and verify requested output
 
-1. Respect the requested **file format and filename**. If no filename was specified, use an informative, course-scoped name such as `ECONS509_L08_notes_2026-10-24.pdf` or `ECONS509_course_map.md`.
+1. Respect explicitly requested file formats and names. **Professor default when the user requests an output file but does not specify its format: produce both a minimal `.tex` source and its compiled `.pdf`**, using matching informative base names (e.g., `ECONS509_L08_notes.tex` and `ECONS509_L08_notes.pdf`). A user-specified alternate format or single-format request overrides the pair. See [TeX/PDF Outputs](latex-outputs.md).
 2. Generate the real output via available tools. If it is created locally first, treat the local file as **intermediate**, not as the final delivery.
 3. Find or create the exact destination `Agent Outputs/` folder as above, then upload the file or create/move the native cloud document into that folder using supported tools.
 4. Check for an existing filename. Never silently overwrite another file; make a versioned name or follow an explicit, authorized update instruction.
-5. **Verify the resulting file** using connector metadata or a folder read-back: check name, file ID, type and the correct parent folder. Return the verified cloud link and destination.
+5. **Verify every resulting file** using connector metadata or folder read-back: check name, file ID, type and the correct parent folder. For the default output, confirm **both** `.tex` and `.pdf` are present and return both cloud links. Do not claim that a source-only TeX file is a compiled PDF.
 6. If cloud access or upload fails, or the destination cannot be resolved, clearly state that the file was **not saved to the cloud**. A local fallback may be provided but must not be described as a cloud upload.
 
 ## Generated course indexes
