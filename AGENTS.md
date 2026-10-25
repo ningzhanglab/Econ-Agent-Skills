@@ -4,10 +4,12 @@ These are repository-maintenance instructions, not the runtime instructions of a
 
 ## Work scope
 
+- Follow the repository-wide [Storage Policy](STORAGE_POLICY.md): user-requested files go into the verified current cloud course's exact `Agent Outputs/` folder unless the user names another destination. Never publish course artifacts in this Skill repo.
+
 - Keep each Skill independently usable. The portable entry point is `skills/<skill-name>/SKILL.md`.
 - Read the target Skill and its relevant reference files before changing behavior.
 - Preserve the core `econ-phd-professor` guarantee: explanations based on a lecture must use the lecture's exact notation and distinguish slide facts from supplementary economics knowledge.
-- Preserve the cloud storage convention: source course files belong in the user's authorized cloud drive; any requested generated files must be placed in the verified course workspace's exact `outputs/` folder and verified after writing. Never put private course outputs into this public repository.
+- Preserve the cloud storage convention: source course files belong in the user's authorized cloud drive; any requested generated files must be placed in the verified course workspace's exact `Agent Outputs/` folder and verified after writing. Never put private course outputs into this public repository.
 - Do not present `econ-research-agent` as implemented until it has actually been created and tested.
 - Make focused changes. Do not rewrite unrelated skills or overwrite past logs.
 
