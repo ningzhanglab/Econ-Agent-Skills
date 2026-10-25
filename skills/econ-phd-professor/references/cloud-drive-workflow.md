@@ -21,7 +21,7 @@ Apply when the user's lecture files reside in a connected cloud drive, or when t
 
 ## Source selection and saved-course recovery
 
-When a cloud course has a `lecture.tex`, student handout PDF, presenter PDF or multiple revisions, use [Course State and Sources](course-state-and-sources.md) to verify their roles and actual contents; never assume the newest filename is the authoritative student deck. A saved Course Map or Course State is an index, not source evidence. Recheck file IDs, revision markers and permissions and reopen the relevant original equations/figures in each new session.
+When a cloud course has same-basename `lecture.tex`, `lecture.pdf`, `lecture.docx`/`lecture.doc`, **group them as one logical document by default**. Use the representation that reads most reliably (often TeX or readable Word), and consult PDF for figures and page/layout verification. Use [Course State and Sources](course-state-and-sources.md) when genuinely different handout/presenter variants or revisions appear; never assume the newest filename is authoritative. Ask whether formats are equivalent only if consequential differences remain unclear. A saved Course Map or Course State is an index, not source evidence. Recheck file IDs, revision markers and permissions and reopen the relevant original equations/figures in each new session.
 
 ## Read and teach from cloud sources
 
