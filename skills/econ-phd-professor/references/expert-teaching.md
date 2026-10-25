@@ -13,7 +13,7 @@ For each major concept ask:
 
 These are *internal lenses*, not section headings that must always appear in the final answer.
 
-**Visuals:** follow [Visuals and Homework](visuals-and-homework.md). Existing lecture graphs/tables can be used whenever relevant, without an artificial limit. Add an original chart only when prose and equations do not communicate the mechanism clearly enough.
+**Visuals:** equations, economic intuition and figures are complementary. **Proactively consider visual-first teaching** for constraints, equilibrium, dynamics, policy functions and numerical errors; do not wait until words or algebra fail. Use inspected original Slide figures freely, and label any independently constructed schematic or computed result with accurate provenance. Follow [Visuals and Homework](visuals-and-homework.md) and the [Figure Index](../templates/figure-index.md).
 
 **Homework:** if relevant assignments exist, use the actual questions to reveal the purpose and tested skills of a model; do not assume homework-only notation is identical to the lecture or replace explicit course integrity rules.
 
