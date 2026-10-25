@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check a TeX/PDF deliverable copied from cloud Agent Outputs.
+r"""Check a TeX/PDF deliverable copied from cloud Agent Outputs.
 
 - Verify every simple relative \input, \include and \includegraphics dependency.
 - Reject references outside the bundle: a PDF is not sufficient if .tex cannot
