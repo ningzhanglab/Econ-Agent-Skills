@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### econ-phd-professor — Manual smoke test on a dynamic-programming lecture
+
+- Tested expert economic interpretation, mathematical reasoning, notation fidelity, borrowing-limit constraints, and appropriate handling of unavailable visual assets.
+- Sample explanations passed **self-review**, but this was not an independently evaluated or installed-host Skill run; six linked PDF figures were missing.
+- No teaching instructions changed. Detailed limitations and future tests are recorded.
+- Details: [2026-10-24-professor-dldp-smoke-test](logs/2026-10-24-professor-dldp-smoke-test.md).
+
+
 ### Repository maintenance — Add change logging
 
 - Added repository-level agent instructions for documenting meaningful changes.
