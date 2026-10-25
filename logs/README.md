@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — ECONS 509 DSDP + PS1 visual-enhanced handbook real-cloud test](2026-10-24-econs509-dsdp-ps1-visual-enhanced-e2e.md).
+
 - [2026-10-24 — Visual-first Professor teaching, source Figure Index and regression tests](2026-10-24-professor-visual-first-figure-index.md).
 
 - [2026-10-24 — DSDP + PS1 step-by-step teaching and cloud delivery](2026-10-24-professor-dsdp-ps1-lecture-handbook.md).

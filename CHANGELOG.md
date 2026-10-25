@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Real-course visual-first test — ECONS 509 DSDP + PS1
+
+- Produced a separately versioned **18-page** Visual-Enhanced Volume III, versus the prior 15-page text/math-only version, with five embedded vector diagrams explaining borrowing constraints, VFI bounds, policy transitions, Howard, and solution-accuracy layers.
+- Retrieved and inspected the original 50-page DSDP handout; used **independent labeled teaching schematics** rather than claiming they appeared in the instructor deck or fabricating PS1 solver data.
+- Verified both TeX/PDF files in private `Agent Outputs/`; cloud SHA-256 matched local files, and downloaded TeX compiled cleanly into an 18-page PDF with identical extracted text.
+- Details: [2026-10-24-econs509-dsdp-ps1-visual-enhanced-e2e](logs/2026-10-24-econs509-dsdp-ps1-visual-enhanced-e2e.md).
+
+
 ### Professor — Visual-first teaching, Figure Index and test expansion
 
 - Replaced new-image-as-last-resort wording with proactive visual teaching alongside exact mathematics; no arbitrary figure quotas.
