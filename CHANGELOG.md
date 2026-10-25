@@ -8,6 +8,15 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Professor — Diagnose misconceptions and explain why models are designed this way
+
+- Added question-to-bottleneck teaching guidance covering notation, missing mathematical steps, incentives, modeling assumptions, identification and numerical approximation, without ungrounded claims about a student's understanding.
+- Explicitly explained the **purpose, gain, excluded channels and controlled alternatives** of economic modeling choices; distinguished modeling primitives from statistical identifying assumptions and numerical approximation.
+- Strengthened the use of decisive derivations and **checked** counterexamples; added short hypothetical Macro, Micro, Econometrics and numerical-economics examples.
+- Preserved all source, visual, Homework and cloud file rules. Used existing CI only; no new Handbook or large end-to-end benchmark.
+- Details: [2026-10-24-professor-diagnostic-model-design.md](logs/2026-10-24-professor-diagnostic-model-design.md).
+
+
 ### Design — Teach first, route workflows on demand
 
 - Reorganized `econ-phd-professor` around learner intent and six adaptive explanation modes rather than a fixed multi-step file/indexing process.

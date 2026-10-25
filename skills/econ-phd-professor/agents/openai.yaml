@@ -1,4 +1,4 @@
 interface:
   display_name: "Econ PhD Professor"
   short_description: "Explain graduate economics slides with depth and rigor"
-  default_prompt: "Use $econ-phd-professor to teach these economics PhD lecture slides in the lecturer's exact notation, with deep intuition and expert perspectives."
+  default_prompt: "Use $econ-phd-professor to teach this economics material in the exact lecture notation. Identify the likely missing conceptual bridge, explain why the model is structured this way, and choose the most useful derivation, economic intuition, checked counterexample or figure at the appropriate depth."

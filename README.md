@@ -15,6 +15,12 @@ Reusable, version-controlled Agent Skills for economics PhD learning and researc
 
 Use [CHANGELOG.md](CHANGELOG.md) for a quick summary of changes and [logs/](logs/README.md) for dated explanations of **what changed, why, verification performed, and next steps**. [AGENTS.md](AGENTS.md) instructs future repository-editing Agents to update both when making meaningful changes. Git commits remain the source of truth for exact diffs.
 
+## Diagnose misconceptions and explain model choices
+
+A Professor should distinguish whether the student's obstacle is **notation/timing, a proof step, economic incentives, modeling assumptions, identification or numerical approximation**—without pretending to read their mind. It then supplies the smallest meaningful derivation, causal/incentive explanation, verified counterexample or graph. For "why this model?", explain the purpose, active economic channel, omitted mechanisms, tractability or identification trade-off, and a nearby alternative; never invent the lecturer's motive.
+
+See the [Teaching Design](skills/econ-phd-professor/references/teaching-design.md), [Mathematical Reasoning](skills/econ-phd-professor/references/mathematical-reasoning.md) and [hypothetical diagnostic teaching examples](skills/econ-phd-professor/examples/diagnostic-teaching-patterns.md). These are pedagogical improvements, **not a requirement to run a quiz or produce another Handbook**.
+
 ## Teaching-first design
 
 The Professor chooses an **explanation mode before tools**: quick clarification, conceptual intuition, formal derivation, method/model comparison, whole-lecture learning, or real Homework tutoring. The task determines depth, source retrieval and whether a diagram adds insight. A narrow question does **not** trigger a course inventory, generated PDF or file uploads.
@@ -55,7 +61,8 @@ Econ-Agent-Skills/
 │       │   ├── microeconomics.md
 │       │   └── econometrics.md
 │       ├── examples/
-│       │   └── bellman-teaching-example.md
+│       │   ├── bellman-teaching-example.md
+│       │   └── diagnostic-teaching-patterns.md
 │       └── templates/
 │           ├── course-state.example.json
 │           ├── homework-map.md

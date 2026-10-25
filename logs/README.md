@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — Professor bottleneck diagnosis and model-design reasoning](2026-10-24-professor-diagnostic-model-design.md).
+
 - [2026-10-24 — Professor teaching-first architecture and proportional evaluation](2026-10-24-professor-teaching-first-design.md).
 
 - [2026-10-24 — ECONS 509 DSDP + PS1 visual-enhanced handbook real-cloud test](2026-10-24-econs509-dsdp-ps1-visual-enhanced-e2e.md).
