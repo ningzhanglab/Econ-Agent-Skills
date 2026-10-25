@@ -82,7 +82,9 @@ Econ-Agent-Skills/
 
 ## Tested workflow improvements: version selection and course recovery
 
-A course with TeX files, a handout PDF, a presenter PDF and older revisions **does not have one interchangeable "lecture file"**. The Professor now distinguishes source roles, explicitly instructor-designated revisions, rendered student-visible figures and TeX symbol definitions. See [Course State and Sources](skills/econ-phd-professor/references/course-state-and-sources.md).
+**Same-basename `.tex`, PDF and Word files in the same verified course folder are treated as one logical lecture by default.** The Professor chooses the most reliable readable representation—often TeX or Word—and consults PDF when diagrams, page layout or visible symbols require it. It does not ask whether they are the same document unless a meaningful discrepancy cannot be resolved.
+
+A course may also contain presenter-only views, handout variants and genuine old revisions: these are distinguished by actual content, instructor context and explicit revision markers, **not merely by file extension**. The Professor now distinguishes source roles, explicitly instructor-designated revisions, rendered student-visible figures and TeX symbol definitions. See [Course State and Sources](skills/econ-phd-professor/references/course-state-and-sources.md).
 
 For a requested whole-course onboarding output, create a source-backed Course Map, [Lecture ↔ Homework Map](skills/econ-phd-professor/templates/homework-map.md), and a private machine-readable [Course State example](skills/econ-phd-professor/templates/course-state.example.json) for future sessions. The state is an index/checkpoint, not permanent model memory; all resumed explanations must reopen relevant original slides and verify revisions. JSON is supplemental internal metadata; normal user-facing document requests still default to both TeX and PDF.
 
