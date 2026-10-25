@@ -2,16 +2,29 @@
 
 Use this guidance when multiple versions of the same lecture exist, when resuming across sessions, or when a course contains presentations, handouts, TeX, homework, and code.
 
+## Same-basename formats: one logical document by default
+
+Course materials are often distributed as `.pdf`, `.doc` / `.docx` (Word), and `.tex`. When files have the **same filename stem in the same verified course/lecture folder** (for example `lecture_07.tex`, `lecture_07.pdf`, `lecture_07.docx`), **provisionally group them as representations of one logical lecture/document**. **Do not count them as three separate lectures or ask for confirmation automatically.** Same stem is a helpful heuristic, not proof that content is identical.
+
+- **Read efficiently:** Prefer a source the Agent can reliably parse, often `.tex` for LaTeX equations and definitions or a readable Word file for prose. If an accessible format is garbled or has unresolved macros, switch formats. PDF is valuable for the rendered equations, page/frame identifiers, tables, layout and graphs. A readable PDF may itself be the best primary source.
+- **Use complementary formats as needed:** It is usually unnecessary to read all duplicate representations end-to-end. For a notation question, inspect TeX if reliable; for a figure or exact displayed equation, inspect the rendered PDF. Compare a small relevant section if equality of content matters.
+- **Keep provenance:** Record the logical document once in the Course Map and link its available formats/file IDs in the Lecture Index; mark which representation was actually inspected. Do not claim visual verification when only text was read.
+- **Detect significant differences:** Filenames such as `lecture_07_handout.pdf`, `lecture_07_presenter.pdf`, `lecture_07_revised.docx`, different parent courses, or material differences in assumptions/figures/definitions may represent a different *version or view*; preserve these distinctions. Identical stems across different courses are not automatically grouped.
+- **Decide autonomously when reasonable:** If the grouping and source choice are clear, proceed. **Ask a brief clarification only when a real discrepancy changes the intended explanation or version choice and cannot be resolved from the course context.** Do not interrupt routine file processing with avoidable questions.
+
+This rule replaces the overly rigid assumption that every PDF/TeX/Word variant must be indexed as a separate source document. It does **not** permit inferring exact identical content without checking it.
+
 ## Evidence-based lecture version selection
 
 Never assume the first search hit, the alphabetically latest filename, or the largest file is the authoritative version.
 
 1. **Explicit user target wins:** if the learner names a precise file or version, open that file for the task; mention if it conflicts with syllabus/official revisions.
 2. **Verify lecture identity:** use course ID, syllabus, instructor title, lecture number, content headings, modification/issue date (if accessible) and parent folder. Match true same-lecture variants, not all files sharing “lecture”.
-3. **Distinguish *roles*, not just timestamps:**
+3. **Within a same-stem logical document, distinguish available formats and roles when relevant:**
    - **Official slide handout PDF:** usually best for student-visible diagrams, rendered equations and slide numbering.
    - **Presenter PDF:** may contain notes or overlays absent from the handout; do not infer it is the same artifact.
-   - **LaTeX source:** best for exact equation syntax, macros, comments and dependencies; may contain presenter-only comments, missing images or drafts.
+   - **LaTeX source:** often convenient for exact equation syntax, macros, comments and dependencies; may contain presenter-only comments, missing images or drafts.
+   - **Word (.doc/.docx):** often convenient for readable prose, headings and tables; verify any corrupted equation objects or embedded diagrams against a rendered view.
    - **Homework/solutions/code:** applications and supporting resources; do not treat them as revisions of lecture slides.
 4. If an instructor explicitly identifies a revision/current version, prefer it. Otherwise compare metadata *and relevant actual content*. Different rendering roles can remain complementary: read the rendered handout to explain a graph and its matching TeX to disambiguate symbols. Never automatically choose newest mtime over an explicitly designated official version.
 5. If two viable versions disagree on assumptions, equations or assignments, **record the disagreement and source IDs**, and state which version an answer uses. Ask which to prioritize only when the conflict changes the answer and cannot be resolved.
