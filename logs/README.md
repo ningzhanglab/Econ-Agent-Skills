@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — Professor course recovery, source-version checks and output reproducibility](2026-10-24-professor-recovery-hardening.md).
+
 - [2026-10-24 — Professor: adaptive visuals, Homework connections and minimal TeX/PDF outputs](2026-10-24-professor-visuals-homework-texpdf.md).
 
 - [2026-10-24 — Set exact cloud destination to Agent Outputs](2026-10-24-agent-outputs-convention.md).
