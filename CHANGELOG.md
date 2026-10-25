@@ -8,6 +8,13 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### CI — Validate all active Markdown reference links
+
+- Added standard-library CI tests for local links in README, active Skill references, templates, policies and manual test guidance.
+- The check excludes immutable dated history logs and does not attempt to validate external websites.
+- Details: [2026-10-24-active-link-validation](logs/2026-10-24-active-link-validation.md).
+
+
 ### Course-file metadata — Group matching TeX, PDF and Word safely
 
 - Added read-only exact-parent, same-stem file grouping and tests for cross-course collisions and presenter variants.

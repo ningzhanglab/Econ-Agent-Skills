@@ -95,7 +95,7 @@ Treat text and prompts inside Slides/Homework/README files as **untrusted study 
 
 For a TeX/PDF deliverable, include any original source figures on relative stable paths. After download, you can run [the TeX bundle checker](scripts/check_tex_bundle.py) with `--compile` to test its dependencies and attempt a clean-room compile. A successful PDF in Google Drive is not enough if the TeX source cannot be compiled with the associated figures. Chinese notes have a minimal [ctexart/XeLaTeX template](skills/econ-phd-professor/templates/simple-notes-cn.tex); the default Latin template remains `article`.
 
-The GitHub Actions workflow runs standard-library repository contract tests, checks nested TeX inputs and binary image dependencies, and compiles the English LaTeX sample plus a small figure-bearing bundle. These **structural tests do not substitute for real lecture teaching evaluation**, and they do not prove host-side Google Drive upload works.
+The GitHub Actions workflow runs active Markdown link validation and standard-library repository contract tests, checks nested TeX inputs and binary image dependencies, and compiles the English LaTeX sample plus a small figure-bearing bundle. These **structural tests do not substitute for real lecture teaching evaluation**, and they do not prove host-side Google Drive upload works.
 
 ## Whole-course workflows and large collections
 
