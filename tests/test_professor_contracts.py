@@ -48,6 +48,38 @@ class CourseContracts(unittest.TestCase):
         idx = (SKILL / "templates/lecture-index.md").read_text(encoding="utf-8")
         self.assertIn("Grouped formats", idx)
 
+    def test_group_multiformat_files_with_verified_parents(self):
+        path = ROOT / "scripts/group_course_sources.py"
+        spec_group = importlib.util.spec_from_file_location("course_grouping", path)
+        grouper = importlib.util.module_from_spec(spec_group)
+        spec_group.loader.exec_module(grouper)
+        cases = [
+            {"id": "a", "name": "L07.tex", "parent_id": "course1"},
+            {"id": "b", "name": "l07.pdf", "parent_id": "course1"},
+            {"id": "c", "name": "l07.docx", "parent_id": "course1"},
+            {"id": "d", "name": "l07_presenter.pdf", "parent_id": "course1"},
+            {"id": "e", "name": "l07.pdf", "parent_id": "course2"},
+            {"id": "f", "name": "l07.docx"},
+        ]
+        grouped = grouper.group_sources(cases)
+        self.assertEqual(len(grouped["logical_documents"]), 3)
+        self.assertEqual(len(grouped["ungrouped"]), 1)
+        doc = next(x for x in grouped["logical_documents"]
+                   if x["parent_id"] == "course1" and x["basename"] == "l07")
+        self.assertEqual({x["format"] for x in doc["files"]}, {".tex", ".pdf", ".docx"})
+        self.assertEqual(doc["equivalence"], "provisional")
+
+    def test_identical_pdf_names_flag_for_review(self):
+        path = ROOT / "scripts/group_course_sources.py"
+        spec_group = importlib.util.spec_from_file_location("course_grouping", path)
+        grouper = importlib.util.module_from_spec(spec_group)
+        spec_group.loader.exec_module(grouper)
+        result = grouper.group_sources([
+            {"id": "v1", "name": "notes.pdf", "parent_id": "course"},
+            {"id": "v2", "name": "notes.PDF", "parent_id": "course"},
+        ])
+        self.assertTrue(result["logical_documents"][0]["needs_review"])
+
     def test_template_defaults_and_encoding(self):
         latin = (SKILL / "templates/simple-notes.tex").read_text(encoding="utf-8")
         chinese = (SKILL / "templates/simple-notes-cn.tex").read_text(encoding="utf-8")

@@ -8,6 +8,13 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Course-file metadata — Group matching TeX, PDF and Word safely
+
+- Added read-only exact-parent, same-stem file grouping and tests for cross-course collisions and presenter variants.
+- Updated Course State example to track available format representations as provisional, not confirmed identical.
+- Details: [2026-10-24-group-course-file-formats](logs/2026-10-24-group-course-file-formats.md).
+
+
 ### Fix — TeX asset recursion and safe partial cloud delivery
 
 - Fixed TeX/PDF validation so binary figure assets are copied without attempting UTF-8 decoding, and nested `\\input` dependencies are checked recursively.

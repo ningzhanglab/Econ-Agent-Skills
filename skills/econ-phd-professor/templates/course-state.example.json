@@ -33,7 +33,24 @@
         "missing_assets": []
       },
       "notation_conflicts": [],
-      "homework_links": []
+      "homework_links": [],
+      "representations": [
+        {
+          "file_id": null,
+          "filename": "L01.tex",
+          "format": ".tex",
+          "role": "source_tex",
+          "inspected": false
+        },
+        {
+          "file_id": null,
+          "filename": "L01.pdf",
+          "format": ".pdf",
+          "role": "student_handout",
+          "inspected": false
+        }
+      ],
+      "equivalence_status": "provisional"
     }
   ],
   "unresolved_conflicts": [],

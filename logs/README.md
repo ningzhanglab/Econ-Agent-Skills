@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — Group same-name TeX, PDF and Word files safely](2026-10-24-group-course-file-formats.md).
+
 - [2026-10-24 — Fix nested TeX and binary figure validation; partial cloud uploads](2026-10-24-tex-bundle-and-upload-validation.md).
 
 - [2026-10-24 — Same-basename PDF, Word and TeX lecture grouping](2026-10-24-professor-multiformat-sources.md).
