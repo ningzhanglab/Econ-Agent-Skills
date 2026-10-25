@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-24
 
+### Test — ECONS 509 end-to-end whole-course handbook
+
+- Built a 22-page Chinese course handbook from eight real Lecture TeX sources, the Syllabus and PS1--PS3; compiled XeLaTeX into PDF.
+- Verified both TeX and PDF uploads into the correct course `Agent Outputs/`, round-trip SHA-256 equality and clean-directory TeX recompilation.
+- Source figure inspection and independent pedagogical blind grading remain outside the test.
+- Details: [2026-10-24-professor-econs509-handbook-e2e](logs/2026-10-24-professor-econs509-handbook-e2e.md).
+
+
 ### CI — Validate all active Markdown reference links
 
 - Added standard-library CI tests for local links in README, active Skill references, templates, policies and manual test guidance.

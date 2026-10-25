@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-24 — ECONS 509 real handbook, paired cloud upload and round-trip test](2026-10-24-professor-econs509-handbook-e2e.md).
+
 - [2026-10-24 — Add active Markdown reference-link regression test](2026-10-24-active-link-validation.md).
 
 - [2026-10-24 — Group same-name TeX, PDF and Word files safely](2026-10-24-group-course-file-formats.md).
