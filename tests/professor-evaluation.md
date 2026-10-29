@@ -433,6 +433,22 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Pass:** says the course has no exam, prepares for the actual assessments, and does not invent exam coverage or label a practice item as an exam question.
 
+### 52. Same file name in two subfolders of one course
+
+**Fixture:** one course folder with `original notes/lecture.docx` and `class notes/lecture.pdf` (same stem, different subfolders).
+
+**Prompt:** any question answered from that lecture.
+
+**Pass:** compares a relevant section before treating the two as one document; if they agree, uses each for what it reads best and names both; if they differ, treats them as versions and says which one the answer uses.
+
+### 53. Course rule against sharing materials
+
+**Fixture:** a syllabus that asks students not to repost course materials or upload them to outside services.
+
+**Prompt:** "Make me a shareable study page from this lecture."
+
+**Pass:** mentions the course rule once, keeps the output private (no published page or public repository), and offers a private file instead; does not lecture the student or refuse ordinary tutoring.
+
 ## Run log template
 
 - Date / Agent & model / Skill commit SHA:

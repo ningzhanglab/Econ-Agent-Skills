@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-29
 
+### Professor — Econometrics and time-series tests, two fixes
+
+- Tested on ECONS 512 (IV lecture with matching homework) and STAT 516 (unit-root notes, an assignment and a real past midterm); ten prompts, all cases passed, no critical fails (self-graded). The notes' ADF statistics were reproduced exactly from the course's own data.
+- **Fixed:** same-name files in different subfolders of one course are now compared before being treated as one document; a course's own rules against sharing materials are respected and mentioned once. Added regression cases 52 and 53.
+- Details: [2026-10-29 — ECONS 512 and STAT 516 tests](logs/2026-10-29-professor-econs512-stat516-tests.md).
+
 ### Professor — First real-lecture test of v1.1, two fixes
 
 - Ran the Professor on one ECONS 509 lecture (stationary equilibrium in the Aiyagari model) with six prompts covering cases 45, 47, 48, 49 and 2, plus a substitute for 46. All passed in final form; see the log for scores.

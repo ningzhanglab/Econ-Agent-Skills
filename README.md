@@ -111,7 +111,7 @@ Econ-Agent-Skills/
 
 ## Roadmap
 
-- **Now:** cases 45, 47, 48 and 49 passed on one real macro lecture ([2026-10-29 run](logs/2026-10-29-professor-econs509-se-lecture-test.md)); still to do: case 46 with a lecture that has matching homework, an econometrics or time-series lecture, and an independent grader.
+- **Now:** cases 45–51 passed on real lectures in three courses: macro ([ECONS 509](logs/2026-10-29-professor-econs509-se-lecture-test.md)), econometrics and time series ([ECONS 512, STAT 516](logs/2026-10-29-professor-econs512-stat516-tests.md)), including homework solved in the lecture's method and a real past exam. Still to do: a microeconomics lecture and an independent grader.
 - **Later:** design `econ-research-agent` as a separate skill. Its absence means it is not ready.
 - **Optional:** installer guidance for specific Agent clients.
 

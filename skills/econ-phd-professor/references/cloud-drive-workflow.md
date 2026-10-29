@@ -51,4 +51,4 @@ When asked to persist a course map, lecture index or notation registry, store th
 
 ## Permissions and privacy
 
-Never make course files public, alter sharing or delete/move original source files without explicit permission. This skill defines behavior but cannot itself grant cloud tool access or upload rights.
+Never make course files public, alter sharing or delete/move original source files without explicit permission. **Respect a course's own sharing rules.** When a syllabus restricts reposting course materials or uploading them to outside services, keep every output that reproduces course content private (no published pages, no public repository), and mention the rule to the student once when it bears on what they asked for; whether to use the materials with an assistant is their decision. This skill defines behavior but cannot itself grant cloud tool access or upload rights.
