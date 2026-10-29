@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-10-29
 
+### Professor — First real-lecture test of v1.1, two fixes
+
+- Ran the Professor on one ECONS 509 lecture (stationary equilibrium in the Aiyagari model) with six prompts covering cases 45, 47, 48, 49 and 2, plus a substitute for 46. All passed in final form; see the log for scores.
+- **Found and fixed:** (1) a first draft cited three wrong page numbers by counting frames in the TeX source; Slide Fidelity now requires taking page numbers from the rendered PDF and checking them. (2) Exam preparation assumed an exam exists; the course has none, so the skill now says to check and prepare for the actual assessments. Added regression cases 50 and 51.
+- Details: [2026-10-29 — ECONS 509 lecture test](logs/2026-10-29-professor-econs509-se-lecture-test.md).
+
 ### Professor — Common traps and portable helper scripts
 
 - Each domain lens (macro with numerical methods, micro, econometrics, time series) now ends with **common PhD-level traps to anticipate**; Teaching Design says how to use them: tentatively, only when relevant, and in the Slide's notation.

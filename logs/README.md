@@ -38,6 +38,8 @@ Be economical. Logs are **decision and validation records**, not copies of every
 
 ## Current records
 
+- [2026-10-29 — ECONS 509 stationary-equilibrium lecture test of v1.1](2026-10-29-professor-econs509-se-lecture-test.md).
+
 - [2026-10-29 — Common-trap lists and scripts inside the skill folder](2026-10-29-professor-common-traps-and-portable-scripts.md).
 
 - [2026-10-29 — Professor v1.1 teaching revision](2026-10-29-professor-v1-1-teaching-revision.md).

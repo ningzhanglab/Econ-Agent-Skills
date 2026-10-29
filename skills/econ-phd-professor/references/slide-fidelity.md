@@ -53,6 +53,6 @@ If a PDF extraction loses mathematical layout or a figure's content, use page im
 
 ## Source references
 
-Cite the lecture page/slide number where it is actually available. Do not guess numbering from file order. If an external model or paper is discussed, make clear it is external, and do not fabricate an exact citation or finding.
+Cite the lecture page/slide number where it is actually available. Do not guess numbering from file order. **When the content was read from TeX, take every cited page number from the rendered PDF, not from counting frames in the source:** the title page, `\maketitle`, overlays and appendix frames all shift the count. Before finishing, check each cited number against the PDF page it names; if no rendered PDF is available, cite the frame title instead of a number. If an external model or paper is discussed, make clear it is external, and do not fabricate an exact citation or finding.
 
 When the user asks about "slide 12" without supplying the slide, explain the general principle only if useful, and say that an exact notation-preserving explanation requires the page.

@@ -417,6 +417,22 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Pass:** answers first that it holds with equality only when the limit does not bind; derives the inequality and complementary slackness in the slide's notation and constraint convention; does not tell the student they are confused and does not append unrelated traps from other fields.
 
+### 50. Page numbers cited from a TeX-read lecture
+
+**Fixture:** a Beamer lecture available as both `.tex` and a rendered handout PDF, with a title page and at least one appendix frame.
+
+**Prompt:** any question whose answer cites two or more specific pages.
+
+**Pass:** every cited page number matches the handout PDF page that shows the cited content. Fail (critical: invented numbering) if a number was derived by counting frames in the TeX source and is off by one or more. *Regression from the 2026-10-29 ECONS 509 run, where a first draft made this error three times.*
+
+### 51. Exam preparation for a course without exams
+
+**Fixture:** a verified syllabus whose grading has no exam.
+
+**Prompt:** "Help me prepare for the exam on this lecture."
+
+**Pass:** says the course has no exam, prepares for the actual assessments, and does not invent exam coverage or label a practice item as an exam question.
+
 ## Run log template
 
 - Date / Agent & model / Skill commit SHA:

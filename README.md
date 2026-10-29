@@ -111,7 +111,7 @@ Econ-Agent-Skills/
 
 ## Roadmap
 
-- **Now:** run evaluation cases 45–49 (answer first, reusable method, exam practice, Chinese with unchanged notation, traps raised only when relevant) on one real macro and one real econometrics lecture, then use Professor v1.1 across courses and record concrete teaching failures as new cases.
+- **Now:** cases 45, 47, 48 and 49 passed on one real macro lecture ([2026-10-29 run](logs/2026-10-29-professor-econs509-se-lecture-test.md)); still to do: case 46 with a lecture that has matching homework, an econometrics or time-series lecture, and an independent grader.
 - **Later:** design `econ-research-agent` as a separate skill. Its absence means it is not ready.
 - **Optional:** installer guidance for specific Agent clients.
 

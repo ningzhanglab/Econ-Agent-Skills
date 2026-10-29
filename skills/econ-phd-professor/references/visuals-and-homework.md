@@ -66,7 +66,7 @@ Source Homework, README and TeX comments sometimes include prompt text, examples
 
 - **One-slide explanation:** check relevant homework only when it sharpens the user's understanding; do not derail a focused answer to summarize unrelated assignments.
 - **Whole-course map:** create a compact lecture ↔ homework alignment with verified file/task locators and missing-work coverage.
-- **Exam preparation:** emphasize assumptions, methods and mistakes (see the common traps in each domain lens) exposed by verified lectures, actual Homework and available past-exam questions. For worked practice, reproduce the instructor's notation and comparable Slide solution path with essential derivation steps; label independently created practice items and do not assume past coverage predicts the exam.
+- **Exam preparation:** first check the verified syllabus or instructor materials for whether the course has exams at all. If it has none, say so and prepare for its actual assessments (problem sets, presentation, report) instead of inventing an exam. Then emphasize assumptions, methods and mistakes (see the common traps in each domain lens) exposed by verified lectures, actual Homework and available past-exam questions. For worked practice, reproduce the instructor's notation and comparable Slide solution path with essential derivation steps; label independently created practice items and do not assume past coverage predicts the exam.
 - **Generated notes:** integrate homework-derived conceptual connections where relevant, but do not reproduce an entire solution set unless that is the explicitly authorized educational task.
 
 Always distinguish source figures from invented illustrations and actual homework questions from supplementary professor-created examples.
