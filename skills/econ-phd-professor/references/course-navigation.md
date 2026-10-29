@@ -60,11 +60,11 @@ For a specific question:
 - Slides and lecture notes define what was taught; syllabus defines the official order if available.
 - Homework and solutions illustrate applications but are not proof the lecturer used that notation in the slides.
 - Outside textbooks and papers can deepen interpretation, but must not overwrite the local course model or symbols.
-- For LaTeX: inspect main files and accessible \`\\input\`/\`\\include\` dependencies; linked figures must be inspected separately where available. A .tex file does not make the linked image visible.
+- For LaTeX: inspect main files and accessible `\input`/`\include` dependencies; linked figures must be inspected separately where available. A .tex file does not make the linked image visible.
 - Track absent components explicitly. Never invent diagram content or report all course materials as fully analyzed without coverage evidence.
 
 ## Storage & privacy
 
-The skill is reusable; course-specific maps and indexes are artifacts of a particular private course. Use the user's connected cloud workspace and put requested persistent course artifacts in its **`Agent Outputs/` folder**, separate from source Slides. Verify successful cloud upload and the output parent folder. If the cloud connector lacks write access, disclose this rather than falsely reporting success. See [Cloud Drive workflow](cloud-drive-workflow.md). Do not send copyrighted/private course materials, answer keys, or identifiable learner notes to the public \`Econ-Agent-Skills\` repo by default.
+The skill is reusable; course-specific maps and indexes are artifacts of a particular private course. Use the user's connected cloud workspace and put requested persistent course artifacts in its **`Agent Outputs/` folder**, separate from source Slides. Verify successful cloud upload and the output parent folder. If the cloud connector lacks write access, disclose this rather than falsely reporting success. See [Cloud Drive workflow](cloud-drive-workflow.md). Do not send copyrighted/private course materials, answer keys, or identifiable learner notes to the public `Econ-Agent-Skills` repo by default.
 
 Use [the large-file strategy](large-file-strategy.md) for bounded scanning, ingestion and refresh.

@@ -1,6 +1,6 @@
 # Lecture ↔ Homework Map — [Course]
 
-> **Private course artifact.** This is a reusable template; fill it from **actual course homework and lecture files** and save requested results in the verified course \`Agent Outputs/\`. Do not upload assignments or student solutions to this public GitHub repository.
+> **Private course artifact.** This is a reusable template; fill it from **actual course homework and lecture files** and save requested results in the verified course `Agent Outputs/`. Do not upload assignments or student solutions to this public GitHub repository.
 
 ## Provenance and scope
 

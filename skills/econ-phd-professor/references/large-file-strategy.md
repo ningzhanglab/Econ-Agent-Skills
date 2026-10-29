@@ -32,7 +32,7 @@ If a single file is too large or cannot be parsed accurately, use valid chapter/
 ## Math, figures and TeX caveats
 
 - Text extraction can corrupt primes, fractions, indexing, equations, Greek letters and table layout. Cross-check exact equations against slide images or original LaTeX where possible.
-- LaTeX source may reference external assets: inspect \`\\input\`, \`\\include\`, \`\\includegraphics\`, bibliographies or custom macro files; record missing resources and whether they matter to the requested answer.
+- LaTeX source may reference external assets: inspect `\input`, `\include`, `\includegraphics`, bibliographies or custom macro files; record missing resources and whether they matter to the requested answer.
 - Figure interpretation requires actually viewing the diagram, its axes, units, curves and legends. A caption alone is **not** verification of the plot.
 - When slides use macro aliases for symbols, resolve definitions before asserting notation; leave unresolved aliases as such.
 
@@ -53,7 +53,7 @@ At the end of onboarding, report:
 
 - Files discovered versus successfully indexed/reviewed; only count accessible files.
 - Confirmed instructor sequence and any unresolved order.
-- Whether figures, equations and \`\\input\` dependencies were actually checked.
+- Whether figures, equations and `\input` dependencies were actually checked.
 - Missing sources and blocked portions.
 - Current map location and the next best study step.
 

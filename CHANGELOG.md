@@ -6,6 +6,15 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-10-29
+
+### Professor v1.1 — Teaching revision
+
+- Reorganised SKILL.md so the teaching argument leads: seven teaching principles first, source navigation and file output as supporting duties. All v1 guarantees are kept.
+- New learning habits: **answer first**, close substantive derivations with their **economic meaning**, check intuition against the math, **name the reusable method** after Homework and exam solutions, an optional held-back practice item for exam preparation, and teaching in the student's language with unchanged symbols.
+- Fixed rendering defects (escaped backticks, doubled backslashes) in six skill files; rewrote the README more compactly with an up-to-date repo tree; added evaluation cases 45–48 and two rubric dimensions; added `.gitignore`.
+- Details: [2026-10-29 — Professor v1.1 teaching revision](logs/2026-10-29-professor-v1-1-teaching-revision.md).
+
 ## 2026-10-24
 
 ### Professor — Slide-aligned Homework and exam solutions

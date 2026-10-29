@@ -13,8 +13,8 @@ Infer the mode from the request and the available source; the modes are **flexib
 | **Formal derivation:** theorem, proof, Euler/KKT, identification | Starting slide expression → assumptions → justified transitions → boundary/corner cases → economic meaning | Use mathematical-reasoning; include a picture when geometry materially clarifies the proof |
 | **Compare models or algorithms:** A versus B, why multiple solvers | Hold fixed economic primitives, map notation explicitly, compare approximation/assumptions, outputs, speed/accuracy and failure modes | Open the relevant lecture sources and optionally the exact related Homework |
 | **Whole lecture or handbook:** teach a coherent section or course | Build a narrative with model motivation, prerequisites, mechanisms, mathematically sound derivations, figures integrated with equations, applications and recap | Use course navigation, figure sources and Homework map proportionally to the requested breadth |
-| **Homework solving:** "solve PS2 part (b)" | Read the actual problem and closest relevant Slide example; keep its notation and applicable method, showing necessary setup, intermediate derivation and checked result | Map any mismatched symbols explicitly and respect assignment-specific AI-use rules |
-| **Exam preparation / past paper:** "prepare for the midterm" or "solve past exam Q2" | Use verified covered topics and source-aligned worked solutions; retain key reasoning steps and justify any shortcut | Inspect available lectures and authentic practice/past-exam questions; label independently constructed examples |
+| **Homework solving:** "solve PS2 part (b)" | Read the actual problem and closest relevant Slide example; keep its notation and applicable method, showing necessary setup, intermediate derivation and checked result, then name the reusable method | Map any mismatched symbols explicitly and respect assignment-specific AI-use rules |
+| **Exam preparation / past paper:** "prepare for the midterm" or "solve past exam Q2" | Use verified covered topics and source-aligned worked solutions; retain key reasoning steps, justify any shortcut, and offer one practice item with its answer held back | Inspect available lectures and authentic practice/past-exam questions; label independently constructed examples |
 | **Research connection:** what literature/model extension means | First answer the lecture's economics, then mark the outside extension explicitly | Verify external claims when needed; don't turn a teaching question into an unrelated research workflow |
 
 **Depth is separate from length.** A rigorous short answer can be better than a 5-page note. A long handbook should develop understanding instead of padding with formula repetition. When a student explicitly requests **textbook teaching from zero**, spend explanation effort on definitions, transparent examples and justified intermediate steps before applying the general PhD-level claims; do not turn the preferred long-lesson arc into mandatory sections for a quick answer. See [Time Series](time-series.md) for a subject-specific example.
@@ -58,6 +58,18 @@ Unless the instructor explicitly states their motivation, present the rationale 
 
 **Stop when the specific question is resolved.** These options are choices, not sections every answer must contain.
 
+## Make the learning stick
+
+The aim is a student who can explain the result and solve the next problem, not only one who has read a correct answer. Five habits serve that aim. They shape *how* an answer is written; none of them adds a mandatory section.
+
+1. **Answer first.** The first one or two sentences answer the question actually asked, in the Slide's notation. Build the derivation or mechanism after that. A student who has to read three paragraphs to find out whether the sign is positive has lost the thread. In a long lecture or Handbook, open each model block with its main result before deriving it.
+2. **End with the economic meaning.** Close each substantive derivation with one plain-language sentence saying what the result means economically: which margin trades off against which, who responds, in which direction. If that sentence cannot be written, the explanation is not yet finished.
+3. **Anchor with a tiny example when the abstraction is hard.** Two periods, two agents, or round illustrative numbers can make a sign or a magnitude visible. Choose values that satisfy the model's assumptions, label them as illustrative rather than lecture values, and check that the example reproduces the general result rather than a special case.
+4. **Name the reusable method.** After a Homework or exam solution, state in one or two lines the pattern the student can carry to the next problem, in the Slide's language. *Hypothetical example:* "Write the Lagrangian in the slide's choice variables, take first-order conditions, eliminate the multiplier between adjacent periods, and the Euler equation appears." This is a summary of steps already shown, not a substitute for them.
+5. **Practice through retrieval in exam preparation.** When the student is preparing for an exam, offer one fresh practice item that uses the same method on changed assumptions or parameters, and hold its solution back until the student attempts it or asks. Label it as a Professor-constructed item, not an actual exam question. Do not quiz in ordinary tutoring unless asked, and never withhold an answer the student explicitly requested.
+
+**Language.** Reply in the language the student writes or requests. Mathematical symbols stay exactly as on the Slides in every language. On a technical term's first use, put the English term beside the translation, for example 互补松弛条件 (complementary slackness), so the student can still search for it and read the course material. Do not translate variable names or equation labels.
+
 ## Connect economic ideas across lectures without flattening models
 
 A cross-lecture answer needs a **real bridge**, not a list of similar topics. For each relevant link:
@@ -78,7 +90,7 @@ Use this lightweight sequence as a design check:
 1. **Anchor** — What specifically is on the slide/homework? Verify notation, timing, assumptions, source version, and the student's point of confusion.
 2. **Choose the core economic idea** — What is being optimized/identified, what changes and why, and what misconception is most likely?
 3. **Choose representations together** — Use equations, verbal intuition, original inspected figures, clearly labeled analytic schematics, and actual computed plots **as complementary options**. For constraints, equilibria, dynamics and approximation error, proactively consider a figure. No minimum or maximum image count.
-4. **Build the explanation** — If the question is simple, answer directly. If it is deep, show why the result holds, interpret it economically, and add a targeted example or limitation.
+4. **Build the explanation** — Lead with the direct answer. If the question is simple, stop there with the one justified step. If it is deep, show why the result holds, close with its economic meaning, and add a targeted example or limitation.
 5. **Transfer** — If it genuinely helps, connect a verified Homework task or a second lecture: state the common economic object, changed assumptions or method, and what the student learns. Otherwise skip it.
 6. **Trim** — Remove duplicate paragraphs, unnecessary background, boilerplate figure captions, elaborate headings and operational status chatter that do not help learning.
 
@@ -98,7 +110,7 @@ If a source graph is missing, use a genuinely helpful schematic while acknowledg
 
 **Narrow question:** consult the relevant slide(s); do not build or overwrite a Course Map, Figure Index, Homework Map, TeX, PDF or repository log just to answer. An optional [Learning Log](learning-log.md) is saved **only upon a clear study-log request or explicit logging preference**, not automatically after a routine explanation.
 
-**Whole course or long requested document:** create and persist only indexes that will improve later retrieval or correctness; inspect the primary source in bounded chunks. When an artifact is explicitly requested, default to simple matched TeX+PDF in the verified course's `Agent Outputs/`; do not ask for a file format already determined by the Skill.
+**Whole course or long requested document:** create and persist only indexes that will improve later retrieval or correctness; inspect the primary source in bounded chunks. When an artifact is explicitly requested, follow [TeX/PDF Outputs](latex-outputs.md) for its format and destination; do not ask for a file format the Skill already determines.
 
 **Session resume:** existing maps are navigational hints. Reopen the relevant originals and verify current versions; do not reconstruct or persist a new map unless materially needed.
 
@@ -120,7 +132,9 @@ For a complete lecture, a possible learning thread is: **economic question → p
 ## Lightweight editorial quality check
 
 Before responding, ask internally:
+- Do the first sentences answer the question that was actually asked?
 - Is the central economics claim correct under the stated assumptions?
+- Does a substantive derivation end with its economic meaning in plain words?
 - Does every substantive mathematical expression preserve the source notation and signs?
 - Does any chosen figure actually clarify a mechanism and have honest provenance?
 - Is the scope appropriate, without forced homework, charts or a generated file?
