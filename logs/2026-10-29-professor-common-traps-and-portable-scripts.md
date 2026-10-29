@@ -56,3 +56,12 @@ A review pass before merging found four further defects, fixed here.
 
 - Run cases 45–49 on one macro and one econometrics lecture and record scores.
 - Remaining proposals not implemented: an optional private learner profile; spaced review from saved Learning Logs.
+
+## Post-merge update (2026-10-29)
+
+_Added after merging; the sections above are unchanged._
+
+- **Pull request:** [ningzhanglab/Econ-Agent-Skills#1](https://github.com/ningzhanglab/Econ-Agent-Skills/pull/1), merged into `main` as merge commit `526b477`.
+- **This change's commit:** `27a0073`.
+- **GitHub Actions:** Pass. Both `structural-validation` runs on `27a0073` (push and pull-request triggers) and the run on `main` after the merge succeeded. This replaces the *See pull request* entry in the verification table.
+- **README** updated after the merge to describe the trap lists, the four domain lenses and the self-contained skill folder, and to name cases 45–49 as the next evaluation step.

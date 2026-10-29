@@ -14,6 +14,7 @@ _No uncommitted planned changes are represented as completed here._
 - Helper scripts moved from `scripts/` to `skills/econ-phd-professor/scripts/`, so a standalone install of the skill keeps them; links, tests and README updated.
 - Review fixes: removed the last link outside the skill folder, clarified *answer first* for proof questions, stated the LATE conditions in full. Added evaluation case 49.
 - Details: [2026-10-29 — Common traps and portable scripts](logs/2026-10-29-professor-common-traps-and-portable-scripts.md).
+- Merged in [PR #1](https://github.com/ningzhanglab/Econ-Agent-Skills/pull/1) (`526b477`) with CI passing; README updated afterwards to describe the trap lists and the self-contained skill folder.
 
 ### Professor v1.1 — Teaching revision
 

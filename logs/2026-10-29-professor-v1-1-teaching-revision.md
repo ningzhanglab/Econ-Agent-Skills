@@ -57,3 +57,13 @@ The README also promised bilingual teaching, but SKILL.md said nothing about lan
 
 - Run cases 45–48 with a real lecture (one macro, one econometrics) and record scores.
 - Proposals not implemented in this change, pending the user's decision: an optional private learner profile; spaced review that starts a session from open questions in a saved Learning Log; per-domain banks of common misconceptions; moving `scripts/` inside the skill folder so a standalone install keeps its helpers.
+
+## Post-merge update (2026-10-29)
+
+_Added after merging; the sections above are unchanged._
+
+- **Pull request:** [ningzhanglab/Econ-Agent-Skills#1](https://github.com/ningzhanglab/Econ-Agent-Skills/pull/1), merged into `main` as merge commit `526b477`.
+- **This change's commit:** `b84c346`.
+- **GitHub Actions:** Pass. The `structural-validation` workflow succeeded on `b84c346`, on the PR head `27a0073` and on `main` after the merge (`526b477`).
+- **Superseded follow-up:** two of the proposals listed under *Follow-up* (per-domain misconception banks and moving `scripts/` into the skill folder) were implemented in the same pull request; see [Common traps and portable scripts](2026-10-29-professor-common-traps-and-portable-scripts.md). The statement above that no scripts changed is true of this commit only.
+- **Housekeeping:** the head branch `professor-teaching-revision` could not be deleted from this session (the proxy refused both the API call and `git push --delete`); it is fully merged and can be deleted from the pull request page.

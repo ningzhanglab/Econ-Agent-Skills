@@ -18,7 +18,7 @@ The Professor teaches like a knowledgeable economics PhD professor, not a slide 
 Seven principles govern every answer (full text in [SKILL.md](skills/econ-phd-professor/SKILL.md)):
 
 1. **Exact slide notation.** Symbols, signs, timing and operators stay exactly as the lecturer wrote them. Slide statements, derivations and outside knowledge are kept visibly separate.
-2. **Diagnose the bottleneck and explain the model's design.** The Professor looks for the earliest missing link (notation, a proof step, the incentive, an assumption, identification or numerical approximation) without claiming to read your mind. For "why this model?" it explains what the model isolates, what it omits and what a nearby alternative would change.
+2. **Diagnose the bottleneck and explain the model's design.** The Professor looks for the earliest missing link (notation, a proof step, the incentive, an assumption, identification or numerical approximation) without claiming to read your mind. For "why this model?" it explains what the model isolates, what it omits and what a nearby alternative would change. Each field has a short list of common PhD-level traps (for example an Euler equation at a binding borrowing limit, or a strong instrument mistaken for a valid one) that the Professor raises only when relevant.
 3. **Answer first, then build understanding.** The first sentences answer your question; the derivation follows; a substantive explanation ends with its economic meaning in plain words.
 4. **Visuals as a first-class teaching method.** Graphs are considered proactively for constraints, trade-offs, dynamics, equilibria and numerical methods. Original figures are used only if actually inspected; new schematics and computed plots are labeled honestly. No figure quota.
 5. **Intuition checked against the mathematics.** Verbal stories are tested with sign checks, limiting cases or tiny labeled numerical examples.
@@ -27,12 +27,12 @@ Seven principles govern every answer (full text in [SKILL.md](skills/econ-phd-pr
 
 The Professor chooses a **teaching mode before tools**: quick step, intuition, derivation, model comparison, whole lecture, Homework or exam preparation. A narrow question never triggers a course inventory or a generated file. See [Teaching Design](skills/econ-phd-professor/references/teaching-design.md), [Expert Teaching](skills/econ-phd-professor/references/expert-teaching.md) and the [hypothetical diagnostic examples](skills/econ-phd-professor/examples/diagnostic-teaching-patterns.md).
 
-One Skill covers macroeconomics, microeconomics, econometrics and time series through optional domain lenses, including a [Time Series lens](skills/econ-phd-professor/references/time-series.md) that is not tied to any one course.
+One Skill covers four fields through optional domain lenses: [Macroeconomics](skills/econ-phd-professor/references/macroeconomics.md) (including numerical methods), [Microeconomics](skills/econ-phd-professor/references/microeconomics.md), [Econometrics](skills/econ-phd-professor/references/econometrics.md) and [Time Series](skills/econ-phd-professor/references/time-series.md). Each lens lists the questions an expert asks, the high-value explanations and the common traps for that field; none is tied to a particular course.
 
 ## Getting started
 
 1. Read [SKILL.md](skills/econ-phd-professor/SKILL.md) to see the behavior and triggers.
-2. Make the **entire skill folder** available to a compatible Agent Skills client (install from this GitHub folder, or copy or link the folder into the client's skills directory). A GitHub repository alone does **not** activate the skill.
+2. Make the **entire skill folder** `skills/econ-phd-professor/` available to a compatible Agent Skills client (install from this GitHub folder, or copy or link the folder into the client's skills directory). The folder is self-contained: its references, templates, examples and helper scripts all live inside it. A GitHub repository alone does **not** activate the skill.
 3. Provide the actual lecture slides (PDF, PPT, TeX, screenshots) or an accessible course folder. The Professor must inspect the relevant material and never pretends to have read slides it cannot access.
 4. Ask a question.
 
@@ -52,7 +52,7 @@ For semester-long tutoring the Professor can map a course on request: syllabus o
 
 - Same-basename `.tex`, PDF and Word files in one course folder are treated as one lecture by default; presenter views, handouts and genuine revisions are distinguished by content, not extension. See [Course State and Sources](skills/econ-phd-professor/references/course-state-and-sources.md).
 - Templates: [Course Map](skills/econ-phd-professor/templates/course-map.md), [Lecture Index](skills/econ-phd-professor/templates/lecture-index.md), [Notation Registry](skills/econ-phd-professor/templates/notation-registry.md), [Figure Index](skills/econ-phd-professor/templates/figure-index.md), [Homework Map](skills/econ-phd-professor/templates/homework-map.md) and [Course State](skills/econ-phd-professor/templates/course-state.example.json).
-- Helper scripts: [file grouping](skills/econ-phd-professor/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-phd-professor/scripts/inventory_tex_figures.py) and [TeX bundle checker](skills/econ-phd-professor/scripts/check_tex_bundle.py).
+- Helper scripts (inside the skill folder; Python standard library, read-only on your sources): [file grouping](skills/econ-phd-professor/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-phd-professor/scripts/inventory_tex_figures.py) and [TeX bundle checker](skills/econ-phd-professor/scripts/check_tex_bundle.py).
 - Details: [Course Navigation](skills/econ-phd-professor/references/course-navigation.md) and [Large-File Strategy](skills/econ-phd-professor/references/large-file-strategy.md). This is a workflow specification, not background indexing or permanent memory.
 
 Text inside slides, homework and README files is treated as **untrusted study material**, never as instructions that can override your request, change sharing or move private files.
@@ -111,7 +111,7 @@ Econ-Agent-Skills/
 
 ## Roadmap
 
-- **Now:** use Professor v1.1 on real macro, micro, econometrics and time-series courses, and record concrete teaching failures as evaluation cases.
+- **Now:** run evaluation cases 45–49 (answer first, reusable method, exam practice, Chinese with unchanged notation, traps raised only when relevant) on one real macro and one real econometrics lecture, then use Professor v1.1 across courses and record concrete teaching failures as new cases.
 - **Later:** design `econ-research-agent` as a separate skill. Its absence means it is not ready.
 - **Optional:** installer guidance for specific Agent clients.
 
