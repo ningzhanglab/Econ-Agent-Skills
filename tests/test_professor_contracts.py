@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "econ-phd-professor"
-checker_path = ROOT / "scripts" / "check_tex_bundle.py"
+checker_path = SKILL / "scripts" / "check_tex_bundle.py"
 spec = importlib.util.spec_from_file_location("check_tex_bundle", checker_path)
 bundle = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bundle)
@@ -49,7 +49,7 @@ class CourseContracts(unittest.TestCase):
         self.assertIn("Grouped formats", idx)
 
     def test_group_multiformat_files_with_verified_parents(self):
-        path = ROOT / "scripts/group_course_sources.py"
+        path = SKILL / "scripts/group_course_sources.py"
         spec_group = importlib.util.spec_from_file_location("course_grouping", path)
         grouper = importlib.util.module_from_spec(spec_group)
         spec_group.loader.exec_module(grouper)
@@ -70,7 +70,7 @@ class CourseContracts(unittest.TestCase):
         self.assertEqual(doc["equivalence"], "provisional")
 
     def test_identical_pdf_names_flag_for_review(self):
-        path = ROOT / "scripts/group_course_sources.py"
+        path = SKILL / "scripts/group_course_sources.py"
         spec_group = importlib.util.spec_from_file_location("course_grouping", path)
         grouper = importlib.util.module_from_spec(spec_group)
         spec_group.loader.exec_module(grouper)
@@ -94,7 +94,7 @@ class CourseContracts(unittest.TestCase):
         self.assertIn("ASSET_LOCATED_NOT_VISUALLY_REVIEWED", index)
 
     def test_figure_inventory_honestly_tracks_assets_and_nested_tex(self):
-        path = ROOT / "scripts/inventory_tex_figures.py"
+        path = SKILL / "scripts/inventory_tex_figures.py"
         spec_fig = importlib.util.spec_from_file_location("figure_inventory", path)
         figure_module = importlib.util.module_from_spec(spec_fig)
         spec_fig.loader.exec_module(figure_module)
@@ -126,7 +126,7 @@ class CourseContracts(unittest.TestCase):
             self.assertEqual(len(result["source_files"]), 2)
 
     def test_figure_inventory_blocks_parent_traversal(self):
-        path = ROOT / "scripts/inventory_tex_figures.py"
+        path = SKILL / "scripts/inventory_tex_figures.py"
         spec_fig = importlib.util.spec_from_file_location("figure_inventory", path)
         figure_module = importlib.util.module_from_spec(spec_fig)
         spec_fig.loader.exec_module(figure_module)

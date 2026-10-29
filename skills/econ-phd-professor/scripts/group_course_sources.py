@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Group same-stem TeX/PDF/Word files using local cloud metadata only.
 
-Usage: python scripts/group_course_sources.py course-files.json [--output map.json]
+Usage: python skills/econ-phd-professor/scripts/group_course_sources.py course-files.json [--output map.json]
 Input is a JSON array with id, name, parent_id (or one-element parent_ids).
 No network calls or file writes to Drive. Never infer identical content.
 """

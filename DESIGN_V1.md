@@ -12,7 +12,7 @@ One graduate-level economics teacher that uses **actual lecture sources**, prese
 | --- | --- | --- |
 | Teaching entry and guarantees | [SKILL.md](skills/econ-phd-professor/SKILL.md) | Every invocation |
 | Diagnose misunderstanding; select proof, intuition, visual or counterexample | [Teaching Design](skills/econ-phd-professor/references/teaching-design.md) and [Expert Teaching](skills/econ-phd-professor/references/expert-teaching.md) | Question requires explanation |
-| Economic derivations and substantive lenses | [Mathematical Reasoning](skills/econ-phd-professor/references/mathematical-reasoning.md), Macro/Micro/Econometrics references, optional [Time Series teaching lens](skills/econ-phd-professor/references/time-series.md) | Relevant technical question |
+| Economic derivations and substantive lenses | [Mathematical Reasoning](skills/econ-phd-professor/references/mathematical-reasoning.md), Macro/Micro/Econometrics references (each with a list of common traps), optional [Time Series teaching lens](skills/econ-phd-professor/references/time-series.md) | Relevant technical question |
 | Course progression, cross-lecture mapping and sources | [Course Navigation](skills/econ-phd-professor/references/course-navigation.md), [Slide Fidelity](skills/econ-phd-professor/references/slide-fidelity.md) | Multi-lecture or source-specific question |
 | Source graphics and Homework | [Visuals and Homework](skills/econ-phd-professor/references/visuals-and-homework.md) | Graph or task actually helps |
 | Requested TeX/PDF and cloud persistence | [LaTeX](skills/econ-phd-professor/references/latex-outputs.md), [Cloud Workflow](skills/econ-phd-professor/references/cloud-drive-workflow.md), [Storage Policy](STORAGE_POLICY.md) | User requests a file |

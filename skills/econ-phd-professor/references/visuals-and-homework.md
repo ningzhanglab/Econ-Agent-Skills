@@ -17,7 +17,7 @@ Use a teaching decision rather than a quota:
 
 1. Inspect original lecture image files when accessible. In TeX sources inspect referenced `\includegraphics` assets, nested source inputs and the actual course folder.
 2. If a referenced image is unavailable, check the **corresponding rendered lecture handout PDF page** for an embedded figure; presenter PDFs may differ. Do not infer page numbers from TeX frame indices.
-3. For substantive lectures, create a source-grounded [Figure Index](../templates/figure-index.md). The optional [figure inventory helper](../../../scripts/inventory_tex_figures.py) can find static references but cannot see image content.
+3. For substantive lectures, create a source-grounded [Figure Index](../templates/figure-index.md). The optional [figure inventory helper](../scripts/inventory_tex_figures.py) can find static references but cannot see image content.
 4. If original asset and rendered PDF are both inaccessible, record the figure as not viewed or blocked. A new independent conceptual schematic may still be used to teach the model, but **must not pretend to reproduce the unseen source plot**.
 
 Preserve inspected source axes, units, symbols, curve labels, timing and comparative-static direction. Distinguish what the image actually shows from a separate economic inference.
@@ -66,7 +66,7 @@ Source Homework, README and TeX comments sometimes include prompt text, examples
 
 - **One-slide explanation:** check relevant homework only when it sharpens the user's understanding; do not derail a focused answer to summarize unrelated assignments.
 - **Whole-course map:** create a compact lecture ↔ homework alignment with verified file/task locators and missing-work coverage.
-- **Exam preparation:** emphasize assumptions, methods and mistakes exposed by verified lectures, actual Homework and available past-exam questions. For worked practice, reproduce the instructor's notation and comparable Slide solution path with essential derivation steps; label independently created practice items and do not assume past coverage predicts the exam.
+- **Exam preparation:** emphasize assumptions, methods and mistakes (see the common traps in each domain lens) exposed by verified lectures, actual Homework and available past-exam questions. For worked practice, reproduce the instructor's notation and comparable Slide solution path with essential derivation steps; label independently created practice items and do not assume past coverage predicts the exam.
 - **Generated notes:** integrate homework-derived conceptual connections where relevant, but do not reproduce an entire solution set unless that is the explicitly authorized educational task.
 
 Always distinguish source figures from invented illustrations and actual homework questions from supplementary professor-created examples.

@@ -35,6 +35,16 @@ Treat the student's wording as a clue about **what teaching bridge to provide**,
 
 Choose the **earliest missing logical bridge** rather than teaching every prerequisite. If multiple interpretations are plausible, address the important distinction tentatively; ask a targeted question only if ambiguity materially changes the answer. Do not impose a quiz or announce "you are confused about X."
 
+## Anticipate common traps
+
+Each domain lens ([Macroeconomics](macroeconomics.md), [Microeconomics](microeconomics.md), [Econometrics](econometrics.md), [Time Series](time-series.md)) ends with a short list of well-known PhD-level traps. Use them to:
+
+- **Choose the bottleneck.** When a question sits close to a known trap, address that distinction tentatively, for example "a binding borrowing limit changes this condition", without telling the student they hold the misconception.
+- **Check an answer.** Before finishing a Homework or exam solution, check it against the traps of that field.
+- **Prepare for exams.** Name the one or two traps most relevant to the verified exam coverage as likely mistakes.
+
+Raise a trap only when it bears on the current question; an unrelated list is noise. The traps are general economics and must be restated in the Slide's notation, under its assumptions and conventions, and they never override what the Slide actually says. When a Slide appears to commit one, follow [Slide Fidelity](slide-fidelity.md): show the expression as written and discuss the issue separately.
+
 ## Explain why a model is specified this way
 
 For "why this model" questions, consider the following *internal* lenses—not compulsory headings:
@@ -62,7 +72,7 @@ Unless the instructor explicitly states their motivation, present the rationale 
 
 The aim is a student who can explain the result and solve the next problem, not only one who has read a correct answer. Five habits serve that aim. They shape *how* an answer is written; none of them adds a mandatory section.
 
-1. **Answer first.** The first one or two sentences answer the question actually asked, in the Slide's notation. Build the derivation or mechanism after that. A student who has to read three paragraphs to find out whether the sign is positive has lost the thread. In a long lecture or Handbook, open each model block with its main result before deriving it.
+1. **Answer first.** The first one or two sentences answer the question actually asked, in the Slide's notation. Build the derivation or mechanism after that. For a "why is this true?" or proof request, the direct answer is the key reason in one sentence, not a restatement of the claim. A student who has to read three paragraphs to find out whether the sign is positive has lost the thread. In a long lecture or Handbook, open each model block with its main result before deriving it.
 2. **End with the economic meaning.** Close each substantive derivation with one plain-language sentence saying what the result means economically: which margin trades off against which, who responds, in which direction. If that sentence cannot be written, the explanation is not yet finished.
 3. **Anchor with a tiny example when the abstraction is hard.** Two periods, two agents, or round illustrative numbers can make a sign or a magnitude visible. Choose values that satisfy the model's assumptions, label them as illustrative rather than lecture values, and check that the example reproduces the general result rather than a special case.
 4. **Name the reusable method.** After a Homework or exam solution, state in one or two lines the pattern the student can carry to the next problem, in the Slide's language. *Hypothetical example:* "Write the Lagrangian in the slide's choice variables, take first-order conditions, eliminate the multiplier between adjacent periods, and the Euler equation appears." This is a summary of steps already shown, not a substitute for them.

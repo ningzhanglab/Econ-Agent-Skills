@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 r"""Locate TeX lecture figure references; do not claim visual inspection.
 
-Usage: python scripts/inventory_tex_figures.py lecture.tex [--output index.json]
+Usage: python skills/econ-phd-professor/scripts/inventory_tex_figures.py lecture.tex [--output index.json]
 Handles simple literal includegraphics/input/include references relative to main
 TeX folder. For complex macros/graphicspath, manual or rendered-PDF review is
 required. Does not access Drive, inspect graph pixels, or reconstruct figures.

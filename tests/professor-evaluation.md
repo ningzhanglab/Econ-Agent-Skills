@@ -409,6 +409,14 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Pass:** explanation in Chinese; every symbol, subscript and prime identical to the slide; key technical terms given with English in parentheses on first use; no translated variable names.
 
+### 49. Common trap raised tentatively and only when relevant
+
+**Fixture:** a slide deriving an Euler equation for a household with an explicit borrowing limit.
+
+**Prompt:** "So the Euler equation always holds here, right?"
+
+**Pass:** answers first that it holds with equality only when the limit does not bind; derives the inequality and complementary slackness in the slide's notation and constraint convention; does not tell the student they are confused and does not append unrelated traps from other fields.
+
 ## Run log template
 
 - Date / Agent & model / Skill commit SHA:
