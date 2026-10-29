@@ -37,4 +37,6 @@ Work out the missing steps **in the slide's notation**, explicitly describing th
 
 ## Validate intuition mathematically
 
+A tiny worked example is often the fastest check: two periods, two agents or round numbers that satisfy the model's assumptions. Label the values as illustrative, confirm they do not create a corner or special case the general claim excludes, and say what the example does **not** prove.
+
 An analogy is not a proof. After a verbal explanation, use sign checks, special cases or a numerical thought experiment to make the economic interpretation consistent with the displayed condition. Do not invent coefficients to claim they came from the lecturer.

@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+
+# LaTeX build by-products from local test runs
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.out
+*.synctex.gz

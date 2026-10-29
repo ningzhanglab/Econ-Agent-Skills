@@ -26,6 +26,18 @@ Apply **only the checks relevant to the actual problem**, and retain the source'
 
 A good explanation should illuminate *why* the property is relevant (e.g. what invertibility buys, why differencing is considered, what PACF measures) without automatically covering every nearby concept.
 
+## Common traps to anticipate
+
+These are general economics, not claims about the lecture. Use them as described in [Teaching Design](teaching-design.md#anticipate-common-traps): restate the point in the Slide's notation and under its assumptions, follow the Slide's sign and timing conventions, and raise only the trap that bears on the current question.
+
+- **The intercept read as the mean.** In a stationary autoregression with an intercept, the unconditional mean is the intercept divided by one minus the sum of the autoregressive coefficients, under the usual sign convention; check the Slide's convention.
+- **Stationarity and invertibility attached to the wrong polynomial.** Stationarity (causality) depends on the roots of the AR polynomial and invertibility on the roots of the MA polynomial. Whether the condition reads "outside" or "inside" the unit circle depends on whether roots of the lag polynomial or of the characteristic equation are used; follow the Slides.
+- **Sample ACF and PACF cut-offs treated as rules.** Theoretically the PACF of an AR(p) cuts off after lag p, the ACF of an MA(q) after lag q, and both tail off for a mixed ARMA. Sample versions carry sampling error, so they guide identification alongside diagnostics rather than decide it.
+- **Failure to reject a unit root read as proof of one.** The augmented Dickey–Fuller null is a unit root and the test has low power against near-unit-root alternatives; KPSS reverses the null. The deterministic terms in the test regression change the reference distribution.
+- **Differencing assumed harmless.** Differencing a trend-stationary series introduces a non-invertible MA unit root (over-differencing).
+- **Regressions between integrated series taken at face value.** Independent random walks often produce high R² and significant t-statistics (spurious regression) unless the series are cointegrated.
+- **Forecast uncertainty misjudged.** For a stationary process, forecasts revert to the mean and the forecast-error variance rises toward the unconditional variance; for a unit-root process it grows without bound. Plug-in intervals also ignore parameter-estimation uncertainty.
+
 ## Sources, examples and assignments
 
 Follow [Slide Fidelity](slide-fidelity.md), [Mathematical Reasoning](mathematical-reasoning.md), and [Visuals and Homework](visuals-and-homework.md). Determine source roles from the **actual course**: verified syllabus/order, authoritative instructor materials, specific assignments and any supplemental notes. Do not infer chronology solely from filenames.

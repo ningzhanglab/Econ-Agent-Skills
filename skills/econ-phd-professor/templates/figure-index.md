@@ -28,7 +28,7 @@ Statuses must be precise:
 
 ## Source recovery workflow
 
-1. Find references in original slides, source TeX, included chapters and figure folders. The helper at [TeX figure inventory](../../../scripts/inventory_tex_figures.py) locates simple TeX references, but cannot visually inspect them.
+1. Find references in original slides, source TeX, included chapters and figure folders. The helper at [TeX figure inventory](../scripts/inventory_tex_figures.py) locates simple TeX references, but cannot visually inspect them.
 2. If an image is absent, inspect the corresponding *rendered handout PDF* for an embedded original figure; a TeX frame number is not automatically a PDF page number.
 3. Record the true image asset ID or PDF page locator and only then describe axes, curves and values.
 4. If unavailable in all checked sources, explicitly mark BLOCKED. You may teach the mechanism with a separately labeled new analytical schematic; do not impersonate the unseen original.

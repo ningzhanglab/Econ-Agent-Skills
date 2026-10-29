@@ -12,7 +12,7 @@ One graduate-level economics teacher that uses **actual lecture sources**, prese
 | --- | --- | --- |
 | Teaching entry and guarantees | [SKILL.md](skills/econ-phd-professor/SKILL.md) | Every invocation |
 | Diagnose misunderstanding; select proof, intuition, visual or counterexample | [Teaching Design](skills/econ-phd-professor/references/teaching-design.md) and [Expert Teaching](skills/econ-phd-professor/references/expert-teaching.md) | Question requires explanation |
-| Economic derivations and substantive lenses | [Mathematical Reasoning](skills/econ-phd-professor/references/mathematical-reasoning.md), Macro/Micro/Econometrics references, optional [Time Series teaching lens](skills/econ-phd-professor/references/time-series.md) | Relevant technical question |
+| Economic derivations and substantive lenses | [Mathematical Reasoning](skills/econ-phd-professor/references/mathematical-reasoning.md), Macro/Micro/Econometrics references (each with a list of common traps), optional [Time Series teaching lens](skills/econ-phd-professor/references/time-series.md) | Relevant technical question |
 | Course progression, cross-lecture mapping and sources | [Course Navigation](skills/econ-phd-professor/references/course-navigation.md), [Slide Fidelity](skills/econ-phd-professor/references/slide-fidelity.md) | Multi-lecture or source-specific question |
 | Source graphics and Homework | [Visuals and Homework](skills/econ-phd-professor/references/visuals-and-homework.md) | Graph or task actually helps |
 | Requested TeX/PDF and cloud persistence | [LaTeX](skills/econ-phd-professor/references/latex-outputs.md), [Cloud Workflow](skills/econ-phd-professor/references/cloud-drive-workflow.md), [Storage Policy](STORAGE_POLICY.md) | User requests a file |
@@ -27,11 +27,14 @@ One graduate-level economics teacher that uses **actual lecture sources**, prese
 5. For cross-lecture teaching, verify a common economic object, what assumptions/closure/solver/identification differ, qualified local notation mapping and source evidence. Keep instructor order separate from conceptual prerequisites.
 6. Do not force a course index on a small question; same-stem TeX/PDF/Word is provisional grouping only, and previously saved maps must not substitute for original evidence.
 7. Requested files default to a matched `.tex` and compiled `.pdf` in the verified private course folder named exactly `Agent Outputs/` unless user specifies another format/path. Never upload private course contents to this public repo.
+8. **v1.1:** answers lead with the direct answer and close substantive derivations with their economic meaning; verbal intuition is checked against the math; Homework and exam solutions end by naming the reusable method, and exam preparation may offer a held-back practice item. The student's language is used with unchanged symbols. Home: [Teaching Design](skills/econ-phd-professor/references/teaching-design.md#make-the-learning-stick).
 
 ## Done criteria and future-change policy
 
 The above concepts have one authoritative home in existing references. There is no need for a parallel Professor/Research Agent, mandatory concept registry, universal chart generation or more code to satisfy v1. Existing structural CI and targeted source read-back are adequate for this **design-only** iteration. Independent teaching outcomes, arbitrary proof verification, automatic background course synchronization and external-cloud permissions are **not guaranteed**.
 
 **Learning Log addition:** User-requested `.md` summaries are stored privately under the course `Agent Outputs/Learning Logs/`; never automatically archive chats or mistake a discussion for confirmed mastery. This explicit user requirement does not change default TeX/PDF for other requested teaching documents.
+
+**v1.1 teaching revision (2026-10-29):** requested by the user to strengthen how the Professor helps a student learn, keeping every v1 invariant. It adds writing habits inside existing references, not a new workflow, Skill or mandatory section. See [the log](logs/2026-10-29-professor-v1-1-teaching-revision.md).
 
 **Stop adding design features speculatively.** Only reopen the architecture when an actual teaching failure, user requirement or evidenced capability gap emerges. Fix the narrowest responsible document and use proportionate checks; do not launch a new full-course Handbook/cloud round-trip unless its behavior is the subject of the change.

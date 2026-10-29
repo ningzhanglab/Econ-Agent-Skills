@@ -4,7 +4,7 @@ Apply when the user's lecture files reside in a connected cloud drive, or when t
 
 ## Storage contract
 
-**Exact folder name: `Agent Outputs` (case and spacing matter)**. The repository [Storage Policy](../../../STORAGE_POLICY.md) overrides historical instructions naming `outputs/`.
+**Exact folder name: `Agent Outputs` (case and spacing matter)**. This reference carries the full storage contract, so it works when the skill folder is installed on its own. In the source repository, `STORAGE_POLICY.md` states the same rule repository-wide; both supersede historical instructions naming `outputs/`.
 
 - **Inputs:** use the user's authorized cloud workspace as the source of slides, syllabus, homework, readings, TeX dependencies and diagrams. Use connected Google Drive when available; respect another explicitly named accessible provider.
 - **Outputs:** save **every requested final file** (notes, proof, PDF, DOCX, LaTeX, course map, lecture index, notation registry, spreadsheet, etc.) to the cloud **`Agent Outputs/` folder**, not only to a temporary local path, chat attachment or the public GitHub skills repository.

@@ -6,6 +6,22 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-10-29
+
+### Professor — Common traps and portable helper scripts
+
+- Each domain lens (macro with numerical methods, micro, econometrics, time series) now ends with **common PhD-level traps to anticipate**; Teaching Design says how to use them: tentatively, only when relevant, and in the Slide's notation.
+- Helper scripts moved from `scripts/` to `skills/econ-phd-professor/scripts/`, so a standalone install of the skill keeps them; links, tests and README updated.
+- Review fixes: removed the last link outside the skill folder, clarified *answer first* for proof questions, stated the LATE conditions in full. Added evaluation case 49.
+- Details: [2026-10-29 — Common traps and portable scripts](logs/2026-10-29-professor-common-traps-and-portable-scripts.md).
+
+### Professor v1.1 — Teaching revision
+
+- Reorganised SKILL.md so the teaching argument leads: seven teaching principles first, source navigation and file output as supporting duties. All v1 guarantees are kept.
+- New learning habits: **answer first**, close substantive derivations with their **economic meaning**, check intuition against the math, **name the reusable method** after Homework and exam solutions, an optional held-back practice item for exam preparation, and teaching in the student's language with unchanged symbols.
+- Fixed rendering defects (escaped backticks, doubled backslashes) in six skill files; rewrote the README more compactly with an up-to-date repo tree; added evaluation cases 45–48 and two rubric dimensions; added `.gitignore`.
+- Details: [2026-10-29 — Professor v1.1 teaching revision](logs/2026-10-29-professor-v1-1-teaching-revision.md).
+
 ## 2026-10-24
 
 ### Professor — Slide-aligned Homework and exam solutions

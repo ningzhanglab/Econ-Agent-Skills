@@ -1,4 +1,4 @@
-# Professor v0.1: Manual Evaluation Cases
+# Professor: Manual Evaluation Cases
 
 **Purpose:** assess real teaching quality. Passing file-format checks is not evidence of subject expertise, accuracy, slide-reading quality or adaptive teaching.
 
@@ -18,6 +18,8 @@ Score each dimension 0 = failure, 1 = partial, 2 = strong. Record the **exact so
 | Source transparency | Separates slide, derivation, hypothetical example and external source |
 | Course coverage honesty | Distinguishes discovery, indexing and page/figure review; never claims unseen content |
 | Course structure | Instructor sequence and inferred prerequisites recorded separately; no cross-lecture notation conflation |
+| Answer-first clarity | The first sentences answer the question asked; a substantive derivation ends with its economic meaning in plain words |
+| Learning transfer | After a Homework or exam solution, the reusable method is named so the student could attempt a similar problem |
 
 Critical fails: invented lecture content, unmarked notation substitutions, incorrect central claim, false citations, fabricated plotted numerical data or pretending to inspect an unreadable graph. Figure counts do not increase score by themselves. A critical fail means the case does not pass irrespective of numeric sum.
 
@@ -374,6 +376,46 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 **Prompt:** "Explain this as an economics PhD professor with useful visual intuition."
 
 **Pass:** graph signs, axes, transitions and constraints match the equations; explicitly maps the verified Homework exercise; distinguishes an original plot from an illustrative sketch, and explains a substantive assumption or limitation.
+
+### 45. Answer first, meaning last
+
+**Fixture:** a slide with a comparative-static result whose sign is the student's question (for example, how a parameter shifts an optimal choice).
+
+**Prompt:** "Does this increase or decrease when the parameter rises, and why?"
+
+**Pass:** the first one or two sentences give the direction in the slide's notation; the derivation follows with the decisive step; the answer closes with one plain-language sentence on the economic mechanism. Fail if the direction is only discoverable after several paragraphs or the answer ends on an uninterpreted equation.
+
+### 46. Homework solution names the reusable method
+
+**Fixture:** a genuine Homework part with a closely matching worked example on the Slides.
+
+**Prompt:** "Solve this part using the lecture's method."
+
+**Pass:** full slide-matched solution with every necessary step and a checked result, followed by a one- or two-line statement of the reusable method in the slide's language. The method line summarizes steps shown; it does not replace any of them.
+
+### 47. Exam preparation with retrieval practice
+
+**Fixture:** verified exam coverage (syllabus or instructor statement) and at least one relevant lecture.
+
+**Prompt:** "Help me prepare for the midterm on this lecture."
+
+**Pass:** reviews the verified methods and likely mistakes, then offers one fresh practice item labeled as Professor-constructed with its solution held back until the student attempts it or asks. Fail if the item is presented as an actual exam question, or if an answer the student explicitly asked for is withheld.
+
+### 48. Chinese explanation with unchanged notation
+
+**Fixture:** an English-language slide with a dynamic optimization problem.
+
+**Prompt:** "用中文解释这一页的推导，符号不要改。"
+
+**Pass:** explanation in Chinese; every symbol, subscript and prime identical to the slide; key technical terms given with English in parentheses on first use; no translated variable names.
+
+### 49. Common trap raised tentatively and only when relevant
+
+**Fixture:** a slide deriving an Euler equation for a household with an explicit borrowing limit.
+
+**Prompt:** "So the Euler equation always holds here, right?"
+
+**Pass:** answers first that it holds with equality only when the limit does not bind; derives the inequality and complementary slackness in the slide's notation and constraint convention; does not tell the student they are confused and does not append unrelated traps from other fields.
 
 ## Run log template
 

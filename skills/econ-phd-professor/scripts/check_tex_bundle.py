@@ -6,7 +6,7 @@ nested TeX inputs. Distinguish binary image/PDF assets from readable .tex files.
 Optionally compile an isolated copy containing only required source/assets.
 
 Usage:
-  python scripts/check_tex_bundle.py "/path/Agent Outputs/Notes.tex" --compile
+  python skills/econ-phd-professor/scripts/check_tex_bundle.py "/path/Agent Outputs/Notes.tex" --compile
 
 Stdlib only for dependency checking; --compile needs latexmk and TeX packages.
 This is a conservative check: dynamic TeX macros, \graphicspath, external

@@ -15,6 +15,7 @@ These are repository-maintenance instructions, not the runtime instructions of a
 - Preserve the core `econ-phd-professor` guarantee: explanations based on a lecture must use the lecture's exact notation and distinguish slide facts from supplementary economics knowledge.
 - Preserve Professor teaching defaults: **proactively consider useful visuals alongside equations and intuition** (no minimum or maximum quantity); original figures may be used if actually inspected, new schematics/computed curves require accurate provenance. Related Homework informs teaching. Requested files default to a simple `.tex` and compiled `.pdf`, verified in cloud `Agent Outputs/`.
 - Preserve the cloud storage convention: source course files belong in the user's authorized cloud drive; any requested generated files must be placed in the verified course workspace's exact `Agent Outputs/` folder and verified after writing. Never put private course outputs into this public repository.
+- Preserve the v1.1 learning habits: answer first, close substantive derivations with their economic meaning, check intuition against the math, name the reusable method after Homework/exam solutions, and teach in the student's language with unchanged symbols. These shape writing; they are not mandatory sections.
 - Do not present `econ-research-agent` as implemented until it has actually been created and tested.
 - Make focused changes. Do not rewrite unrelated skills or overwrite past logs.
 
