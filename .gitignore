@@ -8,3 +8,4 @@ __pycache__/
 *.fdb_latexmk
 *.out
 *.synctex.gz
+.DS_Store
