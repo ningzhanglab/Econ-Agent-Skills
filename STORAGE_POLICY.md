@@ -17,7 +17,7 @@ For `econ-teaching`, if the user requests a generated teaching/study file but **
 
 1. Use an exact user-provided folder link/ID when supplied. Otherwise determine course folder through source file parents, syllabus and metadata; do not guess from filenames.
 2. **Reuse** the current course folder's exact `Agent Outputs` child if present. Create it only if absent, needed for an actual output, and authorized by connector permissions.
-3. Lowercase `outputs`, `agent outputs`, singular `Agent output`, and other similar names are **not equivalent**. When legacy `outputs` coexists with `Agent Outputs`, use `Agent Outputs`; do not create a duplicate or automatically delete legacy folders.
+3. Lowercase `outputs`, `agent outputs`, singular `Agent output`, and other similar names are **not equivalent**. When legacy `outputs` coexists with `Agent Outputs`, use `Agent Outputs`; do not create a duplicate or automatically delete legacy folders. When the verified course folder has no exact `Agent Outputs` but already holds a near-miss folder (for example `agent output`), ask the user once whether to use that folder or create `Agent Outputs`; never choose silently. Choosing the existing folder is the explicit override described above.
 4. Generate the requested format; avoid silent overwrites, preserving earlier versions unless an update is explicitly authorized.
 5. Verify cloud upload/create/move with file metadata or folder read-back, including file ID, name/type and **correct parent ID**. Return the verified cloud link.
 6. If access, destination resolution or write fails, state that cloud saving was **not completed**. A local file is not equivalent.

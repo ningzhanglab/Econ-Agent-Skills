@@ -41,4 +41,6 @@ The above concepts have one authoritative home in existing references. There is 
 
 **Research skill (2026-11-12):** at the user's request, [econ-research](skills/econ-research/SKILL.md) v0.1 covers research questions and the literature as a third separate skill. Its core rule is that no reference is written from memory. See [the log](logs/2026-11-12-econ-research-skill.md).
 
+**Consolidation (2026-11-13):** rules that were stated in several places now have one home each. Teaching Design owns the mode, the bottleneck, model motivation and answer length; Expert Teaching keeps only the angles of explanation; SKILL.md no longer repeats the Homework rule. Two fixes from the October real-course tests were added: ask for a screenshot of an unreadable page, and ask once before using or duplicating a near-miss output folder. See [the log](logs/2026-11-13-teaching-consolidation-and-source-fixes.md).
+
 **Stop adding design features speculatively.** Only reopen the architecture when an actual teaching failure, user requirement or evidenced capability gap emerges. Fix the narrowest responsible document and use proportionate checks; do not launch a new full-course Handbook/cloud round-trip unless its behavior is the subject of the change.

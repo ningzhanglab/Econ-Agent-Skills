@@ -18,6 +18,7 @@ Apply when the user's lecture files reside in a connected cloud drive, or when t
 4. If the source course files are genuinely at cloud root with no course workspace, use or create the verified **root `Agent Outputs`** folder.
 5. If multiple plausible course workspaces or exact destination folders remain, resolve by evidence or ask one targeted destination question. Never put files in an arbitrary unrelated folder.
 6. Folder names `outputs`, `agent outputs`, `Agent output`, `output`, and `generated` do **not** qualify as the exact name `Agent Outputs`. If both legacy `outputs` and the correct `Agent Outputs` exist under the same verified course folder, **reuse `Agent Outputs`**. Do not rename or remove legacy folders without authorization.
+7. **Near-miss folder already in the course.** If the verified course workspace has no exact `Agent Outputs` but already contains a folder whose name differs only in capitalization, spacing or singular/plural (for example `agent output` or `Agent output`), do not silently use it and do not silently create a second folder beside it. Ask the student once, naming the existing folder: use it, or create `Agent Outputs`. Their choice of the existing folder is the explicit override in step 1 for that course; note it in the private Course State when one is kept, so the question is not repeated. If nobody can be asked, do not write to the near-miss folder: create the exact `Agent Outputs` and report that both folders now exist.
 
 ## Source selection and saved-course recovery
 
