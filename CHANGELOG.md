@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-12
 
+### New skill — Econ Research (v0.1: questions and literature)
+
+- Added [`econ-research`](skills/econ-research/SKILL.md) for developing research questions and working with the literature: testing an idea for contribution, identification and feasibility; searching, screening and verifying papers; synthesizing agreement, splits and gaps; positioning a project.
+- **No reference from memory:** every paper is checked against a bibliographic source or labeled UNVERIFIED, and answers say whether the full text, abstract or only metadata was read.
+- New standard-library [reference checker](skills/econ-research/scripts/verify_references.py) compares DOIs or a `.bib` file with Crossref (PASS / WARN / FAIL / SKIP), with offline unit tests in `tests/test_research_contracts.py`, and seven manual [research evaluation cases](tests/research-evaluation.md).
+- Ideas adapted with credit from claude-academic-workflow (MIT) and awesome-econ-ai-stuff (CC0). Identification design and empirical methods are not included yet.
+- Details: [2026-11-12 — Econ Research skill](logs/2026-11-12-econ-research-skill.md).
+
 ### Rename — `econ-teaching` and `econ-research`
 
 - `econ-phd-professor` is now **`econ-teaching`** (folder `skills/econ-teaching/` and skill `name`), so the three skills are named after what they do: `econ-teaching`, `econ-writing` and the planned `econ-research` (formerly `econ-research-agent`). Behavior is unchanged; the skill still presents itself as the Econ PhD Professor.

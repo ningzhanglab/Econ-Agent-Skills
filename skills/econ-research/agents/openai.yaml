@@ -1,0 +1,4 @@
+interface:
+  display_name: "Econ Research"
+  short_description: "Develop economics research questions and build verified literature reviews"
+  default_prompt: "Use $econ-research to help with my research question and the literature on it. Check every paper against a bibliographic source, say what you actually read, and mark anything unverified."

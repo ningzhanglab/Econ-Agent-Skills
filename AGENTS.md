@@ -17,7 +17,8 @@ These are repository-maintenance instructions, not the runtime instructions of a
 - Preserve the cloud storage convention: source course files belong in the user's authorized cloud drive; any requested generated files must be placed in the verified course workspace's exact `Agent Outputs/` folder and verified after writing. Never put private course outputs into this public repository.
 - Preserve the v1.1 learning habits: answer first, close substantive derivations with their economic meaning, check intuition against the math, name the reusable method after Homework/exam solutions, and teach in the student's language with unchanged symbols. These shape writing; they are not mandatory sections.
 - Preserve the core `econ-writing` guarantee: every technical or defined term, symbol, number, citation key and stated condition in the user's text stays exactly as written; suspected errors are flagged, not silently changed; nothing is invented.
-- Do not present `econ-research` as implemented until it has actually been created and tested.
+- Preserve the core `econ-research` guarantee: no reference written from memory; every paper is verified against a bibliographic source or labeled UNVERIFIED; what was read (full text, abstract only, metadata only) is stated; a paper's claims are kept separate from assessment and inference; no personal details are sent to search services.
+- `econ-research` v0.1 covers research questions and the literature only. Do not present identification design or empirical-methods support as implemented until it has been built and tested.
 - Make focused changes. Do not rewrite unrelated skills or overwrite past logs.
 
 ## Design priority and proportionate evaluation

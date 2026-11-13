@@ -31,12 +31,14 @@ One graduate-level economics teacher that uses **actual lecture sources**, prese
 
 ## Done criteria and future-change policy
 
-The above concepts have one authoritative home in existing references. There is no need for a second teaching skill, the planned `econ-research` skill, mandatory concept registry, universal chart generation or more code to satisfy v1. Existing structural CI and targeted source read-back are adequate for this **design-only** iteration. Independent teaching outcomes, arbitrary proof verification, automatic background course synchronization and external-cloud permissions are **not guaranteed**.
+The above concepts have one authoritative home in existing references. There is no need for a second teaching skill, a research skill inside the Professor, mandatory concept registry, universal chart generation or more code to satisfy v1. Existing structural CI and targeted source read-back are adequate for this **design-only** iteration. Independent teaching outcomes, arbitrary proof verification, automatic background course synchronization and external-cloud permissions are **not guaranteed**.
 
 **Learning Log addition:** User-requested `.md` summaries are stored privately under the course `Agent Outputs/Learning Logs/`; never automatically archive chats or mistake a discussion for confirmed mastery. This explicit user requirement does not change default TeX/PDF for other requested teaching documents.
 
 **v1.1 teaching revision (2026-10-29):** requested by the user to strengthen how the Professor helps a student learn, keeping every v1 invariant. It adds writing habits inside existing references, not a new workflow, Skill or mandatory section. See [the log](logs/2026-10-29-professor-v1-1-teaching-revision.md).
 
 **Separate writing skill (2026-11-12):** at the user's request, editing the user's own economics writing (papers, thesis chapters, reports, homework write-ups) lives in a separate skill, [econ-writing](skills/econ-writing/SKILL.md), because it is a different job from teaching with its own trigger and checks. The Professor's architecture and invariants above are unchanged, and the stability rule still applies to both skills. See [the log](logs/2026-11-12-econ-writing-skill.md).
+
+**Research skill (2026-11-12):** at the user's request, [econ-research](skills/econ-research/SKILL.md) v0.1 covers research questions and the literature as a third separate skill. Its core rule is that no reference is written from memory. See [the log](logs/2026-11-12-econ-research-skill.md).
 
 **Stop adding design features speculatively.** Only reopen the architecture when an actual teaching failure, user requirement or evidenced capability gap emerges. Fix the narrowest responsible document and use proportionate checks; do not launch a new full-course Handbook/cloud round-trip unless its behavior is the subject of the change.
