@@ -8,6 +8,39 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-12
 
+### Econ Research — Independent rerun and fixes
+
+- An agent that did not write `econ-research` reran all seven evaluation cases on new topics (minimum wages, refugees and native workers, the 2022 Ukrainian refugee inflow, housing and inequality, the China shock and marriage, a HANK/trade/immigration `.bib`, Borjas 2003). All seven passed (self-graded by that agent). Its probes of the checker found two false WARNs on correct entries and a zero exit code on failed lookups.
+- **Fixed** in the reference checker: a year is checked against every date in the Crossref record, and a year one after a late-November/December print date passes with a note (QJE 137(1) is the 2022 volume but has a 2021 print date). A venue that differs from the record is now a note, not a WARN, because journals get renamed. A failed lookup (ERROR) now exits with status 2. Five regression tests added.
+- **Fixed** in Literature Search: cite the volume year, not the Crossref print date; take years from Crossref or the publisher, not aggregators; look for a missing published version in RePEc/JSTOR; check that an "abstract" is real and say where it came from; say when a PDF could not be read; rank "most important" papers by relevance then influence and sort by citations only with a title filter; ERROR and notes documented. Research Questions: stating assumptions and proceeding is fine for broad brainstorming requests. Case 6 of the evaluation now has optional harder entries.
+- Details: [2026-11-12 — independent rerun](logs/2026-11-12-econ-research-independent-rerun.md) and [2026-11-12 — fixes from the independent rerun](logs/2026-11-12-econ-research-rerun-fixes.md).
+
+### Econ Research — Cases 6 and 7; all seven cases run once
+
+- Bibliography check: correct PASS/WARN/FAIL/SKIP results, follow-up searches for the failed and no-DOI entries, user file left unchanged. Paywalled paper: abstract-only summary, labeled. Both passed (self-graded); all seven research cases have now been run once.
+- **Fixed** in Literature Search: search the title before calling a failed DOI fabricated, report which fields of a no-DOI entry were confirmed, and list corrections instead of editing the user's file.
+- Details: [2026-11-12 — econ-research cases 6 and 7](logs/2026-11-12-econ-research-cases-6-7.md).
+
+### Econ Research — Cases 2, 4 and 5; two checker fixes
+
+- Fake-paper case: no such paper found, no summary given, closest real paper offered. Research-idea cases: three second-year-paper candidates near the Aiyagari literature tested; one recommended, one judged largely done by an existing paper; "is it done?" answered against verified closest papers. All passed (self-graded).
+- **Fixed** in the reference checker: HTML entities in Crossref records are decoded, and records without a venue print cleanly. Added a unit test.
+- Details: [2026-11-12 — econ-research cases 2, 4 and 5](logs/2026-11-12-econ-research-cases-2-4-5.md).
+
+### Econ Research — First real-topic test, three fixes
+
+- Ran `econ-research` on precautionary saving and wealth inequality in Aiyagari-type models: 17 papers found, all 17 DOIs verified against Crossref, abstracts read for 12 and the rest reported as metadata only. Case 1 passed and case 3 partly (self-graded).
+- **Fixed** in Literature Search: known papers may be used only as verified search seeds; cite the print year when sources disagree; fill incomplete records from another version and name the source; older work without a DOI is checked in RePEc or a catalogue, otherwise cited only as UNVERIFIED.
+- Details: [2026-11-12 — First econ-research topic test](logs/2026-11-12-econ-research-first-topic-test.md).
+
+### New skill — Econ Research (v0.1: questions and literature)
+
+- Added [`econ-research`](skills/econ-research/SKILL.md) for developing research questions and working with the literature: testing an idea for contribution, identification and feasibility; searching, screening and verifying papers; synthesizing agreement, splits and gaps; positioning a project.
+- **No reference from memory:** every paper is checked against a bibliographic source or labeled UNVERIFIED, and answers say whether the full text, abstract or only metadata was read.
+- New standard-library [reference checker](skills/econ-research/scripts/verify_references.py) compares DOIs or a `.bib` file with Crossref (PASS / WARN / FAIL / SKIP), with offline unit tests in `tests/test_research_contracts.py`, and seven manual [research evaluation cases](tests/research-evaluation.md).
+- Ideas adapted with credit from claude-academic-workflow (MIT) and awesome-econ-ai-stuff (CC0). Identification design and empirical methods are not included yet.
+- Details: [2026-11-12 — Econ Research skill](logs/2026-11-12-econ-research-skill.md).
+
 ### Rename — `econ-teaching` and `econ-research`
 
 - `econ-phd-professor` is now **`econ-teaching`** (folder `skills/econ-teaching/` and skill `name`), so the three skills are named after what they do: `econ-teaching`, `econ-writing` and the planned `econ-research` (formerly `econ-research-agent`). Behavior is unchanged; the skill still presents itself as the Econ PhD Professor.

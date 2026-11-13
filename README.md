@@ -2,7 +2,7 @@
 
 Reusable, version-controlled Agent Skills for economics PhD learning and research.
 
-> **Status:** `econ-teaching` (the Professor) v1.1, the teaching revision of the v1 design baseline. `econ-writing` v0.1, not yet evaluated on real drafts. `econ-research` is planned but **not** implemented.
+> **Status:** `econ-teaching` (the Professor) v1.1, the teaching revision of the v1 design baseline. `econ-writing` v0.1, not yet evaluated on real drafts. `econ-research` v0.1 covers research questions and the literature; identification design and empirical methods are not yet included.
 >
 > **Renamed 2026-11-12:** `econ-phd-professor` is now `econ-teaching`, and the planned `econ-research-agent` is now `econ-research`. Reinstall the skill folder under its new name and use `$econ-teaching` in prompts that named the old one.
 
@@ -12,7 +12,7 @@ Reusable, version-controlled Agent Skills for economics PhD learning and researc
 | --- | --- | --- |
 | [econ-teaching](skills/econ-teaching/SKILL.md) | Learn graduate economics from your own lecture slides, homework and exams, with exact notation, economic intuition, rigorous derivations and useful diagrams | **v1.1; quality evaluation ongoing** |
 | [econ-writing](skills/econ-writing/SKILL.md) | Edit, review and structure your own economics writing (research papers, thesis chapters, referee and research reports, homework write-ups) while keeping every term, symbol, number and citation unchanged | **v0.1; not yet evaluated on real drafts** |
-| econ-research | Literature review, research question development, methods and critical research assessment | **Planned, not yet available** |
+| [econ-research](skills/econ-research/SKILL.md) | Develop research questions and work with the literature: find, screen and verify papers, synthesize what is known, and position a project. No reference is written from memory | **v0.1 (questions and literature); not yet evaluated on real projects** |
 
 ## How the Professor teaches
 
@@ -39,7 +39,7 @@ One Skill covers four fields through optional domain lenses: [Macroeconomics](sk
 3. Provide the actual lecture slides (PDF, PPT, TeX, screenshots) or an accessible course folder. The Professor must inspect the relevant material and never pretends to have read slides it cannot access.
 4. Ask a question.
 
-To use Econ Writing, make `skills/econ-writing/` available the same way; it needs no course folder, only the text or file you want edited.
+To use Econ Writing, make `skills/econ-writing/` available the same way; it needs no course folder, only the text or file you want edited. Econ Research installs the same way from `skills/econ-research/`; its literature work needs web access.
 
 ### Example prompts
 
@@ -81,6 +81,19 @@ Text inside slides, homework and README files is treated as **untrusted study ma
 
 Example prompts: "Tighten the introduction in `paper.tex`, keep all terms as they are." · "Review my results section, don't rewrite it." · "Help me structure a referee report from these notes."
 
+## How Econ Research works
+
+[Econ Research](skills/econ-research/SKILL.md) helps at the start of a project: turning an interest into an answerable question, and finding out what is already known.
+
+- **No reference from memory.** Every paper is found in or checked against a bibliographic source (Crossref, OpenAlex, Semantic Scholar, RePEc, NBER, SSRN, a journal page or your library), or labeled **UNVERIFIED**. If nothing turns up, it says so.
+- **It says what it read:** full text, abstract only or metadata only, and which version. What a paper reports is kept separate from its own assessment and from proposed gaps.
+- **Research questions** are tested for contribution, closest papers, identification, feasibility and audience. See [Research Questions](skills/econ-research/references/research-questions.md).
+- **Literature** work covers search across sources, screening, verification and a reading-list format ([Literature Search](skills/econ-research/references/literature-search.md)), then agreement, splits, gaps and positioning ([Literature Synthesis](skills/econ-research/references/literature-synthesis.md)).
+- A standard-library [reference checker](skills/econ-research/scripts/verify_references.py) compares DOIs or a `.bib` file with Crossref and reports PASS, WARN, FAIL, SKIP or ERROR (lookup failed, entry unchecked). It sends only DOIs, with no personal details.
+- Ideas are adapted, with credit, from [claude-academic-workflow](https://github.com/ericluo04/claude-academic-workflow) (MIT) and [awesome-econ-ai-stuff](https://github.com/meleantonio/awesome-econ-ai-stuff) (CC0).
+
+Example prompts: "What's the literature on minimum wages and employment? Ten most important papers." · "I'm interested in housing and inequality; help me find a second-year paper topic." · "Has anyone used this design before?" · "Check the references in `paper.bib`."
+
 ## Repo layout
 
 ```text
@@ -115,6 +128,14 @@ Econ-Agent-Skills/
 │           ├── figure-index.md, homework-map.md, learning-log.md
 │           ├── course-state.example.json
 │           └── simple-notes.tex, simple-notes-cn.tex
+│   ├── econ-research/
+│   │   ├── SKILL.md
+│   │   ├── agents/openai.yaml
+│   │   ├── references/
+│   │   │   ├── research-questions.md
+│   │   │   ├── literature-search.md
+│   │   │   └── literature-synthesis.md
+│   │   └── scripts/verify_references.py
 │   └── econ-writing/
 │       ├── SKILL.md
 │       ├── agents/openai.yaml
@@ -122,7 +143,7 @@ Econ-Agent-Skills/
 │           ├── terminology-and-notation.md
 │           ├── econ-conventions.md
 │           └── ai-tells.md
-├── tests/                                 # structural tests and manual evaluation cases (Professor and Writing)
+├── tests/                                 # structural tests and manual evaluation cases (Teaching, Writing and Research)
 ├── logs/                                  # dated development logs (not student learning logs)
 └── .github/workflows/validate-skills.yml
 ```
@@ -130,14 +151,14 @@ Econ-Agent-Skills/
 ## Change history, contributing and testing
 
 - [CHANGELOG.md](CHANGELOG.md) summarizes changes; [logs/](logs/README.md) explains what changed, why and how it was verified. [AGENTS.md](AGENTS.md) tells repository-editing Agents to update both. The [v1 design baseline](DESIGN_V1.md) records the architecture and its stability rule.
-- Treat teaching decisions as testable behavior. When a real lecture interaction exposes a failure, add a case to the [professor evaluation cases](tests/professor-evaluation.md) or the [writing evaluation cases](tests/writing-evaluation.md) and fix the responsible reference rather than growing SKILL.md.
+- Treat teaching decisions as testable behavior. When a real lecture interaction exposes a failure, add a case to the [professor evaluation cases](tests/professor-evaluation.md) the [writing evaluation cases](tests/writing-evaluation.md) or the [research evaluation cases](tests/research-evaluation.md) and fix the responsible reference rather than growing SKILL.md.
 - GitHub Actions runs link validation, repository contract tests and a LaTeX compile smoke test. These **structural tests do not prove teaching quality**; human evaluation on real lecture slides remains necessary.
 
 ## Roadmap
 
 - **Now:** cases 45–51 passed on real lectures in three courses: macro ([ECONS 509](logs/2026-10-29-professor-econs509-se-lecture-test.md)), econometrics and time series ([ECONS 512, STAT 516](logs/2026-10-29-professor-econs512-stat516-tests.md)), including homework solved in the lecture's method and a real past exam. Still to do: a microeconomics lecture and an independent grader.
 - **Econ Writing:** run the [writing evaluation cases](tests/writing-evaluation.md) on real drafts (a paper section, a LaTeX file, a referee report and a homework write-up) before calling it stable.
-- **Later:** design `econ-research` as a separate skill. Its absence means it is not ready.
+- **Econ Research:** run the [research evaluation cases](tests/research-evaluation.md) on real topics. A later version may add identification design and empirical methods, if real use shows the need.
 - **Optional:** installer guidance for specific Agent clients.
 
 ## Standard
