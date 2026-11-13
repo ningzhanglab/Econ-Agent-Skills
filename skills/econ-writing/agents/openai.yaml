@@ -1,0 +1,4 @@
+interface:
+  display_name: "Econ Writing"
+  short_description: "Edit and structure economics papers, theses, reports and homework write-ups"
+  default_prompt: "Use $econ-writing to edit this economics text. Keep every technical term, symbol, number and citation exactly as written, and flag anything you think is wrong instead of changing it."

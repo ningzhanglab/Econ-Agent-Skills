@@ -22,6 +22,7 @@ def active_docs():
         ROOT / "CHANGELOG.md",
         ROOT / "logs/README.md",
         ROOT / "tests/professor-evaluation.md",
+        ROOT / "tests/writing-evaluation.md",
     ]
     paths.extend((ROOT / "skills").rglob("*.md"))
     return paths

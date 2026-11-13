@@ -1,6 +1,6 @@
 # Cloud Storage and Agent Output Requirements
 
-Applies to all present and future skills in this repository, including `econ-phd-professor` and the planned `econ-research-agent`. The **default** folder name for user-requested cloud deliverables is **`Agent Outputs`**, with exact capitalization and spacing.
+Applies to all present and future skills in this repository, including `econ-phd-professor`, `econ-writing` and the planned `econ-research-agent`. For `econ-writing`, a file the user asks to edit is itself the named destination; a new file with no named destination goes in the verified course or project folder's `Agent Outputs/`. The **default** folder name for user-requested cloud deliverables is **`Agent Outputs`**, with exact capitalization and spacing.
 
 ## Inputs and outputs
 
