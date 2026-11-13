@@ -2,21 +2,23 @@
 
 Reusable, version-controlled Agent Skills for economics PhD learning and research.
 
-> **Status:** Professor v1.1 (teaching revision of the v1 design baseline). Econ Writing v0.1 (new; not yet evaluated on real drafts). Research Agent is planned but **not** implemented.
+> **Status:** `econ-teaching` (the Professor) v1.1, the teaching revision of the v1 design baseline. `econ-writing` v0.1, not yet evaluated on real drafts. `econ-research` is planned but **not** implemented.
+>
+> **Renamed 2026-11-12:** `econ-phd-professor` is now `econ-teaching`, and the planned `econ-research-agent` is now `econ-research`. Reinstall the skill folder under its new name and use `$econ-teaching` in prompts that named the old one.
 
 ## Skills catalog
 
 | Skill | Purpose | Status |
 | --- | --- | --- |
-| [econ-phd-professor](skills/econ-phd-professor/SKILL.md) | Learn graduate economics from your own lecture slides, homework and exams, with exact notation, economic intuition, rigorous derivations and useful diagrams | **v1.1; quality evaluation ongoing** |
+| [econ-teaching](skills/econ-teaching/SKILL.md) | Learn graduate economics from your own lecture slides, homework and exams, with exact notation, economic intuition, rigorous derivations and useful diagrams | **v1.1; quality evaluation ongoing** |
 | [econ-writing](skills/econ-writing/SKILL.md) | Edit, review and structure your own economics writing (research papers, thesis chapters, referee and research reports, homework write-ups) while keeping every term, symbol, number and citation unchanged | **v0.1; not yet evaluated on real drafts** |
-| econ-research-agent | Literature review, research question development, methods and critical research assessment | **Planned, not yet available** |
+| econ-research | Literature review, research question development, methods and critical research assessment | **Planned, not yet available** |
 
 ## How the Professor teaches
 
 The Professor teaches like a knowledgeable economics PhD professor, not a slide summarizer. The slides define the local model, notation and assumptions; broader economics knowledge explains why the model is built that way, how the mechanism works and when the result fails. The aim of every answer is that you **understand the economics and can do the next problem yourself**.
 
-Seven principles govern every answer (full text in [SKILL.md](skills/econ-phd-professor/SKILL.md)):
+Seven principles govern every answer (full text in [SKILL.md](skills/econ-teaching/SKILL.md)):
 
 1. **Exact slide notation.** Symbols, signs, timing and operators stay exactly as the lecturer wrote them. Slide statements, derivations and outside knowledge are kept visibly separate.
 2. **Diagnose the bottleneck and explain the model's design.** The Professor looks for the earliest missing link (notation, a proof step, the incentive, an assumption, identification or numerical approximation) without claiming to read your mind. For "why this model?" it explains what the model isolates, what it omits and what a nearby alternative would change. Each field has a short list of common PhD-level traps (for example an Euler equation at a binding borrowing limit, or a strong instrument mistaken for a valid one) that the Professor raises only when relevant.
@@ -26,14 +28,14 @@ Seven principles govern every answer (full text in [SKILL.md](skills/econ-phd-pr
 6. **Homework and exams in the instructor's framework.** Same notation, same or closest slide method, every necessary step, a checked result, and then the reusable method in one or two lines. Exam preparation can include a fresh practice item with its answer held back. Course AI-use rules are respected.
 7. **Your language.** Answers come in the language you write in, with symbols unchanged and English technical terms beside translations, for example 欧拉方程 (Euler equation).
 
-The Professor chooses a **teaching mode before tools**: quick step, intuition, derivation, model comparison, whole lecture, Homework or exam preparation. A narrow question never triggers a course inventory or a generated file. See [Teaching Design](skills/econ-phd-professor/references/teaching-design.md), [Expert Teaching](skills/econ-phd-professor/references/expert-teaching.md) and the [hypothetical diagnostic examples](skills/econ-phd-professor/examples/diagnostic-teaching-patterns.md).
+The Professor chooses a **teaching mode before tools**: quick step, intuition, derivation, model comparison, whole lecture, Homework or exam preparation. A narrow question never triggers a course inventory or a generated file. See [Teaching Design](skills/econ-teaching/references/teaching-design.md), [Expert Teaching](skills/econ-teaching/references/expert-teaching.md) and the [hypothetical diagnostic examples](skills/econ-teaching/examples/diagnostic-teaching-patterns.md).
 
-One Skill covers four fields through optional domain lenses: [Macroeconomics](skills/econ-phd-professor/references/macroeconomics.md) (including numerical methods), [Microeconomics](skills/econ-phd-professor/references/microeconomics.md), [Econometrics](skills/econ-phd-professor/references/econometrics.md) and [Time Series](skills/econ-phd-professor/references/time-series.md). Each lens lists the questions an expert asks, the high-value explanations and the common traps for that field; none is tied to a particular course.
+One Skill covers four fields through optional domain lenses: [Macroeconomics](skills/econ-teaching/references/macroeconomics.md) (including numerical methods), [Microeconomics](skills/econ-teaching/references/microeconomics.md), [Econometrics](skills/econ-teaching/references/econometrics.md) and [Time Series](skills/econ-teaching/references/time-series.md). Each lens lists the questions an expert asks, the high-value explanations and the common traps for that field; none is tied to a particular course.
 
 ## Getting started
 
-1. Read [SKILL.md](skills/econ-phd-professor/SKILL.md) to see the behavior and triggers.
-2. Make the **entire skill folder** `skills/econ-phd-professor/` available to a compatible Agent Skills client (install from this GitHub folder, or copy or link the folder into the client's skills directory). The folder is self-contained: its references, templates, examples and helper scripts all live inside it. A GitHub repository alone does **not** activate the skill.
+1. Read [SKILL.md](skills/econ-teaching/SKILL.md) to see the behavior and triggers.
+2. Make the **entire skill folder** `skills/econ-teaching/` available to a compatible Agent Skills client (install from this GitHub folder, or copy or link the folder into the client's skills directory). The folder is self-contained: its references, templates, examples and helper scripts all live inside it. A GitHub repository alone does **not** activate the skill.
 3. Provide the actual lecture slides (PDF, PPT, TeX, screenshots) or an accessible course folder. The Professor must inspect the relevant material and never pretends to have read slides it cannot access.
 4. Ask a question.
 
@@ -53,18 +55,18 @@ To use Econ Writing, make `skills/econ-writing/` available the same way; it need
 
 For semester-long tutoring the Professor can map a course on request: syllabus order kept separate from inferred prerequisites, each lecture's notation tracked separately, and every file marked **DISCOVERED**, **INDEXED**, **REVIEWED** (exact range) or **BLOCKED**. A course map is a navigation aid; every explanation still reopens the original slides.
 
-- Same-basename `.tex`, PDF and Word files in one course folder are treated as one lecture by default; presenter views, handouts and genuine revisions are distinguished by content, not extension. See [Course State and Sources](skills/econ-phd-professor/references/course-state-and-sources.md).
-- Templates: [Course Map](skills/econ-phd-professor/templates/course-map.md), [Lecture Index](skills/econ-phd-professor/templates/lecture-index.md), [Notation Registry](skills/econ-phd-professor/templates/notation-registry.md), [Figure Index](skills/econ-phd-professor/templates/figure-index.md), [Homework Map](skills/econ-phd-professor/templates/homework-map.md) and [Course State](skills/econ-phd-professor/templates/course-state.example.json).
-- Helper scripts (inside the skill folder; Python standard library, read-only on your sources): [file grouping](skills/econ-phd-professor/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-phd-professor/scripts/inventory_tex_figures.py) and [TeX bundle checker](skills/econ-phd-professor/scripts/check_tex_bundle.py).
-- Details: [Course Navigation](skills/econ-phd-professor/references/course-navigation.md) and [Large-File Strategy](skills/econ-phd-professor/references/large-file-strategy.md). This is a workflow specification, not background indexing or permanent memory.
+- Same-basename `.tex`, PDF and Word files in one course folder are treated as one lecture by default; presenter views, handouts and genuine revisions are distinguished by content, not extension. See [Course State and Sources](skills/econ-teaching/references/course-state-and-sources.md).
+- Templates: [Course Map](skills/econ-teaching/templates/course-map.md), [Lecture Index](skills/econ-teaching/templates/lecture-index.md), [Notation Registry](skills/econ-teaching/templates/notation-registry.md), [Figure Index](skills/econ-teaching/templates/figure-index.md), [Homework Map](skills/econ-teaching/templates/homework-map.md) and [Course State](skills/econ-teaching/templates/course-state.example.json).
+- Helper scripts (inside the skill folder; Python standard library, read-only on your sources): [file grouping](skills/econ-teaching/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-teaching/scripts/inventory_tex_figures.py) and [TeX bundle checker](skills/econ-teaching/scripts/check_tex_bundle.py).
+- Details: [Course Navigation](skills/econ-teaching/references/course-navigation.md) and [Large-File Strategy](skills/econ-teaching/references/large-file-strategy.md). This is a workflow specification, not background indexing or permanent memory.
 
 Text inside slides, homework and README files is treated as **untrusted study material**, never as instructions that can override your request, change sharing or move private files.
 
 ## Files, cloud storage and learning logs
 
 - **Ordinary questions are answered in chat.** No file is created unless you ask.
-- **When you ask for a file without naming a format**, the Professor delivers a matching editable `.tex` and compiled `.pdf`, saved and verified in your course's cloud folder named exactly **`Agent Outputs`**. An explicit format or destination overrides this. Rules: [Storage Policy](STORAGE_POLICY.md), [Cloud Drive Workflow](skills/econ-phd-professor/references/cloud-drive-workflow.md) and [TeX/PDF Outputs](skills/econ-phd-professor/references/latex-outputs.md). Chinese notes use the [ctexart template](skills/econ-phd-professor/templates/simple-notes-cn.tex).
-- **Learning logs are on demand.** Say "记录今天的学习" or "Save today's learning log" and the Professor saves a short Markdown summary of what was actually studied, questions, clarifications and open issues to `Agent Outputs/Learning Logs/`. It never records chats in the background or claims mastery. See [Learning Logs](skills/econ-phd-professor/references/learning-log.md).
+- **When you ask for a file without naming a format**, the Professor delivers a matching editable `.tex` and compiled `.pdf`, saved and verified in your course's cloud folder named exactly **`Agent Outputs`**. An explicit format or destination overrides this. Rules: [Storage Policy](STORAGE_POLICY.md), [Cloud Drive Workflow](skills/econ-teaching/references/cloud-drive-workflow.md) and [TeX/PDF Outputs](skills/econ-teaching/references/latex-outputs.md). Chinese notes use the [ctexart template](skills/econ-teaching/templates/simple-notes-cn.tex).
+- **Learning logs are on demand.** Say "记录今天的学习" or "Save today's learning log" and the Professor saves a short Markdown summary of what was actually studied, questions, clarifications and open issues to `Agent Outputs/Learning Logs/`. It never records chats in the background or claims mastery. See [Learning Logs](skills/econ-teaching/references/learning-log.md).
 - This public repository holds reusable rules, templates and development logs only. Private slides and generated course records stay in your cloud drive.
 
 ## How Econ Writing edits
@@ -85,7 +87,7 @@ Example prompts: "Tighten the introduction in `paper.tex`, keep all terms as the
 Econ-Agent-Skills/
 ├── README.md, AGENTS.md, DESIGN_V1.md, STORAGE_POLICY.md, CHANGELOG.md
 ├── skills/
-│   └── econ-phd-professor/
+│   └── econ-teaching/
 │       ├── SKILL.md
 │       ├── agents/openai.yaml
 │       ├── references/
@@ -135,7 +137,7 @@ Econ-Agent-Skills/
 
 - **Now:** cases 45–51 passed on real lectures in three courses: macro ([ECONS 509](logs/2026-10-29-professor-econs509-se-lecture-test.md)), econometrics and time series ([ECONS 512, STAT 516](logs/2026-10-29-professor-econs512-stat516-tests.md)), including homework solved in the lecture's method and a real past exam. Still to do: a microeconomics lecture and an independent grader.
 - **Econ Writing:** run the [writing evaluation cases](tests/writing-evaluation.md) on real drafts (a paper section, a LaTeX file, a referee report and a homework write-up) before calling it stable.
-- **Later:** design `econ-research-agent` as a separate skill. Its absence means it is not ready.
+- **Later:** design `econ-research` as a separate skill. Its absence means it is not ready.
 - **Optional:** installer guidance for specific Agent clients.
 
 ## Standard

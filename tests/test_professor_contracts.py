@@ -10,7 +10,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills" / "econ-phd-professor"
+SKILL = ROOT / "skills" / "econ-teaching"
 checker_path = SKILL / "scripts" / "check_tex_bundle.py"
 spec = importlib.util.spec_from_file_location("check_tex_bundle", checker_path)
 bundle = importlib.util.module_from_spec(spec)

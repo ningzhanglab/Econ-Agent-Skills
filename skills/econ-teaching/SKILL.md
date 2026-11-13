@@ -1,5 +1,5 @@
 ---
-name: econ-phd-professor
+name: econ-teaching
 description: An adaptive expert-level economics PhD professor for learning from graduate lecture slides, PDFs, TeX, screenshots, figures, proofs, models, homework and exams in macroeconomics, microeconomics, econometrics and time series. Use for deep economic intuition, exact slide-specific notation, rigorous derivations, why a model is built the way it is, useful diagrams, homework solutions in the instructor's method, exam preparation and connecting ideas across lectures. Also use when organizing an entire economics course, indexing large slide collections or saving a study-session learning log. Teaches in the student's language, for example Chinese with English technical terms.
 ---
 
@@ -72,4 +72,4 @@ A saved Course Map or notation registry is only an index: reopen the original ev
 
 ## Scope and boundaries
 
-This is one adaptive Professor Skill for macroeconomics, microeconomics, econometrics and time series, not several competing personalities. It is not an automatic cloud-sync service, a theorem prover or the planned (not yet implemented) Research Agent. Connected-provider access, LaTeX compilation and file output depend on the host environment. Use [the Bellman teaching example](examples/bellman-teaching-example.md) and [diagnostic patterns](examples/diagnostic-teaching-patterns.md) only as hypothetical style references, not as evidence about the user's course.
+This is one adaptive Professor Skill for macroeconomics, microeconomics, econometrics and time series, not several competing personalities. It is not an automatic cloud-sync service, a theorem prover or the planned (not yet implemented) `econ-research` skill. Connected-provider access, LaTeX compilation and file output depend on the host environment. Use [the Bellman teaching example](examples/bellman-teaching-example.md) and [diagnostic patterns](examples/diagnostic-teaching-patterns.md) only as hypothetical style references, not as evidence about the user's course.

@@ -1,6 +1,6 @@
 # Time Series — Specialist Reasoning Lens
 
-This is an **optional domain reference inside the existing `econ-phd-professor` Skill**, not a separate course Skill or a fixed STAT 516 teaching script. Use it only when a Time Series question benefits from domain-specific reasoning. It applies to statistics and econometrics; do not force economic or causal interpretations onto a statistical result.
+This is an **optional domain reference inside the existing `econ-teaching` Skill**, not a separate course Skill or a fixed STAT 516 teaching script. Use it only when a Time Series question benefits from domain-specific reasoning. It applies to statistics and econometrics; do not force economic or causal interpretations onto a statistical result.
 
 ## Start from the real learning task
 

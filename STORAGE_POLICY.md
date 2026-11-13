@@ -1,6 +1,6 @@
 # Cloud Storage and Agent Output Requirements
 
-Applies to all present and future skills in this repository, including `econ-phd-professor`, `econ-writing` and the planned `econ-research-agent`. For `econ-writing`, a file the user asks to edit is itself the named destination; a new file with no named destination goes in the verified course or project folder's `Agent Outputs/`. The **default** folder name for user-requested cloud deliverables is **`Agent Outputs`**, with exact capitalization and spacing.
+Applies to all present and future skills in this repository, including `econ-teaching`, `econ-writing` and the planned `econ-research`. For `econ-writing`, a file the user asks to edit is itself the named destination; a new file with no named destination goes in the verified course or project folder's `Agent Outputs/`. The **default** folder name for user-requested cloud deliverables is **`Agent Outputs`**, with exact capitalization and spacing.
 
 ## Inputs and outputs
 
@@ -11,7 +11,7 @@ Applies to all present and future skills in this repository, including `econ-phd
 
 ## Professor's default file formats
 
-For `econ-phd-professor`, if the user requests a generated teaching/study file but **does not specify a format**, deliver **both a matched `.tex` source and a compiled `.pdf`**, using a minimal LaTeX article template. Save and independently verify **both** files in the same `Agent Outputs/` folder. An explicit single or alternative format overrides this default. Chat explanations do not create files. See [TeX/PDF Outputs](skills/econ-phd-professor/references/latex-outputs.md).
+For `econ-teaching`, if the user requests a generated teaching/study file but **does not specify a format**, deliver **both a matched `.tex` source and a compiled `.pdf`**, using a minimal LaTeX article template. Save and independently verify **both** files in the same `Agent Outputs/` folder. An explicit single or alternative format overrides this default. Chat explanations do not create files. See [TeX/PDF Outputs](skills/econ-teaching/references/latex-outputs.md).
 
 ## Exact destination workflow
 
@@ -27,7 +27,7 @@ For `econ-phd-professor`, if the user requests a generated teaching/study file b
 - GitHub stores reusable Skills, templates, tests and non-sensitive change logs. Completed course maps, lecture indexes, notation registries, documents and research outputs stay in the course's `Agent Outputs/`.
 - [AGENTS.md](AGENTS.md) governs development changes; update [CHANGELOG.md](CHANGELOG.md) and add a new dated log for material policy changes.
 - Past dated logs mention an older `outputs/` convention. Those are historical records, **superseded by this policy**; preserve them unchanged.
-- Professor implementation details: [Cloud Drive Workflow](skills/econ-phd-professor/references/cloud-drive-workflow.md).
+- Professor implementation details: [Cloud Drive Workflow](skills/econ-teaching/references/cloud-drive-workflow.md).
 
 ## Example
 
