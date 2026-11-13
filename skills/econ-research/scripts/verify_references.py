@@ -20,6 +20,7 @@ Exit status is 1 if any entry FAILs, 0 otherwise.
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 import sys
@@ -121,7 +122,7 @@ def record_year(rec: dict) -> Optional[int]:
 
 
 def first(values) -> str:
-    return values[0] if values else ""
+    return html.unescape(values[0]) if values else ""
 
 
 def compare(fields: dict, rec: dict) -> tuple[str, list[str]]:
@@ -160,7 +161,8 @@ def compare(fields: dict, rec: dict) -> tuple[str, list[str]]:
 
 def describe(rec: dict) -> str:
     authors = ", ".join(a.get("family", "") for a in (rec.get("author") or [])[:4])
-    return f"{authors} ({record_year(rec)}). {first(rec.get('title'))}. {first(rec.get('container-title'))}"
+    parts = [f"{authors} ({record_year(rec)})", first(rec.get("title")), first(rec.get("container-title"))]
+    return " · ".join(part.strip() for part in parts if part.strip())
 
 
 def check_doi(doi: str, fields: dict, fetch: Fetcher) -> dict:

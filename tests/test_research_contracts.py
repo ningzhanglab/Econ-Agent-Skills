@@ -67,6 +67,12 @@ class ReferenceCheckerTests(unittest.TestCase):
         result = vr.check_doi(GOOD_DOI, {}, broken)
         self.assertEqual(result["status"], "ERROR")
 
+    def test_html_entities_in_record_are_decoded(self):
+        record = dict(RECORD, **{"container-title": ["Journal of Economic Behavior &amp; Organization"]})
+        self.assertIn("Behavior & Organization", vr.describe(record))
+        status, _ = vr.compare({"journal": "Journal of Economic Behavior & Organization"}, record)
+        self.assertEqual(status, "PASS")
+
     def test_user_agent_carries_no_contact_details(self):
         self.assertNotIn("@", vr.USER_AGENT)
         self.assertNotIn("mailto", vr.USER_AGENT)

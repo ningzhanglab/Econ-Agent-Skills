@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-12
 
+### Econ Research — Cases 2, 4 and 5; two checker fixes
+
+- Fake-paper case: no such paper found, no summary given, closest real paper offered. Research-idea cases: three second-year-paper candidates near the Aiyagari literature tested; one recommended, one judged largely done by an existing paper; "is it done?" answered against verified closest papers. All passed (self-graded).
+- **Fixed** in the reference checker: HTML entities in Crossref records are decoded, and records without a venue print cleanly. Added a unit test.
+- Details: [2026-11-12 — econ-research cases 2, 4 and 5](logs/2026-11-12-econ-research-cases-2-4-5.md).
+
 ### Econ Research — First real-topic test, three fixes
 
 - Ran `econ-research` on precautionary saving and wealth inequality in Aiyagari-type models: 17 papers found, all 17 DOIs verified against Crossref, abstracts read for 12 and the rest reported as metadata only. Case 1 passed and case 3 partly (self-graded).
