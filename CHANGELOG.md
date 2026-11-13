@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-12
 
+### Econ Research — First real-topic test, three fixes
+
+- Ran `econ-research` on precautionary saving and wealth inequality in Aiyagari-type models: 17 papers found, all 17 DOIs verified against Crossref, abstracts read for 12 and the rest reported as metadata only. Case 1 passed and case 3 partly (self-graded).
+- **Fixed** in Literature Search: known papers may be used only as verified search seeds; cite the print year when sources disagree; fill incomplete records from another version and name the source; older work without a DOI is checked in RePEc or a catalogue, otherwise cited only as UNVERIFIED.
+- Details: [2026-11-12 — First econ-research topic test](logs/2026-11-12-econ-research-first-topic-test.md).
+
 ### New skill — Econ Research (v0.1: questions and literature)
 
 - Added [`econ-research`](skills/econ-research/SKILL.md) for developing research questions and working with the literature: testing an idea for contribution, identification and feasibility; searching, screening and verifying papers; synthesizing agreement, splits and gaps; positioning a project.

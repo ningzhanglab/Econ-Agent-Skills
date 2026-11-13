@@ -37,6 +37,7 @@ Use whichever of these the environment can reach. If a source fails or is unreac
 - Add a JEL-code or venue pass when the topic has a clear home field, and a working-paper pass for recent work.
 - From the two or three most relevant papers, follow citations backward (what they cite) and forward (who cites them).
 - If results are dominated by one subfield, the query is inheriting its vocabulary; rewrite and merge.
+- Papers you already know of may be used as **search seeds**: look each one up by title and keep it only if a source confirms it. Say in the coverage line that some entries came from seed lookups rather than open search.
 
 ## Screen
 
@@ -60,6 +61,12 @@ Before any paper reaches the user:
 2. Check authors' surnames, year, title, venue, volume and pages against that record. Use the canonical values and note any correction.
 3. Build BibTeX only from the record. Leave out a field rather than guess it.
 4. If no source confirms it, keep it only if the user supplied it, and label it **UNVERIFIED** with the reason.
+
+Common cases in economics:
+
+- **Online and print years differ.** Sources disagree when a paper appeared online a year before its print issue. Cite the print year from the publisher's record and note the online year if a source reports it.
+- **A record is incomplete.** Some records lack authors or pages (handbook chapters often do). Fill the gap from another record of the same work, such as its working-paper version, and say where each field came from.
+- **Older work has no DOI.** Classic book chapters, conference volumes and pre-1990s working papers may have no DOI and weak database coverage. Check RePEc/IDEAS, the publisher's catalogue or a library catalogue; if none confirms the details, cite it only with the **UNVERIFIED** label, never with details filled in from memory.
 
 The [reference checker](../scripts/verify_references.py) does steps 1–2 for DOIs and `.bib` files against Crossref:
 
