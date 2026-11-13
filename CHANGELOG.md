@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-12
 
+### Econ Research — Cases 6 and 7; all seven cases run once
+
+- Bibliography check: correct PASS/WARN/FAIL/SKIP results, follow-up searches for the failed and no-DOI entries, user file left unchanged. Paywalled paper: abstract-only summary, labeled. Both passed (self-graded); all seven research cases have now been run once.
+- **Fixed** in Literature Search: search the title before calling a failed DOI fabricated, report which fields of a no-DOI entry were confirmed, and list corrections instead of editing the user's file.
+- Details: [2026-11-12 — econ-research cases 6 and 7](logs/2026-11-12-econ-research-cases-6-7.md).
+
 ### Econ Research — Cases 2, 4 and 5; two checker fixes
 
 - Fake-paper case: no such paper found, no summary given, closest real paper offered. Research-idea cases: three second-year-paper candidates near the Aiyagari literature tested; one recommended, one judged largely done by an existing paper; "is it done?" answered against verified closest papers. All passed (self-graded).

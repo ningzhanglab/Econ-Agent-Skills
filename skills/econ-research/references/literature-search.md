@@ -77,6 +77,8 @@ python skills/econ-research/scripts/verify_references.py --bib references.bib
 
 It reports PASS, WARN (a field differs) or FAIL (no record, or the title does not match). It cannot check entries without a DOI; check those by hand and say so.
 
+Before calling a FAIL entry fabricated, search its title and authors: a mistyped DOI and a non-existent paper both fail. Report "the DOI is wrong; the paper exists as …" or "no paper with this title and authors was found in these sources; it may be fabricated". Check entries without a DOI field by field: a source may confirm the authors and title but not the edition or year, and the report should say exactly which fields were confirmed. Do not edit the user's file unless asked; list the corrections instead.
+
 Citation counts differ across sources. Name the source of any count, and never mix sources in one column.
 
 ## Read
