@@ -37,4 +37,6 @@ The above concepts have one authoritative home in existing references. There is 
 
 **v1.1 teaching revision (2026-10-29):** requested by the user to strengthen how the Professor helps a student learn, keeping every v1 invariant. It adds writing habits inside existing references, not a new workflow, Skill or mandatory section. See [the log](logs/2026-10-29-professor-v1-1-teaching-revision.md).
 
+**Separate writing skill (2026-11-12):** at the user's request, editing the user's own economics writing (papers, thesis chapters, reports, homework write-ups) lives in a separate skill, [econ-writing](skills/econ-writing/SKILL.md), because it is a different job from teaching with its own trigger and checks. The Professor's architecture and invariants above are unchanged, and the stability rule still applies to both skills. See [the log](logs/2026-11-12-econ-writing-skill.md).
+
 **Stop adding design features speculatively.** Only reopen the architecture when an actual teaching failure, user requirement or evidenced capability gap emerges. Fix the narrowest responsible document and use proportionate checks; do not launch a new full-course Handbook/cloud round-trip unless its behavior is the subject of the change.

@@ -6,6 +6,16 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-11-12
+
+### New skill — Econ Writing (v0.1)
+
+- Added [`econ-writing`](skills/econ-writing/SKILL.md), a separate skill for editing, reviewing and structuring the user's own English economics writing: research papers, thesis chapters, referee and research reports, and homework write-ups.
+- **Terminology stays unchanged.** The skill builds a term list from the draft first and uses each term exactly as written; it never swaps in synonyms and flags inconsistent use instead of choosing. Math, numbers, citation keys, LaTeX labels and stated conditions are also left as written.
+- Three references: terminology and LaTeX safety, economics writing conventions (paper sections, thesis chapters, referee reports, homework), and AI-sounding patterns adapted for economics from the MIT-licensed [humanizer](https://github.com/blader/humanizer) skill.
+- Added seven manual [writing evaluation cases](tests/writing-evaluation.md); README, AGENTS.md, DESIGN_V1.md and STORAGE_POLICY.md now describe the second skill. Not yet tested on real drafts.
+- Details: [2026-11-12 — Econ Writing skill](logs/2026-11-12-econ-writing-skill.md).
+
 ## 2026-10-29
 
 ### Professor — Econometrics and time-series tests, two fixes

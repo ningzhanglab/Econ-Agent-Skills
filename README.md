@@ -2,13 +2,14 @@
 
 Reusable, version-controlled Agent Skills for economics PhD learning and research.
 
-> **Status:** Professor v1.1 (teaching revision of the v1 design baseline). Research Agent is planned but **not** implemented.
+> **Status:** Professor v1.1 (teaching revision of the v1 design baseline). Econ Writing v0.1 (new; not yet evaluated on real drafts). Research Agent is planned but **not** implemented.
 
 ## Skills catalog
 
 | Skill | Purpose | Status |
 | --- | --- | --- |
 | [econ-phd-professor](skills/econ-phd-professor/SKILL.md) | Learn graduate economics from your own lecture slides, homework and exams, with exact notation, economic intuition, rigorous derivations and useful diagrams | **v1.1; quality evaluation ongoing** |
+| [econ-writing](skills/econ-writing/SKILL.md) | Edit, review and structure your own economics writing (research papers, thesis chapters, referee and research reports, homework write-ups) while keeping every term, symbol, number and citation unchanged | **v0.1; not yet evaluated on real drafts** |
 | econ-research-agent | Literature review, research question development, methods and critical research assessment | **Planned, not yet available** |
 
 ## How the Professor teaches
@@ -35,6 +36,8 @@ One Skill covers four fields through optional domain lenses: [Macroeconomics](sk
 2. Make the **entire skill folder** `skills/econ-phd-professor/` available to a compatible Agent Skills client (install from this GitHub folder, or copy or link the folder into the client's skills directory). The folder is self-contained: its references, templates, examples and helper scripts all live inside it. A GitHub repository alone does **not** activate the skill.
 3. Provide the actual lecture slides (PDF, PPT, TeX, screenshots) or an accessible course folder. The Professor must inspect the relevant material and never pretends to have read slides it cannot access.
 4. Ask a question.
+
+To use Econ Writing, make `skills/econ-writing/` available the same way; it needs no course folder, only the text or file you want edited.
 
 ### Example prompts
 
@@ -63,6 +66,18 @@ Text inside slides, homework and README files is treated as **untrusted study ma
 - **When you ask for a file without naming a format**, the Professor delivers a matching editable `.tex` and compiled `.pdf`, saved and verified in your course's cloud folder named exactly **`Agent Outputs`**. An explicit format or destination overrides this. Rules: [Storage Policy](STORAGE_POLICY.md), [Cloud Drive Workflow](skills/econ-phd-professor/references/cloud-drive-workflow.md) and [TeX/PDF Outputs](skills/econ-phd-professor/references/latex-outputs.md). Chinese notes use the [ctexart template](skills/econ-phd-professor/templates/simple-notes-cn.tex).
 - **Learning logs are on demand.** Say "记录今天的学习" or "Save today's learning log" and the Professor saves a short Markdown summary of what was actually studied, questions, clarifications and open issues to `Agent Outputs/Learning Logs/`. It never records chats in the background or claims mastery. See [Learning Logs](skills/econ-phd-professor/references/learning-log.md).
 - This public repository holds reusable rules, templates and development logs only. Private slides and generated course records stay in your cloud drive.
+
+## How Econ Writing edits
+
+[Econ Writing](skills/econ-writing/SKILL.md) is a separate skill for text you write yourself, in English. It edits for clarity, removes templated or AI-sounding prose, organizes sections by economics conventions, or reviews a draft without rewriting it.
+
+- **Terminology is fixed.** It first collects your defined terms, field terms, model and estimator names and acronyms, then uses each exactly as you do. It never swaps in synonyms, and it flags a term used two ways instead of choosing for you. See [Terminology and Notation](skills/econ-writing/references/terminology-and-notation.md).
+- **Math, numbers and citations are untouched**, including LaTeX labels and citation keys. Conditions and caveats stay, and causal language is flagged, not silently changed.
+- **Nothing is invented:** no references, results or robustness checks the draft does not contain.
+- Conventions for papers, theses, referee reports and homework write-ups are in [Economics Writing Conventions](skills/econ-writing/references/econ-conventions.md); the prose patterns, adapted from the MIT-licensed [humanizer](https://github.com/blader/humanizer) skill, are in [AI-Sounding Patterns](skills/econ-writing/references/ai-tells.md).
+- Course and journal rules on AI assistance still apply; the skill is for clarity, not for hiding assistance.
+
+Example prompts: "Tighten the introduction in `paper.tex`, keep all terms as they are." · "Review my results section, don't rewrite it." · "Help me structure a referee report from these notes."
 
 ## Repo layout
 
@@ -98,7 +113,14 @@ Econ-Agent-Skills/
 │           ├── figure-index.md, homework-map.md, learning-log.md
 │           ├── course-state.example.json
 │           └── simple-notes.tex, simple-notes-cn.tex
-├── tests/                                 # structural tests and manual evaluation cases
+│   └── econ-writing/
+│       ├── SKILL.md
+│       ├── agents/openai.yaml
+│       └── references/
+│           ├── terminology-and-notation.md
+│           ├── econ-conventions.md
+│           └── ai-tells.md
+├── tests/                                 # structural tests and manual evaluation cases (Professor and Writing)
 ├── logs/                                  # dated development logs (not student learning logs)
 └── .github/workflows/validate-skills.yml
 ```
@@ -106,12 +128,13 @@ Econ-Agent-Skills/
 ## Change history, contributing and testing
 
 - [CHANGELOG.md](CHANGELOG.md) summarizes changes; [logs/](logs/README.md) explains what changed, why and how it was verified. [AGENTS.md](AGENTS.md) tells repository-editing Agents to update both. The [v1 design baseline](DESIGN_V1.md) records the architecture and its stability rule.
-- Treat teaching decisions as testable behavior. When a real lecture interaction exposes a failure, add a case to the [professor evaluation cases](tests/professor-evaluation.md) and fix the responsible reference rather than growing SKILL.md.
+- Treat teaching decisions as testable behavior. When a real lecture interaction exposes a failure, add a case to the [professor evaluation cases](tests/professor-evaluation.md) or the [writing evaluation cases](tests/writing-evaluation.md) and fix the responsible reference rather than growing SKILL.md.
 - GitHub Actions runs link validation, repository contract tests and a LaTeX compile smoke test. These **structural tests do not prove teaching quality**; human evaluation on real lecture slides remains necessary.
 
 ## Roadmap
 
 - **Now:** cases 45–51 passed on real lectures in three courses: macro ([ECONS 509](logs/2026-10-29-professor-econs509-se-lecture-test.md)), econometrics and time series ([ECONS 512, STAT 516](logs/2026-10-29-professor-econs512-stat516-tests.md)), including homework solved in the lecture's method and a real past exam. Still to do: a microeconomics lecture and an independent grader.
+- **Econ Writing:** run the [writing evaluation cases](tests/writing-evaluation.md) on real drafts (a paper section, a LaTeX file, a referee report and a homework write-up) before calling it stable.
 - **Later:** design `econ-research-agent` as a separate skill. Its absence means it is not ready.
 - **Optional:** installer guidance for specific Agent clients.
 
