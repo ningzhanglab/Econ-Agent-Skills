@@ -8,6 +8,13 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-12
 
+### Rename — `econ-teaching` and `econ-research`
+
+- `econ-phd-professor` is now **`econ-teaching`** (folder `skills/econ-teaching/` and skill `name`), so the three skills are named after what they do: `econ-teaching`, `econ-writing` and the planned `econ-research` (formerly `econ-research-agent`). Behavior is unchanged; the skill still presents itself as the Econ PhD Professor.
+- Existing installs must be replaced with the folder under its new name, and prompts that used `$econ-phd-professor` should use `$econ-teaching`.
+- Links in active docs, tests and script usage lines updated. Older entries below and dated logs keep the old name as written.
+- Details: [2026-11-12 — Rename to econ-teaching](logs/2026-11-12-rename-econ-teaching.md).
+
 ### New skill — Econ Writing (v0.1)
 
 - Added [`econ-writing`](skills/econ-writing/SKILL.md), a separate skill for editing, reviewing and structuring the user's own English economics writing: research papers, thesis chapters, referee and research reports, and homework write-ups.
@@ -57,14 +64,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ### Professor — Remove overfitting to legacy STAT 516 instructions
 
-- Replaced the prior beginner-first Time Series lesson template with a concise, optional [Time Series reasoning lens](skills/econ-phd-professor/references/time-series.md). It preserves rigor about time dependence, lag conventions, model properties, inference and forecasting **without imposing a seven-stage teaching style, SAS requirement or default textbook length**.
+- Replaced the prior beginner-first Time Series lesson template with a concise, optional [Time Series reasoning lens](skills/econ-teaching/references/time-series.md). It preserves rigor about time dependence, lag conventions, model properties, inference and forecasting **without imposing a seven-stage teaching style, SAS requirement or default textbook length**.
 - Refined Econometrics, LaTeX guidance and README; actual course and current user requests now determine depth and output.
 - Historical course-specific instructions remain historical context, not global Skill requirements. Details: [design correction](logs/2026-10-24-remove-legacy-time-series-template-overfit.md).
 
 
 ### Professor — Beginner-first Time Series learning (same Skill)
 
-- Added [Time Series teaching lens](skills/econ-phd-professor/references/time-series.md) inside the existing Professor Skill (not another Skill) with flexible beginner-to-rigorous teaching, justified derivations, original notation, relevant ACF/PACF visuals, SAS interpretation, concise Homework vs comprehensive guide modes.
+- Added [Time Series teaching lens](skills/econ-teaching/references/time-series.md) inside the existing Professor Skill (not another Skill) with flexible beginner-to-rigorous teaching, justified derivations, original notation, relevant ACF/PACF visuals, SAS interpretation, concise Homework vs comprehensive guide modes.
 - Connected the reference to core Skill routing, Econometrics, Teaching Design and LaTeX output guidance.
 - Clarified that an explicitly user-selected **existing course output folder** overrides the generic `Agent Outputs` name; this avoids accidentally duplicating a course's already verified nonstandard `Agent output` folder.
 - Reviewed the STAT 516 course folder and confirmed the specified teaching-style companion exists; **no private course files were committed to GitHub, and no Handbook or unnecessary cloud test was generated**.
@@ -73,7 +80,7 @@ _No uncommitted planned changes are represented as completed here._
 
 ### Professor — Add optional course Learning Logs
 
-- Added a concise editable Markdown [Learning Log template](skills/econ-phd-professor/templates/learning-log.md) and [opt-in workflow](skills/econ-phd-professor/references/learning-log.md) for study-session topics, questions, clarifications, verified Lecture/Homework links and open issues.
+- Added a concise editable Markdown [Learning Log template](skills/econ-teaching/templates/learning-log.md) and [opt-in workflow](skills/econ-teaching/references/learning-log.md) for study-session topics, questions, clarifications, verified Lecture/Homework links and open issues.
 - Learning notes are **private course artifacts**, separate from public GitHub development logs. They are saved **on demand**, not automatically after every chat; existing dated notes are read before safe append, or a separate filename is used to avoid data loss.
 - Integrated log routing into the Professor, Drive guidance, teaching architecture and README without changing the default TeX/PDF convention for other requested files.
 - Initialized an ECONS 509 `Agent Outputs/Learning Logs/2026-10-24.md` setup-only file, with no fabricated learning/mastery claims.
@@ -101,7 +108,7 @@ _No uncommitted planned changes are represented as completed here._
 ### Design — Teach first, route workflows on demand
 
 - Reorganized `econ-phd-professor` around learner intent and six adaptive explanation modes rather than a fixed multi-step file/indexing process.
-- Added a focused [Teaching Design](skills/econ-phd-professor/references/teaching-design.md) reference integrating exact-notation mathematics, visual intuition, Homework and economics depth without mandatory headings or extra artifacts.
+- Added a focused [Teaching Design](skills/econ-teaching/references/teaching-design.md) reference integrating exact-notation mathematics, visual intuition, Homework and economics depth without mandatory headings or extra artifacts.
 - Simplified core reference routing while keeping all source integrity, original-figure provenance, course mapping, and exact private `Agent Outputs/` + default TeX/PDF requirements.
 - Added proportional evaluation guidance: preserve existing CI, but prioritize Skill design and limit new end-to-end or multi-file tests to significant changes.
 - Details: [2026-10-24-professor-teaching-first-design.md](logs/2026-10-24-professor-teaching-first-design.md).
@@ -118,7 +125,7 @@ _No uncommitted planned changes are represented as completed here._
 ### Professor — Visual-first teaching, Figure Index and test expansion
 
 - Replaced new-image-as-last-resort wording with proactive visual teaching alongside exact mathematics; no arbitrary figure quotas.
-- Added an original figure locator and [Figure Index template](skills/econ-phd-professor/templates/figure-index.md); when a TeX figure asset is missing, check the corresponding rendered handout PDF before declaring the figure unseen.
+- Added an original figure locator and [Figure Index template](skills/econ-teaching/templates/figure-index.md); when a TeX figure asset is missing, check the corresponding rendered handout PDF before declaring the figure unseen.
 - Simplified the Professor's core rules from 12 to six priorities, while preserving exact notation, Homework and private TeX/PDF cloud delivery.
 - Added teaching evaluation cases 38–44 and Python tests for provenance and nested TeX figure sources.
 - Details: [2026-10-24-professor-visual-first-figure-index](logs/2026-10-24-professor-visual-first-figure-index.md).

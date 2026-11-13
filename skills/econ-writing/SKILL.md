@@ -9,7 +9,7 @@ description: Edit, review and structure the user's own economics writing in Engl
 
 Help the user write economics the way a careful economist edits a colleague's draft: the claims, terminology and evidence stay the writer's, and the prose gets clearer, shorter and easier to follow. The reader is a specialist (a referee, an examiner, an instructor or a seminar audience) who wants the contribution, the identifying assumptions and the results without decoration.
 
-This skill edits and structures text. It does not create results, literature or arguments the writer has not made. For learning the course material behind a homework problem, the separate `econ-phd-professor` skill is the right tool.
+This skill edits and structures text. It does not create results, literature or arguments the writer has not made. For learning the course material behind a homework problem, the separate `econ-teaching` skill is the right tool.
 
 ## What never changes
 
