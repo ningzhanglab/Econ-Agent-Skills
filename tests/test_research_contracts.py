@@ -1,5 +1,7 @@
 """Offline regression checks for econ-research: the reference checker and core rules."""
+import contextlib
 import importlib.util
+import io
 import tempfile
 import unittest
 from pathlib import Path
@@ -72,6 +74,43 @@ class ReferenceCheckerTests(unittest.TestCase):
         self.assertIn("Behavior & Organization", vr.describe(record))
         status, _ = vr.compare({"journal": "Journal of Economic Behavior & Organization"}, record)
         self.assertEqual(status, "PASS")
+
+    def test_volume_year_after_late_december_print_date_passes_with_note(self):
+        # Shape of Crossref's record for QJE 137(1) (2022 volume): print date 2021-12-24, no 2022 date.
+        record = dict(RECORD, **{"published-print": {"date-parts": [[2021, 12, 24]]},
+                                 "published-online": {"date-parts": [[2021, 8, 20]]},
+                                 "issued": {"date-parts": [[2021, 8, 20]]}})
+        status, notes = vr.compare({"year": "2022"}, record)
+        self.assertEqual(status, "PASS")
+        self.assertTrue(any("volume year" in n for n in notes))
+        self.assertEqual(vr.compare({"year": "2021"}, record), ("PASS", []))
+        self.assertEqual(vr.compare({"year": "2023"}, record)[0], "WARN")
+
+    def test_year_one_after_mid_year_print_date_still_warns(self):
+        self.assertEqual(vr.compare({"year": "2021"}, RECORD)[0], "WARN")  # record printed 2020-10
+        record = dict(RECORD, **{"published-print": {"date-parts": [[2020, 6]]}})
+        self.assertEqual(vr.compare({"year": "2021"}, record)[0], "WARN")
+
+    def test_online_year_is_accepted(self):
+        record = dict(RECORD, **{"published-online": {"date-parts": [[2019, 11, 3]]}})
+        self.assertEqual(vr.compare({"year": "2019"}, record), ("PASS", []))
+
+    def test_renamed_journal_is_a_note_not_a_warn(self):
+        record = dict(RECORD, **{"container-title": ["ILR Review"], "short-container-title": ["ILR Review"]})
+        status, notes = vr.compare({"journal": "Industrial and Labor Relations Review"}, record)
+        self.assertEqual(status, "PASS")
+        self.assertTrue(any("venue differs" in n and "ILR Review" in n for n in notes))
+
+    def test_lookup_error_gives_nonzero_exit(self):
+        original = vr.fetch_crossref
+        def broken(_doi):
+            raise OSError("offline")
+        vr.fetch_crossref = broken
+        try:
+            with contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(vr.main(["--doi", GOOD_DOI]), 2)
+        finally:
+            vr.fetch_crossref = original
 
     def test_user_agent_carries_no_contact_details(self):
         self.assertNotIn("@", vr.USER_AGENT)

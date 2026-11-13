@@ -6,16 +6,21 @@ Usage:
   python skills/econ-research/scripts/verify_references.py --bib references.bib [--json]
 
 For each DOI, fetch the Crossref record and report:
-  PASS  the record exists and the entry's title, year, first author, journal,
-        volume and pages (when given) agree with it;
+  PASS  the record exists and the entry's title, year, first author, volume
+        and pages (when given) agree with it; notes may still follow;
   WARN  the record exists but a field differs (the canonical value is shown);
   FAIL  no record for the DOI, or the title does not match the record;
-  SKIP  a .bib entry without a DOI (check it by hand).
+  SKIP  a .bib entry without a DOI (check it by hand);
+  ERROR the lookup itself failed (network, rate limit): the entry is unchecked.
+
+Notes under a PASS (a venue that differs, or a year one after a late-year print
+date) must be reported to the user; they are not errors by themselves.
 
 Standard library only. Read-only on the .bib file. Sends only the DOI to
 Crossref, with a generic User-Agent and no personal details. It cannot prove
 a paper says what a summary claims; it only confirms bibliographic metadata.
-Exit status is 1 if any entry FAILs, 0 otherwise.
+Exit status is 2 if any lookup ERRORs (the check is incomplete), otherwise 1
+if any entry FAILs, otherwise 0.
 """
 from __future__ import annotations
 
@@ -113,12 +118,49 @@ def parse_fields(body: str) -> dict:
     return fields
 
 
+DATE_KEYS = ("published-print", "published-online", "issued", "published")
+
+
+def record_dates(rec: dict) -> list[tuple[int, Optional[int]]]:
+    """All (year, month) pairs the record reports, including its journal issue's dates."""
+    sources = [rec.get(key) for key in DATE_KEYS]
+    issue = rec.get("journal-issue") or {}
+    sources += [issue.get("published-print"), issue.get("published-online")]
+    dates = []
+    for src in sources:
+        parts = (src or {}).get("date-parts") or [[None]]
+        if parts and parts[0] and parts[0][0]:
+            month = int(parts[0][1]) if len(parts[0]) > 1 and parts[0][1] else None
+            dates.append((int(parts[0][0]), month))
+    return dates
+
+
 def record_year(rec: dict) -> Optional[int]:
-    for key in ("published-print", "published-online", "issued", "published"):
+    for key in DATE_KEYS:
         parts = (rec.get(key) or {}).get("date-parts") or [[None]]
         if parts and parts[0] and parts[0][0]:
             return int(parts[0][0])
     return None
+
+
+def check_year(given: str, rec: dict) -> tuple[str, Optional[str]]:
+    """Return (status, note) for the entry's year against every date in the record.
+
+    A year matching any reported date passes. A year one after the latest date
+    passes with a note when that date falls in November or December, because
+    late-year print dates often belong to the next year's volume (for example
+    a QJE issue 1 printed in late December). Anything else is a WARN.
+    """
+    dates = record_dates(rec)
+    years = {y for y, _ in dates}
+    if not years or any(str(y) in given for y in years):
+        return "PASS", None
+    shown = ", ".join(str(y) for y in sorted(years))
+    latest = max(dates)
+    if str(latest[0] + 1) in given and (latest[1] or 0) >= 11:
+        return "PASS", (f"year {given} vs record dates {shown}: the record's latest date is late "
+                        f"{latest[0]}, so {given} may be the volume year; confirm with the issue")
+    return "WARN", f"year {given} vs record {record_year(rec)} (record dates: {shown})"
 
 
 def first(values) -> str:
@@ -135,10 +177,12 @@ def compare(fields: dict, rec: dict) -> tuple[str, list[str]]:
         if sim < 0.85:
             status = "WARN"
             notes.append(f"title differs; record: {canon_title!r}")
-    year = record_year(rec)
-    if fields.get("year") and year and str(year) not in fields["year"]:
-        status = "WARN"
-        notes.append(f"year {fields['year']} vs record {year}")
+    if fields.get("year"):
+        year_status, note = check_year(fields["year"], rec)
+        if year_status == "WARN":
+            status = "WARN"
+        if note:
+            notes.append(note)
     authors = rec.get("author") or []
     if fields.get("author") and authors:
         bib_first = normalize(fields["author"].split(" and ")[0])
@@ -147,10 +191,12 @@ def compare(fields: dict, rec: dict) -> tuple[str, list[str]]:
             status = "WARN"
             notes.append(f"first author vs record {authors[0].get('family')!r}")
     journal = fields.get("journal") or fields.get("booktitle")
-    canon_journal = first(rec.get("container-title"))
-    if journal and canon_journal and similarity(journal, canon_journal) < 0.6:
-        status = "WARN"
-        notes.append(f"venue vs record {canon_journal!r}")
+    venues = [html.unescape(v) for v in (rec.get("container-title") or []) + (rec.get("short-container-title") or [])]
+    if journal and venues and max(similarity(journal, v) for v in venues) < 0.6:
+        # The DOI and title already identify the paper, so a venue difference is a
+        # note, not a WARN: journals get renamed (ILR Review was Industrial and Labor
+        # Relations Review) and entries use abbreviations. Report it; do not "correct" it blindly.
+        notes.append(f"venue differs from record {venues[0]!r}: renamed journal, abbreviation or wrong venue; check")
     for field, rkey in (("volume", "volume"), ("pages", "page")):
         mine, theirs = fields.get(field), rec.get(rkey)
         if mine and theirs and normalize(mine).replace(" ", "") != normalize(theirs).replace(" ", ""):
@@ -210,6 +256,8 @@ def main(argv: Optional[list[str]] = None) -> int:
                 print(f"      - {note}")
         counts = {s: sum(r["status"] == s for r in results) for s in ("PASS", "WARN", "FAIL", "SKIP", "ERROR")}
         print("Summary: " + ", ".join(f"{k} {v}" for k, v in counts.items() if v))
+    if any(r["status"] == "ERROR" for r in results):
+        return 2
     return 1 if any(r["status"] == "FAIL" for r in results) else 0
 
 

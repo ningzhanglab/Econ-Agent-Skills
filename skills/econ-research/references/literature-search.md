@@ -38,10 +38,12 @@ Use whichever of these the environment can reach. If a source fails or is unreac
 - From the two or three most relevant papers, follow citations backward (what they cite) and forward (who cites them).
 - If results are dominated by one subfield, the query is inheriting its vocabulary; rewrite and merge.
 - Papers you already know of may be used as **search seeds**: look each one up by title and keep it only if a source confirms it. Say in the coverage line that some entries came from seed lookups rather than open search.
+- Sort by citation count only together with a title or abstract filter (for OpenAlex, `filter=title.search:…` or `title_and_abstract.search:…`). A free-text search sorted by citations returns highly cited papers from other fields.
+- When the user asks for the "most important" or "key" papers, rank by relevance first, then by influence, and name the source of any citation count.
 
 ## Screen
 
-Merge duplicates across queries and sources by DOI, then by normalized title. Working-paper and published versions of one paper are one entry: cite the published version and note the working-paper version if it differs.
+Merge duplicates across queries and sources by DOI, then by normalized title; one article can have two DOIs (a publisher DOI and a JSTOR `10.2307/…` DOI), so always apply the title step. Working-paper and published versions of one paper are one entry: cite the published version and note the working-paper version if it differs.
 
 Score each paper once for relevance to the user's question:
 
@@ -64,7 +66,10 @@ Before any paper reaches the user:
 
 Common cases in economics:
 
-- **Online and print years differ.** Sources disagree when a paper appeared online a year before its print issue. Cite the print year from the publisher's record and note the online year if a source reports it.
+- **Online, print and volume years differ.** Cite the year of the volume or issue the paper appeared in, as the journal's own page shows it. Crossref dates are evidence, not the answer: an issue may be dated online a year earlier, and a January issue may carry a late-December print date (QJE 137(1), the 2022 volume, has a Crossref print date of 24 December 2021 and no 2022 date). Note the other year if sources report it.
+- **Aggregators report another version's year.** OpenAlex and Semantic Scholar sometimes give the year of the first working paper or merge versions (one REStud 2022 article appears in OpenAlex as 2018). Take the year, volume and pages from Crossref or the publisher, not from an aggregator.
+- **The published version is missing.** Crossref and OpenAlex sometimes index only the working paper, or a later comment and reply, for a well-known journal article (Card and Krueger's 1994 AER article is one). Before citing the working paper, check RePEc/IDEAS, JSTOR or the journal's site for the published version.
+- **The journal was renamed.** Journals change names (*Industrial and Labor Relations Review* is now *ILR Review*). A venue that differs from the record is not by itself an error; report it and let the user choose.
 - **A record is incomplete.** Some records lack authors or pages (handbook chapters often do). Fill the gap from another record of the same work, such as its working-paper version, and say where each field came from.
 - **Older work has no DOI.** Classic book chapters, conference volumes and pre-1990s working papers may have no DOI and weak database coverage. Check RePEc/IDEAS, the publisher's catalogue or a library catalogue; if none confirms the details, cite it only with the **UNVERIFIED** label, never with details filled in from memory.
 
@@ -75,7 +80,7 @@ python skills/econ-research/scripts/verify_references.py --doi 10.1257/aer.20190
 python skills/econ-research/scripts/verify_references.py --bib references.bib
 ```
 
-It reports PASS, WARN (a field differs) or FAIL (no record, or the title does not match). It cannot check entries without a DOI; check those by hand and say so.
+It reports PASS, WARN (a field differs; the record's value is shown), FAIL (no record, or the title does not match), SKIP (no DOI) or ERROR (the lookup failed, so the entry is **unchecked**, not verified). Report the notes printed under a PASS too: a venue that differs from the record, or a year one after a late-December print date, which is usually the volume year. Exit status is 2 if any lookup failed, 1 if any entry failed, 0 otherwise. It cannot check entries without a DOI; check those by hand and say so.
 
 Before calling a FAIL entry fabricated, search its title and authors: a mistyped DOI and a non-existent paper both fail. Report "the DOI is wrong; the paper exists as …" or "no paper with this title and authors was found in these sources; it may be fabricated". Check entries without a DOI field by field: a source may confirm the authors and title but not the edition or year, and the report should say exactly which fields were confirmed. Do not edit the user's file unless asked; list the corrections instead.
 
@@ -86,6 +91,8 @@ Citation counts differ across sources. Name the source of any count, and never m
 - Read the most relevant papers as far as access allows: the introduction, the identification or model section and the main results, at least.
 - Record what was read: **full text**, **abstract only** or **metadata only**, and which version.
 - A paywalled paper is summarized from its abstract and labeled so. Do not describe its body.
+- Check that an "abstract" is one. Database abstract fields sometimes hold only a publication line ("Published in volume 90, issue 5 …") or text from another version. Say where the abstract came from (publisher, Crossref, OpenAlex, a working-paper page); if it is not the authors' abstract, or its version is unclear, say so or label the paper metadata only.
+- If a PDF is reachable but cannot be read in this environment (no text extraction, a scanned file), say so and keep the abstract-only or metadata-only label. Ask before downloading files when the environment requires it.
 
 ## Reading-list format
 

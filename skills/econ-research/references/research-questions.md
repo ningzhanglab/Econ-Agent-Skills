@@ -4,7 +4,7 @@ A good economics research question names an economic object, a setting and a way
 
 ## Start from what the user has
 
-Ask only what is missing, one or two questions at a time:
+Ask only what is missing, one or two questions at a time. When the user is brainstorming from a broad interest ("housing and inequality"), you may instead state your assumptions (field, setting, data, time available) and proceed, inviting correction; this is consistent with the one-question rule in `SKILL.md`, which is about literature searches whose topic or field is unclear.
 
 - **Starting point:** a phenomenon, a puzzle, a policy, a dataset, a method, or a paper they want to extend.
 - **Field and approach:** applied micro, macro, theory, structural, econometric methods, or open.

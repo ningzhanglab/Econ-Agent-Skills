@@ -89,7 +89,7 @@ Example prompts: "Tighten the introduction in `paper.tex`, keep all terms as the
 - **It says what it read:** full text, abstract only or metadata only, and which version. What a paper reports is kept separate from its own assessment and from proposed gaps.
 - **Research questions** are tested for contribution, closest papers, identification, feasibility and audience. See [Research Questions](skills/econ-research/references/research-questions.md).
 - **Literature** work covers search across sources, screening, verification and a reading-list format ([Literature Search](skills/econ-research/references/literature-search.md)), then agreement, splits, gaps and positioning ([Literature Synthesis](skills/econ-research/references/literature-synthesis.md)).
-- A standard-library [reference checker](skills/econ-research/scripts/verify_references.py) compares DOIs or a `.bib` file with Crossref and reports PASS, WARN, FAIL or SKIP. It sends only DOIs, with no personal details.
+- A standard-library [reference checker](skills/econ-research/scripts/verify_references.py) compares DOIs or a `.bib` file with Crossref and reports PASS, WARN, FAIL, SKIP or ERROR (lookup failed, entry unchecked). It sends only DOIs, with no personal details.
 - Ideas are adapted, with credit, from [claude-academic-workflow](https://github.com/ericluo04/claude-academic-workflow) (MIT) and [awesome-econ-ai-stuff](https://github.com/meleantonio/awesome-econ-ai-stuff) (CC0).
 
 Example prompts: "What's the literature on minimum wages and employment? Ten most important papers." · "I'm interested in housing and inequality; help me find a second-year paper topic." · "Has anyone used this design before?" · "Check the references in `paper.bib`."

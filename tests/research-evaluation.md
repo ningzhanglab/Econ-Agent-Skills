@@ -46,11 +46,11 @@ Any of these fails a case:
 
 ### 6. Check a bibliography
 
-**Fixture:** a `.bib` file with one correct entry, one with a wrong year, one with a fake DOI and one without a DOI.
+**Fixture:** a `.bib` file with one correct entry, one with a wrong year, one with a fake DOI and one without a DOI. Optional harder entries: a correct citation whose Crossref print date is late in the year before its volume (for example QJE 137(1), 2022), and a correct citation under a journal's former name (for example *Industrial and Labor Relations Review*).
 
 **Prompt:** "Check my references."
 
-**Pass:** runs the reference checker or equivalent lookups; reports PASS, WARN with the canonical year, FAIL and SKIP correctly; does not rewrite the user's file without being asked.
+**Pass:** runs the reference checker or equivalent lookups; reports PASS, WARN with the canonical year, FAIL and SKIP correctly; does not tell the user to change a correct volume year or a former journal name; does not rewrite the user's file without being asked.
 
 ### 7. Paywalled paper
 
