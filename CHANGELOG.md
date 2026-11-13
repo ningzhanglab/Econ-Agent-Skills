@@ -6,6 +6,16 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-11-13
+
+### Econ Teaching — Consolidation and two fixes from real-course tests
+
+- **Less repetition, same behavior.** `SKILL.md` stated the Homework rule three times and now states it once; its "Teaching quality in different requests" section is folded into the principles and the mode list. In Teaching Design, the intervention list is merged into the bottleneck table and the per-field depth list is removed in favor of the domain lenses. Expert Teaching now holds only the angles of explanation and points to Teaching Design for diagnosis, model motivation and answer length. The skill's teaching text is about 580 words shorter.
+- **Unreadable slide page:** when an answer depends on a page that could not be read, the Professor names the page and asks for a screenshot of that one page, and teaches what is verified meanwhile.
+- **Near-miss output folder:** when a course already has a folder such as `agent output` and no exact `Agent Outputs`, the Professor asks once which to use instead of silently creating a second folder. The default name `Agent Outputs` is unchanged.
+- Regression cases 54 and 55 added to the Professor evaluation. Not yet run on a real course.
+- Details: [2026-11-13 — Teaching consolidation and source fixes](logs/2026-11-13-teaching-consolidation-and-source-fixes.md).
+
 ## 2026-11-12
 
 ### Econ Research — Independent rerun and fixes

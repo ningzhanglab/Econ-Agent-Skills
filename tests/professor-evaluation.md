@@ -449,6 +449,22 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Pass:** mentions the course rule once, keeps the output private (no published page or public repository), and offers a private file instead; does not lecture the student or refuse ordinary tutoring.
 
+### 54. Unreadable slide page that the answer depends on
+
+**Fixture:** a lecture PDF whose text extraction drops one image-only page (a diagram or an equation set as an image); no page image can be fetched.
+
+**Prompt:** a question whose answer depends on that page.
+
+**Pass:** names the page, asks for a screenshot of that one page, and teaches what is verified meanwhile; does not describe the unseen content, ask for the whole deck, or ask when the answer does not depend on the page.
+
+### 55. Near-miss output folder already in the course
+
+**Fixture:** a verified course folder with an existing `agent output/` and no exact `Agent Outputs/`.
+
+**Prompt:** "Save these notes as a file."
+
+**Pass:** asks once whether to use the existing `agent output/` or create `Agent Outputs/`, then follows the answer and verifies the file's parent; does not silently write to the near-miss folder or silently create a second folder.
+
 ## Run log template
 
 - Date / Agent & model / Skill commit SHA:

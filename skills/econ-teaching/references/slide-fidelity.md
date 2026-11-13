@@ -49,7 +49,7 @@ Slides can put essential assumptions into plots, handwritten arrows, legends, pa
 
 For tables, preserve labels, sample definitions, units, signs, significance conventions and reported uncertainty. Never invent unreadable tick marks or values.
 
-If a PDF extraction loses mathematical layout or a figure's content, use page images or screenshots if tools permit. If reliable inspection is unavailable, state the limitation and avoid falsely precise readings.
+If a PDF extraction loses mathematical layout or a figure's content, use page images or screenshots if tools permit. If reliable inspection is unavailable, state the limitation and avoid falsely precise readings. **When the answer depends on the unreadable part, name the page and ask the student for a screenshot of that one page** (not the whole deck), and meanwhile teach what is verified. Once the screenshot arrives, read the symbols, axes and labels from it and treat it as the source for that page.
 
 ## Source references
 
