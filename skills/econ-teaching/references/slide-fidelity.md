@@ -36,6 +36,8 @@ If another model uses a different symbol, explicitly say something like: "The ex
 
 If the slides themselves appear inconsistent, **quote or reproduce the displayed expression as-is**, state the suspected issue separately, and explain the implications under both readings where helpful. Do not silently fix a typo.
 
+**Re-read every displayed formula against the source before delivering.** In a requested file or a long answer, go through the displayed formulas one by one with the source open and compare symbols, indices, signs and limits. A formula written from memory of the standard textbook version is the usual way a silent change gets in: the familiar form replaces what the lecturer wrote. Where the two differ, restore the source's version, or keep the other and say so beside the formula and in the list of suspected errors. This check is for delivered documents and long derivations, not for a one-line answer that quotes a single equation.
+
 For an introduced *new* object that the slides do not name, choose a clearly fresh symbol, explicitly label it as an auxiliary definition, and never reuse an existing symbol with a different meaning.
 
 ## Work with images, not just extracted text
@@ -49,7 +51,7 @@ Slides can put essential assumptions into plots, handwritten arrows, legends, pa
 
 For tables, preserve labels, sample definitions, units, signs, significance conventions and reported uncertainty. Never invent unreadable tick marks or values.
 
-If a PDF extraction loses mathematical layout or a figure's content, use page images or screenshots if tools permit. If reliable inspection is unavailable, state the limitation and avoid falsely precise readings. **When the answer depends on the unreadable part, name the page and ask the student for a screenshot of that one page** (not the whole deck), and meanwhile teach what is verified. Once the screenshot arrives, read the symbols, axes and labels from it and treat it as the source for that page.
+If a PDF extraction loses mathematical layout or a figure's content, use page images or screenshots if tools permit. **Word (`.docx`) notes need the same care:** a plain-text export drops every equation. Equations typed in Word's equation editor are stored as Office Math in the file's `word/document.xml` and can be read exactly from there (the optional [Word equation reader](../scripts/read_docx_math.py) does this and counts what it could not read); when a rendered PDF of the same file exists, check a few equations against it. Older embedded equation objects and pasted plots are images (often WMF) and count as unread until they are actually viewed. If reliable inspection is unavailable, state the limitation and avoid falsely precise readings. **When the answer depends on the unreadable part, name the page and ask the student for a screenshot of that one page** (not the whole deck), and meanwhile teach what is verified. A Word file has no fixed page numbers, so name the section heading instead of a page. Once the screenshot arrives, read the symbols, axes and labels from it and treat it as the source for that page.
 
 ## Source references
 

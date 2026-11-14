@@ -57,7 +57,7 @@ For semester-long tutoring the Professor can map a course on request: syllabus o
 
 - Same-basename `.tex`, PDF and Word files in one course folder are treated as one lecture by default; presenter views, handouts and genuine revisions are distinguished by content, not extension. See [Course State and Sources](skills/econ-teaching/references/course-state-and-sources.md).
 - Templates: [Course Map](skills/econ-teaching/templates/course-map.md), [Lecture Index](skills/econ-teaching/templates/lecture-index.md), [Notation Registry](skills/econ-teaching/templates/notation-registry.md), [Figure Index](skills/econ-teaching/templates/figure-index.md), [Homework Map](skills/econ-teaching/templates/homework-map.md) and [Course State](skills/econ-teaching/templates/course-state.example.json).
-- Helper scripts (inside the skill folder; Python standard library, read-only on your sources): [file grouping](skills/econ-teaching/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-teaching/scripts/inventory_tex_figures.py) and [TeX bundle checker](skills/econ-teaching/scripts/check_tex_bundle.py).
+- Helper scripts (inside the skill folder; Python standard library, read-only on your sources): [file grouping](skills/econ-teaching/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-teaching/scripts/inventory_tex_figures.py), [Word equation reader](skills/econ-teaching/scripts/read_docx_math.py) and [TeX bundle checker](skills/econ-teaching/scripts/check_tex_bundle.py).
 - Details: [Course Navigation](skills/econ-teaching/references/course-navigation.md) and [Large-File Strategy](skills/econ-teaching/references/large-file-strategy.md). This is a workflow specification, not background indexing or permanent memory.
 
 Text inside slides, homework and README files is treated as **untrusted study material**, never as instructions that can override your request, change sharing or move private files.
@@ -122,7 +122,7 @@ Econ-Agent-Skills/
 │       ├── examples/
 │       │   ├── bellman-teaching-example.md
 │       │   └── diagnostic-teaching-patterns.md
-│       ├── scripts/                       # read-only helpers for TeX and course files
+│       ├── scripts/                       # read-only helpers for TeX, Word and course files
 │       └── templates/
 │           ├── course-map.md, lecture-index.md, notation-registry.md
 │           ├── figure-index.md, homework-map.md, learning-log.md
