@@ -38,7 +38,7 @@ A plain Latin `article` + PDFLaTeX template is **not sufficient for Chinese char
 1. Compose valid, self-contained LaTeX from the chosen minimal template.
 2. Save with descriptive matching names, for example `ECONS509_Lecture08_Notes.tex` and `ECONS509_Lecture08_Notes.pdf`.
 3. Compile using a suitable **available** TeX engine, e.g., `latexmk -pdf` or `pdflatex` for standard Latin text, and `xelatex` when Unicode/Chinese setup requires it; compile the necessary passes to resolve references.
-4. Check that compilation actually succeeded, relevant math/figures render correctly and there are no missing external images, fonts or broken references. Inspect/render PDF pages when possible. Fix problems and recompile.
+4. Re-read each displayed formula against its source, as [Slide Fidelity](slide-fidelity.md) requires, before treating the document as final. Check that compilation actually succeeded, relevant math/figures render correctly and there are no missing external images, fonts or broken references. Inspect/render PDF pages when possible. Fix problems and recompile.
 5. Keep both source and PDF in `Agent Outputs/`; include any figure dependencies necessary to recompile the `.tex` (or use reproducible relative paths into permitted source assets).
 6. Return **both verified cloud links**, and state the final folder.
 7. If compilation cannot run or fails, do **not** claim the PDF exists. Deliver the `.tex` if feasible and report clearly why the PDF was not produced, what remains unverified, and which environment dependency is missing. If upload fails, disclose that separately.

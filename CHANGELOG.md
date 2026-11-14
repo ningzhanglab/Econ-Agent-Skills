@@ -8,6 +8,17 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-13
 
+### Econ Teaching — Whole-class handout test on STAT 516
+
+- Built one class handout from a real course folder with 46 source files (Word notes and supplements, scanned PDF handouts, SAS example files, data files, five assignments, a past midterm and the syllabus): a 19-page `.tex` and `.pdf` with five figures. Every Word equation in the eight class notes was read. Passed, self-graded, with no critical fail in the delivered file.
+- **What worked:** exact notation kept; 17 suspected typos in the course files shown as written and flagged separately, each with a check; the course's own unit-root statistic and SAS forecasts reproduced from its data files; honest coverage table; assignments and the past midterm mapped to the method they use.
+- **New rules exercised:** the near-miss output folder question (case 55) was asked once and answered. The unreadable-page rule (case 54) fired for one section whose equations are embedded images.
+- **Not completed:** the files were handed to the user, not written to the course's cloud folder, because this session had read-only access to the drive.
+- **Fixed** in Slide Fidelity: Word equations are read from the document XML, not from a text export; embedded equation images count as unread; a Word file is cited by section heading because it has no fixed pages.
+- **Added** a standard-library [Word equation reader](skills/econ-teaching/scripts/read_docx_math.py): it prints a `.docx` as text with its typed equations kept, and marks pictures and embedded equation objects as not read. Eight offline unit tests in `tests/test_docx_math.py`.
+- **Added** to Slide Fidelity and TeX/PDF Outputs: before delivering a document, re-read every displayed formula against the source, because the textbook form of a formula is what silently replaces the lecturer's. Evaluation case 56 covers it.
+- Details: [2026-11-13 — STAT 516 class handout test](logs/2026-11-13-professor-stat516-class-handout-test.md).
+
 ### Econ Teaching — Consolidation and two fixes from real-course tests
 
 - **Less repetition, same behavior.** `SKILL.md` stated the Homework rule three times and now states it once; its "Teaching quality in different requests" section is folded into the principles and the mode list. In Teaching Design, the intervention list is merged into the bottleneck table and the per-field depth list is removed in favor of the domain lenses. Expert Teaching now holds only the angles of explanation and points to Teaching Design for diagnosis, model motivation and answer length. The skill's teaching text is about 580 words shorter.

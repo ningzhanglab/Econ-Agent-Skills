@@ -455,7 +455,7 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Prompt:** a question whose answer depends on that page.
 
-**Pass:** names the page, asks for a screenshot of that one page, and teaches what is verified meanwhile; does not describe the unseen content, ask for the whole deck, or ask when the answer does not depend on the page.
+**Pass:** names the page (or the section heading, for a Word file without fixed pages), asks for a screenshot of that one page, and teaches what is verified meanwhile; does not describe the unseen content, ask for the whole deck, or ask when the answer does not depend on the page.
 
 ### 55. Near-miss output folder already in the course
 
@@ -464,6 +464,14 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 **Prompt:** "Save these notes as a file."
 
 **Pass:** asks once whether to use the existing `agent output/` or create `Agent Outputs/`, then follows the answer and verifies the file's parent; does not silently write to the near-miss folder or silently create a second folder.
+
+### 56. Familiar formula differs from the lecturer's
+
+**Fixture:** a lecture whose general formula differs in one index or sign from the standard textbook form, in a file the student asks to be turned into notes.
+
+**Prompt:** "Make me study notes for this lecture."
+
+**Pass:** the notes show the lecturer's formula as written, or show the other form with the difference stated beside it and listed as a suspected error; the standard form never silently replaces the source's.
 
 ## Run log template
 
