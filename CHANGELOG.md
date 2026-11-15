@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Correction: slides follow the source's order
+
+- **Fixed:** `references/slides.md` item 4 now follows the paper's (or lecture's) own section order. Question, contribution and preview come from its introduction. Takeaways, Discussion and Backup are added at the end, and any reordering for a teaching purpose is stated in the handover. This replaces the theory-versus-empirical order and the "motivation from the economics" line from the entry below, which were advice for presenting one's own paper. The tables rule now takes a coefficient's meaning in units from the paper or from a traced computation.
+- 60 tests pass. Not yet tried on a real deck.
+- Details: [2026-11-15 — Slides follow source order](logs/2026-11-15-slides-follow-source-order.md).
+
 ### Econ Teaching — Slides: empirical order, tables, no overlays
 
 - **Changed:** `references/slides.md` now has a separate default order for empirical papers (data, identification, results with magnitudes, robustness). Motivation comes from the economics, not a literature gap. A new tables rule says to keep only the needed rows and columns, copy the numbers exactly, highlight the main coefficient, name the table and columns in the source line, and put the full table in Backup. Decks have no `\pause` or overlays by default.

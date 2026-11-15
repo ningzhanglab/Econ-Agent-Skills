@@ -37,11 +37,7 @@ When the user asks to revise or "recheck" a deck:
 1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Backup. If the user did not say, use the default and state it in the handover; do not stop to ask.
 2. **One takeaway sentence**, written before any slide.
 3. **Short titles.** Each title fits on one line (about 60 characters), as short as the slide allows. It names the content with the key term ("Counterfactual Results", "Marginal Automation Boost: Mostly Better Machines"), not a bare "Results". Put the claim and its number in a bold first line or the first bullet. Preview, main-result and takeaway slides may use a full-sentence title if it still fits on one line. If a title wraps to two lines, shorten it.
-4. **Default order for someone else's paper:** question and motivation (from the economics, not from a gap in the literature); what the paper does, in the authors' terms; preview of the main result; then by paper type:
-   - *theory or quantitative model:* setup; the core mechanism (one equation, its intuition, one figure); main results with magnitudes;
-   - *empirical:* data; identification (the source of variation and the assumption it needs, in the paper's words); main results with magnitudes; robustness, briefly;
-
-   then extensions, briefly; Takeaways; Discussion questions; Backup. Adjust to the purpose.
+4. **Order: follow the source.** The body follows the paper's own section order (or the lecture's). The question, contribution and preview come from the paper's introduction; if the introduction does not state the main result, add a one-line preview that cites the section where it appears. The deck adds Takeaways, Discussion questions and Backup at the end. Do not reorder sections; if the purpose needs another order (for example a class that teaches a special case before the paper's general model), say what was moved and why in the handover.
 5. **Spend the time on the core.** Give the central mechanism several slides; compress secondary sections (applications, side arguments) to one slide each or move them to Backup. Covering every section of the paper is not the goal.
 
 ## Each slide
@@ -49,7 +45,7 @@ When the user asks to revise or "recheck" a deck:
 - **Text:** at most 3–4 bullets, each about one line. No paragraphs. If a slide needs a paragraph, split it.
 - **Math:** at most two displayed equations. Define every symbol on the slide where it first appears. Use `\alert{}` for the term being discussed. Multi-step derivations go to Backup.
 - **Figures:** use an original figure only if it was actually inspected (open the PDF page as an image; crop the figure from the page rather than redrawing it), and credit it ("Source: Jones (2026), Figure 2"). A figure recomputed from the paper's formula says so in its source line ("Computed from Jones (2026), p. 10"), in one line, not a disclaimer. Every figure carries a one-sentence message. Cropped figures go in a folder beside the deck and are cited by relative path in `\includegraphics` (no `\graphicspath`); load `graphicx` and credit them as reproduced.
-- **Tables:** show only the rows and columns the argument needs (usually the main coefficient, its standard error and N), with the paper's variable names and the numbers copied exactly; `\alert{}` the main coefficient and state in the first line what it means in units. Prefer the paper's figure for the same result if it has one. The source line names the table and the columns kept ("Source: Jones (2026), Table 3, cols. 1–2"); the full table goes to Backup.
+- **Tables:** show only the rows and columns the argument needs (usually the main coefficient, its standard error and N), with the paper's variable names and the numbers copied exactly; `\alert{}` the main coefficient and state in the first line what it means in units, in the paper's own interpretation or computed from the table and traced in the handover. Prefer the paper's figure for the same result if it has one. The source line names the table and the columns kept ("Source: Jones (2026), Table 3, cols. 1–2"); the full table goes to Backup.
 - **Numbers:** only numbers that appear in the paper or are computed from it; each must be traceable in the handover.
 
 ## Literature and assessment

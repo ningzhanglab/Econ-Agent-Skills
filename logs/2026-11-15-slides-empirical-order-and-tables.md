@@ -59,3 +59,7 @@ Decks for empirical papers now follow a data → identification → results → 
 ## Follow-up
 
 Build a deck for a real empirical paper and check the order, the trimmed table and its source line.
+
+## Correction (2026-11-15, later)
+
+The theory-versus-empirical order and the "motivation from the economics" line were advice for presenting one's own paper and do not fit this reference's scope (someone else's paper or a lecture). They were replaced by "follow the source's order", and the tables rule's "meaning in units" was tied to the paper or a traced computation. See [2026-11-15 — Slides follow source order](2026-11-15-slides-follow-source-order.md).
