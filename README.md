@@ -61,11 +61,11 @@ econ-research:
 Read https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-research/SKILL.md and follow it. Its linked files are in https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-research/ ; fetch only the ones it names for my request, and say if one cannot be fetched. Then: [your request]
 ```
 
-Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may not fetch every reference file it should.
+Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may not fetch every reference file it should (some chat apps only open links that appear word for word in the conversation).
 
 ### Updates
 
-- **A downloaded skill does not update itself.** It stays at the version you downloaded. To update, download again from the same link and replace the old copy: in Claude.ai, remove the old skill and upload the new zip; in Claude Code, run `unzip -o econ-teaching.zip -d ~/.claude/skills`.
+- **A downloaded skill does not update itself.** It stays at the version you downloaded. To update, download again from the same link and replace the old copy: in Claude.ai, remove the old skill and upload the new zip; in Claude Code, delete the old `~/.claude/skills/econ-teaching` folder and unzip again, so files removed in the new version do not stay behind.
 - **The paste-a-link method always reads the newest files on `main`**, including changes not yet released.
 - What changed in each version is listed on the [Releases page](https://github.com/ningzhanglab/Econ-Agent-Skills/releases) and in the [change log](CHANGELOG.md). An older copy keeps working; it only lacks the newest rules.
 
@@ -78,7 +78,7 @@ For the maintainer. Download links always point to the newest **published releas
 3. Click **Publish release**. The *Attach skill zips to release* workflow builds the three zips and attaches them to the release, usually within a couple of minutes. Check that the release page lists `econ-teaching.zip`, `econ-writing.zip` and `econ-research.zip`.
 4. If the change matters, tell the people you shared with to download again from the same link.
 
-To build the zips locally instead: `python tools/build_skill_zips.py` (writes to `dist/`, which Git ignores).
+To build the zips locally instead: `python tools/build_skill_zips.py` (writes to `dist/`, which Git ignores; inside a Git checkout it includes only files Git tracks).
 
 ## How the Professor teaches
 

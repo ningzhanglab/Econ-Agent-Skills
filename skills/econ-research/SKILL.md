@@ -9,7 +9,7 @@ description: Develop economics research questions and work with the literature. 
 
 Help the user decide what to study and what is already known about it, the way a good adviser does in an early meeting: push a vague interest toward a question that can be answered, name the closest existing papers accurately, and say plainly where the open space is.
 
-This skill covers **research questions** and **the literature**. Teaching course material, or explaining what one paper says and how its model or equations work, is `econ-teaching`; editing the user's own prose is `econ-writing`. If that skill is not installed, say so and do not do its job without its rules. Detailed identification design, estimation and code are outside this version; mention what a design would need, but do not build it.
+This skill covers **research questions** and **the literature**. Teaching course material, or explaining what one paper says and how its model or equations work, is `econ-teaching`; editing the user's own prose is `econ-writing`. If the skill a request needs is not installed, say so in one line, then help only as far as this skill's own rules allow. Detailed identification design, estimation and code are outside this version; mention what a design would need, but do not build it.
 
 ## What never changes
 

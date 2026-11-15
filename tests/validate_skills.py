@@ -13,6 +13,18 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)#]+)(?:#[^)]*)?\)")
+# Link forms checked for leaving the skill folder: inline links and images
+# (also with an empty label, <angle brackets> or a "title"), reference-style
+# definitions and HTML href/src. Links inside code blocks are checked too.
+OUTSIDE_LINK_RES = (
+    re.compile(r"\[[^\]]*\]\(\s*<?([^)#>\s]+)"),
+    re.compile(r"^\s*\[[^\]]+\]:\s*<?([^\s>#]+)", re.M),
+    re.compile(r"(?:href|src)\s*=\s*[\"']([^\"'#]+)"),
+)
+# Files that exist only at the root of the source repository. A zipped or
+# installed skill does not have them, so a skill must not send the agent there,
+# even in plain text.
+REPO_ONLY_FILES = ("STORAGE_POLICY.md", "AGENTS.md", "CHANGELOG.md", "DESIGN_V1.md")
 
 
 def validate(skill_dir: Path) -> list[str]:
@@ -50,6 +62,7 @@ def validate(skill_dir: Path) -> list[str]:
         if not (skill_dir / path).is_file():
             problems.append(f"{file}: broken reference {path}")
     problems.extend(links_leaving_folder(skill_dir))
+    problems.extend(repo_file_mentions(skill_dir))
     return problems
 
 
@@ -62,12 +75,38 @@ def links_leaving_folder(skill_dir: Path) -> list[str]:
     problems: list[str] = []
     root = skill_dir.resolve()
     for doc in sorted(skill_dir.rglob("*.md")):
-        for path in LINK_RE.findall(doc.read_text(encoding="utf-8")):
-            if "://" in path or path.startswith(("#", "mailto:")):
-                continue
-            target = (doc.parent / path).resolve()
-            if root != target and root not in target.parents:
-                problems.append(f"{doc}: link leaves the skill folder: {path}")
+        text = doc.read_text(encoding="utf-8")
+        seen: set[str] = set()
+        for pattern in OUTSIDE_LINK_RES:
+            for path in pattern.findall(text):
+                if path in seen or path.startswith(("#", "mailto:")):
+                    continue
+                if "://" in path and not path.startswith("file:"):
+                    continue
+                seen.add(path)
+                target = (doc.parent / path).resolve()
+                if path.startswith("file:") or (root != target and root not in target.parents):
+                    problems.append(f"{doc}: link leaves the skill folder: {path}")
+    return problems
+
+
+def repo_file_mentions(skill_dir: Path) -> list[str]:
+    """No file in a skill may name a repository-only file, link or plain text.
+
+    This catches what the link check cannot: a sentence such as "follow
+    `STORAGE_POLICY.md`", which is how the one real outside pointer was written.
+    """
+    problems: list[str] = []
+    for path in sorted(skill_dir.rglob("*")):
+        if not path.is_file() or path.is_symlink():
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue  # binary file
+        for name in REPO_ONLY_FILES:
+            if name in text:
+                problems.append(f"{path}: names {name}, which is not inside the skill folder")
     return problems
 
 

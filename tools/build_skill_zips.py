@@ -9,12 +9,16 @@ Each zip holds only that skill's folder at its top level
 which is the layout Claude.ai skill upload and skills folders expect.
 Repository maintenance files (logs, tests, CHANGELOG) are never included.
 Local junk such as .DS_Store, __pycache__ and LaTeX build files is skipped.
+Inside a Git checkout only files Git tracks are included (with their current
+content), so an untracked private file left in a skill folder is never zipped.
+Outside Git (a plain copy of the folder) every non-junk file is included.
 
 Standard library only. Read-only on skills/; writes only into --out.
 """
 from __future__ import annotations
 
 import argparse
+import subprocess
 import sys
 import zipfile
 from pathlib import Path
@@ -31,10 +35,27 @@ def skill_names(skills_dir: Path = SKILLS) -> list[str]:
     return sorted(p.name for p in skills_dir.iterdir() if (p / "SKILL.md").is_file())
 
 
+def tracked_files(skill_dir: Path) -> set[str] | None:
+    """Paths Git tracks under skill_dir, relative to it; None when not in a Git checkout."""
+    try:
+        done = subprocess.run(
+            ["git", "-C", str(skill_dir), "ls-files", "-z"],
+            capture_output=True, check=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return {name for name in done.stdout.decode("utf-8").split("\0") if name}
+
+
 def included_files(skill_dir: Path) -> list[Path]:
+    tracked = tracked_files(skill_dir)
+    if tracked is not None and not tracked:
+        raise ValueError(f"{skill_dir} has no files tracked by Git; run git add first")
     files = []
     for path in sorted(skill_dir.rglob("*")):
         rel = path.relative_to(skill_dir)
+        if tracked is not None and rel.as_posix() not in tracked:
+            continue
         if any(part in SKIP_NAMES for part in rel.parts):
             continue
         if path.is_symlink() or not path.is_file():

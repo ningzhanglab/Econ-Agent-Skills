@@ -45,3 +45,11 @@ Token estimates use about 4 characters per token and are approximate.
 ## Follow-up
 
 If real sessions show `SKILL.md` or `teaching-design.md` length hurting answers or cost, slim them carefully, keeping every rule.
+
+## Correction (2026-11-14, after a review of commits 898730a..c1c6c28)
+
+- The sentence "if the needed skill is not installed, say so and do not do its job without its rules" was replaced: the skill now says so in one line and helps only as far as its own rules allow.
+- The outside-link check described above could not have caught the `STORAGE_POLICY.md` pointers, which were plain text; a separate check for repository-only file names was added.
+- This log omitted a "Files affected" list and a CI row. Files: the three `SKILL.md` files, `skills/econ-teaching/references/cloud-drive-workflow.md`, `README.md`, `CHANGELOG.md`, `tests/validate_skills.py`, `tests/test_skill_zips.py`, `logs/2026-11-14-share-skills-per-skill.md`. GitHub Actions on `c1c6c28`: Pass, read from the public GitHub API during the review.
+
+See [Review fixes](2026-11-14-review-fixes-papers-and-tooling.md).

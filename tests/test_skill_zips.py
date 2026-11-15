@@ -1,5 +1,7 @@
 """Offline checks for the per-skill zip builder used by the release workflow."""
 import importlib.util
+import shutil
+import subprocess
 import tempfile
 import unittest
 import zipfile
@@ -53,6 +55,30 @@ class SkillZipTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 bz.build_zip(Path(tmp), Path(tmp) / "dist")
 
+    @unittest.skipUnless(shutil.which("git"), "git not available")
+    def test_untracked_files_are_left_out_inside_a_git_checkout(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / "repo" / "skills" / "one"
+            skill.mkdir(parents=True)
+            (skill / "SKILL.md").write_text("---\nname: one\n---\n", encoding="utf-8")
+            (skill / "private-notes.txt").write_text("not for sharing", encoding="utf-8")
+            repo = Path(tmp) / "repo"
+            subprocess.run(["git", "init", "-q", str(repo)], check=True)
+            subprocess.run(["git", "-C", str(repo), "add", "skills/one/SKILL.md"], check=True)
+            target = bz.build_zip(skill, Path(tmp) / "dist")
+            with zipfile.ZipFile(target) as zf:
+                self.assertEqual(zf.namelist(), ["one/SKILL.md"])
+
+    @unittest.skipUnless(shutil.which("git"), "git not available")
+    def test_git_checkout_with_nothing_tracked_is_refused(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / "repo" / "one"
+            skill.mkdir(parents=True)
+            (skill / "SKILL.md").write_text("---\nname: one\n---\n", encoding="utf-8")
+            subprocess.run(["git", "init", "-q", str(Path(tmp) / "repo")], check=True)
+            with self.assertRaises(ValueError):
+                bz.build_zip(skill, Path(tmp) / "dist")
+
     def test_unknown_skill_name_fails(self):
         self.assertEqual(bz.main(["--skill", "no-such-skill", "--out", tempfile.gettempdir()]), 1)
 
@@ -76,6 +102,48 @@ class SelfContainedSkillTests(unittest.TestCase):
             problems = vs.links_leaving_folder(skill)
             self.assertEqual(len(problems), 1)
             self.assertIn("../../../README.md", problems[0])
+
+    def test_other_link_forms_out_of_the_folder_are_reported(self):
+        forms = {
+            "angle brackets": "[a](<../../../README.md>)",
+            "image with empty label": "![](../../../x.png)",
+            "reference style": "[a][r]\n\n[r]: ../../../README.md",
+            "html": '<a href="../../../README.md">a</a>',
+            "file url": "[a](file:///etc/hosts)",
+        }
+        for label, body in forms.items():
+            with tempfile.TemporaryDirectory() as tmp:
+                skill = Path(tmp) / "skills" / "x"
+                skill.mkdir(parents=True)
+                (skill / "SKILL.md").write_text(body + "\n", encoding="utf-8")
+                self.assertEqual(len(vs.links_leaving_folder(skill)), 1, label)
+
+    def test_inside_links_with_title_or_anchor_are_not_reported(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / "skills" / "x"
+            (skill / "references").mkdir(parents=True)
+            (skill / "references" / "r.md").write_text("r", encoding="utf-8")
+            (skill / "SKILL.md").write_text(
+                '[a](references/r.md "title") [b](references/r.md#part) [c](#top) [w](https://example.org)\n',
+                encoding="utf-8",
+            )
+            self.assertEqual(vs.links_leaving_folder(skill), [])
+
+    def test_plain_text_pointer_to_a_repository_file_is_reported(self):
+        # The real bug fixed on 2026-11-14 was plain text, not a link.
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / "skills" / "x"
+            (skill / "agents").mkdir(parents=True)
+            (skill / "SKILL.md").write_text("follow the storage policy (`STORAGE_POLICY.md`)\n", encoding="utf-8")
+            (skill / "agents" / "a.yaml").write_text("note: see AGENTS.md\n", encoding="utf-8")
+            (skill / "blob.bin").write_bytes(b"\xff\xfe\x00")
+            problems = vs.repo_file_mentions(skill)
+            self.assertEqual(len(problems), 2)
+            self.assertEqual(vs.links_leaving_folder(skill), [])
+
+    def test_real_skills_do_not_name_repository_files(self):
+        for name in bz.skill_names():
+            self.assertEqual(vs.repo_file_mentions(ROOT / "skills" / name), [], name)
 
 
 if __name__ == "__main__":

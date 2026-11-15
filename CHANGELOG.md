@@ -8,6 +8,15 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-14
 
+### All skills — Fixes from a review of today's changes
+
+- **Fixed (teaching):** a paper the student only names, with no file to open, is no longer summarized in detail from memory. The Professor says it was not read, gives a short outline labeled as general knowledge with no magnitudes, equation numbers or page references, and asks for the PDF.
+- **Changed (teaching):** in the paper overview, the link to a standard model is optional, the magnitude is given where there is one, and "why it holds" is included; two duplicated rules were removed; when a lecture and a paper are both in use, the one being asked about sets the notation. The description now says "a published research paper the student is reading". Evaluation case 58 was aligned and gains a variant. Not yet run.
+- **Changed (all skills):** when a request belongs to a skill that is not installed, the skill now says so in one line and helps only as far as its own rules allow, instead of declining. `econ-teaching` adds: without `econ-research`, never list papers, years or findings from memory.
+- **Fixed (tooling):** `tests/validate_skills.py` now fails when any file in a skill names a repository-only file such as `STORAGE_POLICY.md`, in a link or in plain text (the earlier link check could not catch the original bug), and checks more link forms. `tools/build_skill_zips.py` zips only Git-tracked files inside a checkout, so an untracked private file cannot reach a local build. Six tests added.
+- README: update instruction for Claude Code corrected (delete the old folder, then unzip); two notes added.
+- Details: [2026-11-14 — Review fixes](logs/2026-11-14-review-fixes-papers-and-tooling.md).
+
 ### All skills — Self-contained skill folders
 
 - **Fixed** the one place a skill pointed outside its own folder: `econ-writing` told the agent to follow the repository's root `STORAGE_POLICY.md`, which a zipped or installed skill does not contain; the rule it needs is now stated inline. `econ-teaching`'s cloud workflow no longer mentions the root policy file.

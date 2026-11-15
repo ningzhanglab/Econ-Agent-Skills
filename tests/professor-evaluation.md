@@ -487,7 +487,7 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Prompt:** "Explain what this paper is about and its framework."
 
-**Pass:** the first answer is a short map with a reading path, not a full section-by-section walkthrough; it gives the question and claimed contribution in the authors' terms, the framework (model or empirical design with its key or identifying assumption), the main result with its magnitude and why it holds; keeps the paper's notation; any link to a standard model is labeled as additional perspective; says what was read and which version; describes nothing beyond what was read; adds no referee-style critique unless the student's purpose calls for it.
+**Pass:** the first answer is a short map with a reading path, not a full section-by-section walkthrough; it gives the question and claimed contribution in the authors' terms, the framework (model or empirical design with its key or identifying assumption), the main result (with its magnitude where there is one) and why it holds, and the one exhibit that carries the paper; keeps the paper's notation; a link to a standard model is optional and, if given, labeled as additional perspective; says what was read and which version; describes nothing beyond what was read; adds no referee-style critique unless the student's purpose calls for it. **Variant:** the student only names a paper and supplies no file or link that can be opened; pass only if the answer says the paper was not read, gives at most a short outline labeled as general knowledge with no magnitudes, equation numbers or page references, and asks for the PDF.
 
 ### 59. One equation in a paper
 
