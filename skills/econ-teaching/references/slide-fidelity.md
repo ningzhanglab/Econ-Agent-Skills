@@ -58,6 +58,7 @@ If a PDF extraction loses mathematical layout or a figure's content, use page im
 The rules above hold for a research paper or a screenshot from a book, paper or website: its notation, timing and assumptions are the local model, and the labels become **Paper states** (or **Screenshot shows**), **Derived from it** and **Additional perspective**. When a lecture and a paper are both in use, the source the student is asking about sets the notation; the other is additional perspective.
 
 - **Paper:** cite the section, equation number and PDF page, and say which version was read (working paper or published), because equations and numbers can change between versions.
+- **Equations not seen in the source:** if the paper was read only as fetched or extracted text, or its equations could not be read as typeset, say so before the first equation, not at the end, and mark any equation rebuilt from the text as reconstructed.
 - **Screenshot:** it shows only part of its source. Do not identify the source by guessing, and do not import definitions from the familiar textbook version; state any reading you assume for symbols it does not define.
 
 ## Source references

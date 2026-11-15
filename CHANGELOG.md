@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Say upfront when a paper's equations were not seen
+
+- **Changed:** when a paper was read only as fetched or extracted text, the answer now says so before its first equation, not at the end, and marks any equation rebuilt from the text as reconstructed (`references/slide-fidelity.md`).
+- Structural checks and 57 unit tests pass; not yet retried in a real chat.
+- Details: [2026-11-15 — Paper equations not seen](logs/2026-11-15-paper-equations-not-seen-upfront.md).
+
 ### Econ Teaching — Judging a paper on its own terms
 
 - **Changed:** when reading a paper, `econ-teaching` may now judge it on its own terms: which assumptions drive the result, how sensitive it is to a parameter, which numbers are chosen rather than estimated. This is labeled as assessment and names no outside paper. Placing the paper in its literature, comparing it with other papers and verifying references stay with `econ-research`.
