@@ -41,7 +41,7 @@ Each zip holds only that skill's folder: its `SKILL.md`, references, templates a
 
 Once installed, the skill turns on by itself when a question fits it, and it can read all its reference files. This is the most reliable way to use a skill.
 
-**Installing only one skill is fine.** Each skill is complete on its own and never needs files from the others. When a request belongs to a skill you have not installed (for example, a literature search while only `econ-teaching` is installed), it says so in one line and helps only as far as its own rules allow; `econ-teaching` on its own never lists papers, years or findings from memory.
+**Installing only one skill is fine.** Each skill is complete on its own and never needs files from the others. When a request belongs to a skill you have not installed (for example, a literature search while only `econ-teaching` is installed), it says so in one line, points to this README for installing the other skill, and helps only as far as its own rules allow; `econ-teaching` on its own never lists papers, years or findings from memory.
 
 ### Try a skill without installing
 
@@ -71,7 +71,7 @@ All three from one link: use this when you want one line for every request, for 
 Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md, open the skill page or pages it says my request needs, and open the files those pages name. Start your answer with the edition code of each skill page you opened. If you cannot open a page or a file it names, say so and stop; do not answer from memory. When teaching economics, write all math in LaTeX, including single symbols in sentences. Then: [your request]
 ```
 
-Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may still skip a reference file. The answer should start with a line `Skill edition:` and a six-character code, and end with a line listing the skill files it read. To check the code, open the link yourself and compare it with the edition code at the top of the page: a missing or different code means the agent did not read the current page, so its answer does not follow the skill. If a file you expected is missing from the last line, ask the agent to open it.
+Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may still skip a reference file. The answer should start with a line `Skill edition:` and a six-character code (with the index line, one code per skill page opened, each with its skill name), and end with a line listing the skill files it read. To check the code, open the link yourself and compare it with the edition code at the top of the page: a missing or different code means the agent did not read the current page, so its answer does not follow the skill. If a file you expected is missing from the last line, ask the agent to open it.
 
 ### Updates
 

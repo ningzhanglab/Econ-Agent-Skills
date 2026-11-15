@@ -118,6 +118,8 @@ INDEX_NOTE = """> **This page is an index, not a skill.** It lists the Econ Agen
 > 2. Open each page you picked and follow it, including its instructions on which reference files to open. Each part of the answer follows the rules of its own skill.
 > 3. Begin your first answer with one line `Skill edition:` followed by the edition code at the top of each skill page you opened, with its skill name (for example `Skill edition: econ-teaching 1a2b3c`). The codes are only on the skill pages, not here.
 > 4. If a page cannot be opened, say which one and stop; do not answer from memory.
+> 5. Later in the chat, if a request needs a skill whose page you have not opened yet, open it from this index. While this index is in use, every skill listed here is available, so a skill page's instruction for when another skill "is not installed" does not apply.
+> 6. The single `Skill edition:` line in rule 3 replaces the edition line each skill page asks for. End the answer with one line listing the skill files you read, across all pages opened.
 """
 
 

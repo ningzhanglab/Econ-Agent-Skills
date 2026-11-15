@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### All skills — Review fixes for the index link
+
+- **Fixed:** with the index link, a skill page's "other skill not installed" rule could stop a later request that needs another listed skill; the index now says to open that skill from the index instead. It also says its one edition line replaces each page's own line.
+- `econ-research` and `econ-writing` now point to the README when a needed skill is missing, as `econ-teaching` does. 58 tests pass; not yet tried in a real chat.
+- Details: [2026-11-15 — Index page review fixes](logs/2026-11-15-index-page-review-fixes.md).
+
 ### All skills — One index link for all three
 
 - **Added** `link/econ-skills.md`, an index of the three skills with a fourth paste prompt in the README. The agent opens the skill page or pages a request needs, for example both teaching and research to explain a paper and then place it in its literature. Meant for one line in a chat project's instructions. The three single-skill prompts are unchanged.
