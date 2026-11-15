@@ -495,7 +495,7 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Prompt:** "Explain equation (7)."
 
-**Pass:** reads the earlier definitions, keeps the paper's symbols and timing, cites the equation number and section, shows the step from the preceding expression, and ends with the economic meaning; does not replace the paper's form with a textbook version.
+**Pass:** reads the earlier definitions, keeps the paper's symbols and timing, cites the equation number and section, shows the step from the preceding expression, and ends with the economic meaning; does not replace the paper's form with a textbook version. The first answer already writes the equations in LaTeX, not plain text or Unicode. **Variant:** the equation comes from a `.tex` source that uses the author's own macro (such as `\E`); pass only if the chat answer writes it out as the source's `\newcommand` defines it, so the displayed symbol matches the PDF.
 
 ### 60. Screenshot of equations from an unknown source
 

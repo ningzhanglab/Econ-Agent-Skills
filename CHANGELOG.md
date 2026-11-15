@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-15
 
+### Econ Teaching — LaTeX math in chat answers
+
+- **Added** to principle 1 in `SKILL.md`: in chat, write math in LaTeX by default (`$...$` inline, `$$...$$` displayed), including in the first answer, and write a lecturer's own macros out as their source defines them; switch to plain text only if the student asks or says the math shows as code. Before this, LaTeX was mentioned only for requested files, and one agent explained its plain-text equations by that. The agent no longer tries to judge whether the app renders math.
+- Evaluation case 59 gains a pass condition (LaTeX in the first answer) and a variant (an author's own macro written out as defined). Link edition `link/econ-teaching.md` rebuilt. Not yet run in a real chat.
+- Details: [2026-11-15 — LaTeX math in chat](logs/2026-11-15-latex-math-in-chat.md).
+
 ### All skills — Link editions for the paste-a-link method
 
 - **Fixed:** agents that were given a `SKILL.md` link often did not read the reference files, where most rules live. `SKILL.md` links them by relative path, and many chat apps only open addresses that appear word for word in a page already read, so the agent could not open them or did not try.
