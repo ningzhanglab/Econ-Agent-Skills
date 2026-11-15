@@ -19,6 +19,10 @@ Never put these on a slide: notes about how the paper was read or extracted, per
 
 Labels are not lost, they are placed: a Backup slide title already says the content is supplementary, a Discussion slide already says it is judgment, and a figure source line says whether the figure is the paper's or recomputed.
 
+## Settle the source before building
+
+A deck depends on the whole paper, so apply the [source-given-as-a-link rule](slide-fidelity.md#papers-and-screenshots) before building: state the version and date in the handover, and ask the user to attach the PDF if only fetched text was read. If they do not, build only on what was verified and say in the handover that figures and equations were not seen.
+
 ## Plan the story first
 
 1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Backup. If the user did not say, use the default and state it in the handover; do not stop to ask.
@@ -43,4 +47,5 @@ Labels are not lost, they are placed: a Backup slide title already says the cont
 
 - Default: Beamer, 16:9, from the [slides template](../templates/simple-slides.tex), delivered as `.tex` and compiled `.pdf` under [TeX/PDF Outputs](latex-outputs.md). For Chinese, use `ctexbeamer` with XeLaTeX and keep technical terms in English. A requested `.pptx` follows the same content rules.
 - Speaker notes or a handout version only on request.
-- Before delivering: the deck compiles with no overfull boxes; if pages can be rendered, look at each one for overflow and small type; the slide count fits the time; every number and figure is traceable in the handover; none of the never-on-a-slide items above appears.
+- Before delivering, list the output folder and confirm every file the handover names exists. Do not name a PDF that was not produced ([TeX/PDF Outputs](latex-outputs.md)).
+- Before delivering: the deck compiles with no overfull boxes; if pages can be rendered, look at each one for overflow and small type; the slide count fits the time; every number and figure is traceable in the handover; none of the never-on-a-slide items above appears. Search the `.tex` for "my ", "Paper states" and "Derived" and read the compiled slides for first person; a stated length or timing from the user overrides the default slide count, and the handover says so.

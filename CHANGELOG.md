@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Settle the source before answering or building from a link
+
+- **Changed:** for any source sent as a link (paper, notes, handout, homework), the answer now says what was retrieved (version or date; file or only text), treats the link as provisional, and asks for the file if only text came back and figures or equations matter (`references/slide-fidelity.md`). A deck request applies this first. Before deck delivery, the handover's files are checked to exist and the `.tex` is searched for first-person or "Paper states" labels (`references/slides.md`).
+- Prompted by a deck built from a stale v0.5 copy of a paper whose current version was v1.0. Not yet retried in a real chat.
+- Details: [2026-11-15 — Source before building](logs/2026-11-15-slides-source-before-building.md).
+
 ### Econ Teaching — Slides for presenting a paper
 
 - **Added** a slides reference and a minimal Beamer template. The deck is for the audience: the argument, assertion titles, at most 3–4 bullets and two equations per slide, a citation on the title slide and one source line per figure. Process notes, per-bullet "Paper states" labels, self-checks and reading advice go to a separate handover for the user; own derivations go to Backup slides and judgment to a Discussion slide. A literature slide lists only papers the paper cites or `econ-research` verified.
