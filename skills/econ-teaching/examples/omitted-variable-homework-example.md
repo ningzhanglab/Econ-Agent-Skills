@@ -13,11 +13,11 @@ $$
 and then shows that the short regression of $y_i$ on $x_i$ alone has slope
 
 $$
-\hat{\beta}_1^{\,s} \;\xrightarrow{\;p\;}\; \beta_1 + \beta_2\,\delta_1,
+\hat{\beta}_1^{s} \xrightarrow{p} \beta_1 + \beta_2 \delta_1,
 \qquad \delta_1 = \frac{\operatorname{Cov}(x_i, z_i)}{\operatorname{Var}(x_i)}.
 $$
 
-The slide writes $\hat{\beta}_1^{\,s}$ for the short-regression slope and $\delta_1$ for the slope from regressing $z_i$ on $x_i$. Keep both; do not switch to $\tilde{\beta}_1$ or $\pi_1$ from a textbook.
+The slide writes $\hat{\beta}_1^{s}$ for the short-regression slope and $\delta_1$ for the slope from regressing $z_i$ on $x_i$. Keep both; do not switch to $\tilde{\beta}_1$ or $\pi_1$ from a textbook.
 
 ## Hypothetical Homework question
 
@@ -25,14 +25,14 @@ The slide writes $\hat{\beta}_1^{\,s}$ for the short-regression slope and $\delt
 
 ## Excerpt of a good Professor response
 
-"The slope converges to $\rho + \gamma\,\delta_1$, so it overstates the return to schooling: the bias $\gamma\,\delta_1$ is positive.
+"The slope converges to $\rho + \gamma \delta_1$, so it overstates the return to schooling: the bias $\gamma \delta_1$ is positive.
 
 **Mapping to the slide.** The Homework uses different letters. Here $y_i = \ln W_i$, $x_i = S_i$, $z_i = A_i$, $\beta_1 = \rho$ and $\beta_2 = \gamma$. I keep the Homework's letters below and the slide's $\delta_1$ and superscript $s$.
 
 **Step 1: the short-regression slope.** The slope of a regression on one variable converges to the ratio of covariance to variance (a standard result, used on the slide to get its formula):
 
 $$
-\hat{\rho}^{\,s} \;\xrightarrow{\;p\;}\; \frac{\operatorname{Cov}(S_i, \ln W_i)}{\operatorname{Var}(S_i)}.
+\hat{\rho}^{s} \xrightarrow{p} \frac{\operatorname{Cov}(S_i, \ln W_i)}{\operatorname{Var}(S_i)}.
 $$
 
 **Step 2: substitute the long regression.** With $\ln W_i = \beta_0 + \rho S_i + \gamma A_i + u_i$,
@@ -44,11 +44,11 @@ $$
 **Step 3: use the slide's assumption.** $E[u_i \mid S_i, A_i] = 0$ implies $\operatorname{Cov}(S_i, u_i) = 0$. Dividing by $\operatorname{Var}(S_i)$,
 
 $$
-\hat{\rho}^{\,s} \;\xrightarrow{\;p\;}\; \rho + \gamma\,\delta_1,
+\hat{\rho}^{s} \xrightarrow{p} \rho + \gamma \delta_1,
 \qquad \delta_1 = \frac{\operatorname{Cov}(S_i, A_i)}{\operatorname{Var}(S_i)}.
 $$
 
-**Step 4: sign.** The question gives $\gamma > 0$, and 'more able people get more schooling' means $\operatorname{Cov}(S_i, A_i) > 0$, so $\delta_1 > 0$. The bias $\gamma\,\delta_1$ is a product of two positive numbers.
+**Step 4: sign.** The question gives $\gamma > 0$, and 'more able people get more schooling' means $\operatorname{Cov}(S_i, A_i) > 0$, so $\delta_1 > 0$. The bias $\gamma \delta_1$ is a product of two positive numbers.
 
 **Check.** If ability did not affect wages ($\gamma = 0$), or were uncorrelated with schooling ($\delta_1 = 0$), the bias would vanish, as it should. With illustrative numbers (mine, not the course's), $\rho = 0.08$, $\gamma = 0.05$ and $\delta_1 = 0.4$ give a limit of $0.08 + 0.05 \times 0.4 = 0.10$.
 
@@ -60,7 +60,7 @@ $$
 
 - The answer and the sign come first; the steps follow.
 - It reads the actual question, finds the matching Slide result and maps the Homework's letters to the slide's once, before solving.
-- It uses the slide's method and its symbols $\delta_1$ and $\hat{\,\cdot\,}^{\,s}$, and shows every step the conclusion depends on, including where $E[u_i \mid S_i, A_i] = 0$ is used.
+- It uses the slide's method and its symbols $\delta_1$ and the superscript $s$, and shows every step the conclusion depends on, including where $E[u_i \mid S_i, A_i] = 0$ is used.
 - It checks the result with two limiting cases and labels the numbers as illustrative.
 - It ends with the economic meaning and names the method for the next problem.
 

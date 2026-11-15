@@ -10,6 +10,13 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Example math made safe for Markdown
+
+- **Fixed:** some notation in the new Slutsky example did not render. Displayed equations had lines starting with `- ` or `+ `, which Markdown reads as list items, and spacing commands such as `\,` and `\;`, which Markdown can strip. The three worked examples now keep each displayed equation on one line and avoid backslash-punctuation commands; no symbol or result changed.
+- After a test by the user in the Claude desktop app: inline formulas made only of letters and brackets (such as `$v(p,w)$`), or followed by a quotation mark, stayed as raw text there. The Slutsky and Bellman examples were reworded around them, and the Slutsky numerical check moved into displayed equations. `SKILL.md` is unchanged.
+- Not viewed in a renderer by the agent; to be confirmed by the user.
+- Details: [2026-11-15 — Example math safe for Markdown](logs/2026-11-15-example-latex-markdown-safe.md).
+
 ### Econ Teaching — Worked examples for microeconomics and econometrics
 
 - **Added** two model answers beside the Bellman (macro) example: a quick micro question about one sign in the Slutsky equation, and an econometrics Homework on omitted variable bias solved by the slide's method, with the reusable method named at the end. Both are hypothetical and write all math in LaTeX. `SKILL.md` lists the three examples by field and mode.
