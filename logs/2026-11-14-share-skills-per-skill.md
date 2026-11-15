@@ -56,3 +56,7 @@ Installed skills behave as before; the `SKILL.md` note matters only when the fil
 ## Follow-up
 
 Publish the first release, confirm the three zips appear on it, download `econ-teaching.zip` from the stable link and upload it to Claude.ai once.
+
+## Correction (2026-11-14, later the same day)
+
+The note at the top of each `SKILL.md` giving the raw GitHub folder was removed; the address now lives in each skill's paste-a-link prompt in the README. See [Self-contained skill folders](2026-11-14-self-contained-skills.md).

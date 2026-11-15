@@ -57,5 +57,26 @@ class SkillZipTests(unittest.TestCase):
         self.assertEqual(bz.main(["--skill", "no-such-skill", "--out", tempfile.gettempdir()]), 1)
 
 
+vspec = importlib.util.spec_from_file_location("validate_skills", ROOT / "tests" / "validate_skills.py")
+vs = importlib.util.module_from_spec(vspec)
+vspec.loader.exec_module(vs)
+
+
+class SelfContainedSkillTests(unittest.TestCase):
+    def test_real_skills_link_only_inside_their_folder(self):
+        for name in bz.skill_names():
+            self.assertEqual(vs.links_leaving_folder(ROOT / "skills" / name), [], name)
+
+    def test_link_out_of_the_folder_is_reported(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / "skills" / "x"
+            (skill / "references").mkdir(parents=True)
+            (skill / "SKILL.md").write_text("[ok](references/r.md)\n", encoding="utf-8")
+            (skill / "references" / "r.md").write_text("[bad](../../../README.md) [web](https://example.org)\n", encoding="utf-8")
+            problems = vs.links_leaving_folder(skill)
+            self.assertEqual(len(problems), 1)
+            self.assertIn("../../../README.md", problems[0])
+
+
 if __name__ == "__main__":
     unittest.main()

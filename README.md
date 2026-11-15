@@ -41,13 +41,27 @@ Once installed, the skill turns on by itself when a question fits it, and it can
 
 ### Try a skill without installing
 
-In a chat that can open web pages, paste the line for the skill you want, followed by your request:
+In a chat that can open web pages, paste the line for the skill you want, followed by your request. Each line tells the agent where the skill's files are, so it can fetch the reference files the task needs.
+
+econ-teaching:
 
 ```text
-Read https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-teaching/SKILL.md and follow it, fetching the reference files it names. Then: [your request]
+Read https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-teaching/SKILL.md and follow it. Its linked files are in https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-teaching/ ; fetch only the ones it names for my request, and say if one cannot be fetched. Then: [your request]
 ```
 
-For the other skills, replace `econ-teaching` with `econ-writing` or `econ-research`. Each `SKILL.md` says where its reference files are. Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may not fetch every reference file it should.
+econ-writing:
+
+```text
+Read https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-writing/SKILL.md and follow it. Its linked files are in https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-writing/ ; fetch only the ones it names for my request, and say if one cannot be fetched. Then: [your request]
+```
+
+econ-research:
+
+```text
+Read https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-research/SKILL.md and follow it. Its linked files are in https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-research/ ; fetch only the ones it names for my request, and say if one cannot be fetched. Then: [your request]
+```
+
+Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may not fetch every reference file it should.
 
 ### Updates
 

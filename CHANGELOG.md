@@ -8,11 +8,20 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-14
 
+### All skills — Self-contained skill folders
+
+- **Fixed** the one place a skill pointed outside its own folder: `econ-writing` told the agent to follow the repository's root `STORAGE_POLICY.md`, which a zipped or installed skill does not contain; the rule it needs is now stated inline. `econ-teaching`'s cloud workflow no longer mentions the root policy file.
+- **Added** to each skill's existing scope line: if the skill a request needs is not installed, say so and do not do its job without its rules (for example, a literature question asked of `econ-teaching` alone).
+- **Removed** the link note added to the top of each `SKILL.md` earlier today. It hard-coded this repository's GitHub address into every skill and was read on every use, although only people pasting a link need it. The folder address now sits in each skill's paste-a-link prompt in the README instead.
+- **Considered and dropped:** a rule telling agents not to read the repository's logs, tests or other skills, to save tokens. An installed or zipped skill does not contain those files, so the rule saved little and cost tokens on every use; the routing tables already say to load only the references a task needs.
+- `tests/validate_skills.py` now fails if any link in a skill's Markdown leaves its folder, which keeps the zips self-contained; two regression tests added.
+- Details: [2026-11-14 — Self-contained skill folders](logs/2026-11-14-self-contained-skills.md).
+
 ### All skills — Share one skill at a time
 
 - **Added** one download link per skill: publishing a GitHub release now runs a workflow that builds `econ-teaching.zip`, `econ-writing.zip` and `econ-research.zip` and attaches them to the release, so `releases/latest/download/<skill>.zip` always gives the newest released version. Each zip holds only that skill's folder, ready to upload to Claude.ai or unzip into a skills folder. Downloads do not update themselves; people re-download from the same link.
 - **Added** [tools/build_skill_zips.py](tools/build_skill_zips.py), the standard-library zip builder the workflow uses (skips `.DS_Store`, `__pycache__` and LaTeX build files; reproducible output), with five unit tests in `tests/test_skill_zips.py`.
-- **Added** a short note at the top of each `SKILL.md` giving the raw GitHub folder for its linked files, so a skill can also be tried by pasting its `SKILL.md` link into a chat.
+- **Added** a short note at the top of each `SKILL.md` giving the raw GitHub folder for its linked files, so a skill can also be tried by pasting its `SKILL.md` link into a chat. (Removed later the same day; see Self-contained skill folders above.)
 - README: new "Share a skill" section near the top with the download links, how to install a zip in Claude.ai and Claude Code, the paste-a-link prompt, how updates work, and how to publish a new version. The repo-layout tree is corrected (`econ-teaching` was drawn as the last folder under `skills/`) and lists the new tool and workflow.
 - Details: [2026-11-14 — Share one skill at a time](logs/2026-11-14-share-skills-per-skill.md).
 

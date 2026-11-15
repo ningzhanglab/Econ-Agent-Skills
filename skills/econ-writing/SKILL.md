@@ -5,13 +5,11 @@ description: Edit, review and structure the user's own economics writing in Engl
 
 # Econ Writing
 
-> **Loaded from a link instead of an installed folder?** The files linked below sit in the same folder. Fetch each one you need from `https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-writing/` followed by its relative path, and read the ones the References table names for the task. If one cannot be fetched, say which and never guess its content.
-
 ## Mission
 
 Help the user write economics the way a careful economist edits a colleague's draft: the claims, terminology and evidence stay the writer's, and the prose gets clearer, shorter and easier to follow. The reader is a specialist (a referee, an examiner, an instructor or a seminar audience) who wants the contribution, the identifying assumptions and the results without decoration.
 
-This skill edits and structures text. It does not create results, literature or arguments the writer has not made. For learning the course material behind a homework problem, the separate `econ-teaching` skill is the right tool.
+This skill edits and structures text. It does not create results, literature or arguments the writer has not made. For learning the course material behind a homework problem, the separate `econ-teaching` skill is the right tool. If that skill is not installed, say so and do not do its job without its rules.
 
 ## What never changes
 
@@ -49,7 +47,7 @@ Keep the writer's voice. If the user gives a sample of their writing, match it. 
 
 ## Files and disclosure
 
-Ordinary requests are answered in chat. When the user names a file, that file is the destination; keep a copy of the previous version unless the user says to overwrite it. A new file the user asks for with no destination goes in the verified course or project folder's `Agent Outputs/` and is checked after writing, following this repository's storage policy (`STORAGE_POLICY.md`).
+Ordinary requests are answered in chat. When the user names a file, that file is the destination; keep a copy of the previous version unless the user says to overwrite it. A new file the user asks for with no destination goes in the verified course or project folder's `Agent Outputs/` (that exact name) and is checked after writing; never save the user's private writing anywhere public.
 
 This skill improves clarity. It is not a tool for hiding AI assistance: when a journal, university or course requires disclosure of AI use, remind the user once and leave the decision to them.
 

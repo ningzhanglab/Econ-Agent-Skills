@@ -49,6 +49,25 @@ def validate(skill_dir: Path) -> list[str]:
             continue
         if not (skill_dir / path).is_file():
             problems.append(f"{file}: broken reference {path}")
+    problems.extend(links_leaving_folder(skill_dir))
+    return problems
+
+
+def links_leaving_folder(skill_dir: Path) -> list[str]:
+    """A skill must be self-contained: no local link may point outside its folder.
+
+    Reading files outside the folder costs tokens, and an installed or zipped
+    skill does not have them.
+    """
+    problems: list[str] = []
+    root = skill_dir.resolve()
+    for doc in sorted(skill_dir.rglob("*.md")):
+        for path in LINK_RE.findall(doc.read_text(encoding="utf-8")):
+            if "://" in path or path.startswith(("#", "mailto:")):
+                continue
+            target = (doc.parent / path).resolve()
+            if root != target and root not in target.parents:
+                problems.append(f"{doc}: link leaves the skill folder: {path}")
     return problems
 
 
