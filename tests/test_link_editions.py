@@ -56,6 +56,20 @@ class LinkEditionTests(unittest.TestCase):
             self.assertIn("reading this skill from a link", text)
             self.assertIn(f"name: {name}", text)
 
+    def test_index_page_is_current_and_names_every_skill(self):
+        # If this fails after editing a skill description: python tools/build_link_editions.py
+        names = le.bz.skill_names()
+        target = ROOT / "link" / f"{le.INDEX_NAME}.md"
+        self.assertTrue(target.is_file(), f"missing {target}")
+        text = target.read_text(encoding="utf-8")
+        self.assertEqual(text, le.render_index(names))
+        for name in names:
+            self.assertIn(f"{le.RAW_BASE}/link/{name}.md", text)
+            self.assertTrue((ROOT / "link" / f"{name}.md").is_file(), name)
+            self.assertIn(le.skill_description(ROOT / "skills" / name), text)
+            # Codes appear only on the skill pages, so reporting one shows the page was opened.
+            self.assertNotIn(le.edition_code(ROOT / "skills" / name), text, name)
+
     def test_edition_code_is_shown_and_follows_every_file(self):
         for name in le.bz.skill_names():
             code = le.edition_code(ROOT / "skills" / name)

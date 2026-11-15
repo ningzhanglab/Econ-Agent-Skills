@@ -65,6 +65,12 @@ econ-research:
 Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Then: [your request]
 ```
 
+All three from one link: use this when you want one line for every request, for example in a chat project's instructions. The [index page](link/econ-skills.md) lists the three skills, and the agent opens the one or ones the request needs: to explain a paper and then place it in its literature, it opens both `econ-teaching` and `econ-research`. This takes one more page to open than a single-skill line, so the separate lines above stay the most direct choice when you already know which skill you want.
+
+```text
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md, open the skill page or pages it says my request needs, and open the files those pages name. Start your answer with the edition code of each skill page you opened. If you cannot open a page or a file it names, say so and stop; do not answer from memory. When teaching economics, write all math in LaTeX, including single symbols in sentences. Then: [your request]
+```
+
 Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may still skip a reference file. The answer should start with a line `Skill edition:` and a six-character code, and end with a line listing the skill files it read. To check the code, open the link yourself and compare it with the edition code at the top of the page: a missing or different code means the agent did not read the current page, so its answer does not follow the skill. If a file you expected is missing from the last line, ask the agent to open it.
 
 ### Updates
@@ -224,7 +230,7 @@ Econ-Agent-Skills/
 │           └── ai-tells.md
 ├── tests/                                 # structural tests and manual evaluation cases (Teaching, Writing and Research)
 ├── logs/                                  # dated development logs (not student learning logs)
-├── link/                                  # generated link editions for the paste-a-link method (do not edit)
+├── link/                                  # generated link editions and the econ-skills.md index for the paste-a-link method (do not edit)
 ├── tools/
 │   ├── build_skill_zips.py               # builds one installable zip per skill
 │   └── build_link_editions.py            # rebuilds link/ from the skills

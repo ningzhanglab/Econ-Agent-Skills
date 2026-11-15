@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### All skills — One index link for all three
+
+- **Added** `link/econ-skills.md`, an index of the three skills with a fourth paste prompt in the README. The agent opens the skill page or pages a request needs, for example both teaching and research to explain a paper and then place it in its literature. Meant for one line in a chat project's instructions. The three single-skill prompts are unchanged.
+- The index is generated from the skills' descriptions and carries no edition code, so a reported code still shows that the skill page itself was opened. One new test; 58 tests pass. Not yet tried in a real chat.
+- Details: [2026-11-15 — Link index page](logs/2026-11-15-link-index-page.md).
+
 ### Econ Teaching — Say upfront when a paper's equations were not seen
 
 - **Changed:** when a paper was read only as fetched or extracted text, the answer now says so before its first equation, not at the end, and marks any equation rebuilt from the text as reconstructed (`references/slide-fidelity.md`).
