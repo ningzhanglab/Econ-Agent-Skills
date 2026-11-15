@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: no source lines on the paper's own figures and tables
+
+- **Changed:** `references/slides.md` now puts one full citation on the title slide and no source line under figures or tables taken from the paper being presented. A one-line source is added only for a recomputed figure, a figure or table from another paper or dataset, or a mix of sources. Section, table and equation references go in the handover. This replaces the rule of a source line under every figure and table, which agents over-applied.
+- Tests pass (60). Not yet tried on a new deck beyond the one that prompted it.
+- Details: [2026-11-15 — Slides source lines](logs/2026-11-15-slides-source-lines.md).
+
 ### Econ Teaching — Slides: Conclusion, Appendix, no Discussion by default
 
 - **Changed:** `references/slides.md` and the slides template now end a deck with a **Conclusion** (or Takeaways) slide and then an **Appendix**, replacing "Backup". A **Discussion** slide is no longer added by default; it is made only when the user asks. Prompted by the user's own habits when presenting.
