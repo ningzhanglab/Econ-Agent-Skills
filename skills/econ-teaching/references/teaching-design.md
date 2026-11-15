@@ -30,7 +30,7 @@ Many questions come with no course behind them: a term, a paper, a screenshot fr
 | **A paper, asking about one part** | Treat the paper as the lecture under [Slide Fidelity](slide-fidelity.md#papers-and-screenshots): keep its notation, cite it as that section says, and read the definitions and assumptions the part relies on, including an appendix where a step is proved. |
 | **A screenshot of equations from anywhere** | Keep the screenshot's exact symbols. Do not guess which book or paper it comes from or fill in definitions it does not show. If a needed definition or assumption is off-screen, state the reading you assume and label it, or ask for the neighboring part when the answer depends on it. If part of the image is unreadable, say which part. |
 
-A small step the student could not follow is a Quick clarification (first table above). Answer first, check intuition against the math and use the student's language as always. Placing a paper in its literature, judging its evidence or verifying its references is the separate `econ-research` skill.
+A small step the student could not follow is a Quick clarification (first table above). Answer first, check intuition against the math and use the student's language as always. Judging a paper on its own terms (its assumptions, sensitivity, chosen versus estimated numbers) is done here, labeled as assessment; placing it in its literature, comparing it with other papers or verifying its references is the separate `econ-research` skill.
 
 ## Diagnose the learning bottleneck (without claiming to read the learner's mind)
 

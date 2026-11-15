@@ -10,6 +10,13 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Judging a paper on its own terms
+
+- **Changed:** when reading a paper, `econ-teaching` may now judge it on its own terms: which assumptions drive the result, how sensitive it is to a parameter, which numbers are chosen rather than estimated. This is labeled as assessment and names no outside paper. Placing the paper in its literature, comparing it with other papers and verifying references stay with `econ-research`.
+- If `econ-research` is not installed, the one-line notice now points to the README for installing it or pasting its link. Before this, users with only `econ-teaching` got no assessment and no next step.
+- Structural checks and 57 unit tests pass; not yet retried in a real chat.
+- Details: [2026-11-15 — Paper assessment boundary](logs/2026-11-15-teaching-paper-assessment-boundary.md).
+
 ### Econ Teaching — Example math made safe for Markdown
 
 - **Fixed:** some notation in the new Slutsky example did not render. Displayed equations had lines starting with `- ` or `+ `, which Markdown reads as list items, and spacing commands such as `\,` and `\;`, which Markdown can strip. The three worked examples now keep each displayed equation on one line and avoid backslash-punctuation commands; no symbol or result changed.
