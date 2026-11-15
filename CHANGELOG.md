@@ -13,7 +13,7 @@ _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questi
 ### Econ Teaching — Slides for presenting a paper
 
 - **Added** a slides reference and a minimal Beamer template. The deck is for the audience: the argument, assertion titles, at most 3–4 bullets and two equations per slide, a citation on the title slide and one source line per figure. Process notes, per-bullet "Paper states" labels, self-checks and reading advice go to a separate handover for the user; own derivations go to Backup slides and judgment to a Discussion slide. A literature slide lists only papers the paper cites or `econ-research` verified.
-- Prompted by a real Jones deck the user found cluttered. 60 tests pass, 1 skipped: the template compile test, because Beamer is not installed locally. Not yet used to regenerate a deck.
+- Prompted by a real Jones deck the user found cluttered. 60 tests pass, 1 skipped: the template compile test, because Beamer is not installed locally. Not yet used to regenerate a deck. _Update:_ after Beamer was installed locally, the template compiled cleanly and all 60 tests ran and passed.
 - Details: [2026-11-15 — Slides reference](logs/2026-11-15-teaching-slides-reference.md).
 
 ### All skills — Review fixes for the index link

@@ -65,3 +65,15 @@ Only requests for slides load the new reference. Notes, homework and chat answer
 ## Follow-up
 
 Install Beamer (`tlmgr install beamer`) or compile in an environment that has it, then regenerate the Jones deck with the new rules and compare it with the deck reviewed here.
+
+## Addendum (2026-11-15, after commit 4862d05): template compiled
+
+With the user's approval, `beamer`, `translator` and `ctex` were installed into the user's local TinyTeX with `tlmgr`. `tlmgr update --self` was needed first. The install ended with an `fmtutil` error from the post-install format rebuild ("multiple commands found: byengine byfmt"), but `tlmgr info` shows all three packages installed, and `kpsewhich` finds `beamer.cls`, `translator.sty`, `ctexbeamer.cls` and `ctexart.cls`.
+
+| Check | Result | Evidence |
+| --- | --- | --- |
+| Template compile | Pass | `latexmk -pdf` on `simple-slides.tex`: exit 0, no overfull boxes, no LaTeX warnings, 6 pages; pages rendered with PDFKit and inspected |
+| Unit tests | Pass | 60 tests OK, none skipped (the Beamer compile test now runs) |
+| Chinese notes template | Pass | `latexmk -xelatex` on `simple-notes-cn.tex`: exit 0. It could not compile on this machine before `ctex` was installed; the existing test checks only its text |
+
+The `fmtutil` error may matter after a future TinyTeX update; if formats fail to load, `tlmgr update --all` followed by `fmtutil-sys --all` is the usual fix. Not tried.
