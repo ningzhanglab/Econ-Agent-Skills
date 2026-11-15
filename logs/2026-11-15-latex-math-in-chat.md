@@ -52,3 +52,7 @@ Ask one equation question in the app you use most and check the first answer.
 ## Correction (2026-11-15, later the same day)
 
 A real test showed agents could miss the rule inside principle 1. It now stands on its own line at the top of "How to teach", and the Supporting duties line says chat answers use LaTeX. See [LaTeX rule made prominent](2026-11-15-latex-rule-prominent.md).
+
+## Correction 2 (2026-11-15, later the same day)
+
+The state described in the correction above did not last: the separate line was removed again. For the wording now in force see [LaTeX for inline notation](2026-11-15-latex-inline-notation.md). The macro clause added here is no longer in `SKILL.md`; evaluation case 59 still checks it.

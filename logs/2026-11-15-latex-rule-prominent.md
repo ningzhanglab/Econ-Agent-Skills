@@ -42,3 +42,7 @@ A skill instruction cannot override an app's own formatting rules, and a fetch t
 ## Follow-up
 
 Retest in a new chat; if plain text persists with this wording, the remaining lever is the user's own message or app preferences.
+
+## Correction (2026-11-15, later the same day)
+
+The separate "Math in chat is LaTeX" line added here was removed in [Chat LaTeX rule reduced](2026-11-15-latex-rule-reduced.md). The requirement now lives in one phrase in Supporting duties, extended in [LaTeX for inline notation](2026-11-15-latex-inline-notation.md). The plain-text exception described here is no longer in the skill.

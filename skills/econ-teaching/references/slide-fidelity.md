@@ -24,15 +24,15 @@ Make a local internal ledger when needed:
 | --- | --- |
 | Choice/state variables | letter, capitals, accents, primes and economics meaning |
 | Parameters | names and domain restrictions |
-| Timing | t versus t+1, primes, leads/lags and dating of shocks |
-| Operators | expected value E versus E_t, conditional expectations, integrals, gradient, derivatives |
+| Timing | $t$ versus $t+1$, primes, leads/lags and dating of shocks |
+| Operators | expected value $E$ versus $E_t$, conditional expectations, integrals, gradient, derivatives |
 | Indices | agent i, group j, goods, time and sample observations |
 | Equalities | equality, strict inequality, weak inequality, approximation, proportionality |
 | Equilibrium concept | planner, competitive, partial/general, static/dynamic, information sets |
 
-Preserve symbols, including variants that look interchangeable: c versus C, \beta versus \delta, \pi versus p, q_t versus Q_t, k' versus k_{t+1}, x^* versus x, \mathbb{E}_t versus \mathbb{E}. They may carry different meanings. Do not silently normalize indices, rename discount factors or collapse indexed quantities.
+Preserve symbols, including variants that look interchangeable: $c$ versus $C$, $\beta$ versus $\delta$, $\pi$ versus $p$, $q_t$ versus $Q_t$, $k'$ versus $k_{t+1}$, $x^*$ versus $x$, $\mathbb{E}_t$ versus $\mathbb{E}$. They may carry different meanings. Do not silently normalize indices, rename discount factors or collapse indexed quantities.
 
-If another model uses a different symbol, explicitly say something like: "The external source writes a_t; on these slides, the corresponding object is k_t." Then use the slides' k_t throughout your own ongoing exposition.
+If another model uses a different symbol, explicitly say something like: "The external source writes $a_t$; on these slides, the corresponding object is $k_t$." Then use the slides' $k_t$ throughout your own ongoing exposition.
 
 If the slides themselves appear inconsistent, **quote or reproduce the displayed expression as-is**, state the suspected issue separately, and explain the implications under both readings where helpful. Do not silently fix a typo.
 

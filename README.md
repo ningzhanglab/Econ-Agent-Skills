@@ -35,7 +35,7 @@ Each zip holds only that skill's folder: its `SKILL.md`, references, templates a
   unzip econ-teaching.zip -d ~/.claude/skills
   ```
 
-  `econ-teaching` writes math in LaTeX. A terminal shows it as code (`$\beta$`); say "use plain text for math" and it switches for the rest of the conversation.
+  `econ-teaching` writes math in LaTeX. A terminal shows it as code (`$\beta$`); if you prefer, ask it to write math as plain text.
 
 - **Other apps that support Agent Skills:** unzip it into that app's skills folder.
 
@@ -45,27 +45,27 @@ Once installed, the skill turns on by itself when a question fits it, and it can
 
 ### Try a skill without installing
 
-In a chat that can open web pages, paste the line for the skill you want and replace `[your request]` with your question. Each line points to the skill's **link edition**: the same `SKILL.md`, with every reference file given as a full address the chat can open, and an instruction to read the files the request needs and to list the ones it read.
+In a chat that can open web pages, paste the line for the skill you want and replace `[your request]` with your question. Each line points to the skill's **link edition**: the same `SKILL.md`, with every reference file given as a full address the chat can open, an edition code, and an instruction to read the files the request needs and to list the ones it read.
 
 econ-teaching:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-teaching.md and open the files it names for my request. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-teaching.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Write all math in LaTeX, including single symbols in sentences. Then: [your request]
 ```
 
 econ-writing:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-writing.md and open the files it names for my request. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-writing.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Then: [your request]
 ```
 
 econ-research:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md and open the files it names for my request. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Then: [your request]
 ```
 
-Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may still skip a reference file. The answer should end with a line listing the skill files it read; if a file you expected is missing from that line, ask the agent to open it.
+Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may still skip a reference file. The answer should start with a line `Skill edition:` and a six-character code, and end with a line listing the skill files it read. To check the code, open the link yourself and compare it with the edition code at the top of the page: a missing or different code means the agent did not read the current page, so its answer does not follow the skill. If a file you expected is missing from the last line, ask the agent to open it.
 
 ### Updates
 
@@ -82,7 +82,7 @@ For the maintainer. Download links always point to the newest **published releas
 3. Click **Publish release**. The *Attach skill zips to release* workflow builds the three zips and attaches them to the release, usually within a couple of minutes. Check that the release page lists `econ-teaching.zip`, `econ-writing.zip` and `econ-research.zip`.
 4. If the change matters, tell the people you shared with to download again from the same link.
 
-After changing a skill, run `python tools/build_link_editions.py` and commit the updated `link/` files; a test fails if they are out of date.
+After changing any file in a skill, run `python tools/build_link_editions.py` and commit the updated `link/` files; the edition code covers every file of the skill, and a test fails if the pages are out of date.
 
 To build the zips locally instead: `python tools/build_skill_zips.py` (writes to `dist/`, which Git ignores; inside a Git checkout it includes only files Git tracks).
 
@@ -198,6 +198,8 @@ Econ-Agent-Skills/
 │   │   │   └── learning-log.md
 │   │   ├── examples/
 │   │   │   ├── bellman-teaching-example.md
+│   │   │   ├── slutsky-teaching-example.md
+│   │   │   ├── omitted-variable-homework-example.md
 │   │   │   └── diagnostic-teaching-patterns.md
 │   │   ├── scripts/                       # read-only helpers for TeX, Word and course files
 │   │   └── templates/

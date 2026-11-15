@@ -4,11 +4,11 @@ Apply when the user's lecture files reside in a connected cloud drive, or when t
 
 ## Storage contract
 
-**Exact folder name: `Agent Outputs` (case and spacing matter)**. This reference carries the full storage contract, so it works when the skill folder is installed on its own; there is no need to open any file outside this folder. It supersedes historical instructions naming `outputs/`.
+**Exact folder name: `Agent Outputs` (case and spacing matter)**. This reference carries the full storage contract, so it works when the skill folder is installed on its own; there is no need to open any file outside this folder.
 
 - **Inputs:** use the user's authorized cloud workspace as the source of slides, syllabus, homework, readings, TeX dependencies and diagrams. Use connected Google Drive when available; respect another explicitly named accessible provider.
 - **Outputs:** save **every requested final file** (notes, proof, PDF, DOCX, LaTeX, course map, lecture index, notation registry, spreadsheet, etc.) to the cloud **`Agent Outputs/` folder**, not only to a temporary local path, chat attachment or the public GitHub skills repository.
-- Do **not** produce an unsolicited file for an ordinary chat explanation. Source files remain in the original course folder. Do not upload private source materials or generated course content to public GitHub.
+- Source files remain in the original course folder. Do not upload private source materials or generated course content to public GitHub.
 
 ## Identify the destination before writing
 
@@ -22,7 +22,7 @@ Apply when the user's lecture files reside in a connected cloud drive, or when t
 
 ## Source selection and saved-course recovery
 
-When a cloud course has same-basename `lecture.tex`, `lecture.pdf`, `lecture.docx`/`lecture.doc`, **group them as one logical document by default**. Use the representation that reads most reliably (often TeX or readable Word), and consult PDF for figures and page/layout verification. Use [Course State and Sources](course-state-and-sources.md) when genuinely different handout/presenter variants or revisions appear; never assume the newest filename is authoritative. Ask whether formats are equivalent only if consequential differences remain unclear. A saved Course Map or Course State is an index, not source evidence. Recheck file IDs, revision markers and permissions and reopen the relevant original equations/figures in each new session.
+Same-basename `lecture.tex`, `lecture.pdf` and `lecture.docx`/`lecture.doc` files, handout/presenter variants and revisions are handled under [Course State and Sources](course-state-and-sources.md). A saved Course Map or Course State is an index, not source evidence: recheck file IDs, revision markers and permissions and reopen the relevant original equations/figures in each new session.
 
 ## Read and teach from cloud sources
 
@@ -33,7 +33,7 @@ When a cloud course has same-basename `lecture.tex`, `lecture.pdf`, `lecture.doc
 
 ## Create, upload and verify requested output
 
-1. Respect explicitly requested file formats and names. **Professor default when the user requests an output file but does not specify its format: produce both a minimal `.tex` source and its compiled `.pdf`**, using matching informative base names (e.g., `ECONS509_L08_notes.tex` and `ECONS509_L08_notes.pdf`). A user-specified alternate format or single-format request overrides the pair. See [TeX/PDF Outputs](latex-outputs.md).
+1. Respect explicitly requested file formats and names. With no format named, the default is a matching `.tex` and compiled `.pdf` with the same informative base name; see [TeX/PDF Outputs](latex-outputs.md).
 2. Generate the real output via available tools. If it is created locally first, treat the local file as **intermediate**, not as the final delivery.
 3. Find or create the exact destination `Agent Outputs/` folder as above. Before asserting cloud delivery is possible, verify the host supports a **real generated-file → provider upload handoff** (for example a connector-supported file reference), not just local file generation. Upload the artifacts using an actual supported tool; never fabricate a file reference, ID or URL.
 4. Check for an existing filename. Never silently overwrite another file; make a versioned name or follow an explicit, authorized update instruction.
@@ -42,9 +42,7 @@ When a cloud course has same-basename `lecture.tex`, `lecture.pdf`, `lecture.doc
 
 ## Optional private Learning Logs
 
-When the student explicitly asks to save a study-session recap, follow [Learning Logs](learning-log.md). Store a **brief Markdown `.md` summary** in the active verified course's `Agent Outputs/Learning Logs/` subfolder. This is a deliberate exception to the general TeX/PDF teaching-document default, because the user requested a log. Create the child folder only when needed and authorized; **never** store private Learning Logs under the public repository `logs/`.
-
-Before appending to an existing dated file, read the current file and preserve earlier sessions. When the provider cannot safely append or replace the full file, create a collision-safe dated session file; do not overwrite silently. Verify cloud name, parent folder and file ID. A learning log is not background recording or a full transcript.
+When the student explicitly asks to save a study-session recap, follow [Learning Logs](learning-log.md): a brief Markdown file in the verified course's `Agent Outputs/Learning Logs/`, never under the public repository `logs/`, never overwriting an earlier entry, and verified after writing.
 
 ## Generated course indexes
 

@@ -65,6 +65,6 @@ For a specific question:
 
 ## Storage & privacy
 
-The skill is reusable; course-specific maps and indexes are artifacts of a particular private course. Use the user's connected cloud workspace and put requested persistent course artifacts in its **`Agent Outputs/` folder**, separate from source Slides. Verify successful cloud upload and the output parent folder. If the cloud connector lacks write access, disclose this rather than falsely reporting success. See [Cloud Drive workflow](cloud-drive-workflow.md). Do not send copyrighted/private course materials, answer keys, or identifiable learner notes to the public `Econ-Agent-Skills` repo by default.
+Course-specific maps and indexes are private artifacts of one course. When requested as files they follow [Cloud Drive workflow](cloud-drive-workflow.md): the course's `Agent Outputs/` folder, verified after writing, and never the public skill repository. Do not send copyrighted or private course materials, answer keys or identifiable learner notes there either.
 
 Use [the large-file strategy](large-file-strategy.md) for bounded scanning, ingestion and refresh.

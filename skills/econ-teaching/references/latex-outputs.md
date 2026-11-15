@@ -4,9 +4,7 @@
 
 **Only when the user asks to create/export/save a file** (notes, chapter explanations, study guides, course maps, derivations, summaries, etc.), the Professor's default deliverable is a matched **editable `.tex` source and compiled `.pdf`**, with the same base filename. This is the default when **no format is specified**. An explicit user format or file preference overrides it.
 
-Place the two final files in the verified active course's **`Agent Outputs/`** cloud folder, as required by [Cloud Drive workflow](cloud-drive-workflow.md). Verify both by name, type, ID and correct parent. Do not put the course-specific output in the public GitHub repository.
-
-Regular chat explanations do **not** automatically create a file.
+Save and verify both files in the course's `Agent Outputs/` cloud folder as [Cloud Drive workflow](cloud-drive-workflow.md) requires.
 
 ## Simple LaTeX first
 
@@ -31,7 +29,7 @@ A pair of files that uploads successfully may still be **unreproducible** if its
 
 ### Chinese text smoke test
 
-A plain Latin `article` + PDFLaTeX template is **not sufficient for Chinese characters**. Use the [ctexart example](../templates/simple-notes-cn.tex) with XeLaTeX when Chinese is present. Do not silently strip Chinese, replace characters with boxes, or report success without opening the actual rendered PDF. The standard CI job tests the **Latin** template; Chinese compilation depends on the host's installed CJK engine/fonts and must be checked separately.
+A plain Latin `article` + PDFLaTeX template is **not sufficient for Chinese characters**. Use the [ctexart example](../templates/simple-notes-cn.tex) with XeLaTeX when Chinese is present. Do not silently strip Chinese, replace characters with boxes, or report success without opening the actual rendered PDF. Chinese compilation depends on the host's installed CJK engine and fonts and must be checked each time.
 
 ## Compiling and checking
 
@@ -43,13 +41,10 @@ A plain Latin `article` + PDFLaTeX template is **not sufficient for Chinese char
 6. Return **both verified cloud links**, and state the final folder.
 7. If compilation cannot run or fails, do **not** claim the PDF exists. Deliver the `.tex` if feasible and report clearly why the PDF was not produced, what remains unverified, and which environment dependency is missing. If upload fails, disclose that separately.
 
-A local generated PDF or a successful LaTeX syntax check alone does not prove the requested files were written to Google Drive. Confirm cloud metadata for both.
-
 ## Format overrides
 
 - Explicit `.md`, `.docx`, spreadsheet, image or Google Doc request: follow the user's requested format, without imposing a PDF/TeX pair.
 - Explicit "PDF only": deliver PDF; optional TeX only if requested or helpful and approved.
 - Explicit "LaTeX source only": deliver TeX only.
-- Default without a format: deliver **both** `.tex` and `.pdf`.
 
-For substantial lecture notes or Handbooks, plan useful diagrams along with equations and Homework connections. Use original **inspected** Slide figures freely; proactively include independently labeled analytical schematics or actual computed plots for constraints, dynamics, equilibria and numerical errors. Do not impose a figure count or text-first requirement. Verify source coverage using the [Figure Index](../templates/figure-index.md) and follow [Visual Teaching and Homework](visuals-and-homework.md); keep figure paths and assets reproducible.
+For substantial lecture notes or Handbooks, plan diagrams together with the equations and Homework connections as [Visual Teaching and Homework](visuals-and-homework.md) describes, check source coverage with the [Figure Index](../templates/figure-index.md), and keep figure paths and assets reproducible.

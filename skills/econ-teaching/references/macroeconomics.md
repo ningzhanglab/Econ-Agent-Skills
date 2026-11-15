@@ -35,7 +35,7 @@ These are general economics, not claims about the lecture. Use them as described
 
 ### Numerical methods
 
-- **A small change between value-function iterations read as a small error.** For a contraction with modulus β in the sup norm, the distance to the fixed point is bounded by β/(1−β) times the last change; with β near one that factor is large.
+- **A small change between value-function iterations read as a small error.** For a contraction with modulus $\beta$ in the sup norm, the distance to the fixed point is bounded by $\beta/(1-\beta)$ times the last change; with $\beta$ near one that factor is large.
 - **Convergence on the grid read as an accurate policy.** Evaluate Euler-equation errors at points off the grid, and report them in the units the course uses.
 - **A solved household problem read as an equilibrium.** In a stationary heterogeneous-agent model, the household solution at a guessed price must also clear the asset market. Inner-loop and outer-loop errors are different objects.
 

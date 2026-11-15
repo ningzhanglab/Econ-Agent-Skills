@@ -14,7 +14,7 @@ Course materials are often distributed as `.pdf`, `.doc` / `.docx` (Word), and `
 
 An optional read-only [metadata grouping helper](../scripts/group_course_sources.py) groups files with an exact same stem and **verified parent folder**. It does not fetch or compare file contents. A missing parent ID leaves a file ungrouped; presenter/revision suffix variants remain separate. The [Course State example](../templates/course-state.example.json) can record these alternate representations and whether each was actually inspected.
 
-This rule replaces the overly rigid assumption that every PDF/TeX/Word variant must be indexed as a separate source document. It does **not** permit inferring exact identical content without checking it.
+Grouping does **not** permit inferring exact identical content without checking it.
 
 ## Evidence-based lecture version selection
 

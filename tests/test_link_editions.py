@@ -1,6 +1,7 @@
 """Offline checks for the link editions used by the paste-a-link method."""
 import importlib.util
 import re
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -54,6 +55,24 @@ class LinkEditionTests(unittest.TestCase):
             text = le.render(ROOT / "skills" / name)
             self.assertIn("reading this skill from a link", text)
             self.assertIn(f"name: {name}", text)
+
+    def test_edition_code_is_shown_and_follows_every_file(self):
+        for name in le.bz.skill_names():
+            code = le.edition_code(ROOT / "skills" / name)
+            self.assertRegex(code, r"^[0-9a-f]{6}$")
+            text = le.render(ROOT / "skills" / name)
+            self.assertIn(f"Edition code: `{code}`", text)
+            self.assertIn(f"Skill edition: {code}", text)
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / "demo-skill"
+            (skill / "references").mkdir(parents=True)
+            (skill / "SKILL.md").write_text("---\nname: demo-skill\n---\nBody\n", encoding="utf-8")
+            ref = skill / "references" / "a.md"
+            ref.write_text("one\n", encoding="utf-8")
+            first = le.edition_code(skill)
+            self.assertEqual(first, le.edition_code(skill))
+            ref.write_text("two\n", encoding="utf-8")
+            self.assertNotEqual(first, le.edition_code(skill))
 
 
 if __name__ == "__main__":

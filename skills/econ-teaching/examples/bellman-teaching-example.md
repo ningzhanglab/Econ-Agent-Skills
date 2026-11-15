@@ -1,6 +1,6 @@
 # Teaching Example: Bellman Equation (Illustrative, NOT an Actual Slide)
 
-This hypothetical example demonstrates the *style* of a Professor answer. It is not attributed to a real course or user slides. Math is written in LaTeX with `$...$` inline and `$$...$$` displayed, as a chat answer should be.
+This hypothetical example demonstrates the *style* of a Professor answer. It is not attributed to a real course or user slides. Math is written in LaTeX, including single symbols in sentences, as a chat answer should be.
 
 ## Hypothetical slide excerpt and notation
 

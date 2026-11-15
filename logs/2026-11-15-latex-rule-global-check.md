@@ -56,3 +56,7 @@ Ask the elasticity question in a real chat and check both the formula and the pr
 ## Correction (2026-11-15, later the same day)
 
 The money and code clauses added here, and the separate rule line they were part of, were removed; the requirement now lives in one phrase in Supporting duties. The Bellman example change and the README terminal note remain. See [Chat LaTeX rule reduced](2026-11-15-latex-rule-reduced.md).
+
+## Correction (2026-11-15, after a full read of the skill)
+
+This check was not complete. Three reference files still named symbols in sentences as plain text or Unicode: `slide-fidelity.md`, `mathematical-reasoning.md` and `macroeconomics.md`. They were fixed in [LaTeX in reference examples](2026-11-15-latex-in-reference-examples.md).

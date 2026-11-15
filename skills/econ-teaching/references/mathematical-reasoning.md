@@ -8,7 +8,7 @@
 4. Check conditioning, law of motion, timing, dimensions and signs.
 5. Interpret the final result and identify whether it requires interiority, concavity, transversality, differentiability, stationarity or another restriction.
 
-Never silently swap a prime for t+1, a sequence constraint for a scalar constraint, \mathbb E_t for \mathbb E, or an equality for an inequality.
+Never silently swap a prime for $t+1$, a sequence constraint for a scalar constraint, $\mathbb{E}_t$ for $\mathbb{E}$, or an equality for an inequality.
 
 ## Optimization and equilibrium checklist
 
@@ -17,7 +17,7 @@ Never silently swap a prime for t+1, a sequence constraint for a scalar constrai
 - For derivatives, state what is held fixed; distinguish total from partial and envelope derivatives.
 - For dynamic models, maintain continuation values, discount factors, integration and information sets from the slides.
 - For FOCs, verify necessary/sufficient conditions; discuss corners and complementary slackness where relevant.
-- For stochastic models, preserve order of expectation and nonlinear functions; do not imply E[f(X)] = f(E[X]) without justification.
+- For stochastic models, preserve order of expectation and nonlinear functions; do not imply $E[f(X)] = f(E[X])$ without justification.
 - For general equilibrium, close markets and consistency conditions where needed; do not infer aggregate comparative statics from a partial-equilibrium sign alone.
 
 ## Choose proofs, counterexamples and numerical checks carefully

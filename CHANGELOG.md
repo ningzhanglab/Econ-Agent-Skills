@@ -8,6 +8,40 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-15
 
+_Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
+
+### Econ Teaching — Worked examples for microeconomics and econometrics
+
+- **Added** two model answers beside the Bellman (macro) example: a quick micro question about one sign in the Slutsky equation, and an econometrics Homework on omitted variable bias solved by the slide's method, with the reusable method named at the end. Both are hypothetical and write all math in LaTeX. `SKILL.md` lists the three examples by field and mode.
+- Not reviewed by a second economist and not tried in a real chat.
+- Details: [2026-11-15 — Micro and econometrics examples](logs/2026-11-15-micro-and-econometrics-examples.md).
+
+### All skills — Edition code and stronger paste prompts
+
+- **Added** an edition code at the top of each link edition, a six-character hash of every file in the skill. The paste prompts now ask the agent to start its answer with that code, and to say so and stop if it cannot open the page or a file, instead of answering from memory. The `econ-teaching` prompt also asks for all math in LaTeX. A missing or wrong code shows the page was not read.
+- For maintainers: the link editions must now be rebuilt after a change to any file of a skill, not only `SKILL.md`; a test fails otherwise. One new test covers the code.
+- Not yet tried in a real chat.
+- Details: [2026-11-15 — Edition code and paste prompts](logs/2026-11-15-edition-code-and-paste-prompts.md).
+
+### Econ Teaching and README — Cleanup after the LaTeX-rule iterations
+
+- **Fixed** four places that still described removed wording: the README install note, line 3 of the Bellman example, and two logs that now carry appended corrections; a line at the top of this date's section quotes the wording in force.
+- **Removed** four sentences addressed to maintainers from run-time references (`cloud-drive-workflow.md`, `course-state-and-sources.md`, `time-series.md`, `latex-outputs.md`). No rule changed.
+- Details: [2026-11-15 — Cleanup after the LaTeX-rule iterations](logs/2026-11-15-cleanup-after-latex-iterations.md).
+
+### Econ Teaching — Duplicated rules merged to one home each
+
+- **Changed:** rules that were restated in three to five files now have one full statement and short pointers elsewhere: the language rule, answer-first and the other learning habits, when to use a figure, instructions inside course files, no file for an ordinary chat, the `.tex`/`.pdf` default, the `Agent Outputs/` destination, same-stem grouping and Learning Log saving. No rule was added or removed.
+- `teaching-design.md` loses its third checklist ("Lightweight editorial quality check"); its two questions not covered elsewhere moved into the Teaching arc. `SKILL.md` and the references are about 4% shorter (17,469 to 16,783 words). Link edition rebuilt.
+- Not tested in a real chat; no behavior change is intended.
+- Details: [2026-11-15 — Duplicated rules merged](logs/2026-11-15-teaching-duplicate-rules-merged.md).
+
+### Econ Teaching — Reference files write their own symbols in LaTeX
+
+- **Fixed:** after a full read of the skill's references, three of them were found to name symbols in sentences as plain text or Unicode (`a_t`, `\beta versus \delta`, `β/(1−β)`), the same pattern seen in agents' answers (whether they copied it is not shown). `slide-fidelity.md`, `mathematical-reasoning.md` and `macroeconomics.md` now use `$...$` on those seven lines; every symbol is unchanged. No rule was added and `SKILL.md` is untouched.
+- The earlier repository-wide check had fixed only the Bellman example. A general trim of `SKILL.md` was considered and dropped.
+- Details: [2026-11-15 — LaTeX in reference examples](logs/2026-11-15-latex-in-reference-examples.md).
+
 ### Econ Teaching — LaTeX for notation in sentences too
 
 - **Fixed:** agents wrote displayed equations in LaTeX but named symbols inside sentences in plain text ("the discount factor beta", "k_t"), reading "math" as equations only. The Supporting duties phrase now reads "with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." Evaluation case 59 checks it. Link edition rebuilt.

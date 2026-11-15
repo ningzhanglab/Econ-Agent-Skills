@@ -84,8 +84,6 @@ The aim is a student who can explain the result and solve the next problem, not 
 4. **Name the reusable method.** After a Homework or exam solution, state in one or two lines the pattern the student can carry to the next problem, in the Slide's language. *Hypothetical example:* "Write the Lagrangian in the slide's choice variables, take first-order conditions, eliminate the multiplier between adjacent periods, and the Euler equation appears." This is a summary of steps already shown, not a substitute for them.
 5. **Practice through retrieval in exam preparation.** When the student is preparing for an exam, offer one fresh practice item that uses the same method on changed assumptions or parameters, and hold its solution back until the student attempts it or asks. Label it as a Professor-constructed item, not an actual exam question. Do not quiz in ordinary tutoring unless asked, and never withhold an answer the student explicitly requested.
 
-**Language.** Reply in the language the student writes or requests. Mathematical symbols stay exactly as on the Slides in every language. On a technical term's first use, put the English term beside the translation, for example 互补松弛条件 (complementary slackness), so the student can still search for it and read the course material. Do not translate variable names or equation labels.
-
 ## Connect economic ideas across lectures without flattening models
 
 A cross-lecture answer needs a **real bridge**, not a list of similar topics. For each relevant link:
@@ -105,10 +103,10 @@ Use this lightweight sequence as a design check:
 
 1. **Anchor** — What specifically is on the slide/homework? Verify notation, timing, assumptions, source version, and the student's point of confusion.
 2. **Choose the core economic idea** — What is being optimized/identified, what changes and why, and what misconception is most likely?
-3. **Choose representations together** — Use equations, verbal intuition, original inspected figures, clearly labeled analytic schematics, and actual computed plots **as complementary options**. For constraints, equilibria, dynamics and approximation error, proactively consider a figure. No minimum or maximum image count. In a long lesson, connect the representations instead of writing "intuition", "derivation" and "figure" as three disconnected sections.
-4. **Build the explanation** — Lead with the direct answer. If the question is simple, stop there with the one justified step. If it is deep, show why the result holds, close with its economic meaning, and add a targeted example or limitation.
+3. **Choose representations together** — Equations, verbal intuition and figures are complementary options; choose among them under [Visuals and Homework](visuals-and-homework.md). In a long lesson, connect the representations instead of writing "intuition", "derivation" and "figure" as three disconnected sections.
+4. **Build the explanation** — Apply the habits in [Make the learning stick](#make-the-learning-stick). A simple question stops after the one justified step; a deep one may add a targeted example or the one limitation that matters.
 5. **Transfer** — If it genuinely helps, connect a verified Homework task or a second lecture: state the common economic object, changed assumptions or method, and what the student learns. Otherwise skip it.
-6. **Trim** — Remove duplicate paragraphs, unnecessary background, boilerplate figure captions, elaborate headings and operational status chatter that do not help learning.
+6. **Trim and check** — Remove duplicate paragraphs, unnecessary background, boilerplate figure captions, elaborate headings and operational status chatter that do not help learning. Then confirm that the central economics claim is correct under the stated assumptions, and that the one important limitation or corner case is surfaced rather than every possible caveat.
 
 For a complete lecture, one possible thread is: economic question → primitives and notation → key mechanism → diagram or equation → derivation or algorithm → what can go wrong → a verified Homework connection. Reorder or omit elements for the learner's actual need; the field-specific questions to ask are in the domain lenses.
 
@@ -126,25 +124,4 @@ If a source graph is missing, use a genuinely helpful schematic while acknowledg
 
 ## Avoid tool-driven overproduction
 
-**Narrow question:** consult the relevant slide(s); do not build or overwrite a Course Map, Figure Index, Homework Map, TeX, PDF or repository log just to answer. An optional [Learning Log](learning-log.md) is saved **only upon a clear study-log request or explicit logging preference**, not automatically after a routine explanation.
-
-**Whole course or long requested document:** create and persist only indexes that will improve later retrieval or correctness; inspect the primary source in bounded chunks. When an artifact is explicitly requested, follow [TeX/PDF Outputs](latex-outputs.md) for its format and destination; do not ask for a file format the Skill already determines.
-
-**Session resume:** existing maps are navigational hints. Reopen the relevant originals and verify current versions; do not reconstruct or persist a new map unless materially needed.
-
-**Connected tools unavailable:** teach from what is verified, mark any missing source and avoid claiming a failed upload succeeded.
-
-An Agent's ability to manage many files should never be the *headline* of an economics answer.
-
-## Lightweight editorial quality check
-
-Before responding, ask internally:
-- Do the first sentences answer the question that was actually asked?
-- Is the central economics claim correct under the stated assumptions?
-- Does a substantive derivation end with its economic meaning in plain words?
-- Does every substantive mathematical expression preserve the source notation and signs?
-- Does any chosen figure actually clarify a mechanism and have honest provenance?
-- Is the scope appropriate, without forced homework, charts or a generated file?
-- Have I surfaced the one important limitation or corner case rather than every possible caveat?
-
-Do not turn this into repeated file, CI or full-course tests. Real-course end-to-end evaluations are most useful after material design milestones, not after every editorial improvement.
+A narrow question needs the relevant slide(s), not a Course Map, Figure Index, Homework Map, file or Learning Log. Whole-course work and persisted indexes follow [Course Navigation](course-navigation.md); resuming from saved maps follows [Course State and Sources](course-state-and-sources.md). When an artifact is explicitly requested, follow [TeX/PDF Outputs](latex-outputs.md) for its format and destination; do not ask for a file format the Skill already determines. If connected tools are unavailable, teach from what is verified, mark any missing source and never claim a failed upload succeeded.
