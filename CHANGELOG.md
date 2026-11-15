@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-15
 
+### Econ Teaching — Chat LaTeX rule reduced to one phrase
+
+- **Removed** the separate "Math in chat is LaTeX" line (about 70 words: delimiters, money, code, when to switch to plain text). The requirement now lives only in the Supporting duties line the agent actually quoted when it skipped LaTeX: "Ordinary questions are answered in chat, with math written in LaTeX from the first answer; no file is created." Delimiters, dollar signs and rendering are left to the agent and app, which handle them well; the student can ask for another format.
+- The failure was caused by the skill itself (LaTeX was mentioned only for files), so the fix is to remove that bias, not to add a formatting regime. The Bellman example keeps LaTeX, evaluation case 59 still checks LaTeX in the first answer and lecturer macros, and case 57 drops its price condition. Link edition rebuilt. If a retest still shows plain text, a separate line can come back.
+- Details: [2026-11-15 — Chat LaTeX rule reduced](logs/2026-11-15-latex-rule-reduced.md).
+
 ### Econ Teaching — LaTeX rule checked across the repository
 
 - **Fixed:** the Bellman style example, the one "good Professor response" the skill shows, wrote inline math as bare `\beta E[...]` and displays as `\[...\]`, the opposite of the new rule. It now uses `$...$` and `$$...$$`; every symbol is unchanged.

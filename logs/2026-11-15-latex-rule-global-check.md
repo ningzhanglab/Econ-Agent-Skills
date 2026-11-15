@@ -52,3 +52,7 @@ Renderers differ in how they treat `\$`; USD 10 is the safe fallback.
 ## Follow-up
 
 Ask the elasticity question in a real chat and check both the formula and the prices.
+
+## Correction (2026-11-15, later the same day)
+
+The money and code clauses added here, and the separate rule line they were part of, were removed; the requirement now lives in one phrase in Supporting duties. The Bellman example change and the README terminal note remain. See [Chat LaTeX rule reduced](2026-11-15-latex-rule-reduced.md).

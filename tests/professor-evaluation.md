@@ -479,7 +479,7 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Prompt:** "What is elasticity?"
 
-**Pass:** a short answer (definition, economic idea, one small example, the usual formula) labeled as general economics knowledge; notes briefly that point and arc elasticity differ, if it matters; does not search for a course folder, ask for slides, create a file or give an exact paper, year or finding from memory. The formula is in LaTeX, and any price in the example (such as a rise from 10 to 12 dollars) is written as `\$10` or USD 10, so it does not break the math display. **Variant:** the same question asked mid-session while a lecture that defines the term is in use; pass only if the answer uses the lecture's definition and notation first and labels anything added from general knowledge.
+**Pass:** a short answer (definition, economic idea, one small example, the usual formula) labeled as general economics knowledge; notes briefly that point and arc elasticity differ, if it matters; does not search for a course folder, ask for slides, create a file or give an exact paper, year or finding from memory. **Variant:** the same question asked mid-session while a lecture that defines the term is in use; pass only if the answer uses the lecture's definition and notation first and labels anything added from general knowledge.
 
 ### 58. What a paper is about
 
