@@ -43,27 +43,27 @@ Once installed, the skill turns on by itself when a question fits it, and it can
 
 ### Try a skill without installing
 
-In a chat that can open web pages, paste the line for the skill you want and replace `[your request]` with your question.
+In a chat that can open web pages, paste the line for the skill you want and replace `[your request]` with your question. Each line points to the skill's **link edition**: the same `SKILL.md`, with every reference file given as a full address the chat can open, and an instruction to read the files the request needs and to list the ones it read.
 
 econ-teaching:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-teaching/SKILL.md (its files are in the same folder; fetch only what my request needs). Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-teaching.md and open the files it names for my request. Then: [your request]
 ```
 
 econ-writing:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-writing/SKILL.md (its files are in the same folder; fetch only what my request needs). Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-writing.md and open the files it names for my request. Then: [your request]
 ```
 
 econ-research:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-research/SKILL.md (its files are in the same folder; fetch only what my request needs). Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md and open the files it names for my request. Then: [your request]
 ```
 
-Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may not fetch every reference file it should (some chat apps only open links that appear word for word in the conversation).
+Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may still skip a reference file. The answer should end with a line listing the skill files it read; if a file you expected is missing from that line, ask the agent to open it.
 
 ### Updates
 
@@ -79,6 +79,8 @@ For the maintainer. Download links always point to the newest **published releas
 2. On GitHub, open **Releases → Draft a new release**. Create a new tag on `main`, such as `v2026.11.15`, and write a few lines on which skills changed and how.
 3. Click **Publish release**. The *Attach skill zips to release* workflow builds the three zips and attaches them to the release, usually within a couple of minutes. Check that the release page lists `econ-teaching.zip`, `econ-writing.zip` and `econ-research.zip`.
 4. If the change matters, tell the people you shared with to download again from the same link.
+
+After changing a skill, run `python tools/build_link_editions.py` and commit the updated `link/` files; a test fails if they are out of date.
 
 To build the zips locally instead: `python tools/build_skill_zips.py` (writes to `dist/`, which Git ignores; inside a Git checkout it includes only files Git tracks).
 
@@ -218,7 +220,10 @@ Econ-Agent-Skills/
 │           └── ai-tells.md
 ├── tests/                                 # structural tests and manual evaluation cases (Teaching, Writing and Research)
 ├── logs/                                  # dated development logs (not student learning logs)
-├── tools/build_skill_zips.py             # builds one installable zip per skill
+├── link/                                  # generated link editions for the paste-a-link method (do not edit)
+├── tools/
+│   ├── build_skill_zips.py               # builds one installable zip per skill
+│   └── build_link_editions.py            # rebuilds link/ from the skills
 └── .github/workflows/
     ├── validate-skills.yml               # checks on every push
     └── release-skills.yml                # attaches skill zips to each published release

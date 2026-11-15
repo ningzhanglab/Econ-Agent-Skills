@@ -6,6 +6,17 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-11-15
+
+### All skills — Link editions for the paste-a-link method
+
+- **Fixed:** agents that were given a `SKILL.md` link often did not read the reference files, where most rules live. `SKILL.md` links them by relative path, and many chat apps only open addresses that appear word for word in a page already read, so the agent could not open them or did not try.
+- **Added** a generated link edition per skill, `link/<skill>.md`: the same `SKILL.md` with every reference written as a full address, a short note telling the agent to open the files the request needs, to say which file could not be opened and to end with a line listing the files it read, and an index of every file in the skill.
+- **Added** [tools/build_link_editions.py](tools/build_link_editions.py) (with `--check`) and five tests in `tests/test_link_editions.py`; one fails when `link/` is out of date with the skills.
+- README: the paste-a-link prompts now point to the link editions. Skill folders are unchanged and still contain no repository address; installed and zipped skills are not affected.
+- Not yet tried in a real chat app.
+- Details: [2026-11-15 — Link editions](logs/2026-11-15-link-editions-for-paste-a-link.md).
+
 ## 2026-11-14
 
 ### Documentation — README brought up to date
