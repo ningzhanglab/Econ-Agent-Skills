@@ -1,0 +1,28 @@
+name: Attach skill zips to release
+# When a GitHub release is published, build one zip per skill and attach them,
+# so each skill has a stable download link:
+#   https://github.com/<owner>/<repo>/releases/latest/download/<skill>.zip
+on:
+  release:
+    types: [published]
+permissions:
+  contents: write
+jobs:
+  attach-zips:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the release tag
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check skills before packaging
+        run: python tests/validate_skills.py
+      - name: Build one zip per skill
+        run: python tools/build_skill_zips.py --out dist
+      - name: Attach the zips to this release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$TAG" dist/*.zip --clobber --repo "$GITHUB_REPOSITORY"

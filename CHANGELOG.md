@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-14
 
+### All skills — Share one skill at a time
+
+- **Added** one download link per skill: publishing a GitHub release now runs a workflow that builds `econ-teaching.zip`, `econ-writing.zip` and `econ-research.zip` and attaches them to the release, so `releases/latest/download/<skill>.zip` always gives the newest released version. Each zip holds only that skill's folder, ready to upload to Claude.ai or unzip into a skills folder. Downloads do not update themselves; people re-download from the same link.
+- **Added** [tools/build_skill_zips.py](tools/build_skill_zips.py), the standard-library zip builder the workflow uses (skips `.DS_Store`, `__pycache__` and LaTeX build files; reproducible output), with five unit tests in `tests/test_skill_zips.py`.
+- **Added** a short note at the top of each `SKILL.md` giving the raw GitHub folder for its linked files, so a skill can also be tried by pasting its `SKILL.md` link into a chat.
+- README: new "Share a skill" section near the top with the download links, how to install a zip in Claude.ai and Claude Code, the paste-a-link prompt, how updates work, and how to publish a new version. The repo-layout tree is corrected (`econ-teaching` was drawn as the last folder under `skills/`) and lists the new tool and workflow.
+- Details: [2026-11-14 — Share one skill at a time](logs/2026-11-14-share-skills-per-skill.md).
+
 ### Econ Teaching — Questions outside a course
 
 - **Added** a mode for questions with no course behind them: a bare term ("what is elasticity?"), a research paper (what it is about and its framework, or one section or equation), a screenshot of equations from a book, paper or website, or a small step the student could not follow. Whatever the student sends is the source; the Professor does not search for a course folder or ask for slides unless the student points to a course.

@@ -14,6 +14,58 @@ Reusable, version-controlled Agent Skills for economics PhD learning and researc
 | [econ-writing](skills/econ-writing/SKILL.md) | Edit, review and structure your own economics writing (research papers, thesis chapters, referee and research reports, homework write-ups) while keeping every term, symbol, number and citation unchanged | **v0.1; not yet evaluated on real drafts** |
 | [econ-research](skills/econ-research/SKILL.md) | Develop research questions and work with the literature: find, screen and verify papers, synthesize what is known, and position a project. No reference is written from memory | **v0.1 (questions and literature); not yet evaluated on real projects** |
 
+## Share a skill
+
+Each skill can be shared on its own. Send people only the skill they need.
+
+| Skill | Download link (to install) |
+| --- | --- |
+| econ-teaching | https://github.com/ningzhanglab/Econ-Agent-Skills/releases/latest/download/econ-teaching.zip |
+| econ-writing | https://github.com/ningzhanglab/Econ-Agent-Skills/releases/latest/download/econ-writing.zip |
+| econ-research | https://github.com/ningzhanglab/Econ-Agent-Skills/releases/latest/download/econ-research.zip |
+
+Each zip holds only that skill's folder: its `SKILL.md`, references, templates and scripts, without this repository's logs or tests. The links work once a release has been published (see [Publish a new version](#publish-a-new-version)).
+
+### Install a downloaded skill
+
+- **Claude.ai (web or desktop chat):** in Settings, find the Skills section and upload the zip as it is. Skills there may require code execution to be turned on.
+- **Claude Code (terminal or the desktop app's Code tab):** unzip it into your skills folder, then start a new session:
+
+  ```bash
+  unzip econ-teaching.zip -d ~/.claude/skills
+  ```
+
+- **Other apps that support Agent Skills:** unzip it into that app's skills folder.
+
+Once installed, the skill turns on by itself when a question fits it, and it can read all its reference files. This is the most reliable way to use a skill.
+
+### Try a skill without installing
+
+In a chat that can open web pages, paste the line for the skill you want, followed by your request:
+
+```text
+Read https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-teaching/SKILL.md and follow it, fetching the reference files it names. Then: [your request]
+```
+
+For the other skills, replace `econ-teaching` with `econ-writing` or `econ-research`. Each `SKILL.md` says where its reference files are. Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may not fetch every reference file it should.
+
+### Updates
+
+- **A downloaded skill does not update itself.** It stays at the version you downloaded. To update, download again from the same link and replace the old copy: in Claude.ai, remove the old skill and upload the new zip; in Claude Code, run `unzip -o econ-teaching.zip -d ~/.claude/skills`.
+- **The paste-a-link method always reads the newest files on `main`**, including changes not yet released.
+- What changed in each version is listed on the [Releases page](https://github.com/ningzhanglab/Econ-Agent-Skills/releases) and in the [change log](CHANGELOG.md). An older copy keeps working; it only lacks the newest rules.
+
+### Publish a new version
+
+For the maintainer. Download links always point to the newest **published release**, not to every push, so unfinished work on `main` never reaches people who download.
+
+1. Push the changes to `main` and check that the GitHub Actions checks pass.
+2. On GitHub, open **Releases → Draft a new release**. Create a new tag on `main`, such as `v2026.11.15`, and write a few lines on which skills changed and how.
+3. Click **Publish release**. The *Attach skill zips to release* workflow builds the three zips and attaches them to the release, usually within a couple of minutes. Check that the release page lists `econ-teaching.zip`, `econ-writing.zip` and `econ-research.zip`.
+4. If the change matters, tell the people you shared with to download again from the same link.
+
+To build the zips locally instead: `python tools/build_skill_zips.py` (writes to `dist/`, which Git ignores).
+
 ## How the Professor teaches
 
 The Professor teaches like a knowledgeable economics PhD professor, not a slide summarizer. The slides define the local model, notation and assumptions; broader economics knowledge explains why the model is built that way, how the mechanism works and when the result fails. The aim of every answer is that you **understand the economics and can do the next problem yourself**.
@@ -40,6 +92,8 @@ One Skill covers four fields through optional domain lenses: [Macroeconomics](sk
 4. Ask a question.
 
 To use Econ Writing, make `skills/econ-writing/` available the same way; it needs no course folder, only the text or file you want edited. Econ Research installs the same way from `skills/econ-research/`; its literature work needs web access.
+
+To share one skill with someone else, see [Share a skill](#share-a-skill).
 
 ### Example prompts
 
@@ -101,34 +155,34 @@ Example prompts: "What's the literature on minimum wages and employment? Ten mos
 Econ-Agent-Skills/
 ├── README.md, AGENTS.md, DESIGN_V1.md, STORAGE_POLICY.md, CHANGELOG.md
 ├── skills/
-│   └── econ-teaching/
-│       ├── SKILL.md
-│       ├── agents/openai.yaml
-│       ├── references/
-│       │   ├── teaching-design.md         # how to choose and shape an explanation
-│       │   ├── expert-teaching.md
-│       │   ├── mathematical-reasoning.md
-│       │   ├── slide-fidelity.md
-│       │   ├── visuals-and-homework.md
-│       │   ├── macroeconomics.md
-│       │   ├── microeconomics.md
-│       │   ├── econometrics.md
-│       │   ├── time-series.md
-│       │   ├── course-navigation.md
-│       │   ├── course-state-and-sources.md
-│       │   ├── large-file-strategy.md
-│       │   ├── latex-outputs.md
-│       │   ├── cloud-drive-workflow.md
-│       │   └── learning-log.md
-│       ├── examples/
-│       │   ├── bellman-teaching-example.md
-│       │   └── diagnostic-teaching-patterns.md
-│       ├── scripts/                       # read-only helpers for TeX, Word and course files
-│       └── templates/
-│           ├── course-map.md, lecture-index.md, notation-registry.md
-│           ├── figure-index.md, homework-map.md, learning-log.md
-│           ├── course-state.example.json
-│           └── simple-notes.tex, simple-notes-cn.tex
+│   ├── econ-teaching/
+│   │   ├── SKILL.md
+│   │   ├── agents/openai.yaml
+│   │   ├── references/
+│   │   │   ├── teaching-design.md         # how to choose and shape an explanation
+│   │   │   ├── expert-teaching.md
+│   │   │   ├── mathematical-reasoning.md
+│   │   │   ├── slide-fidelity.md
+│   │   │   ├── visuals-and-homework.md
+│   │   │   ├── macroeconomics.md
+│   │   │   ├── microeconomics.md
+│   │   │   ├── econometrics.md
+│   │   │   ├── time-series.md
+│   │   │   ├── course-navigation.md
+│   │   │   ├── course-state-and-sources.md
+│   │   │   ├── large-file-strategy.md
+│   │   │   ├── latex-outputs.md
+│   │   │   ├── cloud-drive-workflow.md
+│   │   │   └── learning-log.md
+│   │   ├── examples/
+│   │   │   ├── bellman-teaching-example.md
+│   │   │   └── diagnostic-teaching-patterns.md
+│   │   ├── scripts/                       # read-only helpers for TeX, Word and course files
+│   │   └── templates/
+│   │       ├── course-map.md, lecture-index.md, notation-registry.md
+│   │       ├── figure-index.md, homework-map.md, learning-log.md
+│   │       ├── course-state.example.json
+│   │       └── simple-notes.tex, simple-notes-cn.tex
 │   ├── econ-research/
 │   │   ├── SKILL.md
 │   │   ├── agents/openai.yaml
@@ -146,7 +200,10 @@ Econ-Agent-Skills/
 │           └── ai-tells.md
 ├── tests/                                 # structural tests and manual evaluation cases (Teaching, Writing and Research)
 ├── logs/                                  # dated development logs (not student learning logs)
-└── .github/workflows/validate-skills.yml
+├── tools/build_skill_zips.py             # builds one installable zip per skill
+└── .github/workflows/
+    ├── validate-skills.yml               # checks on every push
+    └── release-skills.yml                # attaches skill zips to each published release
 ```
 
 ## Change history, contributing and testing

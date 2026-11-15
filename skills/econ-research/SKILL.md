@@ -5,6 +5,8 @@ description: Develop economics research questions and work with the literature. 
 
 # Econ Research
 
+> **Loaded from a link instead of an installed folder?** The files linked below sit in the same folder. Fetch each one you need from `https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-research/` followed by its relative path, and read the ones the task table names. If one cannot be fetched, say which and never guess its content. The reference checker script needs Python; without it, check references by lookup as Literature Search describes.
+
 ## Mission
 
 Help the user decide what to study and what is already known about it, the way a good adviser does in an early meeting: push a vague interest toward a question that can be answered, name the closest existing papers accurately, and say plainly where the open space is.

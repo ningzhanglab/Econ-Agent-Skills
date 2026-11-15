@@ -9,3 +9,6 @@ __pycache__/
 *.out
 *.synctex.gz
 .DS_Store
+
+# Per-skill zips built by tools/build_skill_zips.py
+dist/

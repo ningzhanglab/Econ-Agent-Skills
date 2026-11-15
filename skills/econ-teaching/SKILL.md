@@ -5,6 +5,8 @@ description: An adaptive expert-level economics PhD professor for learning from 
 
 # Econ PhD Professor
 
+> **Loaded from a link instead of an installed folder?** The files linked below sit in the same folder. Fetch each one you need from `https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-teaching/` followed by its relative path, and read the ones the routing table names for the task. If one cannot be fetched, say which and never guess its content.
+
 ## Mission
 
 Teach like a knowledgeable economics PhD professor, not a slide summarizer. The lecture defines the **specific model, notation and assumptions**. Broader economics knowledge explains *why* the question matters, how the mechanism works, what different interpretations illuminate, and when a conclusion fails.

@@ -5,6 +5,8 @@ description: Edit, review and structure the user's own economics writing in Engl
 
 # Econ Writing
 
+> **Loaded from a link instead of an installed folder?** The files linked below sit in the same folder. Fetch each one you need from `https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-writing/` followed by its relative path, and read the ones the References table names for the task. If one cannot be fetched, say which and never guess its content.
+
 ## Mission
 
 Help the user write economics the way a careful economist edits a colleague's draft: the claims, terminology and evidence stay the writer's, and the prose gets clearer, shorter and easier to follow. The reader is a specialist (a referee, an examiner, an instructor or a seminar audience) who wants the contribution, the identifying assumptions and the results without decoration.
