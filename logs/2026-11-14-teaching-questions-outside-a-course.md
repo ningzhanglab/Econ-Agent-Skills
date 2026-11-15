@@ -55,3 +55,19 @@ Course-based behavior is unchanged: lectures, Homework, exams, Course Maps and f
 ## Follow-up
 
 Run cases 57–60 on a real term, a real paper and a real screenshot, and fix the narrowest responsible text if a case fails.
+
+## Correction (2026-11-14, after review of commit 4720edf)
+
+A re-read of the pushed commit found two gaps and three wording issues. Fixed in a follow-up commit (see Git history):
+
+1. **Mid-course terms.** The rule "answer a bare term from general knowledge unless the student points to a course" could give a textbook definition while a lecture defining the term is in use, against the core exact-notation guarantee. Now: if a lecture, paper or screenshot is in use in the conversation, answer in its definition and notation first; general knowledge is the fallback only with no source. Case 57 gains a mid-course variant.
+2. **Untrusted content.** The `SKILL.md` line on embedded instructions listed slides, Homework, code and README files but not the newly normal inputs. It now also lists papers, screenshots and web pages.
+3. **Concept names.** "Do not name or cite papers from memory" was stricter than the rest of the skill and could block standard concept names. Now standard names (the Lucas critique, Akerlof's lemons model) are allowed; an exact paper, year or finding still needs checking.
+4. **Small confusion.** "One or two sentences" could cut a needed justification; now it follows the quick-clarification rule (direct answer, one justified step if a step is the issue, brief intuition).
+5. **Mode list.** The lettered mode list in `SKILL.md` now includes (h) for this mode.
+
+| Check | Result | Evidence |
+| --- | --- | --- |
+| GitHub Actions on 4720edf | Pass | "Validate Agent Skills" run completed with success, checked through the public GitHub API |
+| Local structural and unit tests after the corrections | Pass | `python tests/validate_skills.py` (3 skills OK) and `python -m unittest discover -s tests -p 'test_*.py'` (exit 0) |
+| Real evaluation of cases 57–60 | Not run | Still pending |
