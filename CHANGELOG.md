@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-15
 
+### Econ Teaching — Make the LaTeX rule hard to miss
+
+- **Fixed:** in a real test, an agent read the skill page and still wrote chat math as plain text, saying the page only asks for LaTeX in requested `.tex`/`.pdf` files and that "ordinary questions are answered in chat". The rule was buried in the middle of principle 1, and the line the agent quoted pointed the other way.
+- The rule now stands on its own line at the top of "How to teach" (**Math in chat is LaTeX**), and the Supporting duties line reads "Ordinary questions are answered in chat, with math in LaTeX; no file is created." Same rule, same plain-text exception; principle 1 no longer carries it. Link edition rebuilt. The README paste prompts are unchanged.
+- Details: [2026-11-15 — LaTeX rule made prominent](logs/2026-11-15-latex-rule-prominent.md).
+
 ### Econ Teaching — LaTeX math in chat answers
 
 - **Added** to principle 1 in `SKILL.md`: in chat, write math in LaTeX by default (`$...$` inline, `$$...$$` displayed), including in the first answer, and write a lecturer's own macros out as their source defines them; switch to plain text only if the student asks or says the math shows as code. Before this, LaTeX was mentioned only for requested files, and one agent explained its plain-text equations by that. The agent no longer tries to judge whether the app renders math.

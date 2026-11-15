@@ -48,3 +48,7 @@ In a terminal, the default produces raw `$...$` until the student asks for plain
 ## Follow-up
 
 Ask one equation question in the app you use most and check the first answer.
+
+## Correction (2026-11-15, later the same day)
+
+A real test showed agents could miss the rule inside principle 1. It now stands on its own line at the top of "How to teach", and the Supporting duties line says chat answers use LaTeX. See [LaTeX rule made prominent](2026-11-15-latex-rule-prominent.md).
