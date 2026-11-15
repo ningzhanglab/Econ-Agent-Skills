@@ -36,7 +36,7 @@ When the user asks to revise or "recheck" a deck:
 
 1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Backup. If the user did not say, use the default and state it in the handover; do not stop to ask.
 2. **One takeaway sentence**, written before any slide.
-3. **Assertion titles.** Each title states the slide's point ("Automating half of GDP raises output only 19%"), not a topic ("Results"). Read in order, the titles tell the argument.
+3. **Short titles.** Each title fits on one line (about 60 characters), as short as the slide allows. It names the content with the key term ("Counterfactual Results", "Marginal Automation Boost: Mostly Better Machines"), not a bare "Results". Put the claim and its number in a bold first line or the first bullet. Preview, main-result and takeaway slides may use a full-sentence title if it still fits on one line. If a title wraps to two lines, shorten it.
 4. **Default order for someone else's paper:** question and motivation; what the paper does, in the authors' terms; preview of the main result; setup; the core mechanism (one equation, its intuition, one figure); main results with magnitudes; extensions, briefly; Takeaways; Discussion questions; Backup. Adjust to the purpose.
 5. **Spend the time on the core.** Give the central mechanism several slides; compress secondary sections (applications, side arguments) to one slide each or move them to Backup. Covering every section of the paper is not the goal.
 

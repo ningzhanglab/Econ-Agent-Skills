@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: short one-line titles
+
+- **Changed:** `references/slides.md` item 3 replaces "assertion titles" (a full-sentence claim per slide) with short titles that fit one line (about 60 characters); the claim and number go in a bold first line or first bullet. Preview, main-result and takeaway slides may keep a sentence title if it fits on one line.
+- Prompted by a real deck whose sentence titles wrapped to two lines on about 20 slides and which the user found too long. Not yet retried in a real chat.
+- Details: [2026-11-15 — Slides short titles](logs/2026-11-15-slides-short-titles.md).
+
 ### Econ Teaching — Slides: revising, figures and the bundle check
 
 - **Changed:** `references/slides.md` now covers revising an existing deck (keep a copy, re-verify the version, additions to Backup first, old-versus-new numbers in the handover), cropping figures from the inspected PDF page into a folder beside the deck, and running the bundle checker with `--compile` before delivery. The slides template notes relative figure paths.
