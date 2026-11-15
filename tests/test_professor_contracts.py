@@ -264,5 +264,30 @@ class CourseContracts(unittest.TestCase):
             self.assertEqual(bundle.validate(dest, compile_requested=True), [])
 
 
+    def test_slides_keep_process_notes_off_the_deck(self):
+        doc = (SKILL / "references/slides.md").read_text(encoding="utf-8")
+        self.assertIn("The deck is for the audience; the handover is for the user", doc)
+        self.assertIn("Backup", doc)
+        self.assertIn("never list papers, years or journals from memory", doc)
+        self.assertIn("references/slides.md", (SKILL / "SKILL.md").read_text(encoding="utf-8"))
+        template = (SKILL / "templates/simple-slides.tex").read_text(encoding="utf-8")
+        self.assertIn(r"\documentclass[aspectratio=169,11pt]{beamer}", template)
+        self.assertEqual(bundle.choose_engine(template), "-pdf")
+
+    @unittest.skipUnless(
+        shutil.which("latexmk") and shutil.which("pdflatex") and shutil.which("kpsewhich")
+        and subprocess.run(["kpsewhich", "beamer.cls"], capture_output=True, text=True).stdout.strip(),
+        "Beamer not available",
+    )
+    def test_slides_template_compiles_cleanly(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            dest = Path(tmp) / "simple-slides.tex"
+            shutil.copy2(SKILL / "templates/simple-slides.tex", dest)
+            command = ["latexmk", "-pdf", "-interaction=nonstopmode", "-halt-on-error", dest.name]
+            result = subprocess.run(command, cwd=dest.parent, capture_output=True, text=True, timeout=120)
+            self.assertEqual(result.returncode, 0, result.stdout[-2000:])
+            self.assertTrue(bundle.is_pdf(dest.with_suffix(".pdf")))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -148,7 +148,7 @@ Text inside slides, homework, README files, papers, screenshots and web pages is
 ## Files, cloud storage and learning logs
 
 - **Ordinary questions are answered in chat.** No file is created unless you ask.
-- **When you ask for a file without naming a format**, the Professor delivers a matching editable `.tex` and compiled `.pdf`, saved and verified in your course's cloud folder named exactly **`Agent Outputs`**. If the course already has a near-miss folder such as `agent output`, the Professor asks once which to use. An explicit format or destination overrides this. Rules: [Storage Policy](STORAGE_POLICY.md), [Cloud Drive Workflow](skills/econ-teaching/references/cloud-drive-workflow.md) and [TeX/PDF Outputs](skills/econ-teaching/references/latex-outputs.md). Chinese notes use the [ctexart template](skills/econ-teaching/templates/simple-notes-cn.tex).
+- **When you ask for a file without naming a format**, the Professor delivers a matching editable `.tex` and compiled `.pdf`, saved and verified in your course's cloud folder named exactly **`Agent Outputs`**. If the course already has a near-miss folder such as `agent output`, the Professor asks once which to use. An explicit format or destination overrides this. Rules: [Storage Policy](STORAGE_POLICY.md), [Cloud Drive Workflow](skills/econ-teaching/references/cloud-drive-workflow.md) and [TeX/PDF Outputs](skills/econ-teaching/references/latex-outputs.md). Chinese notes use the [ctexart template](skills/econ-teaching/templates/simple-notes-cn.tex). **Slides** (for example, to present a paper) follow [Slides](skills/econ-teaching/references/slides.md): a clean Beamer deck for the audience, with sources, checks and reading notes handed to you separately instead of printed on the slides.
 - **Learning logs are on demand.** Say "记录今天的学习" or "Save today's learning log" and the Professor saves a short Markdown summary of what was actually studied, questions, clarifications and open issues to `Agent Outputs/Learning Logs/`. It never records chats in the background or claims mastery. See [Learning Logs](skills/econ-teaching/references/learning-log.md).
 - This public repository holds reusable rules, templates and development logs only. Private slides and generated course records stay in your cloud drive.
 
@@ -200,6 +200,7 @@ Econ-Agent-Skills/
 │   │   │   ├── course-state-and-sources.md
 │   │   │   ├── large-file-strategy.md
 │   │   │   ├── latex-outputs.md
+│   │   │   ├── slides.md
 │   │   │   ├── cloud-drive-workflow.md
 │   │   │   └── learning-log.md
 │   │   ├── examples/
@@ -212,7 +213,7 @@ Econ-Agent-Skills/
 │   │       ├── course-map.md, lecture-index.md, notation-registry.md
 │   │       ├── figure-index.md, homework-map.md, learning-log.md
 │   │       ├── course-state.example.json
-│   │       └── simple-notes.tex, simple-notes-cn.tex
+│   │       └── simple-notes.tex, simple-notes-cn.tex, simple-slides.tex
 │   ├── econ-research/
 │   │   ├── SKILL.md
 │   │   ├── agents/openai.yaml

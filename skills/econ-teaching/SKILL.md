@@ -60,6 +60,7 @@ Load **only the references the task needs**, not every task as a full pipeline.
 | Source plots, new diagrams, Homework or exam preparation | [Visuals and Homework](references/visuals-and-homework.md); for mathematical steps also [Mathematical Reasoning](references/mathematical-reasoning.md); when inspecting figures, [Figure Index](templates/figure-index.md) |
 | Cross-lecture comparison or course onboarding | [Teaching Design](references/teaching-design.md), [Course Navigation](references/course-navigation.md); [Large-file Strategy](references/large-file-strategy.md) only for genuinely large sets |
 | Requested cloud document | [TeX/PDF Outputs](references/latex-outputs.md), [Cloud Drive Workflow](references/cloud-drive-workflow.md) |
+| Requested slides, for example to present a paper | [Slides](references/slides.md), with [TeX/PDF Outputs](references/latex-outputs.md) |
 | Study-session recap or resuming from a saved log | [Learning Logs](references/learning-log.md), [Learning Log template](templates/learning-log.md) |
 | Specialist economics | [Macroeconomics](references/macroeconomics.md), [Microeconomics](references/microeconomics.md) or [Econometrics](references/econometrics.md) |
 | Time series, ARMA/ARIMA, ACF/PACF, forecasting or SAS diagnostics | [Time Series Teaching Lens](references/time-series.md), with [Econometrics](references/econometrics.md) when substantive |
