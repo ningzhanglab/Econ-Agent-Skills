@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-15
 
+### Econ Teaching — LaTeX for notation in sentences too
+
+- **Fixed:** agents wrote displayed equations in LaTeX but named symbols inside sentences in plain text ("the discount factor beta", "k_t"), reading "math" as equations only. The Supporting duties phrase now reads "with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." Evaluation case 59 checks it. Link edition rebuilt.
+- Root cause noted: the skill mentioned LaTeX only next to the `.tex`/`.pdf` file default, so agents took LaTeX to mean "making a PDF". The chat requirement sits in that same sentence to undo the link where it formed; `references/latex-outputs.md` is unchanged because agents open it only when a file is requested.
+- Details: [2026-11-15 — LaTeX for inline notation](logs/2026-11-15-latex-inline-notation.md).
+
 ### Econ Teaching — Chat LaTeX rule reduced to one phrase
 
 - **Removed** the separate "Math in chat is LaTeX" line (about 70 words: delimiters, money, code, when to switch to plain text). The requirement now lives only in the Supporting duties line the agent actually quoted when it skipped LaTeX: "Ordinary questions are answered in chat, with math written in LaTeX from the first answer; no file is created." Delimiters, dollar signs and rendering are left to the agent and app, which handle them well; the student can ask for another format.
