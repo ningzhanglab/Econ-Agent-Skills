@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: Conclusion, Appendix, no Discussion by default
+
+- **Changed:** `references/slides.md` and the slides template now end a deck with a **Conclusion** (or Takeaways) slide and then an **Appendix**, replacing "Backup". A **Discussion** slide is no longer added by default; it is made only when the user asks. Prompted by the user's own habits when presenting.
+- 60 tests pass. Not yet tried on a new real deck beyond the one that prompted it.
+- Details: [2026-11-15 — Slides conclusion, appendix, no discussion](logs/2026-11-15-slides-conclusion-appendix-no-discussion.md).
+
 ### Econ Teaching — Correction: slides follow the source's order
 
 - **Fixed:** `references/slides.md` item 4 now follows the paper's (or lecture's) own section order. Question, contribution and preview come from its introduction. Takeaways, Discussion and Backup are added at the end, and any reordering for a teaching purpose is stated in the handover. This replaces the theory-versus-empirical order and the "motivation from the economics" line from the entry below, which were advice for presenting one's own paper. The tables rule now takes a coefficient's meaning in units from the paper or from a traced computation.

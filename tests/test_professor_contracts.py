@@ -267,7 +267,7 @@ class CourseContracts(unittest.TestCase):
     def test_slides_keep_process_notes_off_the_deck(self):
         doc = (SKILL / "references/slides.md").read_text(encoding="utf-8")
         self.assertIn("The deck is for the audience; the handover is for the user", doc)
-        self.assertIn("Backup", doc)
+        self.assertIn("Appendix", doc)
         self.assertIn("never list papers, years or journals from memory", doc)
         self.assertIn("references/slides.md", (SKILL / "SKILL.md").read_text(encoding="utf-8"))
         template = (SKILL / "templates/simple-slides.tex").read_text(encoding="utf-8")

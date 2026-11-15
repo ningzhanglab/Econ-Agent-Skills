@@ -8,16 +8,16 @@ Slides are what the presenter shows to an audience, not a study document. The te
 
 | On the slides (for the audience) | In the handover (for the user, in chat or a short `.md` beside the deck) |
 | --- | --- |
-| The argument: question, mechanism, results, discussion | Which version of the paper was read, and whether its equations were read as typeset or rebuilt from text ([Slide Fidelity](slide-fidelity.md#papers-and-screenshots)) |
+| The argument: question, mechanism, results, conclusion | Which version of the paper was read, and whether its equations were read as typeset or rebuilt from text ([Slide Fidelity](slide-fidelity.md#papers-and-screenshots)) |
 | The paper's notation, unchanged | The paper page or section behind each slide |
 | One full citation on the title slide | Every number computed rather than copied, with the check |
-| One short source line under each figure or table, and a page for a direct quotation | Reading advice and the reusable lesson, if useful |
-| Your own derivations, in **Backup** slides | Anything left unverified |
-| Your judgment, as a **Discussion** slide | |
+| One short source line under each figure or table only, and a page for a direct quotation; none on text-only slides | Reading advice and the reusable lesson, if useful |
+| Your own derivations, in **Appendix** slides | Anything left unverified |
+| Your judgment, only if the user asks, as a **Discussion** slide | |
 
-Never put these on a slide: notes about how the paper was read or extracted, per-bullet labels such as "Paper states", "Derived (my check)" or "Caveat (paper)", page tags on every bullet, intuition checks written for the student, reading-order advice, "reusable lesson" lines, long disclaimers, or first person ("my judgment").
+Never put these on a slide: notes about how the paper was read or extracted, a source line on a text-only slide (section and equation references go in the handover), per-bullet labels such as "Paper states", "Derived (my check)" or "Caveat (paper)", page tags on every bullet, intuition checks written for the student, reading-order advice, "reusable lesson" lines, long disclaimers, or first person ("my judgment").
 
-Labels are not lost, they are placed: a Backup slide title already says the content is supplementary, a Discussion slide already says it is judgment, and a figure source line says whether the figure is the paper's or recomputed.
+Labels are not lost, they are placed: an Appendix slide title already says the content is supplementary, a Discussion slide (on request) already says it is judgment, and a figure source line says whether the figure is the paper's or recomputed.
 
 ## Settle the source before building
 
@@ -29,29 +29,29 @@ When the user asks to revise or "recheck" a deck:
 
 1. Keep a copy of the old `.tex` before editing, and keep its filename for the new one.
 2. Re-verify against the current source first (version and date, as above). A deck built from an older version needs its numbers, equation numbers and page references reissued, not patched one by one.
-3. Add what was missed to **Backup** first. Move it into the main sequence only if it carries the argument, and recheck that the slide count still fits the time.
+3. Add what was missed to **Appendix** first. Move it into the main sequence only if it carries the argument, and recheck that the slide count still fits the time.
 4. In the handover, list what changed and why (for example a table of old versus new numbers), so the user can see what to re-check.
 
 ## Plan the story first
 
-1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Backup. If the user did not say, use the default and state it in the handover; do not stop to ask.
+1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Appendix. If the user did not say, use the default and state it in the handover; do not stop to ask.
 2. **One takeaway sentence**, written before any slide.
 3. **Short titles.** Each title fits on one line (about 60 characters), as short as the slide allows. It names the content with the key term ("Counterfactual Results", "Marginal Automation Boost: Mostly Better Machines"), not a bare "Results". Put the claim and its number in a bold first line or the first bullet. Preview, main-result and takeaway slides may use a full-sentence title if it still fits on one line. If a title wraps to two lines, shorten it.
-4. **Order: follow the source.** The body follows the paper's own section order (or the lecture's). The question, contribution and preview come from the paper's introduction; if the introduction does not state the main result, add a one-line preview that cites the section where it appears. The deck adds Takeaways, Discussion questions and Backup at the end. Do not reorder sections; if the purpose needs another order (for example a class that teaches a special case before the paper's general model), say what was moved and why in the handover.
-5. **Spend the time on the core.** Give the central mechanism several slides; compress secondary sections (applications, side arguments) to one slide each or move them to Backup. Covering every section of the paper is not the goal.
+4. **Order: follow the source.** The body follows the paper's own section order (or the lecture's). The question, contribution and preview come from the paper's introduction; if the introduction does not state the main result, add a one-line preview that cites the section where it appears. The deck ends with a Conclusion (or Takeaways) slide and then the Appendix. There is no Discussion slide unless the user asks for one. Do not reorder sections; if the purpose needs another order (for example a class that teaches a special case before the paper's general model), say what was moved and why in the handover.
+5. **Spend the time on the core.** Give the central mechanism several slides; compress secondary sections (applications, side arguments) to one slide each or move them to Appendix. Covering every section of the paper is not the goal.
 
 ## Each slide
 
 - **Text:** at most 3–4 bullets, each about one line. No paragraphs. If a slide needs a paragraph, split it.
-- **Math:** at most two displayed equations. Define every symbol on the slide where it first appears. Use `\alert{}` for the term being discussed. Multi-step derivations go to Backup.
+- **Math:** at most two displayed equations. Define every symbol on the slide where it first appears. Use `\alert{}` for the term being discussed. Multi-step derivations go to Appendix.
 - **Figures:** use an original figure only if it was actually inspected (open the PDF page as an image; crop the figure from the page rather than redrawing it), and credit it ("Source: Jones (2026), Figure 2"). A figure recomputed from the paper's formula says so in its source line ("Computed from Jones (2026), p. 10"), in one line, not a disclaimer. Every figure carries a one-sentence message. Cropped figures go in a folder beside the deck and are cited by relative path in `\includegraphics` (no `\graphicspath`); load `graphicx` and credit them as reproduced.
-- **Tables:** show only the rows and columns the argument needs (usually the main coefficient, its standard error and N), with the paper's variable names and the numbers copied exactly; `\alert{}` the main coefficient and state in the first line what it means in units, in the paper's own interpretation or computed from the table and traced in the handover. Prefer the paper's figure for the same result if it has one. The source line names the table and the columns kept ("Source: Jones (2026), Table 3, cols. 1–2"); the full table goes to Backup.
+- **Tables:** show only the rows and columns the argument needs (usually the main coefficient, its standard error and N), with the paper's variable names and the numbers copied exactly; `\alert{}` the main coefficient and state in the first line what it means in units, in the paper's own interpretation or computed from the table and traced in the handover. Prefer the paper's figure for the same result if it has one. The source line names the table and the columns kept ("Source: Jones (2026), Table 3, cols. 1–2"); the full table goes to Appendix.
 - **Numbers:** only numbers that appear in the paper or are computed from it; each must be traceable in the handover.
 
 ## Literature and assessment
 
 - A related-literature slide may list only papers the paper itself cites (copied from its reference list) or papers verified with `econ-research`. Otherwise leave the slide out; never list papers, years or journals from memory.
-- Discussion slides judge the paper on its own terms (which assumption drives the result, which numbers are chosen rather than estimated) and are best phrased as questions for the audience.
+- A Discussion slide, only on request, judges the paper on its own terms (which assumption drives the result, which numbers are chosen rather than estimated) and are best phrased as questions for the audience.
 
 ## Format and checks
 
