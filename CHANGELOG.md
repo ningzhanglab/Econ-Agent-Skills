@@ -8,6 +8,11 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-14
 
+### Documentation — README brought up to date
+
+- README now describes the paper-reading behavior (a short map first, then depth where the student is stuck; a paper only named, not sent, gets a labeled outline and a request for the PDF), that installing a single skill is fine and what happens when a request needs one that is not installed, the wider untrusted-content list (papers, screenshots, web pages), the self-containment checks in CI, and two roadmap items (run cases 57–60; publish the first release). Getting started points to the zip download. The paste-a-link prompts are shorter. No skill behavior changed.
+- Details: [2026-11-14 — README update](logs/2026-11-14-readme-sync.md).
+
 ### All skills — Fixes from a review of today's changes
 
 - **Fixed (teaching):** a paper the student only names, with no file to open, is no longer summarized in detail from memory. The Professor says it was not read, gives a short outline labeled as general knowledge with no magnitudes, equation numbers or page references, and asks for the PDF.

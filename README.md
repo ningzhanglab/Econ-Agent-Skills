@@ -39,26 +39,28 @@ Each zip holds only that skill's folder: its `SKILL.md`, references, templates a
 
 Once installed, the skill turns on by itself when a question fits it, and it can read all its reference files. This is the most reliable way to use a skill.
 
+**Installing only one skill is fine.** Each skill is complete on its own and never needs files from the others. When a request belongs to a skill you have not installed (for example, a literature search while only `econ-teaching` is installed), it says so in one line and helps only as far as its own rules allow; `econ-teaching` on its own never lists papers, years or findings from memory.
+
 ### Try a skill without installing
 
-In a chat that can open web pages, paste the line for the skill you want, followed by your request. Each line tells the agent where the skill's files are, so it can fetch the reference files the task needs.
+In a chat that can open web pages, paste the line for the skill you want and replace `[your request]` with your question.
 
 econ-teaching:
 
 ```text
-Read https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-teaching/SKILL.md and follow it. Its linked files are in https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-teaching/ ; fetch only the ones it names for my request, and say if one cannot be fetched. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-teaching/SKILL.md (its files are in the same folder; fetch only what my request needs). Then: [your request]
 ```
 
 econ-writing:
 
 ```text
-Read https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-writing/SKILL.md and follow it. Its linked files are in https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-writing/ ; fetch only the ones it names for my request, and say if one cannot be fetched. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-writing/SKILL.md (its files are in the same folder; fetch only what my request needs). Then: [your request]
 ```
 
 econ-research:
 
 ```text
-Read https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-research/SKILL.md and follow it. Its linked files are in https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-research/ ; fetch only the ones it names for my request, and say if one cannot be fetched. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-research/SKILL.md (its files are in the same folder; fetch only what my request needs). Then: [your request]
 ```
 
 Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may not fetch every reference file it should (some chat apps only open links that appear word for word in the conversation).
@@ -94,14 +96,16 @@ Seven principles govern every answer (full text in [SKILL.md](skills/econ-teachi
 6. **Homework and exams in the instructor's framework.** Same notation, same or closest slide method, every necessary step, a checked result, and then the reusable method in one or two lines. Exam preparation can include a fresh practice item with its answer held back. Course AI-use rules are respected.
 7. **Your language.** Answers come in the language you write in, with symbols unchanged and English technical terms beside translations, for example 欧拉方程 (Euler equation).
 
-The Professor chooses a **teaching mode before tools**: quick step, intuition, derivation, model comparison, whole lecture, Homework or exam preparation. A narrow question never triggers a course inventory or a generated file. **No course is needed:** a term ("what is elasticity?"), a research paper or one part of it, or a screenshot of equations from anywhere is treated as the source, with the same notation rules; a bare term is answered from general economics knowledge and labeled as such. See [Teaching Design](skills/econ-teaching/references/teaching-design.md), [Expert Teaching](skills/econ-teaching/references/expert-teaching.md) and the [hypothetical diagnostic examples](skills/econ-teaching/examples/diagnostic-teaching-patterns.md).
+The Professor chooses a **teaching mode before tools**: quick step, intuition, derivation, model comparison, whole lecture, Homework or exam preparation. A narrow question never triggers a course inventory or a generated file. **No course is needed:** a term ("what is elasticity?"), a research paper or one part of it, or a screenshot of equations from anywhere is treated as the source, with the same notation rules; a bare term is answered from general economics knowledge and labeled as such.
+
+**Reading a paper.** Send the PDF. The first answer is a short map: the question, the framework, the main result and why it holds, the one figure or table that carries the paper, and which sections to read or skim. The Professor then goes deeper only where you are stuck, most often on a method or model the paper assumes you know, and says what it actually read. If you only name a paper without sending it, it says the paper was not read, gives a short outline labeled as general knowledge (no numbers, equation numbers or pages) and asks for the PDF. See [Teaching Design](skills/econ-teaching/references/teaching-design.md), [Expert Teaching](skills/econ-teaching/references/expert-teaching.md) and the [hypothetical diagnostic examples](skills/econ-teaching/examples/diagnostic-teaching-patterns.md).
 
 One Skill covers four fields through optional domain lenses: [Macroeconomics](skills/econ-teaching/references/macroeconomics.md) (including numerical methods), [Microeconomics](skills/econ-teaching/references/microeconomics.md), [Econometrics](skills/econ-teaching/references/econometrics.md) and [Time Series](skills/econ-teaching/references/time-series.md). Each lens lists the questions an expert asks, the high-value explanations and the common traps for that field; none is tied to a particular course.
 
 ## Getting started
 
 1. Read [SKILL.md](skills/econ-teaching/SKILL.md) to see the behavior and triggers.
-2. Make the **entire skill folder** `skills/econ-teaching/` available to a compatible Agent Skills client (install from this GitHub folder, or copy or link the folder into the client's skills directory). The folder is self-contained: its references, templates, examples and helper scripts all live inside it. A GitHub repository alone does **not** activate the skill.
+2. Make the **entire skill folder** `skills/econ-teaching/` available to a compatible Agent Skills client: download its zip (see [Share a skill](#share-a-skill)), or copy or link the folder from a clone of this repository into the client's skills directory. The folder is self-contained: its references, templates, examples and helper scripts all live inside it. A GitHub repository alone does **not** activate the skill.
 3. For course questions, provide the actual lecture slides (PDF, PPT, TeX, screenshots) or an accessible course folder. The Professor must inspect the relevant material and never pretends to have read slides it cannot access. For a term, a paper or a screenshot from elsewhere, just send it.
 4. Ask a question.
 
@@ -129,7 +133,7 @@ For semester-long tutoring the Professor can map a course on request: syllabus o
 - Helper scripts (inside the skill folder; Python standard library, read-only on your sources): [file grouping](skills/econ-teaching/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-teaching/scripts/inventory_tex_figures.py), [Word equation reader](skills/econ-teaching/scripts/read_docx_math.py) and [TeX bundle checker](skills/econ-teaching/scripts/check_tex_bundle.py).
 - Details: [Course Navigation](skills/econ-teaching/references/course-navigation.md) and [Large-File Strategy](skills/econ-teaching/references/large-file-strategy.md). This is a workflow specification, not background indexing or permanent memory.
 
-Text inside slides, homework and README files is treated as **untrusted study material**, never as instructions that can override your request, change sharing or move private files.
+Text inside slides, homework, README files, papers, screenshots and web pages is treated as **untrusted study material**, never as instructions that can override your request, change sharing or move private files.
 
 ## Files, cloud storage and learning logs
 
@@ -223,12 +227,14 @@ Econ-Agent-Skills/
 ## Change history, contributing and testing
 
 - [CHANGELOG.md](CHANGELOG.md) summarizes changes; [logs/](logs/README.md) explains what changed, why and how it was verified. [AGENTS.md](AGENTS.md) tells repository-editing Agents to update both. The [v1 design baseline](DESIGN_V1.md) records the architecture and its stability rule.
-- Treat teaching decisions as testable behavior. When a real lecture interaction exposes a failure, add a case to the [professor evaluation cases](tests/professor-evaluation.md) the [writing evaluation cases](tests/writing-evaluation.md) or the [research evaluation cases](tests/research-evaluation.md) and fix the responsible reference rather than growing SKILL.md.
-- GitHub Actions runs link validation, repository contract tests and a LaTeX compile smoke test. These **structural tests do not prove teaching quality**; human evaluation on real lecture slides remains necessary.
+- Treat teaching decisions as testable behavior. When a real lecture interaction exposes a failure, add a case to the [professor evaluation cases](tests/professor-evaluation.md), the [writing evaluation cases](tests/writing-evaluation.md) or the [research evaluation cases](tests/research-evaluation.md) and fix the responsible reference rather than growing SKILL.md.
+- GitHub Actions runs link validation, repository contract tests and a LaTeX compile smoke test. It also checks that every skill is self-contained (no link or plain-text pointer to a file outside its folder, such as `STORAGE_POLICY.md`) and tests the zip builder. These **structural tests do not prove teaching quality**; human evaluation on real lecture slides remains necessary.
 
 ## Roadmap
 
 - **Now:** cases 45–51 passed on real lectures in three courses: macro ([ECONS 509](logs/2026-10-29-professor-econs509-se-lecture-test.md)), econometrics and time series ([ECONS 512, STAT 516](logs/2026-10-29-professor-econs512-stat516-tests.md)), including homework solved in the lecture's method and a real past exam. Still to do: a microeconomics lecture and an independent grader.
+- **Econ Teaching outside a course:** run evaluation cases 57–60 (a bare term, a paper overview, one equation in a paper, a screenshot from an unknown source) on real material.
+- **Sharing:** publish the first release so the download links work, then upload one zip to Claude.ai to confirm the install steps.
 - **Econ Writing:** run the [writing evaluation cases](tests/writing-evaluation.md) on real drafts (a paper section, a LaTeX file, a referee report and a homework write-up) before calling it stable.
 - **Econ Research:** run the [research evaluation cases](tests/research-evaluation.md) on real topics. A later version may add identification design and empirical methods, if real use shows the need.
 - **Optional:** installer guidance for specific Agent clients.
