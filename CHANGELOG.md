@@ -6,6 +6,17 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-11-14
+
+### Econ Teaching — Questions outside a course
+
+- **Added** a mode for questions with no course behind them: a bare term ("what is elasticity?"), a research paper (what it is about and its framework, or one section or equation), a screenshot of equations from a book, paper or website, or a small step the student could not follow. Whatever the student sends is the source; the Professor does not search for a course folder or ask for slides unless the student points to a course.
+- A bare term is answered briefly from general economics knowledge and labeled so, with notation presented as a convention and no papers cited from memory. A paper keeps its own notation and is cited by section, equation number and page, with the version read stated. A screenshot keeps its exact symbols; the Professor does not guess its source, labels any assumed reading of an off-screen symbol, and names unreadable parts.
+- **Reading a paper: orient, then unblock.** The first answer about a paper is a short map (question, claimed contribution, framework, main result, the one exhibit that carries the paper, and which sections to read or skim), not a full walkthrough. Depth follows where the student is stuck, diagnosed with the existing bottleneck table; the most common block is a method, model family or term the paper assumes the reader knows. It closes with the contribution in one plain sentence and, if useful, a reusable reading lesson. Critique only when the purpose calls for it.
+- Where it lives: a new "Questions outside a course" section in Teaching Design, a "Papers and screenshots" section in Slide Fidelity, and a mode line, a routing row and a broader description in `SKILL.md`. `econ-research` now points close reading of one paper to `econ-teaching`. The skill name is unchanged.
+- Evaluation cases 57–60 added. Not yet run.
+- Details: [2026-11-14 — Questions outside a course](logs/2026-11-14-teaching-questions-outside-a-course.md).
+
 ## 2026-11-13
 
 ### Econ Teaching — Whole-class handout test on STAT 516

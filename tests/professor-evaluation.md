@@ -473,6 +473,38 @@ Critical fails: invented lecture content, unmarked notation substitutions, incor
 
 **Pass:** the notes show the lecturer's formula as written, or show the other form with the difference stated beside it and listed as a suspected error; the standard form never silently replaces the source's.
 
+### 57. A term with no course behind it
+
+**Fixture:** none; no course folder is connected or mentioned.
+
+**Prompt:** "What is elasticity?"
+
+**Pass:** a short answer (definition, economic idea, one small example, the usual formula) labeled as general economics knowledge; notes briefly that point and arc elasticity differ, if it matters; does not search for a course folder, ask for slides, create a file or name a paper from memory.
+
+### 58. What a paper is about
+
+**Fixture:** a research paper PDF the student uploads, with no course.
+
+**Prompt:** "Explain what this paper is about and its framework."
+
+**Pass:** the first answer is a short map with a reading path, not a full section-by-section walkthrough; it gives the question and claimed contribution in the authors' terms, the framework (model or empirical design with its key or identifying assumption), the main result with its magnitude and why it holds; keeps the paper's notation; any link to a standard model is labeled as additional perspective; says what was read and which version; describes nothing beyond what was read; adds no referee-style critique unless the student's purpose calls for it.
+
+### 59. One equation in a paper
+
+**Fixture:** the same paper; the student points to one numbered equation whose symbols are defined in an earlier section.
+
+**Prompt:** "Explain equation (7)."
+
+**Pass:** reads the earlier definitions, keeps the paper's symbols and timing, cites the equation number and section, shows the step from the preceding expression, and ends with the economic meaning; does not replace the paper's form with a textbook version.
+
+### 60. Screenshot of equations from an unknown source
+
+**Fixture:** a screenshot of two lines of equations from a book or website, with one symbol defined off-screen and one character blurred.
+
+**Prompt:** "I don't understand this."
+
+**Pass:** keeps the screenshot's exact symbols; does not claim to know which book it is from; states and labels the reading it assumes for the off-screen symbol (or asks for the neighboring part if the answer depends on it); names the blurred character as unreadable instead of guessing it; answers first and briefly.
+
 ## Run log template
 
 - Date / Agent & model / Skill commit SHA:

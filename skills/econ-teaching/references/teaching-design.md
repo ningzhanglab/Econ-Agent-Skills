@@ -19,6 +19,20 @@ Infer the mode from the request and the available source; the modes are **flexib
 
 **Depth is separate from length.** A rigorous short answer can be better than a 5-page note. A long handbook should develop understanding instead of padding with formula repetition. When a student explicitly requests **textbook teaching from zero**, spend explanation effort on definitions, transparent examples and justified intermediate steps before applying the general PhD-level claims; do not turn the preferred long-lesson arc into mandatory sections for a quick answer. See [Time Series](time-series.md) for a subject-specific example.
 
+## Questions outside a course
+
+Many questions come with no course behind them: a term, a paper, a screenshot from a book or website, or a small step the student could not follow. **Whatever the student sends is the source.** Do not search for a course folder, build an index or ask for slides unless the student points to a course.
+
+| Student sends | Default response |
+| --- | --- |
+| **Only a term or concept:** "what is elasticity?" | A few sentences: the definition, the economic idea, one small example and the usual formula. Say it comes from general economics knowledge, and present notation as a common convention, not the only one. When definitions differ across fields or textbooks (point versus arc elasticity, weak versus strict stationarity), name the difference briefly. Do not name or cite papers from memory. |
+| **A paper, asking what it is about** | **Orient first, then go deeper only where the student is stuck;** do not open with a full walkthrough. The first answer is a short map: the question and the contribution the authors claim, in their terms; the framework (for a model: environment, agents, equilibrium and the key assumption; for empirical work: data, source of variation, estimating equation and identifying assumption); the main result with its magnitude; the one exhibit that carries the paper; and which sections to read or skim for the student's likely purpose. Then, labeled as additional perspective, how it relates to a standard model. Say what was read (full text or which sections) and which version. When the student is stuck, diagnose the block with the bottleneck table below; in papers the most common one is a method, model family or term the paper assumes the reader knows, so rebuild just enough of it and return to the paper. Close with the contribution in one plain sentence and, if useful, one reusable lesson for reading the next paper of this kind. Critique only when the purpose calls for it (a referee report, a seminar, the student's own research), labeled as assessment. |
+| **A paper, asking about one part** | Treat the paper as the lecture under [Slide Fidelity](slide-fidelity.md#papers-and-screenshots): keep its notation, cite its section, equation number and page, and read the definitions and assumptions the part relies on, including an appendix where a step is proved. |
+| **A screenshot of equations from anywhere** | Keep the screenshot's exact symbols. Do not guess which book or paper it comes from or fill in definitions it does not show. If a needed definition or assumption is off-screen, state the reading you assume and label it, or ask for the neighboring part when the answer depends on it. If part of the image is unreadable, say which part. |
+| **A small thing they could not follow** | Answer it in one or two sentences, add one line of why if it helps, and stop. |
+
+Answer first, check intuition against the math and use the student's language as always. Placing a paper in its literature, judging its evidence or verifying its references is the separate `econ-research` skill.
+
 ## Diagnose the learning bottleneck (without claiming to read the learner's mind)
 
 Treat the student's wording as a clue about **what teaching bridge to provide**, not proof of their beliefs. Distinguish:

@@ -10,7 +10,7 @@ Reusable, version-controlled Agent Skills for economics PhD learning and researc
 
 | Skill | Purpose | Status |
 | --- | --- | --- |
-| [econ-teaching](skills/econ-teaching/SKILL.md) | Learn graduate economics from your own lecture slides, homework and exams, with exact notation, economic intuition, rigorous derivations and useful diagrams | **v1.1; quality evaluation ongoing** |
+| [econ-teaching](skills/econ-teaching/SKILL.md) | Learn graduate economics from your own lecture slides, homework and exams, with exact notation, economic intuition, rigorous derivations and useful diagrams; or, with no course at all, get a term, a paper or a screenshot of equations explained | **v1.1; quality evaluation ongoing** |
 | [econ-writing](skills/econ-writing/SKILL.md) | Edit, review and structure your own economics writing (research papers, thesis chapters, referee and research reports, homework write-ups) while keeping every term, symbol, number and citation unchanged | **v0.1; not yet evaluated on real drafts** |
 | [econ-research](skills/econ-research/SKILL.md) | Develop research questions and work with the literature: find, screen and verify papers, synthesize what is known, and position a project. No reference is written from memory | **v0.1 (questions and literature); not yet evaluated on real projects** |
 
@@ -28,7 +28,7 @@ Seven principles govern every answer (full text in [SKILL.md](skills/econ-teachi
 6. **Homework and exams in the instructor's framework.** Same notation, same or closest slide method, every necessary step, a checked result, and then the reusable method in one or two lines. Exam preparation can include a fresh practice item with its answer held back. Course AI-use rules are respected.
 7. **Your language.** Answers come in the language you write in, with symbols unchanged and English technical terms beside translations, for example 欧拉方程 (Euler equation).
 
-The Professor chooses a **teaching mode before tools**: quick step, intuition, derivation, model comparison, whole lecture, Homework or exam preparation. A narrow question never triggers a course inventory or a generated file. See [Teaching Design](skills/econ-teaching/references/teaching-design.md), [Expert Teaching](skills/econ-teaching/references/expert-teaching.md) and the [hypothetical diagnostic examples](skills/econ-teaching/examples/diagnostic-teaching-patterns.md).
+The Professor chooses a **teaching mode before tools**: quick step, intuition, derivation, model comparison, whole lecture, Homework or exam preparation. A narrow question never triggers a course inventory or a generated file. **No course is needed:** a term ("what is elasticity?"), a research paper or one part of it, or a screenshot of equations from anywhere is treated as the source, with the same notation rules; a bare term is answered from general economics knowledge and labeled as such. See [Teaching Design](skills/econ-teaching/references/teaching-design.md), [Expert Teaching](skills/econ-teaching/references/expert-teaching.md) and the [hypothetical diagnostic examples](skills/econ-teaching/examples/diagnostic-teaching-patterns.md).
 
 One Skill covers four fields through optional domain lenses: [Macroeconomics](skills/econ-teaching/references/macroeconomics.md) (including numerical methods), [Microeconomics](skills/econ-teaching/references/microeconomics.md), [Econometrics](skills/econ-teaching/references/econometrics.md) and [Time Series](skills/econ-teaching/references/time-series.md). Each lens lists the questions an expert asks, the high-value explanations and the common traps for that field; none is tied to a particular course.
 
@@ -36,7 +36,7 @@ One Skill covers four fields through optional domain lenses: [Macroeconomics](sk
 
 1. Read [SKILL.md](skills/econ-teaching/SKILL.md) to see the behavior and triggers.
 2. Make the **entire skill folder** `skills/econ-teaching/` available to a compatible Agent Skills client (install from this GitHub folder, or copy or link the folder into the client's skills directory). The folder is self-contained: its references, templates, examples and helper scripts all live inside it. A GitHub repository alone does **not** activate the skill.
-3. Provide the actual lecture slides (PDF, PPT, TeX, screenshots) or an accessible course folder. The Professor must inspect the relevant material and never pretends to have read slides it cannot access.
+3. For course questions, provide the actual lecture slides (PDF, PPT, TeX, screenshots) or an accessible course folder. The Professor must inspect the relevant material and never pretends to have read slides it cannot access. For a term, a paper or a screenshot from elsewhere, just send it.
 4. Ask a question.
 
 To use Econ Writing, make `skills/econ-writing/` available the same way; it needs no course folder, only the text or file you want edited. Econ Research installs the same way from `skills/econ-research/`; its literature work needs web access.
@@ -50,6 +50,7 @@ To use Econ Writing, make `skills/econ-writing/` available the same way; it need
 - "Solve PS2 part (b) using the method from the lecture."
 - "Help me prepare for the midterm on lectures 5–8."
 - "用中文解释第 12 页的贝尔曼方程，符号保持和 slides 一样。"
+- "What is elasticity?" · "Explain what this paper is about and its framework." · "Explain equation (7) in this paper." · "I don't understand the equations in this screenshot."
 
 ## Whole courses and large collections
 

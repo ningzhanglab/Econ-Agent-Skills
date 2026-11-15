@@ -1,6 +1,6 @@
 # Slide Fidelity and Notation
 
-This file defines hard source-grounding requirements for any lecture-based answer.
+This file defines hard source-grounding requirements for any answer based on a source the student supplied: a lecture, a research paper or a screenshot. "Slide" below means whichever of these it is; see [Papers and screenshots](#papers-and-screenshots) for what differs.
 
 ## Source hierarchy
 
@@ -52,6 +52,13 @@ Slides can put essential assumptions into plots, handwritten arrows, legends, pa
 For tables, preserve labels, sample definitions, units, signs, significance conventions and reported uncertainty. Never invent unreadable tick marks or values.
 
 If a PDF extraction loses mathematical layout or a figure's content, use page images or screenshots if tools permit. **Word (`.docx`) notes need the same care:** a plain-text export drops every equation. Equations typed in Word's equation editor are stored as Office Math in the file's `word/document.xml` and can be read exactly from there (the optional [Word equation reader](../scripts/read_docx_math.py) does this and counts what it could not read); when a rendered PDF of the same file exists, check a few equations against it. Older embedded equation objects and pasted plots are images (often WMF) and count as unread until they are actually viewed. If reliable inspection is unavailable, state the limitation and avoid falsely precise readings. **When the answer depends on the unreadable part, name the page and ask the student for a screenshot of that one page** (not the whole deck), and meanwhile teach what is verified. A Word file has no fixed page numbers, so name the section heading instead of a page. Once the screenshot arrives, read the symbols, axes and labels from it and treat it as the source for that page.
+
+## Papers and screenshots
+
+The rules above hold for a research paper or a screenshot from a book, paper or website: its notation, timing and assumptions are the local model, and the labels become **Paper states** (or **Screenshot shows**), **Derived from it** and **Additional perspective**.
+
+- **Paper:** cite the section, equation number and PDF page, and say which version was read (working paper or published), because equations and numbers can change between versions.
+- **Screenshot:** it shows only part of its source. Do not identify the source by guessing, and do not import definitions from the familiar textbook version; state any reading you assume for symbols it does not define.
 
 ## Source references
 
