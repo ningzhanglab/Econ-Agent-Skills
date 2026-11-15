@@ -23,6 +23,15 @@ Labels are not lost, they are placed: a Backup slide title already says the cont
 
 A deck depends on the whole paper, so apply the [source-given-as-a-link rule](slide-fidelity.md#papers-and-screenshots) before building: state the version and date in the handover, and ask the user to attach the PDF if only fetched text was read. If they do not, build only on what was verified and say in the handover that figures and equations were not seen.
 
+## Revising an existing deck
+
+When the user asks to revise or "recheck" a deck:
+
+1. Keep a copy of the old `.tex` before editing, and keep its filename for the new one.
+2. Re-verify against the current source first (version and date, as above). A deck built from an older version needs its numbers, equation numbers and page references reissued, not patched one by one.
+3. Add what was missed to **Backup** first. Move it into the main sequence only if it carries the argument, and recheck that the slide count still fits the time.
+4. In the handover, list what changed and why (for example a table of old versus new numbers), so the user can see what to re-check.
+
 ## Plan the story first
 
 1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Backup. If the user did not say, use the default and state it in the handover; do not stop to ask.
@@ -35,7 +44,7 @@ A deck depends on the whole paper, so apply the [source-given-as-a-link rule](sl
 
 - **Text:** at most 3–4 bullets, each about one line. No paragraphs. If a slide needs a paragraph, split it.
 - **Math:** at most two displayed equations. Define every symbol on the slide where it first appears. Use `\alert{}` for the term being discussed. Multi-step derivations go to Backup.
-- **Figures:** use an original figure only if it was actually inspected, and credit it ("Source: Jones (2026), Figure 2"). A figure recomputed from the paper's formula says so in its source line ("Computed from Jones (2026), p. 10"), in one line, not a disclaimer. Every figure carries a one-sentence message.
+- **Figures:** use an original figure only if it was actually inspected (open the PDF page as an image; crop the figure from the page rather than redrawing it), and credit it ("Source: Jones (2026), Figure 2"). A figure recomputed from the paper's formula says so in its source line ("Computed from Jones (2026), p. 10"), in one line, not a disclaimer. Every figure carries a one-sentence message. Cropped figures go in a folder beside the deck and are cited by relative path in `\includegraphics` (no `\graphicspath`); load `graphicx` and credit them as reproduced.
 - **Numbers:** only numbers that appear in the paper or are computed from it; each must be traceable in the handover.
 
 ## Literature and assessment
@@ -47,5 +56,5 @@ A deck depends on the whole paper, so apply the [source-given-as-a-link rule](sl
 
 - Default: Beamer, 16:9, from the [slides template](../templates/simple-slides.tex), delivered as `.tex` and compiled `.pdf` under [TeX/PDF Outputs](latex-outputs.md). For Chinese, use `ctexbeamer` with XeLaTeX and keep technical terms in English. A requested `.pptx` follows the same content rules.
 - Speaker notes or a handout version only on request.
-- Before delivering, list the output folder and confirm every file the handover names exists. Do not name a PDF that was not produced ([TeX/PDF Outputs](latex-outputs.md)).
-- Before delivering: the deck compiles with no overfull boxes; if pages can be rendered, look at each one for overflow and small type; the slide count fits the time; every number and figure is traceable in the handover; none of the never-on-a-slide items above appears. Search the `.tex` for "my ", "Paper states" and "Derived" and read the compiled slides for first person; a stated length or timing from the user overrides the default slide count, and the handover says so.
+- Before delivering, run the [bundle checker](../scripts/check_tex_bundle.py) with `--compile` on the `.tex`; it fails on a missing figure or on `\graphicspath`. List the output folder and confirm every file the handover names exists. Do not name a PDF that was not produced ([TeX/PDF Outputs](latex-outputs.md)).
+- Before delivering: the deck compiles with no overfull boxes; look at every rendered page for overflow and small type; if pages cannot be rendered (no PDF renderer in the environment), say in the handover which pages were not viewed; the slide count fits the time; every number and figure is traceable in the handover; none of the never-on-a-slide items above appears. Search the `.tex` for "my ", "Paper states" and "Derived" and read the compiled slides for first person; a stated length or timing from the user overrides the default slide count, and the handover says so.

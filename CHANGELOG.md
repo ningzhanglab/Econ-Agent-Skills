@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: revising, figures and the bundle check
+
+- **Changed:** `references/slides.md` now covers revising an existing deck (keep a copy, re-verify the version, additions to Backup first, old-versus-new numbers in the handover), cropping figures from the inspected PDF page into a folder beside the deck, and running the bundle checker with `--compile` before delivery. The slides template notes relative figure paths.
+- Found by running the bundle checker on a real deck: it failed on `\graphicspath` until paths were made relative. Not yet retried in a real chat.
+- Details: [2026-11-15 — Slides revise, figures, bundle](logs/2026-11-15-slides-revise-figures-bundle.md).
+
 ### Econ Teaching — Settle the source before answering or building from a link
 
 - **Changed:** for any source sent as a link (paper, notes, handout, homework), the answer now says what was retrieved (version or date; file or only text), treats the link as provisional, and asks for the file if only text came back and figures or equations matter (`references/slide-fidelity.md`). A deck request applies this first. Before deck delivery, the handover's files are checked to exist and the `.tex` is searched for first-person or "Paper states" labels (`references/slides.md`).
