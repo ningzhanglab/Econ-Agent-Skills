@@ -35,6 +35,8 @@ Each zip holds only that skill's folder: its `SKILL.md`, references, templates a
   unzip econ-teaching.zip -d ~/.claude/skills
   ```
 
+  `econ-teaching` writes math in LaTeX. A terminal shows it as code (`$\beta$`); say "use plain text for math" and it switches for the rest of the conversation.
+
 - **Other apps that support Agent Skills:** unzip it into that app's skills folder.
 
 Once installed, the skill turns on by itself when a question fits it, and it can read all its reference files. This is the most reliable way to use a skill.

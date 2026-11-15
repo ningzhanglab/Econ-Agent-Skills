@@ -8,6 +8,14 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-15
 
+### Econ Teaching — LaTeX rule checked across the repository
+
+- **Fixed:** the Bellman style example, the one "good Professor response" the skill shows, wrote inline math as bare `\beta E[...]` and displays as `\[...\]`, the opposite of the new rule. It now uses `$...$` and `$$...$$`; every symbol is unchanged.
+- **Added** to the LaTeX rule: write money as `\$10` or USD 10, because a bare dollar sign in an economics answer (`from $10 to $12`) is read as a math delimiter and garbles the line; keep code (SAS, Python, Stata) as code. Evaluation case 57 checks prices in the elasticity example.
+- README: a line under the Claude Code install step saying a terminal shows LaTeX as code and how to switch to plain text.
+- Checked and left alone: `econ-writing` (keeps the writer's own form, so no LaTeX rule) and `econ-research` (little math). Link edition rebuilt.
+- Details: [2026-11-15 — LaTeX rule checked across the repository](logs/2026-11-15-latex-rule-global-check.md).
+
 ### Econ Teaching — Make the LaTeX rule hard to miss
 
 - **Fixed:** in a real test, an agent read the skill page and still wrote chat math as plain text, saying the page only asks for LaTeX in requested `.tex`/`.pdf` files and that "ordinary questions are answered in chat". The rule was buried in the middle of principle 1, and the line the agent quoted pointed the other way.
