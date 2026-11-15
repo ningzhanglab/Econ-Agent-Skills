@@ -10,6 +10,13 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: empirical order, tables, no overlays
+
+- **Changed:** `references/slides.md` now has a separate default order for empirical papers (data, identification, results with magnitudes, robustness). Motivation comes from the economics, not a literature gap. A new tables rule says to keep only the needed rows and columns, copy the numbers exactly, highlight the main coefficient, name the table and columns in the source line, and put the full table in Backup. Decks have no `\pause` or overlays by default.
+- **Fixed:** the slides template's example titles now follow the short-title rule ("Research Question", "Core Mechanism"). The stale `econ-teaching` link edition was regenerated.
+- Prompted by a comparison with public Beamer agent skills and economics talk advice. 60 tests pass and the template compiles. Not yet tried on a real deck.
+- Details: [2026-11-15 — Slides empirical order and tables](logs/2026-11-15-slides-empirical-order-and-tables.md).
+
 ### Econ Teaching — Slides: short one-line titles
 
 - **Changed:** `references/slides.md` item 3 replaces "assertion titles" (a full-sentence claim per slide) with short titles that fit one line (about 60 characters); the claim and number go in a bold first line or first bullet. Preview, main-result and takeaway slides may keep a sentence title if it fits on one line.

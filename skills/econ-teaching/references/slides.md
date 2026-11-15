@@ -37,7 +37,11 @@ When the user asks to revise or "recheck" a deck:
 1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Backup. If the user did not say, use the default and state it in the handover; do not stop to ask.
 2. **One takeaway sentence**, written before any slide.
 3. **Short titles.** Each title fits on one line (about 60 characters), as short as the slide allows. It names the content with the key term ("Counterfactual Results", "Marginal Automation Boost: Mostly Better Machines"), not a bare "Results". Put the claim and its number in a bold first line or the first bullet. Preview, main-result and takeaway slides may use a full-sentence title if it still fits on one line. If a title wraps to two lines, shorten it.
-4. **Default order for someone else's paper:** question and motivation; what the paper does, in the authors' terms; preview of the main result; setup; the core mechanism (one equation, its intuition, one figure); main results with magnitudes; extensions, briefly; Takeaways; Discussion questions; Backup. Adjust to the purpose.
+4. **Default order for someone else's paper:** question and motivation (from the economics, not from a gap in the literature); what the paper does, in the authors' terms; preview of the main result; then by paper type:
+   - *theory or quantitative model:* setup; the core mechanism (one equation, its intuition, one figure); main results with magnitudes;
+   - *empirical:* data; identification (the source of variation and the assumption it needs, in the paper's words); main results with magnitudes; robustness, briefly;
+
+   then extensions, briefly; Takeaways; Discussion questions; Backup. Adjust to the purpose.
 5. **Spend the time on the core.** Give the central mechanism several slides; compress secondary sections (applications, side arguments) to one slide each or move them to Backup. Covering every section of the paper is not the goal.
 
 ## Each slide
@@ -45,6 +49,7 @@ When the user asks to revise or "recheck" a deck:
 - **Text:** at most 3–4 bullets, each about one line. No paragraphs. If a slide needs a paragraph, split it.
 - **Math:** at most two displayed equations. Define every symbol on the slide where it first appears. Use `\alert{}` for the term being discussed. Multi-step derivations go to Backup.
 - **Figures:** use an original figure only if it was actually inspected (open the PDF page as an image; crop the figure from the page rather than redrawing it), and credit it ("Source: Jones (2026), Figure 2"). A figure recomputed from the paper's formula says so in its source line ("Computed from Jones (2026), p. 10"), in one line, not a disclaimer. Every figure carries a one-sentence message. Cropped figures go in a folder beside the deck and are cited by relative path in `\includegraphics` (no `\graphicspath`); load `graphicx` and credit them as reproduced.
+- **Tables:** show only the rows and columns the argument needs (usually the main coefficient, its standard error and N), with the paper's variable names and the numbers copied exactly; `\alert{}` the main coefficient and state in the first line what it means in units. Prefer the paper's figure for the same result if it has one. The source line names the table and the columns kept ("Source: Jones (2026), Table 3, cols. 1–2"); the full table goes to Backup.
 - **Numbers:** only numbers that appear in the paper or are computed from it; each must be traceable in the handover.
 
 ## Literature and assessment
@@ -55,6 +60,7 @@ When the user asks to revise or "recheck" a deck:
 ## Format and checks
 
 - Default: Beamer, 16:9, from the [slides template](../templates/simple-slides.tex), delivered as `.tex` and compiled `.pdf` under [TeX/PDF Outputs](latex-outputs.md). For Chinese, use `ctexbeamer` with XeLaTeX and keep technical terms in English. A requested `.pptx` follows the same content rules.
+- No `\pause` or overlays by default, so the PDF has one page per slide; use them only on request.
 - Speaker notes or a handout version only on request.
 - Before delivering, run the [bundle checker](../scripts/check_tex_bundle.py) with `--compile` on the `.tex`; it fails on a missing figure or on `\graphicspath`. List the output folder and confirm every file the handover names exists. Do not name a PDF that was not produced ([TeX/PDF Outputs](latex-outputs.md)).
 - Before delivering: the deck compiles with no overfull boxes; look at every rendered page for overflow and small type; if pages cannot be rendered (no PDF renderer in the environment), say in the handover which pages were not viewed; the slide count fits the time; every number and figure is traceable in the handover; none of the never-on-a-slide items above appears. Search the `.tex` for "my ", "Paper states" and "Derived" and read the compiled slides for first person; a stated length or timing from the user overrides the default slide count, and the handover says so.
