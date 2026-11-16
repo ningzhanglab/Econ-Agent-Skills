@@ -10,6 +10,13 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: shared block titles
+
+- **Changed:** `references/slides.md` no longer gives every slide its own point title. Consecutive slides on one topic share one block title in one consistent style; each slide's specific point is said by the presenter and kept in the speaker notes when requested. Propositions, Definitions and Assumptions are named in a bold lead-in line on their slide instead of in the title. Appendix slides keep their own "Appendix:" titles. Sections are marked with plain `\section{...}` and named in the footer, matching the Outline. The flow check reads the block titles in order instead of every title.
+- **Changed:** `templates/simple-slides.tex` shows a section footer, two slides under one block title and a Proposition lead-in.
+- Requested by the user: on a one-hour deck, a different title on every slide, then sixty point titles in varied styles, made the audience lose track. Applied to that deck first: 13 block titles for 60 main slides.
+- Details: [2026-11-15 — Slides: shared block titles](logs/2026-11-15-slides-block-titles.md).
+
 ### Econ Teaching — Slides: short paragraphs allowed
 
 - **Changed:** `references/slides.md` now allows a short paragraph of two or three sentences on a slide where prose carries the point better than bullets (an intuition, an analogy, a figure's message). Long paragraphs are still out.

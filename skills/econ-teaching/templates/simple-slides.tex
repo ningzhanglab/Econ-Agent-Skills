@@ -5,7 +5,11 @@
 % Add \usepackage{graphicx} or pgfplots only when the deck includes figures; call figures by relative path, e.g. \includegraphics[width=\linewidth]{figures/fig1.png} (no \graphicspath).
 
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]
+% Footer: section name on the left (same names as the Outline), page number on the right.
+\setbeamertemplate{footline}{%
+  \usebeamerfont{footline}\usebeamercolor[fg]{footline}%
+  \hspace*{1em}\insertsectionhead\hfill\insertframenumber\,/\,\inserttotalframenumber\hspace*{1em}%
+  \vspace*{0.7em}}
 
 \title{Paper Title}
 \subtitle{Author (Year), Journal}
@@ -18,7 +22,10 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Research Question}
+% \section only names the part for the footer; it creates no divider slide.
+\section{Introduction}
+
+\begin{frame}{Introduction}
   \begin{itemize}
     \item The question the paper asks
     \item Why it matters
@@ -26,16 +33,29 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[label=m-core]{Core Mechanism}
+\section{Model}
+
+% Consecutive slides on one topic share one block title.
+\begin{frame}[label=m-core]{The Model}
+  \textbf{Proposition 1.} The paper's statement of the result, in its own words:
   \[
     \alert{Y} = F(X_1, X_2)
   \]
   \begin{itemize}
     \item Define each symbol where it first appears
-    \item One sentence of intuition
+    \item Why the result holds
   \end{itemize}
   \vfill\hfill\hyperlink{a-derivation}{\beamergotobutton{Appendix: derivation}}
 \end{frame}
+
+\begin{frame}{The Model}
+  \begin{itemize}
+    \item The next step of the same part, under the same title
+    \item One sentence of intuition
+  \end{itemize}
+\end{frame}
+
+\section{Conclusion}
 
 \begin{frame}{Conclusion}
   \begin{itemize}
@@ -44,6 +64,7 @@
 \end{frame}
 
 \appendix
+\section{Appendix}
 
 \begin{frame}[label=a-derivation]{Appendix: derivation}
   Secondary derivations and long algebra go here; steps of the core argument stay in the main slides.
