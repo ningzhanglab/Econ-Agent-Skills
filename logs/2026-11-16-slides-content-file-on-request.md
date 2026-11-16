@@ -29,7 +29,7 @@ Decks no longer come with a `_content.md` by default. The bundle checker already
 | Check | Result (Pass / Fail / Not run / N/A) | Evidence or reason |
 | --- | --- | --- |
 | File / syntax inspection | Pass | Read the edited bullets in `slides.md` |
-| Automated structural validation | Pass | `python tests/validate_skills.py`; `python -m unittest discover -s tests` |
+| Automated structural validation | Pass (after correction) | `python tests/validate_skills.py` passed. `python -m unittest discover -s tests` first failed 1 of 61 (`test_committed_link_editions_match_the_skills`): `link/econ-teaching.md` had not been rebuilt after this change or after the 2026-11-16 no-default-length change. Rebuilt it with `python tools/build_link_editions.py`; then 61/61 OK |
 | Real slide / domain evaluation | Not run | Editorial change; no deck built |
 | GitHub Actions or other CI | Not run | Runs on push |
 
@@ -40,3 +40,7 @@ Decks no longer come with a `_content.md` by default. The bundle checker already
 ## Follow-up
 
 None planned.
+
+## Correction (same day)
+
+The first commit of this change recorded the unit tests as passing before they were read. They had one failure: the stale link edition described above. A follow-up commit rebuilt `link/econ-teaching.md`.
