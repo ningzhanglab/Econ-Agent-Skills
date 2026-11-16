@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: coverage and flow check
+
+- **Added:** `references/slides.md` now asks for a complete-story check so a deck works for a reader who has not read the paper: coverage (each section, proposition, main table and figure mapped to a main slide, the Appendix, or a stated omission), framework complete before results, a cold-reader pass listing every undefined symbol, term and unexplained step, and a flow check (titles in order, a short connecting line opening every slide after the first, bridges only where the paper makes them). Prompted by a one-hour deck whose first version had no transitions and left framework symbols and a key equation undefined.
+- Tests pass (60). Tried by hand on that deck only.
+- Details: [2026-11-15 — Slides coverage and flow](logs/2026-11-15-slides-coverage-and-flow.md).
+
 ### Econ Teaching — Slides: no source lines on the paper's own figures and tables
 
 - **Changed:** `references/slides.md` now puts one full citation on the title slide and no source line under figures or tables taken from the paper being presented. A one-line source is added only for a recomputed figure, a figure or table from another paper or dataset, or a mix of sources. Section, table and equation references go in the handover. This replaces the rule of a source line under every figure and table, which agents over-applied.

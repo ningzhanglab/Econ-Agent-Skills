@@ -38,7 +38,7 @@ When the user asks to revise or "recheck" a deck:
 2. **One takeaway sentence**, written before any slide.
 3. **Short titles.** Each title fits on one line (about 60 characters), as short as the slide allows. It names the content with the key term ("Counterfactual Results", "Marginal Automation Boost: Mostly Better Machines"), not a bare "Results". Put the claim and its number in a bold first line or the first bullet. Preview, main-result and takeaway slides may use a full-sentence title if it still fits on one line. If a title wraps to two lines, shorten it.
 4. **Order: follow the source.** The body follows the paper's own section order (or the lecture's). The question, contribution and preview come from the paper's introduction; if the introduction does not state the main result, add a one-line preview that cites the section where it appears. The deck ends with a Conclusion (or Takeaways) slide and then the Appendix. There is no Discussion slide unless the user asks for one. Do not reorder sections; if the purpose needs another order (for example a class that teaches a special case before the paper's general model), say what was moved and why in the handover.
-5. **Spend the time on the core.** Give the central mechanism several slides; compress secondary sections (applications, side arguments) to one slide each or move them to Appendix. Covering every section of the paper is not the goal.
+5. **Spend the time on the core.** Give the central mechanism several slides; compress secondary sections (applications, side arguments) to one slide each or move them to Appendix. Every section still appears somewhere (a compressed slide or the Appendix); a section left out entirely is named in the handover with the reason.
 
 ## Each slide
 
@@ -54,6 +54,12 @@ When the user asks to revise or "recheck" a deck:
 - A Discussion slide, only on request, judges the paper on its own terms (which assumption drives the result, which numbers are chosen rather than estimated) and are best phrased as questions for the audience.
 
 ## Format and checks
+
+- **Complete story, checked before the format checks.** The deck must work for someone who has not read the paper.
+  1. **Coverage.** Write the paper's section list (with its propositions, main tables and figures) next to the slides, and show in the handover where each went: main slide, Appendix, or left out with the reason.
+  2. **Framework complete before results.** Before the first result the deck has stated the model or setup, what agents or the estimator do (the decision rule, equilibrium condition or identification step), the objects the results use, and which of them are observed and which are inferred. A result slide says what is measured, how, and what it answers.
+  3. **Cold-reader pass.** Read only the slides, in order, as a reader who has not seen the paper. List every symbol, acronym, data source, term and number whose meaning is not given by that slide or an earlier one; each becomes a definition on that slide (a short gloss, not a section). Also list every step of the argument that is asserted without its reason.
+  4. **Flow.** Read the titles in order: question, setup, measurement or identification, results, mechanism or counterfactual, conclusion, with no gap. Every slide after the first opens with a short connecting line (one sentence, or the first bullet) that says how it follows from the one before or why it comes next: "Given this, ...", "To test it, ...", "Yet ...", or the paper's own transition. A slide that starts cold, with a bare equation or table, gets one; a slide whose bold first line is already its claim needs none. At a section boundary in a long talk, use a one-line bridge or a short bridge slide from the paper's own roadmap or transition; never invent one. A missing link becomes a slide or a first line, not a note.
 
 - Default: Beamer, 16:9, from the [slides template](../templates/simple-slides.tex), delivered as `.tex` and compiled `.pdf` under [TeX/PDF Outputs](latex-outputs.md). For Chinese, use `ctexbeamer` with XeLaTeX and keep technical terms in English. A requested `.pptx` follows the same content rules.
 - No `\pause` or overlays by default, so the PDF has one page per slide; use them only on request.
