@@ -1,0 +1,39 @@
+# Figures: Source Plots, New Diagrams and Computed Plots
+
+## Visual-first when it helps
+
+Mathematics, economic intuition and diagrams are complementary teaching tools. Do not require prose or equations to fail before considering a figure. Proactively ask whether visualizing the mechanism would help; there is no figure minimum or maximum. Create a new chart only when it adds pedagogical value, not decorative variety.
+
+- **Short algebra or notation repair:** usually answer directly; a diagram may distract.
+- **Constraints, intertemporal trade-offs, corner solutions, policy and value functions, comparative statics, welfare, market clearing:** consider a correctly annotated graph or qualitative schematic.
+- **Dynamic systems, transition paths, identification, algorithmic workflows:** consider a phase diagram, timeline or process diagram.
+- **Numerical methods and approximation:** compare policy or value curves, interpolation, convergence or error, when genuine model output or an analytically justified illustration is available. Do not invent computed output.
+- **Original Slide figures:** reuse every figure that helps learning, without a count limit, provided the figure itself was inspected. A TeX image reference alone is not visual evidence.
+
+Whenever a figure is used, connect its axes or arrows to the nearby equation and to an economic implication. Distinguish a shift from a movement along a curve, and partial from general equilibrium when relevant.
+
+## Read a source figure
+
+Slides can put essential assumptions into plots, handwritten arrows, legends, panels or layout. For a graph identify:
+
+- axis variables, units, scale, and whether quantities are levels, logs, rates or deviations;
+- the equilibrium intersection, feasible set, dynamics, and curve shifts versus movements along a curve;
+- whether a line is a theoretical relationship, an estimated fit, a histogram, a projection or an annotation;
+- what is observed versus what is inferred from the model.
+
+For tables, preserve labels, sample definitions, units, signs, significance conventions and reported uncertainty. Never invent unreadable tick marks or values. Preserve inspected axes, symbols, curve labels, timing and comparative-static direction, and distinguish what the image shows from a separate economic inference.
+
+## Recover a source figure
+
+1. Inspect the original image files when accessible. In TeX sources, inspect the referenced `\includegraphics` assets, nested inputs and the actual course folder.
+2. If a referenced image is unavailable, check the corresponding rendered lecture handout PDF page; presenter PDFs may differ. Do not infer page numbers from TeX frame indices.
+3. When a reusable record helps (a whole lecture, a Handbook, course onboarding), list the figures in a source-grounded [Figure Index](../templates/figure-index.md); a focused question does not need one. The optional [figure inventory helper](../scripts/inventory_tex_figures.py) finds static references but cannot see image content.
+4. If the original asset and the rendered PDF are both inaccessible, record the figure as not viewed or blocked. A new independent schematic may still be used to teach the model, but it must not pretend to reproduce the unseen source plot.
+
+## Label generated visuals correctly
+
+- **Original lecture figure:** name the verified source slide, image ID or page, and describe only inspected content.
+- **Independent analytical schematic:** state the model assumptions and mark it as an independent illustration, not an original figure. Qualitative sketches may be not to scale.
+- **Computed or simulated plot:** use actual generated or verified data and source-linked parameters, and disclose assumptions, numerical method and error information. Never draw arbitrary curves and call them solver output.
+
+In a requested file, figure packages and paths follow [Deliver a file](../tasks/deliver-file.md).

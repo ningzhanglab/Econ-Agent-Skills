@@ -8,7 +8,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "skills" / "econ-teaching" / "scripts" / "read_docx_math.py"
+SCRIPT = ROOT / "skills" / "econ-learn" / "scripts" / "read_docx_math.py"
 spec = importlib.util.spec_from_file_location("read_docx_math", SCRIPT)
 reader = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(reader)
@@ -116,14 +116,14 @@ class DocxMathReader(unittest.TestCase):
             self.assertIn("ERROR", result.stderr)
 
     def test_skill_documents_the_reader_and_its_limit(self):
-        fidelity = (ROOT / "skills/econ-teaching/references/slide-fidelity.md").read_text(encoding="utf-8")
+        fidelity = (ROOT / "skills/econ-learn/guides/reading-sources.md").read_text(encoding="utf-8")
         self.assertIn("read_docx_math.py", fidelity)
         self.assertIn("count as unread", fidelity)
-        self.assertIn("read_docx_math.py", (ROOT / "skills/econ-teaching/SKILL.md").read_text(encoding="utf-8"))
+        self.assertIn("read_docx_math.py", (ROOT / "skills/econ-learn/SKILL.md").read_text(encoding="utf-8"))
 
     def test_skill_requires_a_formula_reread_before_delivery(self):
-        fidelity = (ROOT / "skills/econ-teaching/references/slide-fidelity.md").read_text(encoding="utf-8")
-        outputs = (ROOT / "skills/econ-teaching/references/latex-outputs.md").read_text(encoding="utf-8")
+        fidelity = (ROOT / "skills/econ-learn/guides/reading-sources.md").read_text(encoding="utf-8")
+        outputs = (ROOT / "skills/econ-learn/tasks/deliver-file.md").read_text(encoding="utf-8")
         self.assertIn("Re-read every displayed formula against the source before delivering", fidelity)
         self.assertIn("Re-read each displayed formula against its source", outputs)
 

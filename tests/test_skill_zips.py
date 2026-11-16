@@ -46,8 +46,8 @@ class SkillZipTests(unittest.TestCase):
 
     def test_build_is_reproducible(self):
         with tempfile.TemporaryDirectory() as a, tempfile.TemporaryDirectory() as b:
-            first = bz.build_zip(ROOT / "skills" / "econ-teaching", Path(a)).read_bytes()
-            second = bz.build_zip(ROOT / "skills" / "econ-teaching", Path(b)).read_bytes()
+            first = bz.build_zip(ROOT / "skills" / "econ-learn", Path(a)).read_bytes()
+            second = bz.build_zip(ROOT / "skills" / "econ-learn", Path(b)).read_bytes()
             self.assertEqual(first, second)
 
     def test_folder_without_skill_md_is_refused(self):

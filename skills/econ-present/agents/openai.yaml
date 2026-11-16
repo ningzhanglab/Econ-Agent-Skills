@@ -1,0 +1,4 @@
+interface:
+  display_name: "Econ Present"
+  short_description: "Build slide decks that present an economics paper, lecture or model"
+  default_prompt: "Use $econ-present to build slides for this paper. Plan the talk as a story, keep the paper's notation and numbers exactly, and keep process notes off the slides."

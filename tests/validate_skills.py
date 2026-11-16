@@ -24,7 +24,7 @@ OUTSIDE_LINK_RES = (
 # Files that exist only at the root of the source repository. A zipped or
 # installed skill does not have them, so a skill must not send the agent there,
 # even in plain text.
-REPO_ONLY_FILES = ("STORAGE_POLICY.md", "AGENTS.md", "CHANGELOG.md", "DESIGN_V1.md")
+REPO_ONLY_FILES = ("STORAGE_POLICY.md", "AGENTS.md", "CHANGELOG.md", "DESIGN_V1.md", "DESIGN_V2.md")
 
 
 def validate(skill_dir: Path) -> list[str]:

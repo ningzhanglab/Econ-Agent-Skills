@@ -1,0 +1,23 @@
+# Connecting Ideas Across Lectures
+
+A cross-lecture answer needs a real bridge, not a list of similar topics.
+
+## Defaults
+
+- **Scope:** for a narrow question, one strong link and one consequential difference. A course-wide table is optional.
+- **Notation:** each lecture is taught in its own symbols.
+
+## For each link
+
+1. **Shared object.** Identify the same choice, state, equilibrium condition, estimand, technique or mechanism from verified locators in both lectures. Start from this one object and inspect both source ranges.
+2. **What stays fixed and what changes.** Separate economic primitives (preferences, technology, shocks, frictions, information), equilibrium closure (partial or general, market-clearing prices), numerical approach (grid, spline, neural approximation) and econometric identification. Similar Bellman equations do not mean identical models.
+3. **Notation.** Give a qualified mapping only when definitions and timing genuinely match, and say when no valid one-to-one mapping exists.
+4. **Economic meaning.** How the change affects feasibility, prediction, welfare, equilibrium feedback, numerical accuracy or identification. Do not invent empirical or solver findings.
+5. **Evidence level.** Mark each link *explicit in the source*, *derived under stated assumptions* or *provisional teaching analogy*. Reopen the actual Homework statement before naming problem parts.
+6. **Teaching payoff.** Say why seeing the connection helps the current question.
+
+Keep the instructor's chronology separate from inferred prerequisites: do not present a conceptual order as the order the lecturer taught.
+
+*Illustrative only:* the same savings problem might be solved with a finite grid, continuous interpolation or a neural approximation; these change the numerical representation and error diagnostics, not necessarily the household economics. Adding stationary market clearing introduces a new equilibrium-consistency condition, not merely a faster household solver. Verify each actual lecture's assumptions before using this analogy.
+
+Whole-course maps and saved indexes are in [Course](course.md).
