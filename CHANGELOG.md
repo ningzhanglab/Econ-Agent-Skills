@@ -10,6 +10,14 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: a talk, not a summary
+
+- **Changed:** `references/slides.md` now plans a deck as a talk rather than a summary of the paper: the story is sketched slide by slide before any slide is written (one idea per slide, each following from the one before), and how it is told is left to judgment, using or improving the paper's own framing. The core mechanism is built step by step in the main slides and no longer sent to the Appendix; Propositions and Assumptions the results rest on are named on the slides; titles say the point where they can. A deck for a new length is planned again, not grown from an older deck.
+- **Removed:** the rule that every slide opens with a connecting line. The complete-story checks are shorter, and a story that does not hold goes back to the plan instead of being patched slide by slide.
+- **Added:** one outline slide near the start is allowed; no section-divider slides or outline repeated at each section.
+- Prompted by a one-hour deck built with the skill that read as an annotated summary, compared with a clearer deck built without it on the same paper. Tests pass (60). Not yet tried on a new deck.
+- Details: [2026-11-15 — Slides: a talk, not a summary](logs/2026-11-15-slides-talk-not-summary.md).
+
 ### Econ Teaching — Slides: coverage and flow check
 
 - **Added:** `references/slides.md` now asks for a complete-story check so a deck works for a reader who has not read the paper: coverage (each section, proposition, main table and figure mapped to a main slide, the Appendix, or a stated omission), framework complete before results, a cold-reader pass listing every undefined symbol, term and unexplained step, and a flow check (titles in order, a short connecting line opening every slide after the first, bridges only where the paper makes them). Prompted by a one-hour deck whose first version had no transitions and left framework symbols and a key equation undefined.

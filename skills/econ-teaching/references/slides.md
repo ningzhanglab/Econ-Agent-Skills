@@ -15,7 +15,9 @@ Slides are what the presenter shows to an audience, not a study document. The te
 | Your own derivations, in **Appendix** slides | Anything left unverified |
 | Your judgment, only if the user asks, as a **Discussion** slide | |
 
-Never put these on a slide: notes about how the paper was read or extracted, a source line under a figure or table taken from the paper being presented, or on a text-only slide (section, table and equation references go in the handover), per-bullet labels such as "Paper states", "Derived (my check)" or "Caveat (paper)", page tags on every bullet, intuition checks written for the student, reading-order advice, "reusable lesson" lines, long disclaimers, or first person ("my judgment").
+Never put these on a slide: notes about how the paper was read or extracted, a source line under a figure or table taken from the paper being presented, or on a text-only slide (section numbers, page numbers and table numbers go in the handover), per-bullet labels such as "Paper states", "Derived (my check)" or "Caveat (paper)", page tags on every bullet, intuition checks written for the student, reading-order advice, "reusable lesson" lines, long disclaimers, or first person ("my judgment").
+
+The paper's Propositions and Assumptions, named by their number, and the intuition or analogy that makes a step understandable are part of the argument and belong on the slides.
 
 Labels are not lost, they are placed: an Appendix slide title already says the content is supplementary, a Discussion slide (on request) already says it is judgment, and a source line on a figure says it is recomputed or from another source.
 
@@ -25,27 +27,33 @@ A deck depends on the whole paper, so apply the [source-given-as-a-link rule](sl
 
 ## Revising an existing deck
 
-When the user asks to revise or "recheck" a deck:
+A deck for a different length or audience is a new deck: plan it again from [Plan the story first](#plan-the-story-first) and reuse slides where they fit. Do not grow or cut an existing deck slide by slide to reach a new length.
+
+When the user asks to revise or "recheck" a deck of the same length:
 
 1. Keep a copy of the old `.tex` before editing, and keep its filename for the new one.
 2. Re-verify against the current source first (version and date, as above). A deck built from an older version needs its numbers, equation numbers and page references reissued, not patched one by one.
-3. Add what was missed to **Appendix** first. Move it into the main sequence only if it carries the argument, and recheck that the slide count still fits the time.
+3. A missed item that carries the argument goes into the main sequence at the point where the story needs it; anything else goes to **Appendix**. Recheck that the slide count still fits the time.
 4. In the handover, list what changed and why (for example a table of old versus new numbers), so the user can see what to re-check.
 
 ## Plan the story first
 
-1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Appendix. If the user did not say, use the default and state it in the handover; do not stop to ask.
+A deck is a talk, not a summary of the paper. A summary lists what the paper contains; a talk takes the listener from the question to the answer, each slide following from the one before. How to tell the story is a matter of judgment, not a fixed pattern: use the paper's own framing and wording, or improve on them.
+
+1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Appendix. For a longer talk, about one main slide per 1–1.5 minutes. If the user did not say, use the default and state it in the handover; do not stop to ask.
 2. **One takeaway sentence**, written before any slide.
-3. **Short titles.** Each title fits on one line (about 60 characters), as short as the slide allows. It names the content with the key term ("Counterfactual Results", "Marginal Automation Boost: Mostly Better Machines"), not a bare "Results". Put the claim and its number in a bold first line or the first bullet. Preview, main-result and takeaway slides may use a full-sentence title if it still fits on one line. If a title wraps to two lines, shorten it.
-4. **Order: follow the source.** The body follows the paper's own section order (or the lecture's). The question, contribution and preview come from the paper's introduction; if the introduction does not state the main result, add a one-line preview that cites the section where it appears. The deck ends with a Conclusion (or Takeaways) slide and then the Appendix. There is no Discussion slide unless the user asks for one. Do not reorder sections; if the purpose needs another order (for example a class that teaches a special case before the paper's general model), say what was moved and why in the handover.
-5. **Spend the time on the core.** Give the central mechanism several slides; compress secondary sections (applications, side arguments) to one slide each or move them to Appendix. Every section still appears somewhere (a compressed slide or the Appendix); a section left out entirely is named in the handover with the reason.
+3. **Sketch the story before writing slides.** List the main slides, one line each: what the slide establishes and why the listener needs it at that point. One idea per slide. If a slide does not follow from the one before, change the order or add a slide; a connecting sentence does not repair it.
+4. **Order: follow the source.** The body follows the paper's own section order (or the lecture's). The deck ends with a Conclusion (or Takeaways) slide and then the Appendix. There is no Discussion slide unless the user asks for one. Do not reorder sections; if the purpose needs another order (for example a class that teaches a special case before the paper's general model), say what was moved and why in the handover.
+5. **Give the core the space.** Build the central mechanism step by step in the main slides, including the Propositions that carry the argument and the reason each holds; do not compress it onto one slide or move it to the Appendix. Compress secondary sections to one slide each or move them to Appendix. Every section still appears somewhere; a section left out entirely is named in the handover with the reason.
+6. **Titles.** One line (about 60 characters). Prefer a title that says the slide's point or question ("Switching Itself Adds Zero") to a topic label ("Results"); a slide that states a Proposition names it in the title.
+7. **Outline.** One outline slide near the start is fine. No section-divider slides and no outline repeated at each section (no `\AtBeginSection`).
 
 ## Each slide
 
-- **Text:** at most 3–4 bullets, each about one line. No paragraphs. If a slide needs a paragraph, split it.
-- **Math:** at most two displayed equations. Define every symbol on the slide where it first appears. Use `\alert{}` for the term being discussed. Multi-step derivations go to Appendix.
+- **Text:** at most 3–4 bullets, each a complete thought of about one line. No paragraphs. If a slide needs more, split it.
+- **Math:** at most two displayed equations. Define every symbol on the slide where it first appears, in a plain sentence or by naming the term on the equation (`\underbrace`), not in a list of definitions joined by semicolons. Use `\alert{}` for the term being discussed. Secondary derivations and long algebra go to Appendix; the steps of the core argument stay in the main slides.
 - **Figures:** use an original figure only if it was actually inspected (open the PDF page as an image; crop the figure from the page rather than redrawing it), and leave it without a source line when the talk is about that one paper: the title slide already names it. Add a one-line source only when the figure is recomputed from the paper's formula ("Computed from Jones (2026), p. 10"), comes from another paper or dataset, or is mixed with figures from other sources; one line for a pair of figures is enough. Every figure carries a one-sentence message. Cropped figures go in a folder beside the deck and are cited by relative path in `\includegraphics` (no `\graphicspath`); load `graphicx`.
-- **Tables:** show only the rows and columns the argument needs (usually the main coefficient, its standard error and N), with the paper's variable names and the numbers copied exactly; `\alert{}` the main coefficient and state in the first line what it means in units, in the paper's own interpretation or computed from the table and traced in the handover. Prefer the paper's figure for the same result if it has one. No source line for the paper's own table; if only some rows or columns are kept, the full table goes to Appendix. A table built from other sources gets a one-line source.
+- **Tables:** show only the rows and columns the argument needs (usually the main coefficient, its standard error and N), with the paper's variable names and the numbers copied exactly; `\alert{}` the main coefficient and state in the first line what it means in units, in the paper's own interpretation or computed from the table and traced in the handover. Prefer the paper's figure for the same result if it has one. No source line for the paper's own table; if only some rows or columns are kept, the full table goes to Appendix only when it is likely to be asked about. A table built from other sources gets a one-line source.
 - **Numbers:** only numbers that appear in the paper or are computed from it; each must be traceable in the handover.
 
 ## Literature and assessment
@@ -55,11 +63,13 @@ When the user asks to revise or "recheck" a deck:
 
 ## Format and checks
 
-- **Complete story, checked before the format checks.** The deck must work for someone who has not read the paper.
-  1. **Coverage.** Write the paper's section list (with its propositions, main tables and figures) next to the slides, and show in the handover where each went: main slide, Appendix, or left out with the reason.
-  2. **Framework complete before results.** Before the first result the deck has stated the model or setup, what agents or the estimator do (the decision rule, equilibrium condition or identification step), the objects the results use, and which of them are observed and which are inferred. A result slide says what is measured, how, and what it answers.
-  3. **Cold-reader pass.** Read only the slides, in order, as a reader who has not seen the paper. List every symbol, acronym, data source, term and number whose meaning is not given by that slide or an earlier one; each becomes a definition on that slide (a short gloss, not a section). Also list every step of the argument that is asserted without its reason.
-  4. **Flow.** Read the titles in order: question, setup, measurement or identification, results, mechanism or counterfactual, conclusion, with no gap. Every slide after the first opens with a short connecting line (one sentence, or the first bullet) that says how it follows from the one before or why it comes next: "Given this, ...", "To test it, ...", "Yet ...", or the paper's own transition. A slide that starts cold, with a bare equation or table, gets one; a slide whose bold first line is already its claim needs none. At a section boundary in a long talk, use a one-line bridge or a short bridge slide from the paper's own roadmap or transition; never invent one. A missing link becomes a slide or a first line, not a note.
+- **Complete story, checked once the deck is drafted.** Read only the slides, in order, as someone who has not read the paper:
+  1. **Flow.** The titles alone tell the story, and each slide follows from the one before.
+  2. **Skeleton.** Every Proposition and Assumption the results rest on is named on a main slide. The handover shows where each of the paper's sections, main tables and figures went: main slide, Appendix, or left out with the reason.
+  3. **Framework before results.** Before the first result the deck has stated the setup, what agents or the estimator do, the objects the results use, and which are observed and which inferred.
+  4. **Nothing undefined.** Every symbol, acronym, data source and term is explained on its slide or an earlier one, and no step is asserted without its reason.
+
+  A small gap is fixed on its slide. If the story itself does not hold, go back to the sketch and replan that part; do not add text slide by slide.
 
 - Default: Beamer, 16:9, from the [slides template](../templates/simple-slides.tex), delivered as `.tex` and compiled `.pdf` under [TeX/PDF Outputs](latex-outputs.md). For Chinese, use `ctexbeamer` with XeLaTeX and keep technical terms in English. A requested `.pptx` follows the same content rules.
 - No `\pause` or overlays by default, so the PDF has one page per slide; use them only on request.
