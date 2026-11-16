@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-16
 
+### Econ Teaching — Slides: content file and speaker notes only on request
+
+- **Changed:** decks are delivered as `.tex` and `.pdf` only. The `_content.md` file is now made only on request, like speaker notes. The reply may offer them in one line, at most once per conversation.
+- Requested by the user.
+- Details: [2026-11-16 — Slides: content file and speaker notes only on request](logs/2026-11-16-slides-content-file-on-request.md).
+
 ### Econ Teaching — Slides: no default talk length
 
 - **Removed:** the default of a 20-minute talk with 12–15 main slides, and the checks that the slide count fits the time. A deck uses as many slides as telling the story clearly needs; a length the user states is still followed.
