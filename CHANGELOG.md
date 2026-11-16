@@ -6,6 +6,14 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-11-16
+
+### Econ Teaching — Slides: no default talk length
+
+- **Removed:** the default of a 20-minute talk with 12–15 main slides, and the checks that the slide count fits the time. A deck uses as many slides as telling the story clearly needs; a length the user states is still followed.
+- Requested by the user.
+- Details: [2026-11-16 — Slides: no default talk length](logs/2026-11-16-slides-no-default-length.md).
+
 ## 2026-11-15
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
