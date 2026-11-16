@@ -10,6 +10,13 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: checker compares the content file with the frames
+
+- **Added:** `scripts/check_tex_bundle.py` now checks a Beamer deck's `_content.md`, when one exists beside it: the sections are numbered 1..n, there is one per frame, and the titles agree in order (math, TeX commands, punctuation and case ignored). Body text is not compared. A deck with overlays, section frames or nested inputs is skipped with a note. This matters because edits are applied back to the `.tex` by slide number.
+- **Changed:** `references/slides.md` says the content file writes the deck's own macros out in standard LaTeX, and names the check.
+- Tests pass (61, one new). On a real 56-frame deck the check passed once the content file was aligned, and flagged the user's hand-edited copy, which had a duplicated section.
+- Details: [2026-11-15 — Slides content file check](logs/2026-11-15-slides-content-file-check.md).
+
 ### Econ Teaching — Slides: matching content Markdown
 
 - **Added:** `references/slides.md` now asks for a `_content.md` file beside every deck: one section per slide, numbered as in the compiled PDF, with the same text as the `.tex`, math in LaTeX, tables as Markdown tables and figures as image links. The user revises wording there; edits are applied back to the `.tex`, which is recompiled and the file regenerated. Requested by the user, who had been editing such a file by hand.

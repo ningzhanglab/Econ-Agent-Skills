@@ -264,6 +264,39 @@ class CourseContracts(unittest.TestCase):
             self.assertEqual(bundle.validate(dest, compile_requested=True), [])
 
 
+    def test_slides_content_file_matches_frames(self):
+        deck = (
+            "\\documentclass{beamer}\n\\begin{document}\n"
+            "\\begin{frame}\n  \\titlepage\n\\end{frame}\n"
+            "\\begin{frame}{Is a Better Computer $A_t$ or $B_t$?}\n  text\n\\end{frame}\n"
+            "% \\begin{frame}{Commented Out}\n"
+            "\\begin{frame}[t]{Freezing Removes 91\\% of the Boost}\n  text\n\\end{frame}\n"
+            "\\end{document}\n"
+        )
+        good = (
+            "## Slide 1: Title\n\ntext\n\n"
+            "## Slide 2: Is a Better Computer $A_t$ or $B_t$?\n\ntext\n\n"
+            "## Slide 3: Freezing Removes 91% of the Boost\n\ntext\n"
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            tex = Path(tmp) / "deck.tex"
+            tex.write_text(deck, encoding="utf-8")
+            content = Path(tmp) / "deck_content.md"
+            self.assertEqual(bundle.content_file_problems(tex), [])  # no content file: nothing to check
+            content.write_text(good, encoding="utf-8")
+            self.assertEqual(bundle.content_file_problems(tex), [])
+            content.write_text(good.replace("## Slide 3", "## Slide 4"), encoding="utf-8")
+            self.assertTrue(any("not numbered" in x for x in bundle.content_file_problems(tex)))
+            content.write_text(good + "\n## Slide 4: Extra\n", encoding="utf-8")
+            self.assertTrue(any("4 slide sections" in x for x in bundle.content_file_problems(tex)))
+            content.write_text(good.replace("Freezing Removes", "Robustness of"), encoding="utf-8")
+            self.assertTrue(any("Slide 3 is titled" in x for x in bundle.content_file_problems(tex)))
+            tex.write_text(deck.replace("  text", "  text\\pause", 1), encoding="utf-8")
+            content.write_text(good + "\n## Slide 4: Extra\n", encoding="utf-8")
+            self.assertEqual(bundle.content_file_problems(tex), [])  # overlays: not countable, skipped
+        doc = (SKILL / "references/slides.md").read_text(encoding="utf-8")
+        self.assertIn("_content.md", doc)
+
     def test_slides_keep_process_notes_off_the_deck(self):
         doc = (SKILL / "references/slides.md").read_text(encoding="utf-8")
         self.assertIn("The deck is for the audience; the handover is for the user", doc)
