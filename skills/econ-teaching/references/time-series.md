@@ -1,20 +1,19 @@
 # Time Series — Specialist Reasoning Lens
 
-This is an **optional domain reference**, not a fixed teaching script. Use it only when a Time Series question benefits from domain-specific reasoning. It applies to statistics and econometrics; do not force economic or causal interpretations onto a statistical result.
+This is an optional domain reference, not a fixed teaching script. Use it only when a Time Series question benefits from domain-specific reasoning. It applies to statistics and econometrics; do not force economic or causal interpretations onto a statistical result.
 
 ## Start from the real learning task
 
-Identify what the user is trying to understand: an intuition, one notation sign, a derivation, interpretation of a plot, comparison of models, analysis of software output, an assignment, exam preparation, or a larger lesson. Match the **depth, prerequisites, representation and level of explanation** to the current request and the material actually available.
+Identify what the user is trying to understand: an intuition, one notation sign, a derivation, interpretation of a plot, comparison of models, analysis of software output, an assignment, exam preparation, or a larger lesson. Match the depth, prerequisites, representation and level of explanation to the current request and the material actually available.
 
 - For a narrow technical question, answer directly and justify the decisive step.
-- For a conceptual or multi-step question, motivate the statistical object, define what matters, derive the relevant relationships and interpret the result with a useful example or visual **when it improves understanding**.
+- For a conceptual or multi-step question, motivate the statistical object, define what matters, derive the relevant relationships and interpret the result with a useful example or visual when it improves understanding.
 - For a requested course lesson, keep the instructor's verified sequence while bridging important prerequisites if needed.
-- Do **not** enforce an Intuition → Example → Definition → Derivation → Graph template, assume every student starts from zero, require SAS, or produce a long textbook chapter by default.
-- Do not equate mathematical rigor with excessive length. Mathematical correctness, conceptual clarity and source fidelity matter more than any prescribed format.
+- The order of intuition, example, definition, derivation and graph follows the question, and so do the starting level and the length. Correctness, clarity and source fidelity matter more than any format.
 
 ## Domain-specific reasoning checks
 
-Apply **only the checks relevant to the actual problem**, and retain the source's symbols and conventions.
+Apply only the checks relevant to the actual problem, and retain the source's symbols and conventions.
 
 - **Process versus data:** distinguish a stochastic process, an individual realization, sample estimates and population quantities. Specify what assumptions justify a formula for moments, dependence or uncertainty.
 - **Lag notation and model conventions:** distinguish innovations from observed values, intercepts from unconditional means, and the lag polynomial of an AR component from that of an MA component. Track signs, indices and normalization instead of swapping in another textbook's convention.
@@ -28,7 +27,7 @@ A good explanation should illuminate *why* the property is relevant (e.g. what i
 
 ## Common traps to anticipate
 
-These are general economics, not claims about the lecture. Use them as described in [Teaching Design](teaching-design.md#anticipate-common-traps): restate the point in the Slide's notation and under its assumptions, follow the Slide's sign and timing conventions, and raise only the trap that bears on the current question.
+These are general economics, not claims about the lecture. Use them as [Teaching Design](teaching-design.md#anticipate-common-traps) describes: in the Slide's notation and conventions, and only the trap that bears on the current question.
 
 - **The intercept read as the mean.** In a stationary autoregression with an intercept, the unconditional mean is the intercept divided by one minus the sum of the autoregressive coefficients, under the usual sign convention; check the Slide's convention.
 - **Stationarity and invertibility attached to the wrong polynomial.** Stationarity (causality) depends on the roots of the AR polynomial and invertibility on the roots of the MA polynomial. Whether the condition reads "outside" or "inside" the unit circle depends on whether roots of the lag polynomial or of the characteristic equation are used; follow the Slides.
@@ -40,8 +39,8 @@ These are general economics, not claims about the lecture. Use them as described
 
 ## Sources, examples and assignments
 
-Follow [Slide Fidelity](slide-fidelity.md), [Mathematical Reasoning](mathematical-reasoning.md), and [Visuals and Homework](visuals-and-homework.md). Determine source roles from the **actual course**: verified syllabus/order, authoritative instructor materials, specific assignments and any supplemental notes. Do not infer chronology solely from filenames.
+Follow [Slide Fidelity](slide-fidelity.md), [Mathematical Reasoning](mathematical-reasoning.md), and [Visuals and Homework](visuals-and-homework.md). Determine source roles from the actual course: verified syllabus/order, authoritative instructor materials, specific assignments and any supplemental notes. Do not infer chronology solely from filenames.
 
-Keep the professor's stated result distinct from your derivation, any apparent correction, and a newly constructed example. Original figures require inspection; example figures and computed results need explicit provenance. Respect verified assignment constraints and the user's requested detail. No fixed homework answer length or study-guide structure is imposed by this reference.
+Keep the professor's stated result distinct from your derivation, any apparent correction, and a newly constructed example. Original figures require inspection; example figures and computed results need explicit provenance. Respect verified assignment constraints and the user's requested detail.
 
-**Course-specific Project context is separate from this Skill:** course URLs, previous generated handbooks, a preferred PDF's writing style, individual assignment policies and output-folder names should not become default behavior across courses. Treat prior generated materials as possible learning aids, not as verified authority over original lectures. File creation and private cloud saving remain request-driven under the existing general workflow.
+Materials generated earlier for a course (a handbook, a study guide) are learning aids, not authority over the original lectures, and one course's conventions do not carry over to another.

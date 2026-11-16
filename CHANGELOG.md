@@ -8,6 +8,13 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-16
 
+### Econ Teaching — Prompt tidy after a full review
+
+- **Fixed:** a Figure Index and a lecture-to-homework map were asked for without condition in `visuals-and-homework.md`; both now apply only when a reusable record helps, as the other references already said. One grammar error in `slides.md`.
+- **Changed:** rules repeated across references point to the file that holds them; wording that answered earlier versions of the skill is removed; `SKILL.md` "Scope and boundaries" is a short list; 149 inline bold spans are plain text. One self-referring sentence removed from `econ-research`. Length is nearly unchanged (19,300 to 19,003 words).
+- Requested by the user after a review of all prompts.
+- Details: [2026-11-16 — Econ Teaching: prompt tidy after a full review](logs/2026-11-16-teaching-prompt-tidy.md).
+
 ### Econ Teaching — Slides: content file and speaker notes only on request
 
 - **Changed:** decks are delivered as `.tex` and `.pdf` only. The `_content.md` file is now made only on request, like speaker notes. The reply may offer them in one line, at most once per conversation.

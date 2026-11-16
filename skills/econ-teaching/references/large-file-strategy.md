@@ -1,14 +1,14 @@
 # Large-File and Long-Course Strategy
 
-Goal: support many lectures and large PDFs/TeX/PPT files without false claims of complete reading, notation drift, excessive re-reading or lost visuals. **No context window can be assumed to hold an entire semester.**
+Goal: support many lectures and large PDFs/TeX/PPT files without false claims of complete reading, notation drift, excessive re-reading or lost visuals. No context window can be assumed to hold an entire semester.
 
 ## Start with access and manifest
 
-- Identify the host's real file and page limits, supported formats and retrieval tools **without inventing numerical capacities**.
+- Identify the host's real file and page limits, supported formats and retrieval tools without inventing numerical capacities.
 - Build a source manifest (verified cloud file path/ID and parent folder, type, lecture role, filename, version/date or hash if available, dependencies, parse status).
-- Distinguish **file uploaded**, **text extracted**, **pages viewed**, **figures verified**, **equations checked** and **material understood well enough to teach**; these are not equivalent.
+- Distinguish file uploaded, text extracted, pages viewed, figures verified, equations checked and material understood well enough to teach; these are not equivalent.
 - Detect duplicated lectures, separate notes and appendices, revised versions, solution sets and copied filenames.
-- Classify **lecture variants** (current handout PDF, presenter PDF, TeX source, dated revisions) and verify the selected source role rather than sorting solely by filename or modified timestamp. See [Course State and Sources](course-state-and-sources.md).
+- Classify lecture variants (current handout PDF, presenter PDF, TeX source, dated revisions) and verify the selected source role rather than sorting solely by filename or modified timestamp. See [Course State and Sources](course-state-and-sources.md).
 - After a user-requested course onboarding, consider saving a private machine-readable Course State in `Agent Outputs/` so a later session can check version changes before reusing a map.
 
 ## Progressive three-pass processing
@@ -25,7 +25,7 @@ If a single file is too large or cannot be parsed accurately, use valid chapter/
 
 - Pick sources by topic, lecture IDs, syllabus order and dependency edges; ask which fact the answer depends on before loading more files.
 - Retain a small working set: target pages, neighboring definitions, prerequisite theorem/model and an optional alternate interpretation. Expand only when the question needs it.
-- Do not derive exact formula/figure details from summaries or embeddings; **check the original slide**.
+- Do not derive exact formula/figure details from summaries or embeddings; check the original slide.
 - When only a compressed summary survives, mark its claims preliminary until verified against original material.
 - Track ambiguous definitions, notation collisions and conflicting lecture revisions rather than silently choosing one.
 
@@ -33,7 +33,7 @@ If a single file is too large or cannot be parsed accurately, use valid chapter/
 
 - Text extraction can corrupt primes, fractions, indexing, equations, Greek letters and table layout. Cross-check exact equations against slide images or original LaTeX where possible.
 - LaTeX source may reference external assets: inspect `\input`, `\include`, `\includegraphics`, bibliographies or custom macro files; record missing resources and whether they matter to the requested answer.
-- Figure interpretation requires actually viewing the diagram, its axes, units, curves and legends. A caption alone is **not** verification of the plot.
+- Figure interpretation requires actually viewing the diagram, its axes, units, curves and legends. A caption alone is not verification of the plot.
 - When slides use macro aliases for symbols, resolve definitions before asserting notation; leave unresolved aliases as such.
 
 ## Incremental updates

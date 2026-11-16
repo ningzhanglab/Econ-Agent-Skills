@@ -11,10 +11,16 @@ Slides are what the presenter shows to an audience, not a study document. The te
 | The argument: question, mechanism, results, conclusion | Which version of the paper was read, and whether its equations were read as typeset or rebuilt from text ([Slide Fidelity](slide-fidelity.md#papers-and-screenshots)) |
 | The paper's notation, unchanged | The paper page or section behind each slide |
 | One full citation on the title slide; a page for a direct quotation. No source line on slides that reproduce the paper's own figures or tables (see [Figures](#each-slide)) | Every number computed rather than copied, with the check |
-| Your own derivations, in **Appendix** slides | Reading advice and the reusable lesson, if useful |
-| Your judgment, only if the user asks, as a **Discussion** slide | Anything left unverified |
+| Your own derivations, in Appendix slides | Reading advice and the reusable lesson, if useful |
+| Your judgment, only if the user asks, as a Discussion slide | Anything left unverified |
 
-Never put these on a slide: notes about how the paper was read or extracted, a source line under a figure or table taken from the paper being presented, or on a text-only slide (section numbers, page numbers and table numbers go in the handover), per-bullet labels such as "Paper states", "Derived (my check)" or "Caveat (paper)", page tags on every bullet, intuition checks written for the student, reading-order advice, "reusable lesson" lines, long disclaimers, or first person ("my judgment").
+Never put these on a slide:
+
+- notes about how the paper was read or extracted;
+- a source line on a text-only slide, or under a figure or table taken from the paper being presented (section, page and table numbers go in the handover);
+- per-bullet labels such as "Paper states", "Derived (my check)" or "Caveat (paper)", and page tags on every bullet;
+- material written for the student: intuition checks, reading-order advice, "reusable lesson" lines;
+- long disclaimers, or first person ("my judgment").
 
 The paper's Propositions and Assumptions, named by their number, and the intuition or analogy that makes a step understandable are part of the argument and belong on the slides.
 
@@ -32,7 +38,7 @@ When the user asks to revise or "recheck" a deck of the same length:
 
 1. Keep a copy of the old `.tex` before editing, and keep its filename for the new one.
 2. Re-verify against the current source first (version and date, as above). A deck built from an older version needs its numbers, equation numbers and page references reissued, not patched one by one.
-3. A missed item that carries the argument goes into the main sequence at the point where the story needs it; anything else goes to **Appendix**.
+3. A missed item that carries the argument goes into the main sequence at the point where the story needs it; anything else goes to Appendix.
 4. In the handover, list what changed and why (for example a table of old versus new numbers), so the user can see what to re-check.
 
 ## Plan the story first
@@ -44,7 +50,7 @@ A deck is a talk, not a summary of the paper. A summary lists what the paper con
 3. **Sketch the story before writing slides.** List the main slides, one line each: what the slide establishes and why the listener needs it at that point. One idea per slide. If a slide does not follow from the one before, change the order or add a slide; a connecting sentence does not repair it. At every major section transition, identify what the previous section established, what economic question remains, and why the next section is needed; when the connection is not obvious, add a substantive bridge slide or a spoken transition, using the paper's own transition when it has one.
 4. **Order: follow the source.** The body follows the paper's own section order (or the lecture's). The deck ends with a Conclusion (or Takeaways) slide and then the Appendix. There is no Discussion slide unless the user asks for one. Do not reorder sections; if the purpose needs another order (for example a class that teaches a special case before the paper's general model), say what was moved and why in the handover.
 5. **Give the core the space.** Build the central mechanism step by step in the main slides, including the Propositions that carry the argument and the reason each holds; do not compress it onto one slide or move it to the Appendix. Compress secondary sections to one slide each or move them to Appendix. Every section still appears somewhere; a section left out entirely is named in the handover with the reason.
-6. **Titles.** Consecutive slides on one topic share one title ("The Task Model", "Automation Accounting: Results"), so the audience sees a few block titles rather than a new title on every slide; one line, in one consistent style. Each slide's specific point is said by the presenter, and appears in the speaker notes when they are requested. A slide that states a Proposition, Definition or Assumption names it in a bold lead-in line in the body ("**Proposition 3.** When automation is smooth, switching itself adds zero to TFP growth:"). Appendix slides share the title "Appendix" and carry a subtitle (`\framesubtitle{...}`) saying what each one holds, so a presenter who jumps there from a link sees at once where they are.
+6. **Titles.** Consecutive slides on one topic share one title ("The Task Model", "Automation Accounting: Results"), so the audience sees a few block titles rather than a new title on every slide; one line, in one consistent style. Each slide's specific point is said by the presenter, and appears in the speaker notes when they are requested. A slide that states a Proposition, Definition or Assumption names it in a bold lead-in line in the body ("Proposition 3. When automation is smooth, switching itself adds zero to TFP growth:"). Appendix slides share the title "Appendix" and carry a subtitle (`\framesubtitle{...}`) saying what each one holds, so a presenter who jumps there from a link sees at once where they are.
 7. **Outline.** One outline slide near the start is fine; title it "Outline", not "Roadmap". No section-divider slides and no outline repeated at each section (no `\AtBeginSection`).
 
 ## Each slide
@@ -59,7 +65,7 @@ A deck is a talk, not a summary of the paper. A summary lists what the paper con
 ## Literature and assessment
 
 - A related-literature slide may list only papers the paper itself cites (copied from its reference list) or papers verified with `econ-research`. Otherwise leave the slide out; never list papers, years or journals from memory.
-- A Discussion slide, only on request, judges the paper on its own terms (which assumption drives the result, which numbers are chosen rather than estimated) and are best phrased as questions for the audience.
+- A Discussion slide, only on request, judges the paper on its own terms (which assumption drives the result, which numbers are chosen rather than estimated); its points are best phrased as questions for the audience.
 
 ## Format and checks
 

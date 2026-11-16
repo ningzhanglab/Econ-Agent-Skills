@@ -20,7 +20,7 @@ Use this for advanced choice theory, general equilibrium, games, information eco
 
 ## Common traps to anticipate
 
-These are general economics, not claims about the lecture. Use them as described in [Teaching Design](teaching-design.md#anticipate-common-traps): restate the point in the Slide's notation and under its assumptions, follow the Slide's sign and timing conventions, and raise only the trap that bears on the current question.
+These are general economics, not claims about the lecture. Use them as [Teaching Design](teaching-design.md#anticipate-common-traps) describes: in the Slide's notation and conventions, and only the trap that bears on the current question.
 
 - **First-order conditions treated as the optimum.** They are necessary at interior points under differentiability. Sufficiency needs concavity or quasiconcavity conditions, and corners need KKT conditions; linear and quasilinear preferences can produce corner solutions.
 - **Utility levels interpreted under ordinal preferences.** Any increasing transformation represents the same preferences, so utility levels and differences carry no meaning, while marginal rates of substitution do. Expected utility is unique only up to a positive affine transformation, which is why its curvature measures risk attitude.

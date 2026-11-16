@@ -4,7 +4,7 @@ This file defines hard source-grounding requirements for any answer based on a s
 
 ## Source hierarchy
 
-1. Use the **provided lecture slide** to determine the locally defined model, not a familiar external version.
+1. Use the provided lecture slide to determine the locally defined model, not a familiar external version.
 2. Use adjacent pages or equations to resolve missing definitions where available.
 3. Supplement with standard economics and external research only after correctly separating the lecture's claims from supplementary discussion.
 
@@ -34,7 +34,7 @@ Preserve symbols, including variants that look interchangeable: $c$ versus $C$, 
 
 If another model uses a different symbol, explicitly say something like: "The external source writes $a_t$; on these slides, the corresponding object is $k_t$." Then use the slides' $k_t$ throughout your own ongoing exposition.
 
-If the slides themselves appear inconsistent, **quote or reproduce the displayed expression as-is**, state the suspected issue separately, and explain the implications under both readings where helpful. Do not silently fix a typo.
+If the slides themselves appear inconsistent, quote or reproduce the displayed expression as-is, state the suspected issue separately, and explain the implications under both readings where helpful. Do not silently fix a typo.
 
 **Re-read every displayed formula against the source before delivering.** In a requested file or a long answer, go through the displayed formulas one by one with the source open and compare symbols, indices, signs and limits. A formula written from memory of the standard textbook version is the usual way a silent change gets in: the familiar form replaces what the lecturer wrote. Where the two differ, restore the source's version, or keep the other and say so beside the formula and in the list of suspected errors. This check is for delivered documents and long derivations, not for a one-line answer that quotes a single equation.
 
@@ -47,15 +47,15 @@ Slides can put essential assumptions into plots, handwritten arrows, legends, pa
 - Axis variables, units, scale and whether quantities are levels, logs, rates or deviations.
 - Equilibrium intersection, feasible set, dynamics, curve shifts versus movements along a curve.
 - Whether a visible line is a theoretical relationship, estimated fit, histogram, projection or annotation.
-- What is **observed** versus what is inferred from the model.
+- What is observed versus what is inferred from the model.
 
 For tables, preserve labels, sample definitions, units, signs, significance conventions and reported uncertainty. Never invent unreadable tick marks or values.
 
-If a PDF extraction loses mathematical layout or a figure's content, use page images or screenshots if tools permit. **Word (`.docx`) notes need the same care:** a plain-text export drops every equation. Equations typed in Word's equation editor are stored as Office Math in the file's `word/document.xml` and can be read exactly from there (the optional [Word equation reader](../scripts/read_docx_math.py) does this and counts what it could not read); when a rendered PDF of the same file exists, check a few equations against it. Older embedded equation objects and pasted plots are images (often WMF) and count as unread until they are actually viewed. If reliable inspection is unavailable, state the limitation and avoid falsely precise readings. **When the answer depends on the unreadable part, name the page and ask the student for a screenshot of that one page** (not the whole deck), and meanwhile teach what is verified. A Word file has no fixed page numbers, so name the section heading instead of a page. Once the screenshot arrives, read the symbols, axes and labels from it and treat it as the source for that page.
+If a PDF extraction loses mathematical layout or a figure's content, use page images or screenshots if tools permit. Word (`.docx`) notes need the same care: a plain-text export drops every equation. Equations typed in Word's equation editor are stored as Office Math in the file's `word/document.xml` and can be read exactly from there (the optional [Word equation reader](../scripts/read_docx_math.py) does this and counts what it could not read); when a rendered PDF of the same file exists, check a few equations against it. Older embedded equation objects and pasted plots are images (often WMF) and count as unread until they are actually viewed. If reliable inspection is unavailable, state the limitation and avoid falsely precise readings. When the answer depends on the unreadable part, name the page and ask the student for a screenshot of that one page (not the whole deck), and meanwhile teach what is verified. A Word file has no fixed page numbers, so name the section heading instead of a page. Once the screenshot arrives, read the symbols, axes and labels from it and treat it as the source for that page.
 
 ## Papers and screenshots
 
-The rules above hold for a research paper or a screenshot from a book, paper or website: its notation, timing and assumptions are the local model, and the labels become **Paper states** (or **Screenshot shows**), **Derived from it** and **Additional perspective**. When a lecture and a paper are both in use, the source the student is asking about sets the notation; the other is additional perspective.
+The rules above hold for a research paper or a screenshot from a book, paper or website: its notation, timing and assumptions are the local model, and the labels become Paper states (or Screenshot shows), Derived from it and Additional perspective. When a lecture and a paper are both in use, the source the student is asking about sets the notation; the other is additional perspective.
 
 - **Paper:** cite the section, equation number and PDF page, and say which version was read (working paper or published), because equations and numbers can change between versions.
 - **Equations not seen in the source:** if the paper was read only as fetched or extracted text, or its equations could not be read as typeset, say so before the first equation, not at the end, and mark any equation rebuilt from the text as reconstructed.
@@ -64,6 +64,6 @@ The rules above hold for a research paper or a screenshot from a book, paper or 
 
 ## Source references
 
-Cite the lecture page/slide number where it is actually available. Do not guess numbering from file order. **When the content was read from TeX, take every cited page number from the rendered PDF, not from counting frames in the source:** the title page, `\maketitle`, overlays and appendix frames all shift the count. Before finishing, check each cited number against the PDF page it names; if no rendered PDF is available, cite the frame title instead of a number. If an external model or paper is discussed, make clear it is external, and do not fabricate an exact citation or finding.
+Cite the lecture page/slide number where it is actually available. Do not guess numbering from file order. When the content was read from TeX, take every cited page number from the rendered PDF, not from counting frames in the source: the title page, `\maketitle`, overlays and appendix frames all shift the count. Before finishing, check each cited number against the PDF page it names; if no rendered PDF is available, cite the frame title instead of a number. If an external model or paper is discussed, make clear it is external, and do not fabricate an exact citation or finding.
 
 When the user asks about "slide 12" without supplying the slide, explain the general principle only if useful, and say that an exact notation-preserving explanation requires the page.

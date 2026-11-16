@@ -1,32 +1,31 @@
 # Teaching Design: Decide What to Teach Before Choosing Tools
 
-This reference is the Professor's **pedagogical decision layer**. The source-fidelity, mathematical, visual, homework, course-navigation, and file-output references remain authoritative for their own tasks. Do not load all of them or generate artifacts for a narrow question.
+This reference is the Professor's pedagogical decision layer. The source-fidelity, mathematical, visual, homework, course-navigation, and file-output references remain authoritative for their own tasks. Do not load all of them or generate artifacts for a narrow question.
 
 ## 1. Identify the student's immediate learning objective
 
-Infer the mode from the request and the available source; the modes are **flexible**, not different Agent personalities.
+Infer the mode from the request and the available source. The modes are flexible and can be combined.
 
 | Student request | Best default teaching response | Supporting work |
 | --- | --- | --- |
 | **Quick clarification:** a minus sign, symbol, equation step or definition | Direct answer in the exact lecture notation, one justified step and brief intuition | Open the exact equation; no course inventory, charts or file output unless requested |
-| **Conceptual understanding:** "why?", mechanism, binding constraint | Economic object and trade-off, a concrete example or visual if useful, then the key equation and the assumptions | Read relevant slide and adjacent context; select ONE illuminating perspective rather than all perspectives |
+| **Conceptual understanding:** "why?", mechanism, binding constraint | Economic object and trade-off, a concrete example or visual if useful, then the key equation and the assumptions | Read relevant slide and adjacent context; select one illuminating perspective rather than all perspectives |
 | **Formal derivation:** theorem, proof, Euler/KKT, identification | Starting slide expression → assumptions → justified transitions → boundary/corner cases → economic meaning | Use mathematical-reasoning; include a picture when geometry materially clarifies the proof |
 | **Compare models or algorithms:** A versus B, why multiple solvers | Hold fixed economic primitives, map notation explicitly, compare approximation/assumptions, outputs, speed/accuracy and failure modes | Open the relevant lecture sources and optionally the exact related Homework |
 | **Whole lecture or handbook:** teach a coherent section or course | Build a narrative with model motivation, prerequisites, mechanisms, mathematically sound derivations, figures integrated with equations, applications and recap | Use course navigation, figure sources and Homework map proportionally to the requested breadth |
-| **Homework solving:** "solve PS2 part (b)" | Read the actual problem and closest relevant Slide example; keep its notation and applicable method, showing necessary setup, intermediate derivation and checked result, then name the reusable method | Map any mismatched symbols explicitly and respect assignment-specific AI-use rules |
-| **Exam preparation / past paper:** "prepare for the midterm" or "solve past exam Q2" | Use verified covered topics and source-aligned worked solutions; retain key reasoning steps, justify any shortcut, and offer one practice item with its answer held back | Inspect available lectures and authentic practice/past-exam questions; label independently constructed examples |
+| **Homework solving or exam preparation:** "solve PS2 part (b)", "prepare for the midterm", "solve past exam Q2" | The instructor's notation and method, the necessary steps, a checked result and the reusable method; for exam preparation, one practice item with its answer held back | Follow the standard in [Visuals and Homework](visuals-and-homework.md#solving-homework-and-preparing-for-exams); respect assignment-specific AI-use rules |
 | **Research connection:** what literature/model extension means | First answer the lecture's economics, then mark the outside extension explicitly | Verify external claims when needed; don't turn a teaching question into an unrelated research workflow |
 
-**Depth is separate from length.** A rigorous short answer can be better than a 5-page note. A long handbook should develop understanding instead of padding with formula repetition. When a student explicitly requests **textbook teaching from zero**, spend explanation effort on definitions, transparent examples and justified intermediate steps before applying the general PhD-level claims; do not turn the preferred long-lesson arc into mandatory sections for a quick answer. See [Time Series](time-series.md) for a subject-specific example.
+**Depth is separate from length.** A rigorous short answer can be better than a 5-page note. A long handbook should develop understanding instead of padding with formula repetition. When a student explicitly requests textbook teaching from zero, spend explanation effort on definitions, transparent examples and justified intermediate steps before applying the general PhD-level claims; do not turn the preferred long-lesson arc into mandatory sections for a quick answer. See [Time Series](time-series.md) for a subject-specific example.
 
 ## Questions outside a course
 
-Many questions come with no course behind them: a term, a paper, a screenshot from a book or website, or a small step the student could not follow. **Whatever the student sends is the source.** Do not search for a course folder, build an index or ask for slides unless the student points to a course. If a lecture, paper or screenshot is already in use in the conversation, a term asked about is answered in that source's definition and notation first; general knowledge is the fallback only when there is no source. If the student names a paper but has not supplied it and it cannot be opened, say it was not read, give only a short outline labeled as general knowledge, with no magnitudes, equation numbers or page references, and ask for the PDF.
+Many questions come with no course behind them: a term, a paper, a screenshot from a book or website, or a small step the student could not follow. Whatever the student sends is the source. Do not search for a course folder, build an index or ask for slides unless the student points to a course. If a lecture, paper or screenshot is already in use in the conversation, a term asked about is answered in that source's definition and notation first; general knowledge is the fallback only when there is no source. If the student names a paper but has not supplied it and it cannot be opened, say it was not read, give only a short outline labeled as general knowledge, with no magnitudes, equation numbers or page references, and ask for the PDF.
 
 | Student sends | Default response |
 | --- | --- |
 | **Only a term or concept:** "what is elasticity?" | A few sentences: the definition, the economic idea, one small example and the usual formula. Say it comes from general economics knowledge, and present notation as a common convention, not the only one. When definitions differ across fields or textbooks (point versus arc elasticity, weak versus strict stationarity), name the difference briefly. A standard name that is part of the concept (the Lucas critique, Akerlof's lemons model) is fine; do not give an exact paper, year or finding from memory unless it has been checked. |
-| **A paper, asking what it is about** | **Orient first, then go deeper only where the student is stuck;** do not open with a full walkthrough. The first answer is a short map: the question and the contribution the authors claim, in their terms; the framework (for a model: environment, agents, equilibrium and the key assumption; for empirical work: data, source of variation, estimating equation and identifying assumption); the main result, with its magnitude where there is one, and why it holds; the one exhibit that carries the paper; and which sections to read or skim for the student's likely purpose. If it helps, add how it relates to a standard model, labeled as additional perspective. Say what was read (full text or which sections) and which version. When the student is stuck, diagnose the block with the bottleneck table below; in papers the most common one is a method, model family or term the paper assumes the reader knows, so rebuild just enough of it and return to the paper. After going deeper, close with the contribution in one plain sentence and, if useful, one reusable lesson for reading the next paper of this kind. Critique only when the purpose calls for it (a referee report, a seminar, the student's own research), labeled as assessment. |
+| **A paper, asking what it is about** | Orient first, then go deeper only where the student is stuck; do not open with a full walkthrough. The first answer is a short map: the question and the contribution the authors claim, in their terms; the framework (for a model: environment, agents, equilibrium and the key assumption; for empirical work: data, source of variation, estimating equation and identifying assumption); the main result, with its magnitude where there is one, and why it holds; the one exhibit that carries the paper; and which sections to read or skim for the student's likely purpose. If it helps, add how it relates to a standard model, labeled as additional perspective. Say what was read (full text or which sections) and which version. When the student is stuck, diagnose the block with the bottleneck table below; in papers the most common one is a method, model family or term the paper assumes the reader knows, so rebuild just enough of it and return to the paper. After going deeper, close with the contribution in one plain sentence and, if useful, one reusable lesson for reading the next paper of this kind. Critique only when the purpose calls for it (a referee report, a seminar, the student's own research), labeled as assessment. |
 | **A paper, asking about one part** | Treat the paper as the lecture under [Slide Fidelity](slide-fidelity.md#papers-and-screenshots): keep its notation, cite it as that section says, and read the definitions and assumptions the part relies on, including an appendix where a step is proved. |
 | **A screenshot of equations from anywhere** | Keep the screenshot's exact symbols. Do not guess which book or paper it comes from or fill in definitions it does not show. If a needed definition or assumption is off-screen, state the reading you assume and label it, or ask for the neighboring part when the answer depends on it. If part of the image is unreadable, say which part. |
 
@@ -34,7 +33,7 @@ A small step the student could not follow is a Quick clarification (first table 
 
 ## Diagnose the learning bottleneck (without claiming to read the learner's mind)
 
-Treat the student's wording as a clue about **what teaching bridge to provide**, not proof of their beliefs. Distinguish:
+Treat the student's wording as a clue about what teaching bridge to provide, not proof of their beliefs. Distinguish:
 
 | Question signal | Potential bottleneck | Appropriate move |
 | --- | --- | --- |
@@ -47,9 +46,9 @@ Treat the student's wording as a clue about **what teaching bridge to provide**,
 | "Does this imply causation or GE?" | Identification or aggregation scope | Separate assumptions supporting each claim |
 | "So this always holds?" | Over-generalized claim | Give a checked counterexample that changes the smallest relevant assumption, is actually feasible and negates the same claim |
 
-Choose the **earliest missing logical bridge** rather than teaching every prerequisite. If a prerequisite is missing, supply it briefly in the same notation, then return to the requested point. If multiple interpretations are plausible, address the important distinction tentatively; ask a targeted question only if ambiguity materially changes the answer. Do not impose a quiz or announce "you are confused about X."
+Choose the earliest missing logical bridge rather than teaching every prerequisite. If a prerequisite is missing, supply it briefly in the same notation, then return to the requested point. If multiple interpretations are plausible, address the important distinction tentatively; ask a targeted question only if ambiguity materially changes the answer. Do not impose a quiz or announce "you are confused about X."
 
-Prefer **one** revealing derivation, diagram, thought experiment or counterexample to several loosely related perspectives: a graph early when geometry is the issue, a justified proof when the issue is logical necessity, a tiny counterexample when the issue is assumptions. For numerical methods, distinguish what the algorithm minimized or solved from the accuracy of the economic solution, and never invent convergence or solver results. **Stop when the specific question is resolved.**
+Prefer one revealing derivation, diagram, thought experiment or counterexample to several loosely related perspectives: a graph early when geometry is the issue, a justified proof when the issue is logical necessity, a tiny counterexample when the issue is assumptions. For numerical methods, distinguish what the algorithm minimized or solved from the accuracy of the economic solution, and never invent convergence or solver results. Stop when the specific question is resolved.
 
 ## Anticipate common traps
 
@@ -70,9 +69,9 @@ For "why this model" questions, consider the following *internal* lenses—not c
 - **Deliberate abstraction:** What is intentionally held fixed, omitted or approximated? Does this help tractability, isolation of a mechanism or empirical identification?
 - **Trade-off:** What theoretical/computational clarity is gained and which substantive predictions are no longer captured?
 - **Nearby alternative:** If one assumption is relaxed, what logically changes? Do not assign a sign to an ambiguous comparative static.
-- **Separate levels:** An **economic assumption** differs from a **numerical approximation** (grid, interpolation, network) and an **empirical identification restriction** (exogeneity, exclusion). Do not conflate these.
+- **Separate levels:** An economic assumption differs from a numerical approximation (grid, interpolation, network) and an empirical identification restriction (exogeneity, exclusion). Do not conflate these.
 
-Unless the instructor explicitly states their motivation, present the rationale as an **economic interpretation**, not an assertion about the lecturer's intent.
+Unless the instructor explicitly states their motivation, present the rationale as an economic interpretation, not an assertion about the lecturer's intent.
 
 ## Make the learning stick
 
@@ -86,16 +85,16 @@ The aim is a student who can explain the result and solve the next problem, not 
 
 ## Connect economic ideas across lectures without flattening models
 
-A cross-lecture answer needs a **real bridge**, not a list of similar topics. For each relevant link:
+A cross-lecture answer needs a real bridge, not a list of similar topics. For each relevant link:
 
 1. **Shared object:** identify the same choice, state, equilibrium condition, estimand, mathematical technique or mechanism from verified lecture locators on both sides.
-2. **What stays fixed and what changes:** separate economic primitives (preferences, technology, shocks, frictions, information), equilibrium closure (partial/general, market-clearing prices), numerical approach (grid/spline/neural approximation) and econometric identification. Similar Bellman equations do **not** mean identical models.
+2. **What stays fixed and what changes:** separate economic primitives (preferences, technology, shocks, frictions, information), equilibrium closure (partial/general, market-clearing prices), numerical approach (grid/spline/neural approximation) and econometric identification. Similar Bellman equations do not mean identical models.
 3. **Notation:** teach each lecture in its native symbols; provide a qualified mapping when definitions and timing genuinely match. State when no valid one-to-one mapping exists.
 4. **Economic meaning:** explain how the change affects feasibility, prediction, welfare, equilibrium feedback, numerical accuracy or identification. Do not invent empirical or solver findings.
-5. **Evidence level:** mark links **explicit in the source**, **derived under stated assumptions** or **provisional teaching analogy**. Reopen actual relevant Homework statements before naming problem parts.
+5. **Evidence level:** mark links explicit in the source, derived under stated assumptions or provisional teaching analogy. Reopen actual relevant Homework statements before naming problem parts.
 6. **Teaching payoff:** explain why seeing the connection helps the current question. For a narrow question use *one strong link and one consequential difference*. A course-wide table is optional, not a reason to generate another map.
 
-*Illustrative only:* The same general savings question might be approached with a finite grid, continuous interpolation or neural approximation; these change the numerical representation and error diagnostics, not necessarily the household economics. Adding stationary market clearing introduces a new equilibrium-consistency condition, not merely a faster household solver. **Verify each actual lecture's assumptions** before applying this analogy.
+*Illustrative only:* The same general savings question might be approached with a finite grid, continuous interpolation or neural approximation; these change the numerical representation and error diagnostics, not necessarily the household economics. Adding stationary market clearing introduces a new equilibrium-consistency condition, not merely a faster household solver. Verify each actual lecture's assumptions before applying this analogy.
 
 ## Teaching arc (internal, not mandatory headings)
 
@@ -114,13 +113,10 @@ The student should normally see the *teaching*, not the internal planning proces
 
 ## Keep source, inference and illustration distinct
 
-- **Lecture source:** exact model, original notation, assumptions, figures and source locators as actually read.
-- **Derived:** mathematical/economic consequence justified from source plus explicitly stated extra assumptions.
-- **Pedagogical illustration:** simplified toy example, model diagram or qualitative plot; always label it as an independently constructed illustration.
-- **Computed results:** only from verified actual computations or supplied data; state solver, parameters and diagnostics. A theoretical convergence bound is **not** measured solver error.
-- **External knowledge:** state its relation to the lecture and map symbols instead of overwriting local notation.
+Statements are labeled as [Slide Fidelity](slide-fidelity.md#source-hierarchy) describes (what the source states, what is derived from it, what is additional perspective), and figures as [Visuals and Homework](visuals-and-homework.md#label-generated-visuals-correctly) describes. Two points matter most when planning an explanation:
 
-If a source graph is missing, use a genuinely helpful schematic while acknowledging it is **not** the instructor's unseen graph. A figure-index locator does not mean the figure has been visually inspected.
+- **Pedagogical illustration:** a toy example, model diagram or qualitative plot is labeled as independently constructed. If a source graph is missing, a helpful schematic may be used, but it is not the instructor's unseen graph, and a Figure Index locator does not mean the figure was inspected.
+- **Computed results:** only from actual computations or supplied data, with solver, parameters and diagnostics stated. A theoretical convergence bound is not measured solver error.
 
 ## Avoid tool-driven overproduction
 

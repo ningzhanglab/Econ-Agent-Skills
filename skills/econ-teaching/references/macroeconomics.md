@@ -21,7 +21,7 @@ Read this when slides address dynamic macroeconomic models or aggregate outcomes
 
 ## Common traps to anticipate
 
-These are general economics, not claims about the lecture. Use them as described in [Teaching Design](teaching-design.md#anticipate-common-traps): restate the point in the Slide's notation and under its assumptions, follow the Slide's sign and timing conventions, and raise only the trap that bears on the current question.
+These are general economics, not claims about the lecture. Use them as [Teaching Design](teaching-design.md#anticipate-common-traps) describes: in the Slide's notation and conventions, and only the trap that bears on the current question.
 
 - **Euler equality at a binding borrowing limit.** When a lower bound on assets binds, the household would like to borrow more than it can, so the Euler condition holds as an inequality with a nonnegative multiplier and complementary slackness, not as an equality. Derive the direction of the inequality from the Slide's constraint convention.
 - **Envelope condition used where it may fail.** The envelope (Benveniste–Scheinkman) result needs the value function to be differentiable at that point, which interior choices help deliver. At a corner or kink, check differentiability before using the derivative of the value function.

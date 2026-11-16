@@ -16,11 +16,11 @@ Use this for probability/statistics, econometric theory, causal inference, time 
 - IV: explain why instrument relevance and exclusion are different and what quantity is identified.
 - Potential outcomes/DID/RDD: explicitly track treatment definition, counterfactual assumptions and the scope of identified effects.
 - Maximum likelihood/GMM: connect sample criterion, population moment or likelihood, regularity conditions and uncertainty.
-- Time series: explain lag polynomials, stationarity, invertibility, innovations and forecast error using the **lecture's symbols and sign conventions**, not a different textbook's ARMA convention. For specialized interpretation of AR/MA/ARMA dynamics, ACF/PACF, tests or forecasts, use the optional [Time Series reasoning lens](time-series.md) within this same Skill; it does not prescribe a course teaching format.
+- Time series: explain lag polynomials, stationarity, invertibility, innovations and forecast error using the lecture's symbols and sign conventions, not a different textbook's ARMA convention. For specialized interpretation of AR/MA/ARMA dynamics, ACF/PACF, tests or forecasts, use the [Time Series lens](time-series.md).
 
 ## Common traps to anticipate
 
-These are general economics, not claims about the lecture. Use them as described in [Teaching Design](teaching-design.md#anticipate-common-traps): restate the point in the Slide's notation and under its assumptions, follow the Slide's sign and timing conventions, and raise only the trap that bears on the current question.
+These are general economics, not claims about the lecture. Use them as [Teaching Design](teaching-design.md#anticipate-common-traps) describes: in the Slide's notation and conventions, and only the trap that bears on the current question.
 
 - **A strong instrument taken to be a valid one.** Relevance and exclusion (exogeneity) are separate conditions; first-stage strength cannot test exclusion.
 - **IV taken to identify the average treatment effect.** With heterogeneous effects, a binary treatment and a binary instrument, under independence, exclusion and monotonicity it identifies a local average treatment effect for compliers.
@@ -33,4 +33,4 @@ These are general economics, not claims about the lecture. Use them as described
 
 When reading graphs, distinguish fitted relations, residual diagnostics, confidence intervals and causal diagrams. If an equation is about correlation, do not relabel it a causal effect.
 
-A compelling real-world example should clarify the statistical object **without** turning unverified data into facts.
+A compelling real-world example should clarify the statistical object without turning unverified data into facts.
