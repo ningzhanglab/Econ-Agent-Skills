@@ -10,6 +10,13 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: clickable links to and from the Appendix
+
+- **Added:** `references/slides.md` now asks that every Appendix slide be one click from the main slide it supports, with a Back button returning there (Beamer frame labels, `\beamergotobutton`, `\beamerreturnbutton`). An Appendix slide no main slide points to is linked or cut. The content file shows each button as its own line, and the delivery check confirms every button lands on the intended page.
+- **Changed:** `templates/simple-slides.tex` shows the pattern with one linked pair.
+- Requested by the user after a one-hour deck whose Appendix could not be reached during the talk. Applied by hand to that deck first: 22 links, all read back to the right pages.
+- Details: [2026-11-15 — Slides Appendix links](logs/2026-11-15-slides-appendix-links.md).
+
 ### Econ Teaching — Slides: checker compares the content file with the frames
 
 - **Added:** `scripts/check_tex_bundle.py` now checks a Beamer deck's `_content.md`, when one exists beside it: the sections are numbered 1..n, there is one per frame, and the titles agree in order (math, TeX commands, punctuation and case ignored). Body text is not compared. A deck with overlays, section frames or nested inputs is skipped with a note. This matters because edits are applied back to the `.tex` by slide number.
