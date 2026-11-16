@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: short paragraphs allowed
+
+- **Changed:** `references/slides.md` now allows a short paragraph of two or three sentences on a slide where prose carries the point better than bullets (an intuition, an analogy, a figure's message). Long paragraphs are still out.
+- Requested by the user, following the removal of the bullet count.
+- Details: [2026-11-15 — Slides: short paragraphs allowed](logs/2026-11-15-slides-short-paragraphs.md).
+
 ### Econ Teaching — Slides: no fixed bullet count
 
 - **Changed:** `references/slides.md` no longer caps a slide at 3–4 one-line bullets. A slide uses as many bullets as its point needs, sub-bullets may group details under a main point, and a slide is split when it carries two ideas or no longer fits at a readable size. The content file writes sub-bullets as indented list items.
