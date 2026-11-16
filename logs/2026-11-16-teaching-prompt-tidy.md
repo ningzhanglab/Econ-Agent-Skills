@@ -57,3 +57,7 @@ Intended behavior is unchanged except for the two conditions above: a Figure Ind
 ## Follow-up
 
 None planned. A deeper cut of `teaching-design.md` would change what a single reference says on its own and should be tested on a real lecture first.
+
+## Correction (same day)
+
+"Files affected" omitted `link/econ-research.md`, which the link-edition build also rewrote after the `research-questions.md` edit. The change was committed as `6a577c5`.
