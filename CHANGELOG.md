@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: no fixed bullet count
+
+- **Changed:** `references/slides.md` no longer caps a slide at 3–4 one-line bullets. A slide uses as many bullets as its point needs, sub-bullets may group details under a main point, and a slide is split when it carries two ideas or no longer fits at a readable size. The content file writes sub-bullets as indented list items.
+- Requested by the user, who found the cap too restrictive for a seminar deck.
+- Details: [2026-11-15 — Slides: no fixed bullet count](logs/2026-11-15-slides-no-bullet-cap.md).
+
 ### Econ Teaching — Slides: clickable links to and from the Appendix
 
 - **Added:** `references/slides.md` now asks that every Appendix slide be one click from the main slide it supports, with a Back button returning there (Beamer frame labels, `\beamergotobutton`, `\beamerreturnbutton`). An Appendix slide no main slide points to is linked or cut. The content file shows each button as its own line, and the delivery check confirms every button lands on the intended page.
