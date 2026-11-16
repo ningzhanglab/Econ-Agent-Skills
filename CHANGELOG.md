@@ -10,6 +10,18 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: Appendix title with subtitles
+
+- **Changed:** `references/slides.md` now gives Appendix slides one shared title, "Appendix", with a subtitle (`\framesubtitle`) saying what each slide holds, instead of separate "Appendix: ..." titles. The template's Appendix slide shows it.
+- Requested by the user, consistent with the shared block titles on main slides.
+- Details: [2026-11-15 — Slides: Appendix title with subtitles](logs/2026-11-15-slides-appendix-subtitles.md).
+
+### Econ Teaching — Slides: no section name in the footer
+
+- **Removed:** the rule, added in the entry below, that marks sections with `\section` and shows the section name in the footer. The footer shows the page number only, and the template is back to the plain frame-number footer. Shared block titles, Proposition lead-ins and the Appendix links are unchanged.
+- Requested by the user ("no need").
+- Details: [2026-11-15 — Slides: no section name in the footer](logs/2026-11-15-slides-no-footer-section.md).
+
 ### Econ Teaching — Slides: shared block titles
 
 - **Changed:** `references/slides.md` no longer gives every slide its own point title. Consecutive slides on one topic share one block title in one consistent style; each slide's specific point is said by the presenter and kept in the speaker notes when requested. Propositions, Definitions and Assumptions are named in a bold lead-in line on their slide instead of in the title. Appendix slides keep their own "Appendix:" titles. Sections are marked with plain `\section{...}` and named in the footer, matching the Outline. The flow check reads the block titles in order instead of every title.

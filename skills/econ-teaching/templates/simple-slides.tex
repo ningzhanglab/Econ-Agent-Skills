@@ -5,11 +5,7 @@
 % Add \usepackage{graphicx} or pgfplots only when the deck includes figures; call figures by relative path, e.g. \includegraphics[width=\linewidth]{figures/fig1.png} (no \graphicspath).
 
 \setbeamertemplate{navigation symbols}{}
-% Footer: section name on the left (same names as the Outline), page number on the right.
-\setbeamertemplate{footline}{%
-  \usebeamerfont{footline}\usebeamercolor[fg]{footline}%
-  \hspace*{1em}\insertsectionhead\hfill\insertframenumber\,/\,\inserttotalframenumber\hspace*{1em}%
-  \vspace*{0.7em}}
+\setbeamertemplate{footline}[frame number]
 
 \title{Paper Title}
 \subtitle{Author (Year), Journal}
@@ -22,9 +18,6 @@
   \titlepage
 \end{frame}
 
-% \section only names the part for the footer; it creates no divider slide.
-\section{Introduction}
-
 \begin{frame}{Introduction}
   \begin{itemize}
     \item The question the paper asks
@@ -32,8 +25,6 @@
     \item The answer, previewed
   \end{itemize}
 \end{frame}
-
-\section{Model}
 
 % Consecutive slides on one topic share one block title.
 \begin{frame}[label=m-core]{The Model}
@@ -55,8 +46,6 @@
   \end{itemize}
 \end{frame}
 
-\section{Conclusion}
-
 \begin{frame}{Conclusion}
   \begin{itemize}
     \item One line per takeaway
@@ -64,9 +53,9 @@
 \end{frame}
 
 \appendix
-\section{Appendix}
 
-\begin{frame}[label=a-derivation]{Appendix: derivation}
+\begin{frame}[label=a-derivation]{Appendix}
+  \framesubtitle{Derivation of Proposition 1}
   Secondary derivations and long algebra go here; steps of the core argument stay in the main slides.
 
   \vfill\hfill\hyperlink{m-core}{\beamerreturnbutton{Back}}
