@@ -14,8 +14,9 @@ _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questi
 
 - **Changed:** `references/slides.md` now plans a deck as a talk rather than a summary of the paper: the story is sketched slide by slide before any slide is written (one idea per slide, each following from the one before), and how it is told is left to judgment, using or improving the paper's own framing. The core mechanism is built step by step in the main slides and no longer sent to the Appendix; Propositions and Assumptions the results rest on are named on the slides; titles say the point where they can. A deck for a new length is planned again, not grown from an older deck.
 - **Removed:** the rule that every slide opens with a connecting line. The complete-story checks are shorter, and a story that does not hold goes back to the plan instead of being patched slide by slide.
-- **Added:** one outline slide near the start is allowed; no section-divider slides or outline repeated at each section.
-- Prompted by a one-hour deck built with the skill that read as an annotated summary, compared with a clearer deck built without it on the same paper. Tests pass (60). Not yet tried on a new deck.
+- **Added:** one outline slide near the start, titled "Outline" rather than "Roadmap", is allowed; no section-divider slides or outline repeated at each section.
+- Prompted by a one-hour deck built with the skill that read as an annotated summary, compared with a clearer deck built without it on the same paper. Tests pass (60).
+- Tried once: an agent with a fresh context built a one-hour deck from the paper and the skill alone. The core argument came out step by step with the Propositions named, but section boundaries started cold, so a sentence on narrative bridges at major section transitions was added afterwards (not yet tried). The user has not yet judged the trial deck.
 - Details: [2026-11-15 — Slides: a talk, not a summary](logs/2026-11-15-slides-talk-not-summary.md).
 
 ### Econ Teaching — Slides: coverage and flow check

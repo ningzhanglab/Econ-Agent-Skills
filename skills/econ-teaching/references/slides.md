@@ -10,10 +10,9 @@ Slides are what the presenter shows to an audience, not a study document. The te
 | --- | --- |
 | The argument: question, mechanism, results, conclusion | Which version of the paper was read, and whether its equations were read as typeset or rebuilt from text ([Slide Fidelity](slide-fidelity.md#papers-and-screenshots)) |
 | The paper's notation, unchanged | The paper page or section behind each slide |
-| One full citation on the title slide | Every number computed rather than copied, with the check |
-| One full citation on the title slide; a page for a direct quotation. No source line on slides that reproduce the paper's own figures or tables (see [Figures](#each-slide)) | Reading advice and the reusable lesson, if useful |
-| Your own derivations, in **Appendix** slides | Anything left unverified |
-| Your judgment, only if the user asks, as a **Discussion** slide | |
+| One full citation on the title slide; a page for a direct quotation. No source line on slides that reproduce the paper's own figures or tables (see [Figures](#each-slide)) | Every number computed rather than copied, with the check |
+| Your own derivations, in **Appendix** slides | Reading advice and the reusable lesson, if useful |
+| Your judgment, only if the user asks, as a **Discussion** slide | Anything left unverified |
 
 Never put these on a slide: notes about how the paper was read or extracted, a source line under a figure or table taken from the paper being presented, or on a text-only slide (section numbers, page numbers and table numbers go in the handover), per-bullet labels such as "Paper states", "Derived (my check)" or "Caveat (paper)", page tags on every bullet, intuition checks written for the student, reading-order advice, "reusable lesson" lines, long disclaimers, or first person ("my judgment").
 
@@ -40,13 +39,13 @@ When the user asks to revise or "recheck" a deck of the same length:
 
 A deck is a talk, not a summary of the paper. A summary lists what the paper contains; a talk takes the listener from the question to the answer, each slide following from the one before. How to tell the story is a matter of judgment, not a fixed pattern: use the paper's own framing and wording, or improve on them.
 
-1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Appendix. For a longer talk, about one main slide per 1–1.5 minutes. If the user did not say, use the default and state it in the handover; do not stop to ask.
+1. **Purpose, time and audience.** Default: a 20-minute reading-group talk to PhD students, about 12–15 main slides (1.5–2 minutes each) plus Appendix. For a longer talk, the number of slides is a judgment call that leaves time for questions. If the user did not say, use the default and state it in the handover; do not stop to ask.
 2. **One takeaway sentence**, written before any slide.
-3. **Sketch the story before writing slides.** List the main slides, one line each: what the slide establishes and why the listener needs it at that point. One idea per slide. If a slide does not follow from the one before, change the order or add a slide; a connecting sentence does not repair it.
+3. **Sketch the story before writing slides.** List the main slides, one line each: what the slide establishes and why the listener needs it at that point. One idea per slide. If a slide does not follow from the one before, change the order or add a slide; a connecting sentence does not repair it. At every major section transition, identify what the previous section established, what economic question remains, and why the next section is needed; when the connection is not obvious, add a substantive bridge slide or a spoken transition, using the paper's own transition when it has one.
 4. **Order: follow the source.** The body follows the paper's own section order (or the lecture's). The deck ends with a Conclusion (or Takeaways) slide and then the Appendix. There is no Discussion slide unless the user asks for one. Do not reorder sections; if the purpose needs another order (for example a class that teaches a special case before the paper's general model), say what was moved and why in the handover.
 5. **Give the core the space.** Build the central mechanism step by step in the main slides, including the Propositions that carry the argument and the reason each holds; do not compress it onto one slide or move it to the Appendix. Compress secondary sections to one slide each or move them to Appendix. Every section still appears somewhere; a section left out entirely is named in the handover with the reason.
 6. **Titles.** One line (about 60 characters). Prefer a title that says the slide's point or question ("Switching Itself Adds Zero") to a topic label ("Results"); a slide that states a Proposition names it in the title.
-7. **Outline.** One outline slide near the start is fine. No section-divider slides and no outline repeated at each section (no `\AtBeginSection`).
+7. **Outline.** One outline slide near the start is fine; title it "Outline", not "Roadmap". No section-divider slides and no outline repeated at each section (no `\AtBeginSection`).
 
 ## Each slide
 
