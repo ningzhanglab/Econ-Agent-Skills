@@ -10,6 +10,12 @@ _No uncommitted planned changes are represented as completed here._
 
 _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questions are answered in chat, with all math in LaTeX from the first answer, even a single symbol in a sentence; no file is created." (`SKILL.md`, Supporting duties). The entries on the separate rule line, delimiters, money and code describe wording that was later removed._
 
+### Econ Teaching — Slides: matching content Markdown
+
+- **Added:** `references/slides.md` now asks for a `_content.md` file beside every deck: one section per slide, numbered as in the compiled PDF, with the same text as the `.tex`, math in LaTeX, tables as Markdown tables and figures as image links. The user revises wording there; edits are applied back to the `.tex`, which is recompiled and the file regenerated. Requested by the user, who had been editing such a file by hand.
+- Tests pass (60). Not yet tried on a new deck.
+- Details: [2026-11-15 — Slides content Markdown](logs/2026-11-15-slides-content-markdown.md).
+
 ### Econ Teaching — Slides: a talk, not a summary
 
 - **Changed:** `references/slides.md` now plans a deck as a talk rather than a summary of the paper: the story is sketched slide by slide before any slide is written (one idea per slide, each following from the one before), and how it is told is left to judgment, using or improving the paper's own framing. The core mechanism is built step by step in the main slides and no longer sent to the Appendix; Propositions and Assumptions the results rest on are named on the slides; titles say the point where they can. A deck for a new length is planned again, not grown from an older deck.

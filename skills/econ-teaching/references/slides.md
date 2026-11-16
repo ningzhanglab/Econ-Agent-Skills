@@ -71,6 +71,7 @@ A deck is a talk, not a summary of the paper. A summary lists what the paper con
   A small gap is fixed on its slide. If the story itself does not hold, go back to the sketch and replan that part; do not add text slide by slide.
 
 - Default: Beamer, 16:9, from the [slides template](../templates/simple-slides.tex), delivered as `.tex` and compiled `.pdf` under [TeX/PDF Outputs](latex-outputs.md). For Chinese, use `ctexbeamer` with XeLaTeX and keep technical terms in English. A requested `.pptx` follows the same content rules.
+- **Content file.** Deliver a Markdown file beside the deck (the deck's name with `_content.md`) so the user can revise the wording: one `## Slide N: Title` section per slide, in order, with N matching the page of the compiled PDF and the text matching the `.tex` exactly. Math stays in LaTeX (`$...$` inline, `$$` blocks), bold marks `\textbf` or `\alert`, tables are Markdown tables and figures are relative image links. When the user returns it edited, apply their text to the matching slides in the `.tex`, recompile and regenerate the file, so the three stay in step.
 - No `\pause` or overlays by default, so the PDF has one page per slide; use them only on request.
 - Speaker notes or a handout version only on request.
 - Before delivering, run the [bundle checker](../scripts/check_tex_bundle.py) with `--compile` on the `.tex`; it fails on a missing figure or on `\graphicspath`. List the output folder and confirm every file the handover names exists. Do not name a PDF that was not produced ([TeX/PDF Outputs](latex-outputs.md)).
