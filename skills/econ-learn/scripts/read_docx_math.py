@@ -6,8 +6,9 @@ equation editor are stored as Office Math (OMML) in word/document.xml; this
 script renders them as LaTeX-like linear text between dollar signs, in reading
 order with the surrounding paragraphs and tables.
 
-Usage: python skills/econ-learn/scripts/read_docx_math.py "notes.docx"
-       python skills/econ-learn/scripts/read_docx_math.py "notes.docx" -o notes.txt
+Usage (from the skill's folder):
+  python3 scripts/read_docx_math.py "notes.docx"
+  python3 scripts/read_docx_math.py "notes.docx" -o notes.txt
 
 Standard library only; the source file is opened read-only and never changed.
 

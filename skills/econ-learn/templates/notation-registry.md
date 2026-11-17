@@ -1,6 +1,6 @@
 # Course-Scoped Notation Registry — [Course Title]
 
-> **Cloud outputs:** This is a reusable template in GitHub. When the user requests a completed file, save that filled artifact to the verified current course's cloud `Agent Outputs/` folder and return the cloud link. Follow [Deliver a file](../tasks/deliver-file.md).
+> **Private course file.** A reusable template in this skill. A filled copy is saved only when the user asks, as [Deliver a file](../tasks/deliver-file.md) describes: in the verified course's `Agent Outputs/`, never in a public repository.
 
 > Store with the **private course files**. This is a *locator and disambiguation tool*, not an instruction to standardize all lectures onto one set of letters.
 

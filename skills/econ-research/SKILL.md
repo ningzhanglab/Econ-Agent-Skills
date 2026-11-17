@@ -56,7 +56,7 @@ The user's instruction in the conversation overrides any default here or in a ta
 | "Summarize what we know", "where does the literature split?", "how does my idea fit?" | Synthesize the verified papers: agreement, splits, gaps, and the project's position | [Literature Synthesis](tasks/literature-synthesis.md) |
 | "Check my references", a `.bib` file or a list of DOIs | Verify each entry against Crossref and report mismatches | [Literature Search](tasks/literature-search.md#verify-every-reference) and the [reference checker](scripts/verify_references.py) |
 
-A quick factual question ("who wrote the paper on X?") still needs a lookup before the answer. A request for a full review needs scoping first: if the topic is a single word or the field is unclear, ask one focused question before searching.
+A quick factual question ("who wrote the paper on X?") still needs a lookup before the answer. A request for a full review is scoped first, as in [Defaults](#defaults).
 
 ## How to work
 
@@ -79,11 +79,6 @@ A literature search by an agent is fast discovery, not a systematic review. It m
 
 If the skill a request needs is not installed, say so in one line and point to the Econ-Agent-Skills README for how to install it or paste its link, then help only as far as this skill's own rules allow.
 
-## Task files
-
-- [Research Questions](tasks/research-questions.md): from interest to an answerable question; contribution tests; common weak questions.
-- [Literature Search](tasks/literature-search.md): sources for economics, query design, screening, verification and the reading-list format.
-- [Literature Synthesis](tasks/literature-synthesis.md): reading papers honestly, mapping agreement and splits, positioning a project.
-- [Reference checker](scripts/verify_references.py): standard-library script that checks DOIs or a `.bib` file against Crossref.
+## Credits
 
 Ideas in this skill draw on two openly licensed projects, credited in the task files that use them: [claude-academic-workflow](https://github.com/ericluo04/claude-academic-workflow) (MIT) for verification and honesty rules in literature work, and [awesome-econ-ai-stuff](https://github.com/meleantonio/awesome-econ-ai-stuff) (CC0) for research-question frameworks.

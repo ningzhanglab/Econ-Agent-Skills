@@ -1,6 +1,6 @@
 # Lecture Index — [Lxx] [Title]
 
-> **Cloud outputs:** This is a reusable template in GitHub. When the user requests a completed file, save that filled artifact to the verified current course's cloud `Agent Outputs/` folder and return the cloud link. Follow [Deliver a file](../tasks/deliver-file.md).
+> **Private course file.** A reusable template in this skill. A filled copy is saved only when the user asks, as [Deliver a file](../tasks/deliver-file.md) describes: in the verified course's `Agent Outputs/`, never in a public repository.
 
 > Store this file privately with the course workspace. The **original slides remain the authority** for equations and diagrams. Never equate indexing with reading every page.
 

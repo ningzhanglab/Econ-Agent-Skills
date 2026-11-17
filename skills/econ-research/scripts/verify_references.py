@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Check references against Crossref by DOI.
 
-Usage:
-  python skills/econ-research/scripts/verify_references.py --doi 10.1257/aer.20190623
-  python skills/econ-research/scripts/verify_references.py --bib references.bib [--json]
+Usage (from the skill's folder):
+  python3 scripts/verify_references.py --doi 10.1257/aer.20190623
+  python3 scripts/verify_references.py --bib references.bib [--json]
 
 For each DOI, fetch the Crossref record and report:
   PASS  the record exists and the entry's title, year, first author, volume

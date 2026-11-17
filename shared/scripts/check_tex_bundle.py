@@ -5,8 +5,8 @@ Check all *static* \input, \include and \includegraphics dependencies, including
 nested TeX inputs. Distinguish binary image/PDF assets from readable .tex files.
 Optionally compile an isolated copy containing only required source/assets.
 
-Usage:
-  python skills/econ-learn/scripts/check_tex_bundle.py "/path/Agent Outputs/Notes.tex" --compile
+Usage (from the skill's folder):
+  python3 scripts/check_tex_bundle.py "/path/Agent Outputs/Notes.tex" --compile
 
 Stdlib only for dependency checking; --compile needs latexmk and TeX packages.
 This is a conservative check: dynamic TeX macros, \graphicspath, external

@@ -171,7 +171,7 @@ Example prompts:
 
 - **A talk, not a summary.** The deck is planned as a story from the question to the answer, in the source's order, with the core argument built step by step in the main slides.
 - **The deck is for the audience; the handover is for you.** Which version was read, the page behind each slide and every computed number go into the handover in chat, not onto the slides.
-- **House style, each line adjustable:** consecutive slides share one block title; Appendix slides carry a subtitle and are one click from the slide they support; no default length; Beamer 16:9 as `.tex` and `.pdf`; a content file or speaker notes only on request.
+- **House style, each line adjustable:** titles read "Topic: point", with the same short topic on every slide of a section; Appendix slides carry a subtitle and are one click from the slide they support; no default length; Beamer 16:9 as `.tex` and `.pdf`; a content file or speaker notes only on request.
 - **Nothing from memory:** a related-literature slide lists only papers the source cites or papers verified with `econ-research`.
 
 Example prompts: "Make slides to present this paper in our reading group." · "Recheck my deck against the published version." · "A one-hour seminar version of this deck."

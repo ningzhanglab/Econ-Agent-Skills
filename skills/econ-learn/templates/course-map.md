@@ -1,9 +1,7 @@
 # Course Map — [Course Title]
 
-> **Cloud outputs:** This is a reusable template in GitHub. When the user requests a completed file, save that filled artifact to the verified current course's cloud `Agent Outputs/` folder and return the cloud link. Follow [Deliver a file](../tasks/deliver-file.md).
+> **Private course file.** A reusable template in this skill. A filled copy is saved only when the user asks, as [Deliver a file](../tasks/deliver-file.md) describes: in the verified course's `Agent Outputs/`, never in a public repository.
 
-> **Generated course-specific artifact:** copy this template into a **private** course workspace. Do not fill it with proprietary lectures and commit it to the public Skill repo.
->
 > **Coverage labels:** DISCOVERED, INDEXED, REVIEWED (state actual range), BLOCKED. Follow [Course](../tasks/course.md).
 
 ## Metadata & provenance

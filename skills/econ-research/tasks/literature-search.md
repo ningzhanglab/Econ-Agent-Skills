@@ -8,10 +8,10 @@ Before searching, fix:
 
 - the question in one sentence, and the economic object it is about;
 - the field and neighboring fields whose vocabulary may differ;
-- a time window if the user implies one ("recent" means about the last five years; say that you read it that way);
+- a time window if the user implies one (read "recent" as the skill's Defaults say);
 - whether the user wants breadth (a map of the area) or depth (the five closest papers).
 
-If the request is a single word or the field is ambiguous, ask one question before searching.
+A single-word topic or an unclear field is scoped as the skill's Defaults say.
 
 ## Where to search
 
@@ -39,7 +39,7 @@ Use whichever of these the environment can reach. If a source fails or is unreac
 - If results are dominated by one subfield, the query is inheriting its vocabulary; rewrite and merge.
 - Papers you already know of may be used as **search seeds**: look each one up by title and keep it only if a source confirms it. Say in the coverage line that some entries came from seed lookups rather than open search.
 - Sort by citation count only together with a title or abstract filter (for OpenAlex, `filter=title.search:…` or `title_and_abstract.search:…`). A free-text search sorted by citations returns highly cited papers from other fields.
-- When the user asks for the "most important" or "key" papers, rank by relevance first, then by influence, and name the source of any citation count.
+- When the user asks for the "most important" or "key" papers, rank them as the skill's Defaults say.
 
 ## Screen
 
@@ -73,11 +73,11 @@ Common cases in economics:
 - **A record is incomplete.** Some records lack authors or pages (handbook chapters often do). Fill the gap from another record of the same work, such as its working-paper version, and say where each field came from.
 - **Older work has no DOI.** Classic book chapters, conference volumes and pre-1990s working papers may have no DOI and weak database coverage. Check RePEc/IDEAS, the publisher's catalogue or a library catalogue; if none confirms the details, cite it only with the **UNVERIFIED** label, never with details filled in from memory.
 
-The [reference checker](../scripts/verify_references.py) does steps 1–2 for DOIs and `.bib` files against Crossref:
+The [reference checker](../scripts/verify_references.py) does steps 1–2 for DOIs and `.bib` files against Crossref. Run it from this skill's folder:
 
 ```text
-python skills/econ-research/scripts/verify_references.py --doi 10.1257/aer.20190623
-python skills/econ-research/scripts/verify_references.py --bib references.bib
+python3 scripts/verify_references.py --doi 10.1257/aer.20190623
+python3 scripts/verify_references.py --bib references.bib
 ```
 
 It reports PASS, WARN (a field differs; the record's value is shown), FAIL (no record, or the title does not match), SKIP (no DOI) or ERROR (the lookup failed, so the entry is **unchecked**, not verified). Report the notes printed under a PASS too: a venue that differs from the record, or a year one after a late-December print date, which is usually the volume year. Exit status is 2 if any lookup failed, 1 if any entry failed, 0 otherwise. It cannot check entries without a DOI; check those by hand and say so.

@@ -1,6 +1,6 @@
 # Figure Index — [Course] [Lecture]
 
-This is a reusable template. A populated course-specific Figure Index belongs in the private cloud Agent Outputs folder when requested, not in this public repository.
+> **Private course file.** A reusable template in this skill. A filled copy is saved only when the user asks, as [Deliver a file](../tasks/deliver-file.md) describes: in the verified course's `Agent Outputs/`, never in a public repository.
 
 ## Original source and access
 

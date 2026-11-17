@@ -1,6 +1,6 @@
 # Time Series: Specialist Reasoning Lens
 
-This is an optional domain reference, not a fixed teaching script. Use it only when a Time Series question benefits from domain-specific reasoning. It applies to statistics and econometrics; do not force economic or causal interpretations onto a statistical result.
+This guide is optional, not a fixed teaching script. Use it only when a Time Series question benefits from domain-specific reasoning. It applies to statistics and econometrics; do not force economic or causal interpretations onto a statistical result.
 
 ## Start from the real learning task
 

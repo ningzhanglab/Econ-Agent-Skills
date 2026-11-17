@@ -8,6 +8,19 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-16
 
+- **Default changed (econ-present, at the user's request):** slide titles take the form "Topic: point", with the same short topic on every slide of a section ("Weak Links: A Two-Task Example"), never the paper's full section heading; replaces one shared title per block of slides. Chosen after the real-paper run, where the v1 deck's titles read better than v2's full heading repeated on eight slides.
+
+### econ-present — first run on a real paper
+
+- **Testing:** the same reading-group deck request on Jones (2026, JEP) with v2 `econ-present`, the v1 slide rules and no skill, scored blind out of 16: v2 14, v1 15, no skill 8. Both skill decks covered every section, cropped the paper's figures, linked the Appendix both ways and passed the bundle checker; the no-skill deck could not be rebuilt from its folder. v2's lost point comes from the shared block titles the house style asks for. No skill text changed.
+- Details: [2026-11-16 — econ-present on a real paper](logs/2026-11-16-econ-present-real-paper-comparison.md).
+
+### v2 recheck — duplicates, leftovers, script paths, Beamer in CI
+
+- **Fixed:** `econ-research` stated its scoping rule twice, listed its task files twice and restated three Defaults on the search page; each now appears once. Script usage lines no longer name `skills/econ-learn/...`, which the `econ-present` copy of the bundle checker pointed to; they read `python3 scripts/<name>.py` from the skill's folder. Five `econ-learn` templates and the learning-log page lose wording about GitHub, the repository's own logs and cloud-only output. `econ-learn`'s paper page says why it asks for the whole file rather than a one-page screenshot when only fetched text came back.
+- **Testing:** CI installs Beamer and pgf, so the slides-template compile test runs on GitHub instead of being skipped.
+- Details: [2026-11-16 — v2 recheck fixes](logs/2026-11-16-v2-recheck-fixes.md).
+
 ### v2 review fixes — narrower guide routing and leftovers
 
 - **Changed:** `econ-learn` states when a guide is not needed (a bare term, a quick step, text already in view) and gives each guide a narrower situation, after the first comparison run showed two extra guides opened in every case.

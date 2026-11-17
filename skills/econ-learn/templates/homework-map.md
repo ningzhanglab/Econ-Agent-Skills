@@ -1,6 +1,6 @@
 # Lecture ↔ Homework Map — [Course]
 
-> **Private course artifact.** This is a reusable template; fill it from **actual course homework and lecture files** and save requested results in the verified course `Agent Outputs/`. Do not upload assignments or student solutions to this public GitHub repository.
+> **Private course file.** A reusable template in this skill. A filled copy is saved only when the user asks, as [Deliver a file](../tasks/deliver-file.md) describes: in the verified course's `Agent Outputs/`, never in a public repository. Fill it from the actual course homework and lecture files; never copy assignments or student solutions into a public place.
 
 ## Provenance and scope
 

@@ -1,6 +1,6 @@
 # Learning Logs — Optional Private Study Session Summaries
 
-**Purpose:** support continuity across teaching conversations without logging every question, writing full chat transcripts or confusing student learning notes with the Skill repository's development logs.
+**Purpose:** support continuity across teaching conversations without logging every question or writing full chat transcripts.
 
 ## Defaults
 
@@ -11,9 +11,9 @@
 
 ## Where this log lives
 
-- **Public repository:** [learning-log.md template](../templates/learning-log.md) and this behavior reference only; GitHub `logs/` remains the development changelog, not a student's learning diary.
+- **Template:** [learning-log.md](../templates/learning-log.md). The filled log is private and never goes to a public place.
 - **Private active course folder:** `<verified course>/Agent Outputs/Learning Logs/` (exact spelling). For example, an authorized course folder may contain `Learning Logs/2026-10-24.md`. No logs are copied to another course or a public repo.
-- These are specifically requested Markdown log files, so they use `.md` rather than the generic on-request teaching-document default `.tex + .pdf`. A user-requested PDF/TeX version is an additional explicit export choice.
+- These are specifically requested Markdown log files, so they use `.md` rather than the `.tex` and `.pdf` default for requested documents. A user-requested PDF/TeX version is an additional explicit export choice.
 - Identify course identity by verified folder/source metadata, not the latest mentioned school or a name guess. If not known and no accurate destination is possible, ask one focused question or provide the in-chat summary without falsely claiming a save.
 
 ## What to record
