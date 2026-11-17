@@ -68,3 +68,22 @@ After a review of every prompt, the user asked for a redesign that is efficient,
 
 1. Run a fixed set of cases (a term, a derivation, a Homework problem, a paper, a deck) with v2, with v1 and with no skill, and compare, before merging to `main` or publishing a release.
 2. A fifth skill for work on the user's own research object (model, proof, data, code) is foreseen in `DESIGN_V2.md` and not built.
+
+## Addition (same day): first comparison run
+
+A small comparison was run after the commit above. It is weak evidence: one run per cell, synthetic material, one grader.
+
+- **Setup.** Three student messages in Chinese, each answered by a fresh subagent in three arms: the v2 `econ-learn` folder, the v1 `econ-teaching` folder (commit `38b20c6`), and no skill. Cases: (A) a bare term, "什么是 elasticity？"; (B) a "why" question on a two-slide lecture excerpt written for the test, with non-standard notation ($\delta$ discount factor, $q$ bond price, multiplier $\mu_t$ on a borrowing limit); (C) a Homework part on that excerpt whose problem set writes $\beta$ and $R$. The nine answers were shuffled under labels X, Y, Z and scored by a separate subagent that did not know the arms, on seven dimensions (0 to 2 each, maximum 14).
+- **Scores.**
+
+| Case | v2 | v1 | No skill |
+| --- | --- | --- | --- |
+| A, term | 14 | 13 | 11 |
+| B, why $\mu_t$ | 14 | 13 | 13 |
+| C, Homework | 13 | 14 | 13 |
+| Total | 41 | 40 | 37 |
+
+- **What the grader cited.** No critical fail in any arm: all nine answers were mathematically correct and kept the lecture's notation, including the no-skill arm. v2 lost its point in C for length (a path table restating earlier sections, and a closing offer). v1 lost points in A and B for length and repetition. No skill lost points for not marking conventions and its own inferences (in C it stated $q = 1/R$ as a fact; in B one table cell had a strict inequality that fails when $\mu_t = 0$). Three of these claims were checked against the answer files and hold.
+- **Files read.** v2 read `SKILL.md`, the one task page, and two guides in every case (for the term: `microeconomics.md` and `figures.md`). v1 read `SKILL.md` and one reference for the term, and four references for B and C.
+- **Reading of the result.** The differences are one point per case and well within what a second run could reverse. The run does not show v2 to be worse than v1, and does not show it to be clearly better. It does show that the design goal "`SKILL.md` plus one task page" is not met as written: agents open the guides too.
+- **Not covered:** `econ-present` (needs a real paper), `econ-write`, `econ-research`, a real lecture or Homework, triggering in a real client, and the paste-a-link method.
