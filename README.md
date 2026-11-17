@@ -1,18 +1,40 @@
 # Econ Agent Skills
 
-Reusable, version-controlled Agent Skills for economics PhD learning and research.
+Four Agent Skills for economics PhD work: understanding material, presenting it, writing, and finding the literature. They are plain Markdown folders that follow the [Agent Skills open specification](https://agentskills.io/specification).
 
-> **Status:** `econ-teaching` (the Professor) v1.1, the teaching revision of the v1 design baseline. `econ-writing` v0.1, not yet evaluated on real drafts. `econ-research` v0.1 covers research questions and the literature; identification design and empirical methods are not yet included.
+> **Status (2026-11-16): v2.** The skills were rebuilt from the v1 rules into a new layout. v2 passes the structural tests. A first blind comparison on three synthetic cases (a term, a question on a slide, a Homework part) scored v2 41, v1 40 and no skill 37 out of 42, a gap too small to rank v2 above v1. `econ-present`, `econ-write` and `econ-research` have not been run on real material in v2. Details: [rebuild log](logs/2026-11-16-v2-rebuild-four-skills.md).
 >
-> **Renamed 2026-11-12:** `econ-phd-professor` is now `econ-teaching`, and the planned `econ-research-agent` is now `econ-research`. Reinstall the skill folder under its new name and use `$econ-teaching` in prompts that named the old one.
+> **Renamed in v2:** `econ-teaching` is now `econ-learn`, `econ-writing` is now `econ-write`, and slides moved to the new `econ-present`. Reinstall each skill under its new name. Old paste-a-link addresses lead to a page that points to the new one.
 
-## Skills catalog
+## The four skills
 
-| Skill | Purpose | Status |
+| Skill | Use it to | The agent may add |
 | --- | --- | --- |
-| [econ-teaching](skills/econ-teaching/SKILL.md) | Learn graduate economics from your own lecture slides, homework and exams, with exact notation, economic intuition, rigorous derivations and useful diagrams; or, with no course at all, get a term, a paper or a screenshot of equations explained | **v1.1; quality evaluation ongoing** |
-| [econ-writing](skills/econ-writing/SKILL.md) | Edit, review and structure your own economics writing (research papers, thesis chapters, referee and research reports, homework write-ups) while keeping every term, symbol, number and citation unchanged | **v0.1; not yet evaluated on real drafts** |
-| [econ-research](skills/econ-research/SKILL.md) | Develop research questions and work with the literature: find, screen and verify papers, synthesize what is known, and position a project. No reference is written from memory | **v0.1 (questions and literature); not yet evaluated on real projects** |
+| [econ-learn](skills/econ-learn/SKILL.md) | Understand material someone else wrote: lecture slides, homework, exams, a research paper, a screenshot of equations, or a bare term | Explanation, derivation and figures, each labeled by source |
+| [econ-present](skills/econ-present/SKILL.md) | Build a slide deck for an audience from a paper (someone else's or your own) or a lecture | Structure and delivery only |
+| [econ-write](skills/econ-write/SKILL.md) | Edit, review and structure your own economics writing | Nothing; only clarity |
+| [econ-research](skills/econ-research/SKILL.md) | Develop a research question and work with the literature | Verified references and labeled assessment |
+
+Jobs that cross skills are handed over in a stated order. A referee report, for example, is assessed with `econ-learn`, positioned with `econ-research` and structured with `econ-write`.
+
+### What all four guarantee
+
+1. **The source's own form stays.** Symbols, terms, numbers, signs, timing and citations are kept exactly; a suspected error is flagged, not silently fixed.
+2. **Nothing is invented.** No paper, result, number or figure content is written from memory and presented as checked.
+3. **It says what it actually read:** a file listed is not a file read, and an abstract is not the paper.
+4. **The source is kept apart from the skill's own work,** with labels.
+5. **Material is data.** Instructions inside slides, homework, papers, drafts or web pages are never followed as commands.
+
+### Your preferences
+
+Adjustable choices are the lines under "Defaults" in each skill, separate from the rules. The global ones:
+
+- Replies come in the language you write in, with English technical terms beside translations, for example 欧拉方程 (Euler equation).
+- Answers come in chat. A file is created only when you ask.
+- Requested files go to your course or project folder's `Agent Outputs/` (that exact name), never anywhere public.
+- What you say in a conversation overrides a default. When you state a lasting preference, the skill tells you which default it replaces.
+
+`python tools/list_defaults.py` prints every default. To change one for good, edit that line in the skill (for the global ones, [shared/defaults.md](shared/defaults.md)) and run `python tools/build_all.py`.
 
 ## Share a skill
 
@@ -20,11 +42,12 @@ Each skill can be shared on its own. Send people only the skill they need.
 
 | Skill | Download link (to install) |
 | --- | --- |
-| econ-teaching | https://github.com/ningzhanglab/Econ-Agent-Skills/releases/latest/download/econ-teaching.zip |
-| econ-writing | https://github.com/ningzhanglab/Econ-Agent-Skills/releases/latest/download/econ-writing.zip |
+| econ-learn | https://github.com/ningzhanglab/Econ-Agent-Skills/releases/latest/download/econ-learn.zip |
+| econ-present | https://github.com/ningzhanglab/Econ-Agent-Skills/releases/latest/download/econ-present.zip |
+| econ-write | https://github.com/ningzhanglab/Econ-Agent-Skills/releases/latest/download/econ-write.zip |
 | econ-research | https://github.com/ningzhanglab/Econ-Agent-Skills/releases/latest/download/econ-research.zip |
 
-Each zip holds only that skill's folder: its `SKILL.md`, references, templates and scripts, without this repository's logs or tests. The links work once a release has been published (see [Publish a new version](#publish-a-new-version)).
+Each zip holds only that skill's folder: its `SKILL.md`, task and guide files, templates and scripts, without this repository's logs or tests. The links work once a release has been published (see [Publish a new version](#publish-a-new-version)).
 
 ### Install a downloaded skill
 
@@ -32,31 +55,37 @@ Each zip holds only that skill's folder: its `SKILL.md`, references, templates a
 - **Claude Code (terminal or the desktop app's Code tab):** unzip it into your skills folder, then start a new session:
 
   ```bash
-  unzip econ-teaching.zip -d ~/.claude/skills
+  unzip econ-learn.zip -d ~/.claude/skills
   ```
 
-  `econ-teaching` writes math in LaTeX. A terminal shows it as code (`$\beta$`); if you prefer, ask it to write math as plain text.
+  `econ-learn` writes math in LaTeX. A terminal shows it as code (`$\beta$`); if you prefer, ask it to write math as plain text.
 
 - **Other apps that support Agent Skills:** unzip it into that app's skills folder.
 
-Once installed, the skill turns on by itself when a question fits it, and it can read all its reference files. This is the most reliable way to use a skill.
+Once installed, the skill turns on by itself when a question fits it, and it can read all its task and guide files. This is the most reliable way to use a skill.
 
-**Installing only one skill is fine.** Each skill is complete on its own and never needs files from the others. When a request belongs to a skill you have not installed (for example, a literature search while only `econ-teaching` is installed), it says so in one line, points to this README for installing the other skill, and helps only as far as its own rules allow; `econ-teaching` on its own never lists papers, years or findings from memory.
+**Installing only one skill is fine.** Each skill is complete on its own and never needs files from the others. When a request belongs to a skill you have not installed (for example, a literature search while only `econ-learn` is installed), it says so in one line, points to this README for installing the other skill, and helps only as far as its own rules allow; `econ-learn` on its own never lists papers, years or findings from memory.
 
 ### Try a skill without installing
 
-In a chat that can open web pages, paste the line for the skill you want and replace `[your request]` with your question. Each line points to the skill's **link edition**: the same `SKILL.md`, with every reference file given as a full address the chat can open, an edition code, and an instruction to read the files the request needs and to list the ones it read.
+In a chat that can open web pages, paste the line for the skill you want and replace `[your request]` with your question. Each line points to the skill's **link edition**: the same `SKILL.md`, with every task and guide file given as a full address the chat can open, an edition code, and an instruction to read the files the request needs and to list the ones it read.
 
-econ-teaching:
+econ-learn:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-teaching.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Write all math in LaTeX, including single symbols in sentences. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Write all math in LaTeX, including single symbols in sentences. Then: [your request]
 ```
 
-econ-writing:
+econ-present:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-writing.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-present.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Then: [your request]
+```
+
+econ-write:
+
+```text
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-write.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Then: [your request]
 ```
 
 econ-research:
@@ -65,17 +94,17 @@ econ-research:
 Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Then: [your request]
 ```
 
-All three from one link: use this when you want one line for every request, for example in a chat project's instructions. The [index page](link/econ-skills.md) lists the three skills, and the agent opens the one or ones the request needs: to explain a paper and then place it in its literature, it opens both `econ-teaching` and `econ-research`. This takes one more page to open than a single-skill line, so the separate lines above stay the most direct choice when you already know which skill you want.
+All four from one link: use this when you want one line for every request, for example in a chat project's instructions. The [index page](link/econ-skills.md) lists the four skills, and the agent opens the one or ones the request needs: to explain a paper and then place it in its literature, it opens both `econ-learn` and `econ-research`. This takes one more page to open than a single-skill line, so the separate lines above stay the most direct choice when you already know which skill you want.
 
 ```text
 Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md, open the skill page or pages it says my request needs, and open the files those pages name. Start your answer with the edition code of each skill page you opened. If you cannot open a page or a file it names, say so and stop; do not answer from memory. When teaching economics, write all math in LaTeX, including single symbols in sentences. Then: [your request]
 ```
 
-Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may still skip a reference file. The answer should start with a line `Skill edition:` and a six-character code (with the index line, one code per skill page opened, each with its skill name), and end with a line listing the skill files it read. To check the code, open the link yourself and compare it with the edition code at the top of the page: a missing or different code means the agent did not read the current page, so its answer does not follow the skill. If a file you expected is missing from the last line, ask the agent to open it.
+Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may still skip a task or guide file. The answer should start with a line `Skill edition:` and a six-character code (with the index line, one code per skill page opened, each with its skill name), and end with a line listing the skill files it read. To check the code, open the link yourself and compare it with the edition code at the top of the page: a missing or different code means the agent did not read the current page, so its answer does not follow the skill. If a file you expected is missing from the last line, ask the agent to open it.
 
 ### Updates
 
-- **A downloaded skill does not update itself.** It stays at the version you downloaded. To update, download again from the same link and replace the old copy: in Claude.ai, remove the old skill and upload the new zip; in Claude Code, delete the old `~/.claude/skills/econ-teaching` folder and unzip again, so files removed in the new version do not stay behind.
+- **A downloaded skill does not update itself.** It stays at the version you downloaded. To update, download again from the same link and replace the old copy: in Claude.ai, remove the old skill and upload the new zip; in Claude Code, delete the old `~/.claude/skills/econ-learn` folder and unzip again, so files removed in the new version do not stay behind.
 - **The paste-a-link method always reads the newest files on `main`**, including changes not yet released.
 - What changed in each version is listed on the [Releases page](https://github.com/ningzhanglab/Econ-Agent-Skills/releases) and in the [change log](CHANGELOG.md). An older copy keeps working; it only lacks the newest rules.
 
@@ -85,176 +114,128 @@ For the maintainer. Download links always point to the newest **published releas
 
 1. Push the changes to `main` and check that the GitHub Actions checks pass.
 2. On GitHub, open **Releases → Draft a new release**. Create a new tag on `main`, such as `v2026.11.15`, and write a few lines on which skills changed and how.
-3. Click **Publish release**. The *Attach skill zips to release* workflow builds the three zips and attaches them to the release, usually within a couple of minutes. Check that the release page lists `econ-teaching.zip`, `econ-writing.zip` and `econ-research.zip`.
+3. Click **Publish release**. The *Attach skill zips to release* workflow builds the four zips and attaches them to the release, usually within a couple of minutes. Check that the release page lists `econ-learn.zip`, `econ-present.zip`, `econ-write.zip` and `econ-research.zip`.
 4. If the change matters, tell the people you shared with to download again from the same link.
 
-After changing any file in a skill, run `python tools/build_link_editions.py` and commit the updated `link/` files; the edition code covers every file of the skill, and a test fails if the pages are out of date.
+After changing any file in a skill or in `shared/`, run `python tools/build_all.py` and commit what it writes: it copies the shared text into the skills, then rebuilds `link/`. The edition code covers every file of the skill, and tests fail if a copy or a page is out of date.
 
 To build the zips locally instead: `python tools/build_skill_zips.py` (writes to `dist/`, which Git ignores; inside a Git checkout it includes only files Git tracks).
 
-## How the Professor teaches
+## econ-learn: the Professor
 
-The Professor teaches like a knowledgeable economics PhD professor, not a slide summarizer. The slides define the local model, notation and assumptions; broader economics knowledge explains why the model is built that way, how the mechanism works and when the result fails. The aim of every answer is that you **understand the economics and can do the next problem yourself**.
+Teaches like an economics PhD professor, not a slide summarizer. The source defines the model, notation and assumptions; broader economics explains why the model is built that way, how the mechanism works and when a conclusion fails. No course is needed: a term, a paper or a screenshot is a source too.
 
-Seven principles govern every answer (full text in [SKILL.md](skills/econ-teaching/SKILL.md)):
+Five teaching habits (full text in [SKILL.md](skills/econ-learn/SKILL.md)):
 
-1. **Exact slide notation.** Symbols, signs, timing and operators stay exactly as the lecturer wrote them. Slide statements, derivations and outside knowledge are kept visibly separate.
-2. **Diagnose the bottleneck and explain the model's design.** The Professor looks for the earliest missing link (notation, a proof step, the incentive, an assumption, identification or numerical approximation) without claiming to read your mind. For "why this model?" it explains what the model isolates, what it omits and what a nearby alternative would change. Each field has a short list of common PhD-level traps (for example an Euler equation at a binding borrowing limit, or a strong instrument mistaken for a valid one) that the Professor raises only when relevant.
-3. **Answer first, then build understanding.** The first sentences answer your question; the derivation follows; a substantive explanation ends with its economic meaning in plain words.
-4. **Visuals as a first-class teaching method.** Graphs are considered proactively for constraints, trade-offs, dynamics, equilibria and numerical methods. Original figures are used only if actually inspected; new schematics and computed plots are labeled honestly. No figure quota.
-5. **Intuition checked against the mathematics.** Verbal stories are tested with sign checks, limiting cases or tiny labeled numerical examples.
-6. **Homework and exams in the instructor's framework.** Same notation, same or closest slide method, every necessary step, a checked result, and then the reusable method in one or two lines. Exam preparation can include a fresh practice item with its answer held back. Course AI-use rules are respected.
-7. **Your language.** Answers come in the language you write in, with symbols unchanged and English technical terms beside translations, for example 欧拉方程 (Euler equation).
+1. **Diagnose the bottleneck** and explain why the model is built this way, without claiming to read your mind.
+2. **Answer first,** then the derivation, then the economic meaning in plain words.
+3. **Visuals as a first-class method,** with no quota. Original figures are used only if actually inspected.
+4. **Intuition checked against the mathematics:** sign checks, limiting cases, tiny labeled examples.
+5. **Homework and exams in the instructor's framework:** same notation and method, every necessary step, then the reusable method in one or two lines.
 
-The Professor chooses a **teaching mode before tools**: quick step, intuition, derivation, model comparison, whole lecture, Homework or exam preparation. A narrow question never triggers a course inventory or a generated file. **No course is needed:** a term ("what is elasticity?"), a research paper or one part of it, or a screenshot of equations from anywhere is treated as the source, with the same notation rules; a bare term is answered from general economics knowledge and labeled as such.
+Each kind of request has its own page:
 
-**Reading a paper.** Send the PDF. The first answer is a short map: the question, the framework, the main result and why it holds, the one figure or table that carries the paper, and which sections to read or skim. The Professor then goes deeper only where you are stuck, most often on a method or model the paper assumes you know, and says what it actually read. If you only name a paper without sending it, it says the paper was not read, gives a short outline labeled as general knowledge (no numbers, equation numbers or pages) and asks for the PDF. See [Teaching Design](skills/econ-teaching/references/teaching-design.md), [Expert Teaching](skills/econ-teaching/references/expert-teaching.md) and the [hypothetical diagnostic examples](skills/econ-teaching/examples/diagnostic-teaching-patterns.md).
+| You ask for | Page |
+| --- | --- |
+| A term, or equations in a screenshot | [term-or-screenshot](skills/econ-learn/tasks/term-or-screenshot.md) |
+| A research paper, or one part of it | [paper](skills/econ-learn/tasks/paper.md) |
+| Why something holds, or why the model is built this way | [explain](skills/econ-learn/tasks/explain.md) |
+| A derivation, proof or skipped step | [derive](skills/econ-learn/tasks/derive.md) |
+| Homework, a past exam, exam preparation | [homework-exam](skills/econ-learn/tasks/homework-exam.md) |
+| A whole lecture, lecture notes or a Handbook | [whole-lecture](skills/econ-learn/tasks/whole-lecture.md) |
+| How two lectures connect | [cross-lecture](skills/econ-learn/tasks/cross-lecture.md) |
+| Organizing a course or a large collection | [course](skills/econ-learn/tasks/course.md) |
+| A study-session log | [learning-log](skills/econ-learn/tasks/learning-log.md) |
 
-One Skill covers four fields through optional domain lenses: [Macroeconomics](skills/econ-teaching/references/macroeconomics.md) (including numerical methods), [Microeconomics](skills/econ-teaching/references/microeconomics.md), [Econometrics](skills/econ-teaching/references/econometrics.md) and [Time Series](skills/econ-teaching/references/time-series.md). Each lens lists the questions an expert asks, the high-value explanations and the common traps for that field; none is tied to a particular course.
+Guides are opened when they apply: [Macroeconomics](skills/econ-learn/guides/macroeconomics.md), [Microeconomics](skills/econ-learn/guides/microeconomics.md), [Econometrics](skills/econ-learn/guides/econometrics.md) and [Time Series](skills/econ-learn/guides/time-series.md), each with a list of common PhD-level traps; [Figures](skills/econ-learn/guides/figures.md); [Reading sources](skills/econ-learn/guides/reading-sources.md); [Sources and versions](skills/econ-learn/guides/sources-and-versions.md); [Large files](skills/econ-learn/guides/large-files.md).
 
-## Getting started
+Things to know:
 
-1. Read [SKILL.md](skills/econ-teaching/SKILL.md) to see the behavior and triggers.
-2. Make the **entire skill folder** `skills/econ-teaching/` available to a compatible Agent Skills client: download its zip (see [Share a skill](#share-a-skill)), or copy or link the folder from a clone of this repository into the client's skills directory. The folder is self-contained: its references, templates, examples and helper scripts all live inside it. A GitHub repository alone does **not** activate the skill.
-3. For course questions, provide the actual lecture slides (PDF, PPT, TeX, screenshots) or an accessible course folder. The Professor must inspect the relevant material and never pretends to have read slides it cannot access. For a term, a paper or a screenshot from elsewhere, just send it.
-4. Ask a question.
+- **Whole courses.** On request the Professor maps a course: syllabus order kept apart from inferred prerequisites, notation tracked per lecture, every file marked DISCOVERED, INDEXED, REVIEWED (exact range) or BLOCKED. Same-name `.tex`, PDF and Word files in one folder are treated as one lecture by default. This is a procedure, not background indexing or permanent memory.
+- **Files.** With no format named, a requested file is a matching `.tex` and compiled `.pdf`, saved and verified in `Agent Outputs/`.
+- **Learning logs** are saved only when you ask ("记录今天的学习"), as a short Markdown summary in `Agent Outputs/Learning Logs/`.
+- **Helper scripts** (Python standard library, read-only on your sources): [file grouping](skills/econ-learn/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-learn/scripts/inventory_tex_figures.py), [Word equation reader](skills/econ-learn/scripts/read_docx_math.py), [TeX bundle checker](skills/econ-learn/scripts/check_tex_bundle.py).
 
-To use Econ Writing, make `skills/econ-writing/` available the same way; it needs no course folder, only the text or file you want edited. Econ Research installs the same way from `skills/econ-research/`; its literature work needs web access.
+Example prompts:
 
-To share one skill with someone else, see [Share a skill](#share-a-skill).
-
-### Example prompts
-
-- "Explain the intuition behind the Euler equation on slide 12. Keep the lecturer's notation and connect it to one other model."
-- "Teach slides 10–16 as my PhD macro professor would, and explain why the model is formulated this way."
+- "Explain the intuition behind the Euler equation on slide 12. Keep the lecturer's notation."
 - "Explain this proof. Show the missing steps without changing notation."
-- "What does this graph imply? Separate what the graph shows from additional theory."
 - "Solve PS2 part (b) using the method from the lecture."
 - "Help me prepare for the midterm on lectures 5–8."
 - "用中文解释第 12 页的贝尔曼方程，符号保持和 slides 一样。"
-- "What is elasticity?" · "Explain what this paper is about and its framework." · "Explain equation (7) in this paper." · "I don't understand the equations in this screenshot."
+- "What is elasticity?" · "Explain what this paper is about and its framework." · "I don't understand the equations in this screenshot."
 
-## Whole courses and large collections
+## econ-present: slides
 
-For semester-long tutoring the Professor can map a course on request: syllabus order kept separate from inferred prerequisites, each lecture's notation tracked separately, and every file marked **DISCOVERED**, **INDEXED**, **REVIEWED** (exact range) or **BLOCKED**. A course map is a navigation aid; every explanation still reopens the original slides.
+[Econ Present](skills/econ-present/SKILL.md) makes what an audience sees. Its whole method is in one file.
 
-- Same-basename `.tex`, PDF and Word files in one course folder are treated as one lecture by default; presenter views, handouts and genuine revisions are distinguished by content, not extension. See [Course State and Sources](skills/econ-teaching/references/course-state-and-sources.md).
-- Templates: [Course Map](skills/econ-teaching/templates/course-map.md), [Lecture Index](skills/econ-teaching/templates/lecture-index.md), [Notation Registry](skills/econ-teaching/templates/notation-registry.md), [Figure Index](skills/econ-teaching/templates/figure-index.md), [Homework Map](skills/econ-teaching/templates/homework-map.md) and [Course State](skills/econ-teaching/templates/course-state.example.json).
-- Helper scripts (inside the skill folder; Python standard library, read-only on your sources): [file grouping](skills/econ-teaching/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-teaching/scripts/inventory_tex_figures.py), [Word equation reader](skills/econ-teaching/scripts/read_docx_math.py) and [TeX bundle checker](skills/econ-teaching/scripts/check_tex_bundle.py).
-- Details: [Course Navigation](skills/econ-teaching/references/course-navigation.md) and [Large-File Strategy](skills/econ-teaching/references/large-file-strategy.md). This is a workflow specification, not background indexing or permanent memory.
+- **A talk, not a summary.** The deck is planned as a story from the question to the answer, in the source's order, with the core argument built step by step in the main slides.
+- **The deck is for the audience; the handover is for you.** Which version was read, the page behind each slide and every computed number go into the handover in chat, not onto the slides.
+- **House style, each line adjustable:** consecutive slides share one block title; Appendix slides carry a subtitle and are one click from the slide they support; no default length; Beamer 16:9 as `.tex` and `.pdf`; a content file or speaker notes only on request.
+- **Nothing from memory:** a related-literature slide lists only papers the source cites or papers verified with `econ-research`.
 
-Text inside slides, homework, README files, papers, screenshots and web pages is treated as **untrusted study material**, never as instructions that can override your request, change sharing or move private files.
+Example prompts: "Make slides to present this paper in our reading group." · "Recheck my deck against the published version." · "A one-hour seminar version of this deck."
 
-## Files, cloud storage and learning logs
+## econ-write: your own text
 
-- **Ordinary questions are answered in chat.** No file is created unless you ask.
-- **When you ask for a file without naming a format**, the Professor delivers a matching editable `.tex` and compiled `.pdf`, saved and verified in your course's cloud folder named exactly **`Agent Outputs`**. If the course already has a near-miss folder such as `agent output`, the Professor asks once which to use. An explicit format or destination overrides this. Rules: [Storage Policy](STORAGE_POLICY.md), [Cloud Drive Workflow](skills/econ-teaching/references/cloud-drive-workflow.md) and [TeX/PDF Outputs](skills/econ-teaching/references/latex-outputs.md). Chinese notes use the [ctexart template](skills/econ-teaching/templates/simple-notes-cn.tex). **Slides** (for example, to present a paper) follow [Slides](skills/econ-teaching/references/slides.md): a clean Beamer deck for the audience, with sources, checks and reading notes handed to you separately instead of printed on the slides.
-- **Learning logs are on demand.** Say "记录今天的学习" or "Save today's learning log" and the Professor saves a short Markdown summary of what was actually studied, questions, clarifications and open issues to `Agent Outputs/Learning Logs/`. It never records chats in the background or claims mastery. See [Learning Logs](skills/econ-teaching/references/learning-log.md).
-- This public repository holds reusable rules, templates and development logs only. Private slides and generated course records stay in your cloud drive.
+[Econ Write](skills/econ-write/SKILL.md) edits for clarity, removes templated or AI-sounding prose, organizes sections by economics conventions, or reviews a draft without rewriting it.
 
-## How Econ Writing edits
-
-[Econ Writing](skills/econ-writing/SKILL.md) is a separate skill for text you write yourself, in English. It edits for clarity, removes templated or AI-sounding prose, organizes sections by economics conventions, or reviews a draft without rewriting it.
-
-- **Terminology is fixed.** It first collects your defined terms, field terms, model and estimator names and acronyms, then uses each exactly as you do. It never swaps in synonyms, and it flags a term used two ways instead of choosing for you. See [Terminology and Notation](skills/econ-writing/references/terminology-and-notation.md).
-- **Math, numbers and citations are untouched**, including LaTeX labels and citation keys. Conditions and caveats stay, and causal language is flagged, not silently changed.
+- **Terminology is fixed.** It collects your defined terms, field terms, model and estimator names and acronyms, then uses each exactly as you do. See [Terminology and Notation](skills/econ-write/guides/terminology-and-notation.md).
+- **Math, numbers and citations are untouched,** including LaTeX labels and citation keys. Conditions and caveats stay, and causal language is flagged, not silently changed.
 - **Nothing is invented:** no references, results or robustness checks the draft does not contain.
-- Conventions for papers, theses, referee reports and homework write-ups are in [Economics Writing Conventions](skills/econ-writing/references/econ-conventions.md); the prose patterns, adapted from the MIT-licensed [humanizer](https://github.com/blader/humanizer) skill, are in [AI-Sounding Patterns](skills/econ-writing/references/ai-tells.md).
+- Conventions for papers, theses, referee reports and homework write-ups are in [Economics Writing Conventions](skills/econ-write/guides/econ-conventions.md); the prose patterns, adapted from the MIT-licensed [humanizer](https://github.com/blader/humanizer) skill, are in [AI-Sounding Patterns](skills/econ-write/guides/ai-tells.md).
 - Course and journal rules on AI assistance still apply; the skill is for clarity, not for hiding assistance.
 
 Example prompts: "Tighten the introduction in `paper.tex`, keep all terms as they are." · "Review my results section, don't rewrite it." · "Help me structure a referee report from these notes."
 
-## How Econ Research works
+## econ-research: questions and the literature
 
-[Econ Research](skills/econ-research/SKILL.md) helps at the start of a project: turning an interest into an answerable question, and finding out what is already known.
+[Econ Research](skills/econ-research/SKILL.md) helps at the start of a project. It does not cover identification design or empirical methods.
 
-- **No reference from memory.** Every paper is found in or checked against a bibliographic source (Crossref, OpenAlex, Semantic Scholar, RePEc, NBER, SSRN, a journal page or your library), or labeled **UNVERIFIED**. If nothing turns up, it says so.
-- **It says what it read:** full text, abstract only or metadata only, and which version. What a paper reports is kept separate from its own assessment and from proposed gaps.
-- **Research questions** are tested for contribution, closest papers, identification, feasibility and audience. See [Research Questions](skills/econ-research/references/research-questions.md).
-- **Literature** work covers search across sources, screening, verification and a reading-list format ([Literature Search](skills/econ-research/references/literature-search.md)), then agreement, splits, gaps and positioning ([Literature Synthesis](skills/econ-research/references/literature-synthesis.md)).
-- A standard-library [reference checker](skills/econ-research/scripts/verify_references.py) compares DOIs or a `.bib` file with Crossref and reports PASS, WARN, FAIL, SKIP or ERROR (lookup failed, entry unchecked). It sends only DOIs, with no personal details.
+- **No reference from memory.** Every paper is found in or checked against a bibliographic source, or labeled **UNVERIFIED**. If nothing turns up, it says so.
+- **It says what it read:** full text, abstract only or metadata only, and which version.
+- **Research questions** are tested for contribution, closest papers, identification, feasibility and audience ([Research Questions](skills/econ-research/tasks/research-questions.md)).
+- **Literature** work covers search, screening, verification and a reading-list format ([Literature Search](skills/econ-research/tasks/literature-search.md)), then agreement, splits, gaps and positioning ([Literature Synthesis](skills/econ-research/tasks/literature-synthesis.md)).
+- A [reference checker](skills/econ-research/scripts/verify_references.py) compares DOIs or a `.bib` file with Crossref. It sends only DOIs, with no personal details.
 - Ideas are adapted, with credit, from [claude-academic-workflow](https://github.com/ericluo04/claude-academic-workflow) (MIT) and [awesome-econ-ai-stuff](https://github.com/meleantonio/awesome-econ-ai-stuff) (CC0).
 
-Example prompts: "What's the literature on minimum wages and employment? Ten most important papers." · "I'm interested in housing and inequality; help me find a second-year paper topic." · "Has anyone used this design before?" · "Check the references in `paper.bib`."
+Example prompts: "What's the literature on minimum wages and employment? Ten most important papers." · "I'm interested in housing and inequality; help me find a second-year paper topic." · "Check the references in `paper.bib`."
 
 ## Repo layout
 
 ```text
 Econ-Agent-Skills/
-├── README.md, AGENTS.md, DESIGN_V1.md, STORAGE_POLICY.md, CHANGELOG.md
+├── README.md, AGENTS.md, DESIGN_V2.md, STORAGE_POLICY.md, CHANGELOG.md
+├── shared/                  # written once, copied into the skills
+│   ├── guarantees.md, defaults.md, deliver-file.md
+│   └── scripts/check_tex_bundle.py
 ├── skills/
-│   ├── econ-teaching/
-│   │   ├── SKILL.md
-│   │   ├── agents/openai.yaml
-│   │   ├── references/
-│   │   │   ├── teaching-design.md         # how to choose and shape an explanation
-│   │   │   ├── expert-teaching.md
-│   │   │   ├── mathematical-reasoning.md
-│   │   │   ├── slide-fidelity.md
-│   │   │   ├── visuals-and-homework.md
-│   │   │   ├── macroeconomics.md
-│   │   │   ├── microeconomics.md
-│   │   │   ├── econometrics.md
-│   │   │   ├── time-series.md
-│   │   │   ├── course-navigation.md
-│   │   │   ├── course-state-and-sources.md
-│   │   │   ├── large-file-strategy.md
-│   │   │   ├── latex-outputs.md
-│   │   │   ├── slides.md
-│   │   │   ├── cloud-drive-workflow.md
-│   │   │   └── learning-log.md
-│   │   ├── examples/
-│   │   │   ├── bellman-teaching-example.md
-│   │   │   ├── slutsky-teaching-example.md
-│   │   │   ├── omitted-variable-homework-example.md
-│   │   │   └── diagnostic-teaching-patterns.md
-│   │   ├── scripts/                       # read-only helpers for TeX, Word and course files
-│   │   └── templates/
-│   │       ├── course-map.md, lecture-index.md, notation-registry.md
-│   │       ├── figure-index.md, homework-map.md, learning-log.md
-│   │       ├── course-state.example.json
-│   │       └── simple-notes.tex, simple-notes-cn.tex, simple-slides.tex
-│   ├── econ-research/
-│   │   ├── SKILL.md
-│   │   ├── agents/openai.yaml
-│   │   ├── references/
-│   │   │   ├── research-questions.md
-│   │   │   ├── literature-search.md
-│   │   │   └── literature-synthesis.md
-│   │   └── scripts/verify_references.py
-│   └── econ-writing/
-│       ├── SKILL.md
-│       ├── agents/openai.yaml
-│       └── references/
-│           ├── terminology-and-notation.md
-│           ├── econ-conventions.md
-│           └── ai-tells.md
-├── tests/                                 # structural tests and manual evaluation cases (Teaching, Writing and Research)
-├── logs/                                  # dated development logs (not student learning logs)
-├── link/                                  # generated link editions and the econ-skills.md index for the paste-a-link method (do not edit)
-├── tools/
-│   ├── build_skill_zips.py               # builds one installable zip per skill
-│   └── build_link_editions.py            # rebuilds link/ from the skills
-└── .github/workflows/
-    ├── validate-skills.yml               # checks on every push
-    └── release-skills.yml                # attaches skill zips to each published release
+│   ├── econ-learn/          # SKILL.md, tasks/, guides/, examples/, scripts/, templates/
+│   ├── econ-present/        # SKILL.md, tasks/deliver-file.md, scripts/, templates/simple-slides.tex
+│   ├── econ-write/          # SKILL.md, guides/
+│   └── econ-research/       # SKILL.md, tasks/, scripts/verify_references.py
+├── link/                    # generated pages for the paste-a-link method (do not edit)
+├── tools/                   # build_all.py, sync_shared.py, build_link_editions.py,
+│                            # build_skill_zips.py, list_defaults.py
+├── tests/                   # structural tests and manual evaluation cases
+├── logs/                    # dated development logs (not student learning logs)
+└── .github/workflows/       # checks on every push; zips attached to each release
 ```
 
-## Change history, contributing and testing
+Every `SKILL.md` has the same parts: Mission, Guarantees, Defaults, routing and Other skills. `tasks/` holds one page per kind of request; `guides/` holds knowledge and how-to that apply only in some cases. The reasons for this layout are in [DESIGN_V2.md](DESIGN_V2.md); [DESIGN_V1.md](DESIGN_V1.md) is kept as history.
 
-- [CHANGELOG.md](CHANGELOG.md) summarizes changes; [logs/](logs/README.md) explains what changed, why and how it was verified. [AGENTS.md](AGENTS.md) tells repository-editing Agents to update both. The [v1 design baseline](DESIGN_V1.md) records the architecture and its stability rule.
-- Treat teaching decisions as testable behavior. When a real lecture interaction exposes a failure, add a case to the [professor evaluation cases](tests/professor-evaluation.md), the [writing evaluation cases](tests/writing-evaluation.md) or the [research evaluation cases](tests/research-evaluation.md) and fix the responsible reference rather than growing SKILL.md.
-- GitHub Actions runs link validation, repository contract tests and a LaTeX compile smoke test. It also checks that every skill is self-contained (no link or plain-text pointer to a file outside its folder, such as `STORAGE_POLICY.md`) and tests the zip builder. These **structural tests do not prove teaching quality**; human evaluation on real lecture slides remains necessary.
+## Maintaining
+
+- After any edit under `skills/` or `shared/`: `python tools/build_all.py`, then `python tests/validate_skills.py` and `python -m unittest discover -s tests`.
+- [AGENTS.md](AGENTS.md) says where a change goes and how to record it: a preference change is one line in [CHANGELOG.md](CHANGELOG.md); a behavior change also gets a dated entry in [logs/](logs/README.md).
+- Manual evaluation cases: [teaching](tests/professor-evaluation.md), [writing](tests/writing-evaluation.md), [research](tests/research-evaluation.md).
+- Private slides, homework, learning logs and course records stay in your own drive ([Storage Policy](STORAGE_POLICY.md)).
 
 ## Roadmap
 
-- **Now:** cases 45–51 passed on real lectures in three courses: macro ([ECONS 509](logs/2026-10-29-professor-econs509-se-lecture-test.md)), econometrics and time series ([ECONS 512, STAT 516](logs/2026-10-29-professor-econs512-stat516-tests.md)), including homework solved in the lecture's method and a real past exam. Still to do: a microeconomics lecture and an independent grader.
-- **Econ Teaching outside a course:** run evaluation cases 57–60 (a bare term, a paper overview, one equation in a paper, a screenshot from an unknown source) on real material.
-- **Sharing:** publish the first release so the download links work, then upload one zip to Claude.ai to confirm the install steps.
-- **Econ Writing:** run the [writing evaluation cases](tests/writing-evaluation.md) on real drafts (a paper section, a LaTeX file, a referee report and a homework write-up) before calling it stable.
-- **Econ Research:** run the [research evaluation cases](tests/research-evaluation.md) on real topics. A later version may add identification design and empirical methods, if real use shows the need.
-- **Optional:** installer guidance for specific Agent clients.
-
-## Standard
-
-The skills follow the [Agent Skills open specification](https://agentskills.io/specification). Platform-specific metadata in `agents/openai.yaml` is optional and does not change the portable `SKILL.md` format.
+- Run `econ-present` on a real paper against v1 and against no skill. This is where a no-skill deck once beat the skill.
+- Repeat the comparison on real lectures and Homework, with more than one run per case. v1.1 evidence from before the rebuild: [ECONS 509](logs/2026-10-29-professor-econs509-se-lecture-test.md) and [ECONS 512, STAT 516](logs/2026-10-29-professor-econs512-stat516-tests.md).
+- Agents opened two guides beyond the task page in every test case; decide whether the routing table should say more plainly when a guide is not needed.
+- Publish a release so the download links carry the new names, and confirm that a slides request triggers `econ-present` in a real client.
+- Run the writing and research evaluation cases on real drafts and topics.
+- A fifth skill for work on your own research object (model, proof, data, code) is foreseen in the design and not built.

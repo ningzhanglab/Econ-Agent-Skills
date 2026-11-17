@@ -1,5 +1,7 @@
 # Econ PhD Professor — v1 Design Baseline
 
+> **Historical (superseded 2026-11-16).** The current architecture is [DESIGN_V2.md](DESIGN_V2.md). This file is kept as the record of the v1 design; its links were repointed to where each rule lives now, and its skill names are the old ones (`econ-teaching` is now `econ-learn`, `econ-writing` is now `econ-write`).
+
 **Status:** Stable *design* baseline, not a claim of independent pedagogical certification or guaranteed host/plugin access.
 
 ## Goal
@@ -10,13 +12,13 @@ One graduate-level economics teacher that uses **actual lecture sources**, prese
 
 | Layer | Source of truth | Trigger |
 | --- | --- | --- |
-| Teaching entry and guarantees | [SKILL.md](skills/econ-teaching/SKILL.md) | Every invocation |
-| Diagnose misunderstanding; select proof, intuition, visual or counterexample | [Teaching Design](skills/econ-teaching/references/teaching-design.md) and [Expert Teaching](skills/econ-teaching/references/expert-teaching.md) | Question requires explanation |
-| Economic derivations and substantive lenses | [Mathematical Reasoning](skills/econ-teaching/references/mathematical-reasoning.md), Macro/Micro/Econometrics references (each with a list of common traps), optional [Time Series teaching lens](skills/econ-teaching/references/time-series.md) | Relevant technical question |
-| Course progression, cross-lecture mapping and sources | [Course Navigation](skills/econ-teaching/references/course-navigation.md), [Slide Fidelity](skills/econ-teaching/references/slide-fidelity.md) | Multi-lecture or source-specific question |
-| Source graphics and Homework | [Visuals and Homework](skills/econ-teaching/references/visuals-and-homework.md) | Graph or task actually helps |
-| Requested TeX/PDF and cloud persistence | [LaTeX](skills/econ-teaching/references/latex-outputs.md), [Cloud Workflow](skills/econ-teaching/references/cloud-drive-workflow.md), [Storage Policy](STORAGE_POLICY.md) | User requests a file |
-| Optional private Learning Log | [Learning Logs](skills/econ-teaching/references/learning-log.md), [template](skills/econ-teaching/templates/learning-log.md) | Student explicitly requests a learning recap |
+| Teaching entry and guarantees | [SKILL.md](skills/econ-learn/SKILL.md) | Every invocation |
+| Diagnose misunderstanding; select proof, intuition, visual or counterexample | [Teaching Design](skills/econ-learn/tasks/explain.md) and [Expert Teaching](skills/econ-learn/tasks/explain.md) | Question requires explanation |
+| Economic derivations and substantive lenses | [Mathematical Reasoning](skills/econ-learn/tasks/derive.md), Macro/Micro/Econometrics references (each with a list of common traps), optional [Time Series teaching lens](skills/econ-learn/guides/time-series.md) | Relevant technical question |
+| Course progression, cross-lecture mapping and sources | [Course Navigation](skills/econ-learn/tasks/course.md), [Slide Fidelity](skills/econ-learn/guides/reading-sources.md) | Multi-lecture or source-specific question |
+| Source graphics and Homework | [Visuals and Homework](skills/econ-learn/guides/figures.md) | Graph or task actually helps |
+| Requested TeX/PDF and cloud persistence | [LaTeX](skills/econ-learn/tasks/deliver-file.md), [Cloud Workflow](skills/econ-learn/tasks/deliver-file.md), [Storage Policy](STORAGE_POLICY.md) | User requests a file |
+| Optional private Learning Log | [Learning Logs](skills/econ-learn/tasks/learning-log.md), [template](skills/econ-learn/templates/learning-log.md) | Student explicitly requests a learning recap |
 
 ## Invariants
 
@@ -27,7 +29,7 @@ One graduate-level economics teacher that uses **actual lecture sources**, prese
 5. For cross-lecture teaching, verify a common economic object, what assumptions/closure/solver/identification differ, qualified local notation mapping and source evidence. Keep instructor order separate from conceptual prerequisites.
 6. Do not force a course index on a small question; same-stem TeX/PDF/Word is provisional grouping only, and previously saved maps must not substitute for original evidence.
 7. Requested files default to a matched `.tex` and compiled `.pdf` in the verified private course folder named exactly `Agent Outputs/` unless user specifies another format/path. Never upload private course contents to this public repo.
-8. **v1.1:** answers lead with the direct answer and close substantive derivations with their economic meaning; verbal intuition is checked against the math; Homework and exam solutions end by naming the reusable method, and exam preparation may offer a held-back practice item. The student's language is used with unchanged symbols. Home: [Teaching Design](skills/econ-teaching/references/teaching-design.md#make-the-learning-stick).
+8. **v1.1:** answers lead with the direct answer and close substantive derivations with their economic meaning; verbal intuition is checked against the math; Homework and exam solutions end by naming the reusable method, and exam preparation may offer a held-back practice item. The student's language is used with unchanged symbols. Home: [Teaching Design](skills/econ-learn/tasks/explain.md).
 
 ## Done criteria and future-change policy
 
@@ -37,7 +39,7 @@ The above concepts have one authoritative home in existing references. There is 
 
 **v1.1 teaching revision (2026-10-29):** requested by the user to strengthen how the Professor helps a student learn, keeping every v1 invariant. It adds writing habits inside existing references, not a new workflow, Skill or mandatory section. See [the log](logs/2026-10-29-professor-v1-1-teaching-revision.md).
 
-**Separate writing skill (2026-11-12):** at the user's request, editing the user's own economics writing (papers, thesis chapters, reports, homework write-ups) lives in a separate skill, [econ-writing](skills/econ-writing/SKILL.md), because it is a different job from teaching with its own trigger and checks. The Professor's architecture and invariants above are unchanged, and the stability rule still applies to both skills. See [the log](logs/2026-11-12-econ-writing-skill.md).
+**Separate writing skill (2026-11-12):** at the user's request, editing the user's own economics writing (papers, thesis chapters, reports, homework write-ups) lives in a separate skill, [econ-writing](skills/econ-write/SKILL.md), because it is a different job from teaching with its own trigger and checks. The Professor's architecture and invariants above are unchanged, and the stability rule still applies to both skills. See [the log](logs/2026-11-12-econ-writing-skill.md).
 
 **Research skill (2026-11-12):** at the user's request, [econ-research](skills/econ-research/SKILL.md) v0.1 covers research questions and the literature as a third separate skill. Its core rule is that no reference is written from memory. See [the log](logs/2026-11-12-econ-research-skill.md).
 

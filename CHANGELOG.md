@@ -8,6 +8,17 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-16
 
+### v2 rebuild — four skills, task pages, shared text
+
+- **Changed (breaking):** `econ-teaching` is now `econ-learn` and `econ-writing` is now `econ-write`. Slides moved out of the teaching skill into a new skill, `econ-present`. Reinstall under the new names; old paste-a-link pages redirect.
+- **Changed:** each skill is `SKILL.md` (Mission, Guarantees, Defaults, routing) plus `tasks/` and `guides/`. A request reads `SKILL.md` and one task page instead of up to five topic references: about 2,300 words for a bare term (was 4,750), 3,500 for a Homework problem (was 8,400), 4,100 for a deck (was 7,300).
+- **Added:** `shared/` holds the five guarantees, the global defaults, file delivery and the TeX bundle checker once; `tools/sync_shared.py` copies them into the skills, `tools/build_all.py` runs every generator, and `tools/list_defaults.py` prints all preferences. A test pins 42 phrases for preferences the user asked for.
+- **Changed:** `AGENTS.md` follows the new layout; a preference change now needs one changelog line, not a log file. `DESIGN_V2.md` replaces `DESIGN_V1.md`, which is kept as history. Entries below this one use the old names and file paths; their links were repointed to where each rule lives now.
+- **Changed:** `README.md` rewritten around the four skills, the shared guarantees and the Defaults.
+- **Evaluation so far:** structural tests pass. One blind comparison on three synthetic cases scored v2 41, v1 40 and no skill 37 out of 42, too close to rank v2 above v1. `econ-present`, `econ-write` and `econ-research` have not been run on real material in v2.
+- Requested by the user after a review of all prompts and logs.
+- Details: [2026-11-16 — v2 rebuild: four skills, task pages, shared text](logs/2026-11-16-v2-rebuild-four-skills.md).
+
 ### Econ Teaching — Prompt tidy after a full review
 
 - **Fixed:** a Figure Index and a lecture-to-homework map were asked for without condition in `visuals-and-homework.md`; both now apply only when a reusable record helps, as the other references already said. One grammar error in `slides.md`.
@@ -303,7 +314,7 @@ _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questi
 - **New rules exercised:** the near-miss output folder question (case 55) was asked once and answered. The unreadable-page rule (case 54) fired for one section whose equations are embedded images.
 - **Not completed:** the files were handed to the user, not written to the course's cloud folder, because this session had read-only access to the drive.
 - **Fixed** in Slide Fidelity: Word equations are read from the document XML, not from a text export; embedded equation images count as unread; a Word file is cited by section heading because it has no fixed pages.
-- **Added** a standard-library [Word equation reader](skills/econ-teaching/scripts/read_docx_math.py): it prints a `.docx` as text with its typed equations kept, and marks pictures and embedded equation objects as not read. Eight offline unit tests in `tests/test_docx_math.py`.
+- **Added** a standard-library [Word equation reader](skills/econ-learn/scripts/read_docx_math.py): it prints a `.docx` as text with its typed equations kept, and marks pictures and embedded equation objects as not read. Eight offline unit tests in `tests/test_docx_math.py`.
 - **Added** to Slide Fidelity and TeX/PDF Outputs: before delivering a document, re-read every displayed formula against the source, because the textbook form of a formula is what silently replaces the lecturer's. Evaluation case 56 covers it.
 - Details: [2026-11-13 — STAT 516 class handout test](logs/2026-11-13-professor-stat516-class-handout-test.md).
 
@@ -359,7 +370,7 @@ _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questi
 
 ### New skill — Econ Writing (v0.1)
 
-- Added [`econ-writing`](skills/econ-writing/SKILL.md), a separate skill for editing, reviewing and structuring the user's own English economics writing: research papers, thesis chapters, referee and research reports, and homework write-ups.
+- Added [`econ-writing`](skills/econ-write/SKILL.md), a separate skill for editing, reviewing and structuring the user's own English economics writing: research papers, thesis chapters, referee and research reports, and homework write-ups.
 - **Terminology stays unchanged.** The skill builds a term list from the draft first and uses each term exactly as written; it never swaps in synonyms and flags inconsistent use instead of choosing. Math, numbers, citation keys, LaTeX labels and stated conditions are also left as written.
 - Three references: terminology and LaTeX safety, economics writing conventions (paper sections, thesis chapters, referee reports, homework), and AI-sounding patterns adapted for economics from the MIT-licensed [humanizer](https://github.com/blader/humanizer) skill.
 - Added seven manual [writing evaluation cases](tests/writing-evaluation.md); README, AGENTS.md, DESIGN_V1.md and STORAGE_POLICY.md now describe the second skill. Not yet tested on real drafts.
@@ -406,14 +417,14 @@ _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questi
 
 ### Professor — Remove overfitting to legacy STAT 516 instructions
 
-- Replaced the prior beginner-first Time Series lesson template with a concise, optional [Time Series reasoning lens](skills/econ-teaching/references/time-series.md). It preserves rigor about time dependence, lag conventions, model properties, inference and forecasting **without imposing a seven-stage teaching style, SAS requirement or default textbook length**.
+- Replaced the prior beginner-first Time Series lesson template with a concise, optional [Time Series reasoning lens](skills/econ-learn/guides/time-series.md). It preserves rigor about time dependence, lag conventions, model properties, inference and forecasting **without imposing a seven-stage teaching style, SAS requirement or default textbook length**.
 - Refined Econometrics, LaTeX guidance and README; actual course and current user requests now determine depth and output.
 - Historical course-specific instructions remain historical context, not global Skill requirements. Details: [design correction](logs/2026-10-24-remove-legacy-time-series-template-overfit.md).
 
 
 ### Professor — Beginner-first Time Series learning (same Skill)
 
-- Added [Time Series teaching lens](skills/econ-teaching/references/time-series.md) inside the existing Professor Skill (not another Skill) with flexible beginner-to-rigorous teaching, justified derivations, original notation, relevant ACF/PACF visuals, SAS interpretation, concise Homework vs comprehensive guide modes.
+- Added [Time Series teaching lens](skills/econ-learn/guides/time-series.md) inside the existing Professor Skill (not another Skill) with flexible beginner-to-rigorous teaching, justified derivations, original notation, relevant ACF/PACF visuals, SAS interpretation, concise Homework vs comprehensive guide modes.
 - Connected the reference to core Skill routing, Econometrics, Teaching Design and LaTeX output guidance.
 - Clarified that an explicitly user-selected **existing course output folder** overrides the generic `Agent Outputs` name; this avoids accidentally duplicating a course's already verified nonstandard `Agent output` folder.
 - Reviewed the STAT 516 course folder and confirmed the specified teaching-style companion exists; **no private course files were committed to GitHub, and no Handbook or unnecessary cloud test was generated**.
@@ -422,7 +433,7 @@ _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questi
 
 ### Professor — Add optional course Learning Logs
 
-- Added a concise editable Markdown [Learning Log template](skills/econ-teaching/templates/learning-log.md) and [opt-in workflow](skills/econ-teaching/references/learning-log.md) for study-session topics, questions, clarifications, verified Lecture/Homework links and open issues.
+- Added a concise editable Markdown [Learning Log template](skills/econ-learn/templates/learning-log.md) and [opt-in workflow](skills/econ-learn/tasks/learning-log.md) for study-session topics, questions, clarifications, verified Lecture/Homework links and open issues.
 - Learning notes are **private course artifacts**, separate from public GitHub development logs. They are saved **on demand**, not automatically after every chat; existing dated notes are read before safe append, or a separate filename is used to avoid data loss.
 - Integrated log routing into the Professor, Drive guidance, teaching architecture and README without changing the default TeX/PDF convention for other requested files.
 - Initialized an ECONS 509 `Agent Outputs/Learning Logs/2026-10-24.md` setup-only file, with no fabricated learning/mastery claims.
@@ -450,7 +461,7 @@ _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questi
 ### Design — Teach first, route workflows on demand
 
 - Reorganized `econ-phd-professor` around learner intent and six adaptive explanation modes rather than a fixed multi-step file/indexing process.
-- Added a focused [Teaching Design](skills/econ-teaching/references/teaching-design.md) reference integrating exact-notation mathematics, visual intuition, Homework and economics depth without mandatory headings or extra artifacts.
+- Added a focused [Teaching Design](skills/econ-learn/tasks/explain.md) reference integrating exact-notation mathematics, visual intuition, Homework and economics depth without mandatory headings or extra artifacts.
 - Simplified core reference routing while keeping all source integrity, original-figure provenance, course mapping, and exact private `Agent Outputs/` + default TeX/PDF requirements.
 - Added proportional evaluation guidance: preserve existing CI, but prioritize Skill design and limit new end-to-end or multi-file tests to significant changes.
 - Details: [2026-10-24-professor-teaching-first-design.md](logs/2026-10-24-professor-teaching-first-design.md).
@@ -467,7 +478,7 @@ _Chat LaTeX rule, wording now in force after the entries below: "Ordinary questi
 ### Professor — Visual-first teaching, Figure Index and test expansion
 
 - Replaced new-image-as-last-resort wording with proactive visual teaching alongside exact mathematics; no arbitrary figure quotas.
-- Added an original figure locator and [Figure Index template](skills/econ-teaching/templates/figure-index.md); when a TeX figure asset is missing, check the corresponding rendered handout PDF before declaring the figure unseen.
+- Added an original figure locator and [Figure Index template](skills/econ-learn/templates/figure-index.md); when a TeX figure asset is missing, check the corresponding rendered handout PDF before declaring the figure unseen.
 - Simplified the Professor's core rules from 12 to six priorities, while preserving exact notation, Homework and private TeX/PDF cloud delivery.
 - Added teaching evaluation cases 38–44 and Python tests for provenance and nested TeX figure sources.
 - Details: [2026-10-24-professor-visual-first-figure-index](logs/2026-10-24-professor-visual-first-figure-index.md).

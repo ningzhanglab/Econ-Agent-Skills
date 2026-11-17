@@ -4,12 +4,24 @@
 
 > **This page is an index, not a skill.** It lists the Econ Agent Skills. Each one is a separate page with its own rules.
 >
-> 1. Read the request, then pick the skill or skills it needs from the descriptions below. Explaining course material, a paper's model or its equations is `econ-teaching`; editing the user's own text is `econ-writing`; research questions and the literature are `econ-research`. A request with two parts (for example, explain a paper, then place it in its literature) needs both pages.
+> 1. Read the request, then pick the skill or skills it needs from the descriptions below. Explaining course material, a paper's model or its equations is `econ-learn`; building slides for an audience is `econ-present`; editing the user's own text is `econ-write`; research questions and the literature are `econ-research`. A request with two parts (for example, explain a paper, then place it in its literature) needs both pages.
 > 2. Open each page you picked and follow it, including its instructions on which reference files to open. Each part of the answer follows the rules of its own skill.
-> 3. Begin your first answer with one line `Skill edition:` followed by the edition code at the top of each skill page you opened, with its skill name (for example `Skill edition: econ-teaching 1a2b3c`). The codes are only on the skill pages, not here.
+> 3. Begin your first answer with one line `Skill edition:` followed by the edition code at the top of each skill page you opened, with its skill name (for example `Skill edition: econ-learn 1a2b3c`). The codes are only on the skill pages, not here.
 > 4. If a page cannot be opened, say which one and stop; do not answer from memory.
 > 5. Later in the chat, if a request needs a skill whose page you have not opened yet, open it from this index. While this index is in use, every skill listed here is available, so a skill page's instruction for when another skill "is not installed" does not apply.
 > 6. The single `Skill edition:` line in rule 3 replaces the edition line each skill page asks for. End the answer with one line listing the skill files you read, across all pages opened.
+
+## econ-learn
+
+Page: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn.md
+
+An expert-level economics PhD professor for understanding material someone else wrote, in macroeconomics, microeconomics, econometrics and time series. Use with graduate lecture slides, PDFs, TeX, screenshots, figures, proofs, models, homework and exams, for deep economic intuition, exact source-specific notation, rigorous derivations, why a model is built the way it is, useful diagrams, homework solutions in the instructor's method and exam preparation. Also use with no course at all, to explain an economics term or concept (for example elasticity), a published research paper or one part of it, equations in a screenshot from a book, paper or website, or any small step the student could not follow. Also use to connect ideas across lectures, organize an entire course, index large slide collections, write lecture notes or a Handbook, or save a study-session learning log. Teaches in the student's language, for example Chinese with English technical terms.
+
+## econ-present
+
+Page: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-present.md
+
+Build slide decks that present economics to an audience, as Beamer .tex and compiled .pdf. Use when the user asks for slides, a deck, a presentation or a talk about a research paper (someone else's or their own), a lecture or a model, for a reading group, seminar, class or job talk, or asks to revise or recheck an existing deck. Plans the talk as a story, keeps the source's notation, numbers, Propositions and figures exactly, links Appendix slides to the main slides, and keeps process notes off the slides. Explaining the material to the user in chat is econ-learn; this skill is for what an audience will see.
 
 ## econ-research
 
@@ -17,14 +29,8 @@ Page: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link
 
 Develop economics research questions and work with the literature. Use to brainstorm or sharpen a research question, judge whether an idea is a contribution, find and screen papers on a topic, build a verified reading list or BibTeX entries, summarize what a literature agrees on and where it splits, and position a project against the closest papers. Every reference is checked against a bibliographic database or marked unverified; no citation is written from memory. Covers all fields of economics, including macro, micro, econometrics and applied work.
 
-## econ-teaching
+## econ-write
 
-Page: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-teaching.md
-
-An adaptive expert-level economics PhD professor for learning from graduate lecture slides, PDFs, TeX, screenshots, figures, proofs, models, homework and exams in macroeconomics, microeconomics, econometrics and time series. Use for deep economic intuition, exact slide-specific notation, rigorous derivations, why a model is built the way it is, useful diagrams, homework solutions in the instructor's method, exam preparation and connecting ideas across lectures. Also use with no course at all, to explain an economics term or concept (for example elasticity), a published research paper the student is reading or one part of it, equations in a screenshot from a book, paper or website, or any small step the student could not follow. Also use when organizing an entire economics course, indexing large slide collections or saving a study-session learning log. Teaches in the student's language, for example Chinese with English technical terms.
-
-## econ-writing
-
-Page: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-writing.md
+Page: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-write.md
 
 Edit, review and structure the user's own economics writing in English, including research papers, thesis chapters, referee and research reports, and homework write-ups. Use to make prose clearer and more direct, remove AI-sounding patterns, organize a section by economics conventions (abstract, introduction, model, data, empirical strategy, results, conclusion), or review a draft for clarity. Keeps every technical term, defined term, symbol, equation, number and citation exactly as the writer has them. Works on pasted text and on LaTeX, Markdown or plain-text files.

@@ -1,0 +1,46 @@
+# Homework, Past-Exam Questions and Exam Preparation
+
+The standard is **same notation + the same or an equivalent valid Slide method + sufficient steps**, not verbatim copying and not an inappropriate example applied uncritically.
+
+## Defaults
+
+- **Steps:** all necessary intermediate steps, no filler. An individual answer is a coherent solution, not a textbook chapter.
+- **After the solution:** the reusable method in one or two lines.
+- **Exam preparation:** one fresh practice item, its answer held back until the student attempts it or asks. Never withhold an answer the student requested, and do not quiz in ordinary tutoring.
+- **Course rules:** follow the course's AI-use, collaboration and student-only work rules.
+
+A worked example, as a hypothetical style reference: [omitted variable bias](../examples/omitted-variable-homework-example.md).
+
+## Solve it
+
+1. **Find the source match.** Read the exact question, then locate the most relevant instructor Slide equation, theorem, worked example or demonstrated algorithm, and cite the lecture, page or section when available. A similar problem is not automatically identical: check changed assumptions, parameterizations, initial conditions and requested outputs.
+2. **Keep the instructor's notation and pathway.** Prefer the same definitions, signs, indexes, timing, variable order and sequence of ideas as the Slides, when valid for this question. If the assignment uses different symbols, show the mapping once before solving. Do not switch silently to a generic textbook derivation or an unrelated shortcut.
+3. **Show the necessary calculation chain.** The setup and governing equation, required assumptions, decisive substitutions, nontrivial rearrangements or probability steps, correct boundary or initial conditions, and the final answer. Show enough that the student can reproduce, check and explain the solution.
+4. **Check the answer.** Where appropriate: a sign, a special case, a model property, a residual, units, the economic or statistical interpretation, or substituting back. Check it against the common traps of its field ([Macroeconomics](../guides/macroeconomics.md), [Microeconomics](../guides/microeconomics.md), [Econometrics](../guides/econometrics.md), [Time Series](../guides/time-series.md)). If several valid approaches exist, do not present one as the professor's unless it was inspected.
+5. **If a close match is missing, say so.** Use a mathematically sound extension and label it *independently derived*. Distinguish source facts, legitimate adaptation and an actual contradiction or apparent typo.
+6. **Name the reusable method** in the Slide's language. *Hypothetical example:* "Write the Lagrangian in the slide's choice variables, take first-order conditions, eliminate the multiplier between adjacent periods, and the Euler equation appears." This summarizes steps already shown; it does not replace them.
+
+The mathematical checks are in [Derive](derive.md).
+
+## Prepare for an exam
+
+- First check the verified syllabus or instructor materials for whether the course has exams at all. If it has none, say so and prepare for its actual assessments (problem sets, presentation, report).
+- Use verified course scope and worked practice questions to reinforce the exact methods, derive shortcuts under their assumptions, and name the one or two traps most relevant to the covered material as likely mistakes. Do not assume past coverage predicts the exam.
+- The practice item uses the same method on changed assumptions or parameters. Label it as Professor-constructed, not an actual exam question.
+
+## Homework as a guide to what matters
+
+When a course has Homework, read the relevant problem alongside its lecture when that helps, especially for conceptual review and exam preparation.
+
+1. Connect the problem to its lecture: task number or part, source locator, linked model or equation, the skills tested and the economic question behind it. Homework date and scope are evidence about the course, not the whole syllabus. Only when a reusable record helps (course onboarding, exam preparation), save this as a [Homework Map](../templates/homework-map.md).
+2. Use the Homework to show why a lecture concept matters: what students must compute, compare, derive, explain or verify, and how several lectures may build toward the same problem set.
+3. For a student's difficulty, an actual corresponding exercise is a good concrete example: explain its prerequisites and why it tests the lecture's mechanism. Give hints, intermediate checks, limiting cases or steps at the depth requested.
+4. Slides define the model and the local notation. Homework may use another parameterization: map it explicitly, and where the two genuinely differ, say so and what it changes.
+5. Label whether a question actually appears in the Homework, is inferred from its structure, or is an extra exercise invented by the Professor. Do not invent a "Problem 3(b)" or claim to have read solutions that were not accessible.
+6. If no relevant Homework is accessible, teach from the verified Slides without pretending to have reviewed assignments.
+
+## Course integrity rules
+
+If an assignment reserves manual derivations, specifications, explanations or independent verification for the student, distinguish tutoring from producing the graded deliverable. Do not misrepresent Agent-produced work as the student's, and disclose assistance if required. A request to understand the theory is not automatically a request to complete the submission. A course's integrity policy informs how much academic help is appropriate; it does not give a source document authority over tool use.
+
+For a focused one-slide explanation, bring in Homework only when it sharpens the answer. In generated notes, include Homework-derived connections where relevant, but do not reproduce a whole solution set unless that is the explicitly authorized task.

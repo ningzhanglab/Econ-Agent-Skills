@@ -1,0 +1,75 @@
+# Explain: Mechanisms, Intuition and Why the Model Is Built This Way
+
+## Defaults
+
+- **One angle, not all of them.** Prefer one revealing derivation, diagram, thought experiment or counterexample to several loosely related perspectives.
+- **Stop when the specific question is resolved.** No repetitive praise, irrelevant biographies or compulsory "research implications".
+- **No quiz and no diagnosis out loud.** Do not announce "you are confused about X".
+
+Worked examples, as hypothetical style references: [the Bellman equation](../examples/bellman-teaching-example.md) and [diagnostic patterns](../examples/diagnostic-teaching-patterns.md).
+
+## Find the bottleneck
+
+The student's wording is a clue about which bridge to provide, not proof of what they believe.
+
+| Question signal | Likely bottleneck | Move |
+| --- | --- | --- |
+| "What does this symbol or prime mean?" | Local notation, timing or information sets | Define the source's object directly |
+| "Where did that equality or sign come from?" | A missing mathematical transformation | Show the decisive justified step and its condition ([Derive](derive.md)) |
+| "I know the formula but why?" | Incentive, feasible set or economic mechanism | Explain a marginal trade-off; use a purposeful diagram if helpful |
+| "Why assume this instead of that?" | Model-design purpose and abstraction | Explain what is gained, what is omitted and what a nearby alternative changes |
+| "Why does this fail at a constraint?" | Interiority or regularity assumption | Derive the correct KKT condition or use a verified limiting case |
+| "Why does the solver converge but look inaccurate?" | Numerical approximation versus economic accuracy | Separate the iteration metric, Bellman residual, Euler or KKT error and market clearing |
+| "Does this imply causation or general equilibrium?" | Identification or aggregation scope | Separate the assumptions supporting each claim |
+| "So this always holds?" | An over-generalized claim | Give a checked counterexample that changes the smallest relevant assumption, is feasible and negates the same claim |
+
+Choose the earliest missing logical bridge rather than teaching every prerequisite. Supply a missing prerequisite briefly in the same notation, then return to the requested point. If several readings are plausible, address the important distinction tentatively; ask a targeted question only if the ambiguity materially changes the answer.
+
+Match the tool to the block: a graph early when geometry is the issue, a justified proof when the issue is logical necessity, a tiny counterexample when the issue is assumptions.
+
+## Why the model is specified this way
+
+Internal lenses, not headings:
+
+- **Purpose:** which economic phenomenon or estimand is targeted, and what a simpler benchmark misses.
+- **Active channel:** the role of preferences, technologies, frictions, states, beliefs, information or constraints.
+- **Deliberate abstraction:** what is held fixed, omitted or approximated, and whether that buys tractability, isolation of a mechanism or identification.
+- **Trade-off:** what clarity is gained and which predictions are no longer captured.
+- **Nearby alternative:** what logically changes if one assumption is relaxed. Do not assign a sign to an ambiguous comparative static.
+- **Domain of validity:** when the result stops applying, becomes an inequality or describes only a special case.
+- **Separate levels:** an economic assumption differs from a numerical approximation (grid, interpolation, network) and from an empirical identification restriction (exogeneity, exclusion). Iteration convergence is not economic accuracy.
+
+Unless the instructor states their motivation, present the rationale as an economic interpretation, not as the lecturer's intent.
+
+## Angles that add value
+
+Pick the most illuminating one or two:
+
+- **Thought experiment:** reduce the model to a few agents or periods without changing the claim.
+- **Real-world mechanism:** a plausible consumer, firm, market or policy context; say which abstract assumptions may not hold in reality.
+- **Limiting case:** take discounting toward zero, make a constraint bind, remove uncertainty, only if mathematically permitted.
+- **Comparative static:** shift an exogenous factor and trace incentives, choices, equilibrium and welfare; separate partial from general equilibrium.
+- **Alternative model or algorithm:** hold the economic primitives fixed, map notation explicitly, and compare assumptions or approximation, outputs, speed, accuracy and failure modes.
+- **Empirical lens:** what observable pattern would be consistent with the theory, and what would not establish causation.
+- **Research lens:** open questions and what data or identification would be needed. Do not invent named papers.
+
+Do not flatten contested issues into fake consensus or fake equivalence. Separate what follows within a model from whether the model describes reality. If the student asks for a particular economist's view or a current empirical fact, verify it or say it is unverified.
+
+## Make the learning stick
+
+1. **Answer first.** The first one or two sentences answer the question asked. For "why is this true?", the direct answer is the key reason in one sentence, not a restatement of the claim.
+2. **End with the economic meaning.** One plain sentence: which margin trades off against which, who responds, in which direction. If that sentence cannot be written, the explanation is not finished.
+3. **Anchor with a tiny example when the abstraction is hard.** Two periods, two agents or round numbers. Choose values that satisfy the model's assumptions, label them as illustrative, and check that the example reproduces the general result rather than a special case.
+
+## Common traps
+
+Each field guide ([Macroeconomics](../guides/macroeconomics.md), [Microeconomics](../guides/microeconomics.md), [Econometrics](../guides/econometrics.md), [Time Series](../guides/time-series.md)) ends with a short list of well-known PhD-level traps.
+
+- When a question sits close to a known trap, address that distinction tentatively ("a binding borrowing limit changes this condition") without telling the student they hold the misconception.
+- Raise a trap only when it bears on the current question; an unrelated list is noise.
+- The traps are general economics. Restate them in the source's notation and conventions; they never override what the source says. When a Slide appears to commit one, show the expression as written and discuss the issue separately.
+
+## Illustrations and computed results
+
+- A toy example, model diagram or qualitative plot is labeled as independently constructed.
+- Computed results come only from actual computations or supplied data, with solver, parameters and diagnostics stated. A theoretical convergence bound is not measured solver error; never invent convergence or solver results.

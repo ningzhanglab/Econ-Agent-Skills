@@ -2,10 +2,10 @@
 """Build one installable zip per skill, for sharing a single skill.
 
 Usage:
-  python tools/build_skill_zips.py [--out dist] [--skill econ-teaching ...]
+  python tools/build_skill_zips.py [--out dist] [--skill econ-learn ...]
 
 Each zip holds only that skill's folder at its top level
-(econ-teaching.zip -> econ-teaching/SKILL.md, econ-teaching/references/...),
+(econ-learn.zip -> econ-learn/SKILL.md, econ-learn/tasks/...),
 which is the layout Claude.ai skill upload and skills folders expect.
 Repository maintenance files (logs, tests, CHANGELOG) are never included.
 Local junk such as .DS_Store, __pycache__ and LaTeX build files is skipped.

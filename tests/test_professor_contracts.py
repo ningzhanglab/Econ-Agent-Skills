@@ -10,7 +10,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills" / "econ-teaching"
+SKILL = ROOT / "skills" / "econ-learn"
+PRESENT = ROOT / "skills" / "econ-present"
 checker_path = SKILL / "scripts" / "check_tex_bundle.py"
 spec = importlib.util.spec_from_file_location("check_tex_bundle", checker_path)
 bundle = importlib.util.module_from_spec(spec)
@@ -34,16 +35,16 @@ class CourseContracts(unittest.TestCase):
         self.assertIn("Conceptual dependency", doc)
 
     def test_source_selection_and_prompt_boundary(self):
-        doc = (SKILL / "references/course-state-and-sources.md").read_text(encoding="utf-8")
+        doc = (SKILL / "guides/sources-and-versions.md").read_text(encoding="utf-8")
         for token in ("LaTeX", "handout", "Presenter", "Untrusted material", "reopen", "Agent Outputs"):
             self.assertIn(token.lower(), doc.lower())
         self.assertIn("course-state.example.json", doc)
 
     def test_equivalent_multiformat_lecture_grouping(self):
-        doc = (SKILL / "references/course-state-and-sources.md").read_text(encoding="utf-8").lower()
+        doc = (SKILL / "guides/sources-and-versions.md").read_text(encoding="utf-8").lower()
         for term in (".tex", ".docx", ".pdf", "filename stem", "one logical", "ask a brief clarification"):
             self.assertIn(term, doc)
-        nav = (SKILL / "references/course-navigation.md").read_text(encoding="utf-8")
+        nav = (SKILL / "tasks/course.md").read_text(encoding="utf-8")
         self.assertIn("Group same-basename", nav)
         idx = (SKILL / "templates/lecture-index.md").read_text(encoding="utf-8")
         self.assertIn("Grouped formats", idx)
@@ -82,14 +83,15 @@ class CourseContracts(unittest.TestCase):
 
     def test_visual_first_policy_and_figure_index(self):
         skill = (SKILL / "SKILL.md").read_text(encoding="utf-8").lower()
-        visual = (SKILL / "references/visuals-and-homework.md").read_text(encoding="utf-8").lower()
-        expert = (SKILL / "references/expert-teaching.md").read_text(encoding="utf-8").lower()
+        visual = (SKILL / "guides/figures.md").read_text(encoding="utf-8").lower()
+        expert = (SKILL / "tasks/explain.md").read_text(encoding="utf-8").lower()
         index = (SKILL / "templates/figure-index.md").read_text(encoding="utf-8")
         self.assertIn("visuals as a first-class", skill)
         self.assertIn("do not wait for prose", skill)
         self.assertIn("visual-first", visual)
         self.assertIn("rendered lecture handout pdf", visual)
-        self.assertIn("proactively", expert)
+        self.assertIn("proactively", visual)
+        self.assertIn("purposeful diagram", expert)
         self.assertIn("RENDERED_PDF_VISUALLY_REVIEWED", index)
         self.assertIn("ASSET_LOCATED_NOT_VISUALLY_REVIEWED", index)
 
@@ -247,10 +249,11 @@ class CourseContracts(unittest.TestCase):
             self.assertEqual(bundle.validate(tex, compile_requested=True), [])
 
     def test_no_extra_chart_or_homework_without_source(self):
-        doc = (SKILL / "references/visuals-and-homework.md").read_text(encoding="utf-8").lower()
+        doc = (SKILL / "tasks/homework-exam.md").read_text(encoding="utf-8").lower()
         self.assertIn("only when", doc)
+        self.assertIn("only when", (SKILL / "guides/figures.md").read_text(encoding="utf-8").lower())
         self.assertIn("homework", doc)
-        self.assertIn("untrusted", (SKILL / "references/course-state-and-sources.md").read_text(encoding="utf-8").lower())
+        self.assertIn("untrusted", (SKILL / "guides/sources-and-versions.md").read_text(encoding="utf-8").lower())
 
     @unittest.skipUnless(shutil.which("latexmk") and shutil.which("pdflatex"), "TeX engine not available")
     def test_default_english_template_compiles_cleanly(self):
@@ -294,16 +297,16 @@ class CourseContracts(unittest.TestCase):
             tex.write_text(deck.replace("  text", "  text\\pause", 1), encoding="utf-8")
             content.write_text(good + "\n## Slide 4: Extra\n", encoding="utf-8")
             self.assertEqual(bundle.content_file_problems(tex), [])  # overlays: not countable, skipped
-        doc = (SKILL / "references/slides.md").read_text(encoding="utf-8")
+        doc = (PRESENT / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("_content.md", doc)
 
     def test_slides_keep_process_notes_off_the_deck(self):
-        doc = (SKILL / "references/slides.md").read_text(encoding="utf-8")
+        doc = (PRESENT / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("The deck is for the audience; the handover is for the user", doc)
         self.assertIn("Appendix", doc)
         self.assertIn("never list papers, years or journals from memory", doc)
-        self.assertIn("references/slides.md", (SKILL / "SKILL.md").read_text(encoding="utf-8"))
-        template = (SKILL / "templates/simple-slides.tex").read_text(encoding="utf-8")
+        self.assertIn("`econ-present`", (SKILL / "SKILL.md").read_text(encoding="utf-8"))
+        template = (PRESENT / "templates/simple-slides.tex").read_text(encoding="utf-8")
         self.assertIn(r"\documentclass[aspectratio=169,11pt]{beamer}", template)
         self.assertEqual(bundle.choose_engine(template), "-pdf")
 
@@ -315,7 +318,7 @@ class CourseContracts(unittest.TestCase):
     def test_slides_template_compiles_cleanly(self):
         with tempfile.TemporaryDirectory() as tmp:
             dest = Path(tmp) / "simple-slides.tex"
-            shutil.copy2(SKILL / "templates/simple-slides.tex", dest)
+            shutil.copy2(PRESENT / "templates/simple-slides.tex", dest)
             command = ["latexmk", "-pdf", "-interaction=nonstopmode", "-halt-on-error", dest.name]
             result = subprocess.run(command, cwd=dest.parent, capture_output=True, text=True, timeout=120)
             self.assertEqual(result.returncode, 0, result.stdout[-2000:])

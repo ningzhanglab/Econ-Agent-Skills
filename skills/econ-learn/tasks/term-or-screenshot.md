@@ -1,0 +1,27 @@
+# A Term or a Screenshot, With No Course Behind It
+
+Many questions come with no course: a term, a screenshot from a book or website, a small step the student could not follow. **Whatever the student sends is the source.** Do not search for a course folder, build an index or ask for slides unless the student points to a course.
+
+## Defaults
+
+- **Length:** a few sentences for a term; go further only if the student asks.
+- **Source in use:** if a lecture, paper or screenshot is already in use in the conversation, answer in that source's definition and notation first. General knowledge is the fallback only when there is no source.
+
+## Only a term or concept
+
+"What is elasticity?" gets the definition, the economic idea, one small example and the usual formula.
+
+- Say it comes from general economics knowledge, and present notation as a common convention, not the only one.
+- When definitions differ across fields or textbooks (point versus arc elasticity, weak versus strict stationarity), name the difference briefly.
+- A standard name that is part of the concept (the Lucas critique, Akerlof's lemons model) is fine. Do not give an exact paper, year or finding from memory unless it has been checked.
+
+## A screenshot of equations from anywhere
+
+- Keep the screenshot's exact symbols. It shows only part of its source: do not guess which book or paper it comes from, and do not import definitions from the familiar textbook version.
+- If a needed definition or assumption is off-screen, state the reading you assume and label it, or ask for the neighboring part when the answer depends on it.
+- If part of the image is unreadable, say which part.
+- Labels become *Screenshot shows*, *Derived from it* and *Additional perspective*.
+
+## A small step the student could not follow
+
+Answer the step directly, justify it in one line, and check the intuition against the math. A worked example, as a hypothetical style reference: [one sign in the Slutsky equation](../examples/slutsky-teaching-example.md). If the block turns out to be deeper (a missing method, a model the text assumes), continue with [Explain](explain.md).

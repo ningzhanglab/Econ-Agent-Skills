@@ -1,6 +1,6 @@
 # Econ Writing: Manual Evaluation Cases
 
-**Purpose:** check that `econ-writing` improves prose without changing what the writer said. Structural tests only confirm that the files and links exist.
+**Purpose:** check that `econ-write` improves prose without changing what the writer said. Structural tests only confirm that the files and links exist.
 
 ## Critical fails
 

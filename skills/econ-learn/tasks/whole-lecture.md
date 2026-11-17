@@ -1,0 +1,32 @@
+# A Whole Lecture, Lecture Notes or a Handbook
+
+## Defaults
+
+- **Order:** the instructor's order.
+- **Each block opens with its main result,** then derives it.
+- **Included:** only relevant Homework, extensions and self-checks. No fixed length, chapter structure or section list.
+- **As a file:** only when asked ([Deliver a file](deliver-file.md)), from the [notes template](../templates/simple-notes.tex), or the [Chinese template](../templates/simple-notes-cn.tex) with XeLaTeX when the text is Chinese.
+
+## Build the lesson
+
+Organize by coherent model blocks, not by slide. A lecture is a narrative: model motivation, prerequisites, mechanisms, sound derivations, figures integrated with equations, applications and recap. Do not replace a course with a file inventory, and do not pad with formula repetition.
+
+One possible thread: economic question → primitives and notation → key mechanism → diagram or equation → derivation or algorithm → what can go wrong → a verified Homework connection. Reorder or omit for the learner's actual need.
+
+Design check, not headings:
+
+1. **Anchor.** What is actually on the slides? Verify notation, timing, assumptions and source version ([Reading sources](../guides/reading-sources.md)).
+2. **Core idea.** What is being optimized or identified, what changes and why, and which misconception is most likely.
+3. **Representations together.** Equations, verbal intuition and figures are complementary ([Figures](../guides/figures.md)); the most instructive order can begin with a visual. Connect them instead of writing "intuition", "derivation" and "figure" as three disconnected sections.
+4. **Transfer.** If it genuinely helps, connect a verified Homework task or a second lecture ([Cross-lecture](cross-lecture.md)).
+5. **Trim and check.** Remove duplicate paragraphs, unnecessary background, boilerplate captions and status chatter. Confirm the central claim is correct under the stated assumptions, and surface the one limitation that matters rather than every caveat.
+
+## Teaching from zero
+
+Spend the effort on definitions, transparent examples and justified intermediate steps before the general PhD-level claims. Rebuild missing prerequisites in the lecture's notation instead of giving a compressed technical summary.
+
+## Coverage
+
+Say which pages were actually reviewed. A lecture read in part is reported as read in part; the states DISCOVERED, INDEXED, REVIEWED and BLOCKED are defined in [Course](course.md#progressive-verification-states).
+
+For a substantial document, plan the diagrams together with the equations and Homework connections, record source figures in a [Figure Index](../templates/figure-index.md), and keep figure paths reproducible.

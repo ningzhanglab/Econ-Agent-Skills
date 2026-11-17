@@ -19,6 +19,8 @@ def active_docs():
         ROOT / "README.md",
         ROOT / "AGENTS.md",
         ROOT / "STORAGE_POLICY.md",
+        ROOT / "DESIGN_V2.md",
+        ROOT / "DESIGN_V1.md",
         ROOT / "CHANGELOG.md",
         ROOT / "logs/README.md",
         ROOT / "tests/professor-evaluation.md",
