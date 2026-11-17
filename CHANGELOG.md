@@ -14,7 +14,8 @@ _No uncommitted planned changes are represented as completed here._
 - **Changed:** each skill is `SKILL.md` (Mission, Guarantees, Defaults, routing) plus `tasks/` and `guides/`. A request reads `SKILL.md` and one task page instead of up to five topic references: about 2,300 words for a bare term (was 4,750), 3,500 for a Homework problem (was 8,400), 4,100 for a deck (was 7,300).
 - **Added:** `shared/` holds the five guarantees, the global defaults, file delivery and the TeX bundle checker once; `tools/sync_shared.py` copies them into the skills, `tools/build_all.py` runs every generator, and `tools/list_defaults.py` prints all preferences. A test pins 42 phrases for preferences the user asked for.
 - **Changed:** `AGENTS.md` follows the new layout; a preference change now needs one changelog line, not a log file. `DESIGN_V2.md` replaces `DESIGN_V1.md`, which is kept as history. Entries below this one use the old names and file paths; their links were repointed to where each rule lives now.
-- **Not yet done:** v2 has passed structural tests only. It has not been run on a real lecture, draft, topic or deck.
+- **Changed:** `README.md` rewritten around the four skills, the shared guarantees and the Defaults.
+- **Evaluation so far:** structural tests pass. One blind comparison on three synthetic cases scored v2 41, v1 40 and no skill 37 out of 42, too close to rank v2 above v1. `econ-present`, `econ-write` and `econ-research` have not been run on real material in v2.
 - Requested by the user after a review of all prompts and logs.
 - Details: [2026-11-16 — v2 rebuild: four skills, task pages, shared text](logs/2026-11-16-v2-rebuild-four-skills.md).
 
