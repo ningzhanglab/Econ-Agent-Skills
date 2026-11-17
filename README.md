@@ -34,7 +34,7 @@ Adjustable choices are the lines under "Defaults" in each skill, separate from t
 - Requested files go to your course or project folder's `Agent Outputs/` (that exact name), never anywhere public.
 - What you say in a conversation overrides a default. When you state a lasting preference, the skill tells you which default it replaces.
 
-`python tools/list_defaults.py` prints every default. To change one for good, edit that line in the skill (for the global ones, [shared/defaults.md](shared/defaults.md)) and run `python tools/build_all.py`.
+`python3 tools/list_defaults.py` prints every default. To change one for good, edit that line in the skill (for the global ones, [shared/defaults.md](shared/defaults.md)) and run `python3 tools/build_all.py`.
 
 ## Share a skill
 
@@ -117,9 +117,9 @@ For the maintainer. Download links always point to the newest **published releas
 3. Click **Publish release**. The *Attach skill zips to release* workflow builds the four zips and attaches them to the release, usually within a couple of minutes. Check that the release page lists `econ-learn.zip`, `econ-present.zip`, `econ-write.zip` and `econ-research.zip`.
 4. If the change matters, tell the people you shared with to download again from the same link.
 
-After changing any file in a skill or in `shared/`, run `python tools/build_all.py` and commit what it writes: it copies the shared text into the skills, then rebuilds `link/`. The edition code covers every file of the skill, and tests fail if a copy or a page is out of date.
+After changing any file in a skill or in `shared/`, run `python3 tools/build_all.py` and commit what it writes: it copies the shared text into the skills, then rebuilds `link/`. The edition code covers every file of the skill, and tests fail if a copy or a page is out of date.
 
-To build the zips locally instead: `python tools/build_skill_zips.py` (writes to `dist/`, which Git ignores; inside a Git checkout it includes only files Git tracks).
+To build the zips locally instead: `python3 tools/build_skill_zips.py` (writes to `dist/`, which Git ignores; inside a Git checkout it includes only files Git tracks).
 
 ## econ-learn: the Professor
 
@@ -226,7 +226,7 @@ Every `SKILL.md` has the same parts: Mission, Guarantees, Defaults, routing and 
 
 ## Maintaining
 
-- After any edit under `skills/` or `shared/`: `python tools/build_all.py`, then `python tests/validate_skills.py` and `python -m unittest discover -s tests`.
+- After any edit under `skills/` or `shared/`: `python3 tools/build_all.py`, then `python3 tests/validate_skills.py` and `python3 -m unittest discover -s tests`.
 - [AGENTS.md](AGENTS.md) says where a change goes and how to record it: a preference change is one line in [CHANGELOG.md](CHANGELOG.md); a behavior change also gets a dated entry in [logs/](logs/README.md).
 - Manual evaluation cases: [teaching](tests/professor-evaluation.md), [writing](tests/writing-evaluation.md), [research](tests/research-evaluation.md).
 - Private slides, homework, learning logs and course records stay in your own drive ([Storage Policy](STORAGE_POLICY.md)).

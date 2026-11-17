@@ -50,7 +50,6 @@ When course files change:
 At the end of onboarding, report:
 
 - If the user requested generated files, the verified cloud `Agent Outputs/` path and links or a clear cloud-write failure (see [Deliver a file](../tasks/deliver-file.md)).
-
 - Files discovered versus successfully indexed/reviewed; only count accessible files.
 - Confirmed instructor sequence and any unresolved order.
 - Whether figures, equations and `\input` dependencies were actually checked.

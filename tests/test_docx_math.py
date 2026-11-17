@@ -119,7 +119,6 @@ class DocxMathReader(unittest.TestCase):
         fidelity = (ROOT / "skills/econ-learn/guides/reading-sources.md").read_text(encoding="utf-8")
         self.assertIn("read_docx_math.py", fidelity)
         self.assertIn("count as unread", fidelity)
-        self.assertIn("read_docx_math.py", (ROOT / "skills/econ-learn/SKILL.md").read_text(encoding="utf-8"))
 
     def test_skill_requires_a_formula_reread_before_delivery(self):
         fidelity = (ROOT / "skills/econ-learn/guides/reading-sources.md").read_text(encoding="utf-8")

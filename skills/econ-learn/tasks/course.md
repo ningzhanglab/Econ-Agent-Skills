@@ -1,6 +1,12 @@
-# Whole-Course Navigation and Course Onboarding
+# A Whole Course: Navigation and Onboarding
 
-Use when the user provides a semester's collection of materials, asks for a course overview, or wants to connect ideas across lectures. Do not require full-course onboarding before a focused question about an available slide.
+Use when the user provides a semester's collection of materials, asks for a course overview or wants saved maps reused. A question about how two lectures connect is [Cross-lecture](cross-lecture.md). Do not require course onboarding before a focused question about an available slide.
+
+## Defaults
+
+- **Indexes:** none is mandatory. A Course Map, Lecture Index, Notation Registry, Homework Map, Figure Index or Course State is made only when it helps the task or the user asks.
+- **Depth during onboarding:** inventory and map, not deep commentary on every page.
+- **Saved files:** only when requested, as [Deliver a file](deliver-file.md) describes.
 
 ## Two different orders
 

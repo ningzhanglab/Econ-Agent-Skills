@@ -2,7 +2,7 @@
 
 **Purpose:** support continuity across teaching conversations without logging every question, writing full chat transcripts or confusing student learning notes with the Skill repository's development logs.
 
-## Consent and activation
+## Defaults
 
 - **Default is on demand, not continuous.** The student can say "记录今天的学习", "save a learning log", "summarize this session in my course log", or explicitly request the equivalent. Creating a reusable log template is not permission to automatically archive future conversations.
 - If they explicitly opt in to an ongoing end-of-session recap convention, follow that preference only in sessions where a suitable trigger or user-requested save is actually available. A plain Skill markdown file does not install an event listener, monitor future chats, save after closing a session or schedule background work.

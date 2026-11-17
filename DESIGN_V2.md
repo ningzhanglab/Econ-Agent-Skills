@@ -47,6 +47,8 @@ Where a rule goes is decided by its scope:
 
 `econ-present` has one task, so its `SKILL.md` is the task page.
 
+In the first comparison run, agents opened two guides beyond the task page in every case, including for a bare term. The routing table therefore states each guide's situation narrowly and says which requests need none.
+
 A task page has the same parts: what the task is, its Defaults, the procedure, and the checks before answering. It links the example that shows a good answer when one exists.
 
 ## Guarantees, Defaults and rules

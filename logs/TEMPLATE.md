@@ -3,7 +3,7 @@
 > Copy into a **new** file named `logs/YYYY-MM-DD-short-slug.md`. Remove instructions and fill fields. Do not use TEMPLATE.md as a historical log.
 
 - **Date:** YYYY-MM-DD
-- **Component:** e.g., `econ-phd-professor`, `econ-research-agent`, or repository maintenance
+- **Component:** e.g., `econ-learn`, `econ-present`, `econ-write`, `econ-research`, `shared`, or repository maintenance
 - **Change type:** Added / Changed / Fixed / Removed / Testing / Documentation
 - **Status:** Implemented / Partial / Proposed
 - **Related commit / PR:** Link if already known; otherwise say "See Git history for this change" rather than inventing a SHA

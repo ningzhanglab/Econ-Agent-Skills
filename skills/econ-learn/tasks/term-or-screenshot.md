@@ -5,6 +5,7 @@ Many questions come with no course: a term, a screenshot from a book or website,
 ## Defaults
 
 - **Length:** a few sentences for a term; go further only if the student asks.
+- **Nothing else to open:** a bare term needs this page only, no field guide.
 - **Source in use:** if a lecture, paper or screenshot is already in use in the conversation, answer in that source's definition and notation first. General knowledge is the fallback only when there is no source.
 
 ## Only a term or concept

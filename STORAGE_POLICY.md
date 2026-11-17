@@ -27,7 +27,7 @@ For `econ-learn`, if the user requests a generated teaching/study file but **doe
 - GitHub stores reusable Skills, templates, tests and non-sensitive change logs. Completed course maps, lecture indexes, notation registries, documents and research outputs stay in the course's `Agent Outputs/`.
 - [AGENTS.md](AGENTS.md) governs development changes; update [CHANGELOG.md](CHANGELOG.md) and add a new dated log for material policy changes.
 - Past dated logs mention an older `outputs/` convention. Those are historical records, **superseded by this policy**; preserve them unchanged.
-- Professor implementation details: [Cloud Drive Workflow](skills/econ-learn/tasks/deliver-file.md).
+- Professor implementation details: [Deliver a file](skills/econ-learn/tasks/deliver-file.md).
 
 ## Example
 

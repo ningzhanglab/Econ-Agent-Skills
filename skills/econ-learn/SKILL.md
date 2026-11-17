@@ -51,7 +51,7 @@ The user's instruction in the conversation overrides any default here or in a ta
 - **Language:** reply in the language the user writes or asks for. Keep every symbol unchanged, and give the English technical term beside its translation at first use, for example 欧拉方程 (Euler equation).
 - **Chat first:** answer in chat. Create a file only when the user asks for one.
 - **Where files go:** the verified course or project folder's `Agent Outputs/` (that exact name), unless the user names another place. Check the file after writing it, and never put the user's private material anywhere public.
-- **Lasting preferences:** when the user states a preference meant to last ("from now on, no footer"), follow it for the rest of the conversation and say in one line which default it replaces, so they can change that line in the skill.
+- **Lasting preferences:** when the user states a preference meant to last ("from now on, shorter answers"), follow it for the rest of the conversation and say in one line which default it replaces, so they can change that line in the skill.
 <!-- /shared:defaults -->
 
 - **Math in chat:** all math in LaTeX from the first answer, even a single symbol in a sentence.
@@ -80,13 +80,13 @@ Open only what the request needs. A quick step needs nothing beyond this page.
 | Any file to be created or saved | [Deliver a file](tasks/deliver-file.md), together with the task's own page |
 | Saving or resuming a study-session log | [Learning log](tasks/learning-log.md) |
 
-Add a guide when it applies:
+A guide is opened only for its situation. A bare term, a quick step, or a question answered from text already in view needs none.
 
 | Situation | Guide |
 | --- | --- |
-| The source is a file (PDF, TeX, Word), or a page number must be cited | [Reading sources](guides/reading-sources.md) |
-| A source figure, a new diagram or a computed plot | [Figures](guides/figures.md) |
-| Substantive macro, micro, econometrics or time-series content | [Macroeconomics](guides/macroeconomics.md), [Microeconomics](guides/microeconomics.md), [Econometrics](guides/econometrics.md), [Time Series](guides/time-series.md) |
+| The source is a PDF, TeX or Word file whose layout, equations or page numbers must be read with care | [Reading sources](guides/reading-sources.md) |
+| A source figure to read or recover, or a new diagram or computed plot to make | [Figures](guides/figures.md) |
+| A Homework solution, a derivation or a whole lecture where a field's known traps or checks matter | [Macroeconomics](guides/macroeconomics.md), [Microeconomics](guides/microeconomics.md), [Econometrics](guides/econometrics.md), [Time Series](guides/time-series.md) |
 | Several versions of one lecture, or a saved Course State | [Sources and versions](guides/sources-and-versions.md) |
 | Files too large to read in one pass | [Large files](guides/large-files.md) |
 
@@ -101,8 +101,7 @@ A saved Course Map or notation registry is only an index: reopen the original ev
 
 If the skill a request needs is not installed, say so in one line and point to the Econ-Agent-Skills README for how to install it or paste its link, then help only as far as this skill's own rules allow: never list papers, years or findings from memory; name the topic and say the references are unverified.
 
-## Limits and helpers
+## Limits
 
 - Connected-provider access, LaTeX compilation and file output depend on the host. If a tool is unavailable, teach from what is verified, name the missing source and never claim a failed upload succeeded. Saved indexes and logs do not sync by themselves, and a derivation is checked, not machine-proved.
-- Optional helper scripts (Python standard library, read-only on sources): [group same-stem course files](scripts/group_course_sources.py), [inventory TeX figure references](scripts/inventory_tex_figures.py), [read a Word file with its equations](scripts/read_docx_math.py) and [check a TeX bundle and compile it](scripts/check_tex_bundle.py). Use them when the host can run Python and they save real work; none can see image content or prove an upload.
-- Worked examples of a good answer: [a macro concept, the Bellman equation](examples/bellman-teaching-example.md), [a quick micro question, one sign in the Slutsky equation](examples/slutsky-teaching-example.md), [an econometrics Homework, omitted variable bias](examples/omitted-variable-homework-example.md) and [diagnostic patterns](examples/diagnostic-teaching-patterns.md). They are hypothetical style references, not evidence about the user's course.
+- Optional helper scripts and worked examples are linked from the task pages and guides that use them. The scripts are read-only on sources; none can see image content or prove an upload. The examples are hypothetical style references, not evidence about the user's course.

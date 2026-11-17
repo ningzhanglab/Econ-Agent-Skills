@@ -8,6 +8,12 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-16
 
+### v2 review fixes — narrower guide routing and leftovers
+
+- **Changed:** `econ-learn` states when a guide is not needed (a bare term, a quick step, text already in view) and gives each guide a narrower situation, after the first comparison run showed two extra guides opened in every case.
+- **Fixed:** wording left from v1 in the link index, `econ-research`, `logs/TEMPLATE.md`, `STORAGE_POLICY.md` and the README commands; Defaults sections added to the course and learning-log pages.
+- Details: [2026-11-16 — v2 review fixes](logs/2026-11-16-v2-review-fixes.md).
+
 ### v2 rebuild — four skills, task pages, shared text
 
 - **Changed (breaking):** `econ-teaching` is now `econ-learn` and `econ-writing` is now `econ-write`. Slides moved out of the teaching skill into a new skill, `econ-present`. Reinstall under the new names; old paste-a-link pages redirect.
