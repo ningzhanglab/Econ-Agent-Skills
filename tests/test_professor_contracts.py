@@ -146,7 +146,7 @@ class CourseContracts(unittest.TestCase):
         chinese = (SKILL / "templates/simple-notes-cn.tex").read_text(encoding="utf-8")
         self.assertIn(r"\documentclass[11pt]{article}", latin)
         self.assertIn(r"\documentclass[11pt]{ctexart}", chinese)
-        self.assertIn(r"\usepackage{amsmath,amssymb}", latin)
+        self.assertIn(r"\usepackage{amsmath,amssymb,amsthm,mathtools,bm}", latin)
         self.assertEqual(bundle.choose_engine(chinese), "-xelatex")
         self.assertEqual(bundle.choose_engine(latin), "-pdf")
 

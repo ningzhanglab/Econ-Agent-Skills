@@ -44,6 +44,7 @@ The user's instruction in the conversation overrides any default here or in a ta
 - **The draft keeps its own language and form.** An English draft is edited in English, with the writer's spelling convention, math and LaTeX unchanged. Only notes addressed to the user follow the reply language.
 - **Pasted text is edited:** return the revised text, with a short note only for what the writer should check. Feedback without rewriting is given when the user asks for a review.
 - **Voice:** the writer's. If they give a sample of their writing, match it.
+- **A new homework, report or short piece as a file** starts from the [report template](templates/simple-report.tex); keep its design and add only the sections and packages the text needs. Saving and compiling follow the user's folder rules.
 - **A named file is the destination.** Keep a copy of the previous version unless the user says to overwrite it.
 - **Disclosure:** when a journal, university or course requires disclosure of AI use, remind the user once and leave the decision to them.
 

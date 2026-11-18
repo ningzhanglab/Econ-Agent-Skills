@@ -6,6 +6,11 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-11-17
+
+- **Added (econ-write):** `templates/simple-report.tex`, a plain LaTeX starting point for homework, reports and short writing (economics math, tables, figures, lists, `natbib`, `hyperref`, `cleveref`), linked from the skill's Defaults. Details: [2026-11-17 — econ-write report template](logs/2026-11-17-econ-write-report-template.md).
+- **Changed (econ-learn):** `templates/simple-notes.tex` now uses the report template's page setup and packages (1in margins, table, figure, list and citation packages), keeping its "Lecture Notes" title and three sections. The Chinese template is unchanged.
+
 ## 2026-11-16
 
 - **Default changed (econ-present, at the user's request):** slide titles take the form "Topic: point", with the same short topic on every slide of a section ("Weak Links: A Two-Task Example"), never the paper's full section heading; replaces one shared title per block of slides. Chosen after the real-paper run, where the v1 deck's titles read better than v2's full heading repeated on eight slides.

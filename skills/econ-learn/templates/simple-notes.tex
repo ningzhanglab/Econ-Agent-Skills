@@ -1,26 +1,52 @@
-\documentclass[11pt]{article}
+\documentclass[11pt,letterpaper]{article}
 
-\usepackage{amsmath,amssymb}
-% Add \usepackage{graphicx} only when the document includes figures.
+% Page layout
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
 
-\title{Lecture Notes}
-\author{}
-\date{}
+% Math and economics notation
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+
+% Figures and tables
+\usepackage{graphicx}
+\usepackage{booktabs,threeparttable}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{array,longtable}
+\usepackage{caption,subcaption}
+
+% Lists and numbers
+\usepackage{enumitem}
+\usepackage{siunitx}
+
+% References and links
+\usepackage{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise]{cleveref} % load after hyperref
+
+% Optional theorem environments
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
 
 \begin{document}
 
-\maketitle
+\begin{center}
+    {\LARGE\bfseries Lecture Notes}\\[6pt]
+    {\large Your Name --- Course Name}\\[3pt]
+\end{center}
 
-\section{Main Idea}
-
+\section*{1. Main Idea}
 Explain the economic question and the key intuition.
 
-\section{Model and Reasoning}
-
+\section*{2. Model and Reasoning}
 Present the original lecture's definitions and notation before deriving results.
 
-\section{Interpretation}
-
+\section*{3. Interpretation}
 Explain the assumptions, implications, and limitations at the required depth.
 
 \end{document}
