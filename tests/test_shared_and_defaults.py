@@ -59,6 +59,9 @@ PREFERENCES = {
     "econ-learn/tasks/homework-exam.md": [
         "Plain wording",
         "hand the written text to `econ-write`",
+        "the assignment's own instructions decide its format, filename and attachments",
+        "the solution, with its own caveats",
+        "reported in chat, not in the submission",
     ],
     "econ-write/SKILL.md": [
         "Terminology stays exactly as written",

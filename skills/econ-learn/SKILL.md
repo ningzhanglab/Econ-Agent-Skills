@@ -86,7 +86,7 @@ A guide is opened only for its situation. A bare term, a quick step, or a questi
 | --- | --- |
 | The source is a PDF, TeX or Word file whose layout, equations or page numbers must be read with care | [Reading sources](guides/reading-sources.md) |
 | A source figure to read or recover, or a new diagram or computed plot to make | [Figures](guides/figures.md) |
-| A Homework solution, a derivation or a whole lecture where a field's known traps or checks matter | [Macroeconomics](guides/macroeconomics.md), [Microeconomics](guides/microeconomics.md), [Econometrics](guides/econometrics.md), [Time Series](guides/time-series.md) |
+| A Homework solution in that field (always), or a derivation or a whole lecture where a field's known traps or checks matter | [Macroeconomics](guides/macroeconomics.md), [Microeconomics](guides/microeconomics.md), [Econometrics](guides/econometrics.md), [Time Series](guides/time-series.md) |
 | Several versions of one lecture, or a saved Course State | [Sources and versions](guides/sources-and-versions.md) |
 | Files too large to read in one pass | [Large files](guides/large-files.md) |
 
