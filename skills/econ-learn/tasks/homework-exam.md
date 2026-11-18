@@ -5,6 +5,7 @@ The standard is **same notation + the same or an equivalent valid Slide method +
 ## Defaults
 
 - **Steps:** all necessary intermediate steps, no filler. An individual answer is a coherent solution, not a textbook chapter.
+- **Plain wording:** state the answer directly. No filler openers or closers ("it is worth noting", "this highlights"), no "not just X but Y" contrasts, no stressing words that add nothing, and no repeating the conclusion. When the student asks to remove AI traces, hand the written text to `econ-write`; it changes wording only, never the equations, notation, numbers or steps.
 - **After the solution:** the reusable method in one or two lines.
 - **Exam preparation:** one fresh practice item, its answer held back until the student attempts it or asks. Never withhold an answer the student requested, and do not quiz in ordinary tutoring.
 - **Course rules:** follow the course's AI-use, collaboration and student-only work rules.

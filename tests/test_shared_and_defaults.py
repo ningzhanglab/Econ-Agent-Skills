@@ -56,6 +56,10 @@ PREFERENCES = {
         "A deck is a talk, not a summary of the paper",
         "never list papers, years or journals from memory",
     ],
+    "econ-learn/tasks/homework-exam.md": [
+        "Plain wording",
+        "hand the written text to `econ-write`",
+    ],
     "econ-write/SKILL.md": [
         "Terminology stays exactly as written",
         "The draft keeps its own language and form",

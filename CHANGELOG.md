@@ -9,6 +9,7 @@ _No uncommitted planned changes are represented as completed here._
 ## 2026-11-17
 
 - **Added (econ-write):** `templates/simple-report.tex`, a plain LaTeX starting point for homework, reports and short writing (economics math, tables, figures, lists, `natbib`, `hyperref`, `cleveref`), linked from the skill's Defaults. Details: [2026-11-17 — econ-write report template](logs/2026-11-17-econ-write-report-template.md).
+- **Default added (econ-learn, at the user's request):** homework solutions use plain wording (no filler openers or closers, no "not just X but Y", no repeated conclusion); a request to remove AI traces goes to `econ-write` for the full pass.
 - **Changed (econ-learn):** `templates/simple-notes.tex` now uses the report template's page setup and packages (1in margins, table, figure, list and citation packages), keeping its "Lecture Notes" title and three sections. The Chinese template is unchanged.
 
 ## 2026-11-16
