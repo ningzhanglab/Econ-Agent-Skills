@@ -167,12 +167,13 @@ Example prompts:
 
 ## econ-present: slides
 
-[Econ Present](skills/econ-present/SKILL.md) makes what an audience sees. Its whole method is in one file.
+[Econ Present](skills/econ-present/SKILL.md) makes what an audience sees. Its method for a new deck is in one file; revising a deck and the content file have their own task pages.
 
 - **A talk, not a summary.** The deck is planned as a story from the question to the answer, in the source's order, with the core argument built step by step in the main slides.
 - **The deck is for the audience; the handover is for you.** Which version was read, the page behind each slide and every computed number go into the handover in chat, not onto the slides.
 - **House style, each line adjustable:** titles read "Topic: point", with the same short topic on every slide of a section; Appendix slides carry a subtitle and are one click from the slide they support; no default length; Beamer 16:9 as `.tex` and `.pdf`; a content file or speaker notes only on request.
 - **Nothing from memory:** a related-literature slide lists only papers the source cites or papers verified with `econ-research`.
+- A [figure cropper](skills/econ-present/scripts/crop_figure.py) saves one figure from a PDF page as an image, so the slide holds only that figure. It needs PyMuPDF or Poppler.
 
 Example prompts: "Make slides to present this paper in our reading group." · "Recheck my deck against the published version." · "A one-hour seminar version of this deck."
 
@@ -211,7 +212,7 @@ Econ-Agent-Skills/
 │   └── scripts/check_tex_bundle.py
 ├── skills/
 │   ├── econ-learn/          # SKILL.md, tasks/, guides/, examples/, scripts/, templates/
-│   ├── econ-present/        # SKILL.md, tasks/deliver-file.md, scripts/, templates/simple-slides.tex
+│   ├── econ-present/        # SKILL.md, tasks/, scripts/, templates/simple-slides.tex
 │   ├── econ-write/          # SKILL.md, guides/
 │   └── econ-research/       # SKILL.md, tasks/, scripts/verify_references.py
 ├── link/                    # generated pages for the paste-a-link method (do not edit)

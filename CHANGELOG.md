@@ -6,6 +6,12 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-11-18
+
+- **Added (econ-present):** `scripts/crop_figure.py` saves one figure from a PDF page as a PNG, using PyMuPDF or Poppler. The slide then holds only that figure, not a whole page trimmed in TeX. `SKILL.md` names it and asks for the saved image to be opened to check that every panel is whole. This answers cropping failures in both real-paper runs (Jones 2026; Bai 2025, "Melons as Lemons").
+- **Changed (econ-present):** revising a deck and the content file moved, with their wording unchanged, to `tasks/revise-deck.md` and `tasks/content-file.md`. The titles rule is shorter but keeps every requirement. `SKILL.md`, read on every request, is about 10% shorter, and no rule was removed. CI installs Poppler so the crop test runs. Details: [2026-11-18 — figure cropper and a shorter SKILL.md](logs/2026-11-18-econ-present-crop-tool-and-shorter-skill.md).
+- **Testing (econ-present):** the same reading-group request on Bai (2025, RES) was run with the changed skill and the previous one, and graded blind out of 18: changed 16, previous 15. Neither deck has a fidelity error. The point comes from figures: the previous deck had two flawed crops and fewer of the paper's figures. Both decks left N or units off main tables. Details: [2026-11-18 — Melons rerun](logs/2026-11-18-econ-present-melons-rerun.md).
+
 ## 2026-11-17
 
 - **Changed (econ-learn):** a Homework request with only the assignment looks in the assignment's folder and the course folder above it for the lecture before solving, and a "choose a model" question uses the course's own criteria; every Homework problem in a field reads that field's guide; the Time Series guide adds two traps (a level shift biases ADF toward a unit root; AIC/SBC compare only models on the same observations). Details: [2026-11-17 — Homework source and submission](logs/2026-11-17-econ-learn-homework-source-and-submission.md).
