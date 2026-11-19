@@ -2,7 +2,7 @@
 
 Four Agent Skills for economics PhD work: understanding material, presenting it, writing, and finding the literature. They are plain Markdown folders that follow the [Agent Skills open specification](https://agentskills.io/specification).
 
-> **Status: v2.** Four skills share one link for use in a chat Project. A blind comparison on three synthetic teaching cases scored v2 41, v1 40 and no skill 37 out of 42. Subsequent evaluations used a real course assignment and published economics papers. See the [rebuild](logs/2026-11-16-v2-rebuild-four-skills.md), [homework comparison](logs/2026-11-17-econ-learn-homework-source-and-submission.md) and [slides comparison](logs/2026-11-18-econ-present-melons-rerun.md).
+> **Status: v2.** A blind comparison on three synthetic teaching cases scored v2 41, v1 40 and no skill 37 out of 42. Later comparisons ran the skill files on a real course assignment and on published economics papers. The paste-a-link method has been checked only for whether pages open, not for answer quality. See the [rebuild](logs/2026-11-16-v2-rebuild-four-skills.md), [homework comparison](logs/2026-11-17-econ-learn-homework-source-and-submission.md) and [slides comparison](logs/2026-11-18-econ-present-melons-rerun.md).
 >
 > **Renamed in v2:** `econ-teaching` is now `econ-learn`, `econ-writing` is now `econ-write`, and slides moved to the new `econ-present`. Reinstall each skill under its new name. Old paste-a-link addresses lead to a page that points to the new one.
 
@@ -76,7 +76,7 @@ Use the [combined entry](link/econ-skills.md) for a Project or a chat that cover
 Use the Econ Agent Skills at https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. Open the skill pages and rules needed for my request. When first using a skill, start with a Skill edition: line naming the skill and its code. List the skill files you actually read in one line at the end. If a required page cannot be opened, name it and pause the part of the task that depends on it. Write all math in LaTeX when teaching economics, including single symbols in sentences.
 ```
 
-For a standalone term, screenshot, homework or exam, the combined entry offers a page that includes both the teaching skill and the task procedure. After the teaching skill has been read in the same chat, use the task-only page for a new procedure. Both versions of the homework page link to the required field guide. For a one-off request, replace `[your request]` in a direct prompt below.
+For a standalone term, screenshot, homework or exam, the combined entry opens one page holding both the teaching skill and the task procedure, and the homework page links to the required field guide. For a one-off request, replace `[your request]` in a direct prompt below.
 
 econ-learn:
 

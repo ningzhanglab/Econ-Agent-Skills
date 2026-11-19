@@ -8,6 +8,8 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-19
 
+- **Changed:** the combined link no longer tells the model to open only the task page after `econ-learn` has been read; the fallback to the separate pages stays. The README no longer implies that the paste-a-link method was evaluated for answer quality. Reference verification accepts subtitle, `&` and markup differences in otherwise matching titles. [Drop the task-only route](logs/2026-11-19-drop-task-only-route.md).
+
 - **Changed:** the combined link offers a task-only page once `econ-learn` is loaded and points to the separate pages if a combined page is unavailable. The literature task uses the skill's ranking default.
 - **Fixed:** the TeX helpers handle wrapped and starred graphics, literal unbraced inputs, and common Beamer overlay forms in the bundle checker. Reference verification flags reordered titles. Packaging stops when the checkout's tracked files cannot be listed, and CI checks link freshness before TeX installation. [Follow-up audit](logs/2026-11-19-follow-up-skill-audit.md).
 

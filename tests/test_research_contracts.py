@@ -95,6 +95,17 @@ class ReferenceCheckerTests(unittest.TestCase):
         punctuation_only = {"title": "ARTIFICIAL INTELLIGENCE: Algorithmic Pricing and Collusion"}
         self.assertEqual(vr.compare(punctuation_only, RECORD), ("PASS", []))
 
+    def test_subtitle_ampersand_and_markup_differences_pass(self):
+        split = dict(RECORD, title=["Artificial Intelligence"], subtitle=["Algorithmic Pricing and Collusion"])
+        self.assertEqual(vr.compare({"title": "Artificial Intelligence: Algorithmic Pricing and Collusion"}, split),
+                         ("PASS", []))
+        colon = dict(RECORD, title=["Artificial Intelligence: Algorithmic Pricing &amp; Collusion"])
+        self.assertEqual(vr.compare({"title": "Artificial Intelligence"}, colon), ("PASS", []))
+        self.assertEqual(vr.compare({"title": "Artificial Intelligence: Algorithmic Pricing and Collusion"}, colon),
+                         ("PASS", []))
+        markup = dict(RECORD, title=["Artificial <i>Intelligence</i>, Algorithmic Pricing, and Collusion"])
+        self.assertEqual(vr.compare({"title": RECORD["title"][0]}, markup), ("PASS", []))
+
     def test_volume_year_after_late_december_print_date_passes_with_note(self):
         # Shape of Crossref's record for QJE 137(1) (2022 volume): print date 2021-12-24, no 2022 date.
         record = dict(RECORD, **{"published-print": {"date-parts": [[2021, 12, 24]]},

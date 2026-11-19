@@ -67,6 +67,20 @@ def normalize(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
 
 
+def normalize_title(text: str) -> str:
+    text = re.sub(r"<[^>]+>", " ", html.unescape(text or ""))
+    return normalize(text.replace("&", " and "))
+
+
+def title_forms(rec: dict) -> set[str]:
+    """Normalized forms of the record's title that count as the same title."""
+    title, subtitle = first(rec.get("title")), first(rec.get("subtitle"))
+    forms = {normalize_title(title), normalize_title(title.split(":")[0])}
+    if subtitle:
+        forms.add(normalize_title(f"{title} {subtitle}"))
+    return forms - {""}
+
+
 def similarity(a: str, b: str) -> float:
     ta, tb = set(normalize(a).split()), set(normalize(b).split())
     if not ta or not tb:
@@ -178,10 +192,10 @@ def compare(fields: dict, rec: dict) -> tuple[str, list[str]]:
     notes, status = [], "PASS"
     canon_title = first(rec.get("title"))
     if fields.get("title"):
-        sim = similarity(fields["title"], canon_title)
-        if sim < 0.5:
+        bib_title, forms = normalize_title(fields["title"]), title_forms(rec)
+        if max((similarity(bib_title, form) for form in forms), default=0.0) < 0.5:
             return "FAIL", [f"title does not match record: {canon_title!r}"]
-        if normalize(fields["title"]) != normalize(canon_title):
+        if bib_title not in forms:
             status = "WARN"
             notes.append(f"title differs; record: {canon_title!r}")
     if fields.get("year"):

@@ -53,3 +53,10 @@ The fallback links help only when the client can read an alternative page. The e
 ## Follow-up
 
 Compare the two routes in a fresh Project chat before expanding the combined pages to more tasks. A future CI run can show whether the slow package downloads recur.
+
+## Correction (2026-11-19, after publication)
+
+- The task-only route described under "Combined link" was removed in a later change; see [Drop the task-only route](2026-11-19-drop-task-only-route.md). The fallback links remain.
+- "Behavior and compatibility" left out that the index grew from 2,060 to 2,486 bytes, which every first-use route reads.
+- The "Published links and CI" row mixed two results. The CI run for the previous commit (4d211ea) passed. The web reader's fetch of the published combined homework page failed.
+- The public GitHub API gives 50 minutes and 15 seconds for the whole TeX and Poppler installation step of that run. The 49 minutes and 5 seconds in "Motivation" could not be confirmed from public data.

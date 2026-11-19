@@ -2,7 +2,7 @@
 
 # Econ Agent Skills
 
-Use this table to open the pages needed for the current request. For terms or homework, use the combined page the first time. If it's unavailable, try the main `econ-learn` page and the task page linked below. If you already read the main `econ-learn` instructions in this chat, open only the task page when you still need its procedure.
+Use this table to open the pages needed for the current request. For terms or homework, open the combined page. If it is unavailable, open the main `econ-learn` page and the task page linked beside it instead.
 
 Use multiple skills in task order. To explain a paper and place it in the literature, use `econ-learn` and then `econ-research`. For a referee report, assess the paper with `econ-learn`, position it with `econ-research`, then structure the report with `econ-write`.
 
