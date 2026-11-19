@@ -14,10 +14,11 @@ jobs:
           python-version: "3.12"
       - name: Check skill metadata and links
         run: python tests/validate_skills.py
-      - name: Install a minimal TeX toolchain with Beamer, and Poppler for the figure cropper
+      - name: Install TeX packages for the notes and slides templates, and Poppler
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-pictures latexmk poppler-utils
+          sudo apt-get install -y --no-install-recommends lmodern latexmk poppler-utils \
+            texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-pictures texlive-science
       - name: Test course state, source contracts and minimal TeX compilation
         run: python -m unittest discover -s tests -p 'test_*.py' -v
 

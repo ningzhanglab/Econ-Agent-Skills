@@ -59,6 +59,18 @@ class ReferenceCheckerTests(unittest.TestCase):
         self.assertEqual(results["nodoi"]["status"], "SKIP")
         self.assertNotIn("ignored", results)
 
+    def test_parenthesized_entry_is_checked(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "refs.bib"
+            path.write_text(
+                '@article(grouped, note = "Contains a closing parenthesis )", '
+                'title = {Artificial Intelligence, Algorithmic {Pricing}, and Collusion}, '
+                f'doi = {{{GOOD_DOI}}})\n',
+                encoding="utf-8",
+            )
+            results = vr.run([], path, fake_fetch)
+        self.assertEqual([(result["key"], result["status"]) for result in results], [("grouped", "PASS")])
+
     def test_doi_cleaning(self):
         self.assertEqual(vr.clean_doi(" {https://doi.org/10.1257/AER.20190623} "), GOOD_DOI)
         self.assertEqual(vr.clean_doi("doi:10.1257/aer.20190623"), GOOD_DOI)
@@ -90,6 +102,13 @@ class ReferenceCheckerTests(unittest.TestCase):
         self.assertEqual(vr.compare({"year": "2021"}, RECORD)[0], "WARN")  # record printed 2020-10
         record = dict(RECORD, **{"published-print": {"date-parts": [[2020, 6]]}})
         self.assertEqual(vr.compare({"year": "2021"}, record)[0], "WARN")
+
+    def test_crossref_dates_of_mixed_precision_in_the_same_year(self):
+        record = dict(RECORD, **{"published-print": {"date-parts": [[2021]]},
+                                 "published-online": {"date-parts": [[2021, 12]]}})
+        status, notes = vr.compare({"year": "2022"}, record)
+        self.assertEqual(status, "PASS")
+        self.assertTrue(any("volume year" in note for note in notes))
 
     def test_online_year_is_accepted(self):
         record = dict(RECORD, **{"published-online": {"date-parts": [[2019, 11, 3]]}})

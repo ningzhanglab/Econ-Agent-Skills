@@ -68,44 +68,46 @@ Once installed, the skill turns on by itself when a question fits it, and it can
 
 ### Try a skill without installing
 
-In a chat that can open web pages, paste the line for the skill you want and replace `[your request]` with your question. Each line points to the skill's **link edition**: the same `SKILL.md`, with every task and guide file given as a full address the chat can open, an edition code, and an instruction to read the files the request needs and to list the ones it read.
+Use the [combined entry](link/econ-skills.md) for a Project or a chat that covers several kinds of economics work. The four direct links are also available for single-skill chats. Link editions have the same rules as the installed skills and use full addresses for task pages, guides and templates.
+
+**All four skills from one link.** Paste this in your Project instructions or put it before a request in a new chat.
+
+```text
+Use the Econ Agent Skills at https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. Open the skill pages and rules needed for my request. When first using a skill, start with a Skill edition: line naming the skill and its code. List the skill files you actually read in one line at the end. If a required page cannot be opened, name it and pause the part of the task that depends on it. Write all math in LaTeX when teaching economics, including single symbols in sentences.
+```
+
+The combined entry routes standalone terms, screenshots and homework or exams straight to pages that include both the teaching skill and the task procedure. The homework page still links to the required field guide. For a one-off request, replace `[your request]` in a direct prompt below.
 
 econ-learn:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Write all math in LaTeX, including single symbols in sentences. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If a required page cannot be opened, name it and pause the part that depends on it. Write all math in LaTeX, including single symbols in sentences. Then: [your request]
 ```
 
 econ-present:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-present.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-present.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If a required page cannot be opened, name it and pause the part that depends on it. Then: [your request]
 ```
 
 econ-write:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-write.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-write.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If a required page cannot be opened, name it and pause the part that depends on it. Then: [your request]
 ```
 
 econ-research:
 
 ```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If you cannot open the page or a file it names, say so and stop; do not answer from memory. Then: [your request]
+Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If a required page cannot be opened, name it and pause the part that depends on it. Then: [your request]
 ```
 
-All four from one link: use this when you want one line for every request, for example in a chat project's instructions. The [index page](link/econ-skills.md) lists the four skills, and the agent opens the one or ones the request needs: to explain a paper and then place it in its literature, it opens both `econ-learn` and `econ-research`. This takes one more page to open than a single-skill line, so the separate lines above stay the most direct choice when you already know which skill you want.
-
-```text
-Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md, open the skill page or pages it says my request needs, and open the files those pages name. Start your answer with the edition code of each skill page you opened. If you cannot open a page or a file it names, say so and stop; do not answer from memory. When teaching economics, write all math in LaTeX, including single symbols in sentences. Then: [your request]
-```
-
-Limits: it must be pasted again in every new chat, the chat app must be able to open GitHub links, and the agent may still skip a task or guide file. The answer should start with a line `Skill edition:` and a six-character code (with the index line, one code per skill page opened, each with its skill name), and end with a line listing the skill files it read. To check the code, open the link yourself and compare it with the edition code at the top of the page: a missing or different code means the agent did not read the current page, so its answer does not follow the skill. If a file you expected is missing from the last line, ask the agent to open it.
+**Checking what loaded.** In a new chat outside a Project, paste the prompt again. The first reply for a skill should include its six-character code, and the final line should list the files read. Compare the code with the opened skill page. Web readers can return an older cached page or fail to fetch a required page. The code helps identify the version, and the file list tells you which pages the agent reports reading.
 
 ### Updates
 
 - **A downloaded skill does not update itself.** It stays at the version you downloaded. To update, download again from the same link and replace the old copy: in Claude.ai, remove the old skill and upload the new zip; in Claude Code, delete the old `~/.claude/skills/econ-learn` folder and unzip again, so files removed in the new version do not stay behind.
-- **The paste-a-link method always reads the newest files on `main`**, including changes not yet released.
+- **Paste-a-link URLs point to `main`**, including changes between releases. Check the edition code if a web reader returns a cached version.
 - What changed in each version is listed on the [Releases page](https://github.com/ningzhanglab/Econ-Agent-Skills/releases) and in the [change log](CHANGELOG.md). An older copy keeps working; it only lacks the newest rules.
 
 ### Publish a new version
@@ -117,7 +119,7 @@ For the maintainer. Download links always point to the newest **published releas
 3. Click **Publish release**. The *Attach skill zips to release* workflow builds the four zips and attaches them to the release, usually within a couple of minutes. Check that the release page lists `econ-learn.zip`, `econ-present.zip`, `econ-write.zip` and `econ-research.zip`.
 4. If the change matters, tell the people you shared with to download again from the same link.
 
-After changing any file in a skill or in `shared/`, run `python3 tools/build_all.py` and commit what it writes: it copies the shared text into the skills, then rebuilds `link/`. The edition code covers every file of the skill, and tests fail if a copy or a page is out of date.
+After changing any file in a skill, in `shared/`, or in the link generator, run `python3 tools/build_all.py` and commit what it writes. It copies the shared text into the skills, then rebuilds `link/`. The edition code covers the skill files and the link generator. Tests check that the generated pages match their sources.
 
 To build the zips locally instead: `python3 tools/build_skill_zips.py` (writes to `dist/`, which Git ignores; inside a Git checkout it includes only files Git tracks).
 

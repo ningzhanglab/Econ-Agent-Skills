@@ -1,7 +1,9 @@
 """Checks for econ-present's figure cropper (standard library only)."""
 import importlib.util
 import io
+import shutil
 import struct
+import subprocess
 import tempfile
 import unittest
 from contextlib import redirect_stdout
@@ -16,13 +18,13 @@ crop = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(crop)
 
 
-def one_page_pdf(width: int = 612, height: int = 792) -> bytes:
+def one_page_pdf(width: int = 612, height: int = 792, crop_box: str = "") -> bytes:
     """A minimal valid PDF: one page with a filled rectangle in its upper half."""
     stream = b"0 0 0 rg 100 400 200 200 re f"
     objects = [
         b"<< /Type /Catalog /Pages 2 0 R >>",
         b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
-        f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 {width} {height}] /Contents 4 0 R >>".encode(),
+        f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 {width} {height}] {crop_box} /Contents 4 0 R >>".encode(),
         b"<< /Length %d >>\nstream\n" % len(stream) + stream + b"\nendstream",
     ]
     out = bytearray(b"%PDF-1.4\n")
@@ -89,6 +91,28 @@ class CropFigure(unittest.TestCase):
                                             "--out", str(part)]), 0)
             self.assertEqual(png_size(whole), (612, 792))
             self.assertEqual(png_size(part), (306, 396))
+
+    @unittest.skipUnless(shutil.which("pdftoppm") and shutil.which("pdfinfo"), "Poppler is not installed")
+    def test_poppler_uses_visible_page_and_handles_dotted_output_names(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            pdf = folder / "paper.pdf"
+            pdf.write_bytes(one_page_pdf(crop_box="/CropBox [100 100 500 700]"))
+            expected = folder / "visible.png"
+            subprocess.run(["pdftoppm", "-cropbox", "-r", "72", "-png", "-singlefile",
+                            str(pdf), str(expected.with_suffix(""))], check=True, capture_output=True)
+            unrelated = folder / "figure.png"
+            unrelated.write_bytes(b"keep this existing file")
+            for filename in ("figure.v2.png", "figure.v3.PNG"):
+                with self.subTest(filename=filename):
+                    output = folder / filename
+                    with mock.patch.object(crop, "choose_backend", return_value=crop.crop_with_poppler):
+                        with redirect_stdout(io.StringIO()):
+                            status = crop.main([str(pdf), "1", "--dpi", "72", "--out", str(output)])
+                    self.assertEqual(status, 0)
+                    self.assertEqual(png_size(output), (400, 600))
+                    self.assertEqual(output.read_bytes(), expected.read_bytes())
+                    self.assertEqual(unrelated.read_bytes(), b"keep this existing file")
 
 
 if __name__ == "__main__":

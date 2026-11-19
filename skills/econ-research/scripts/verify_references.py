@@ -77,15 +77,22 @@ def similarity(a: str, b: str) -> float:
 def parse_bib(text: str) -> list[dict]:
     """Minimal BibTeX parser: returns [{'type', 'key', 'fields': {name: value}}]."""
     entries = []
-    for match in re.finditer(r"@(\w+)\s*\{\s*([^,\s]+)\s*,", text):
-        etype, key = match.group(1).lower(), match.group(2)
+    for match in re.finditer(r"@(\w+)\s*([({])\s*([^,\s]+)\s*,", text):
+        etype, opening, key = match.groups()
+        etype = etype.lower()
         if etype in {"comment", "preamble", "string"}:
             continue
-        i, depth = match.end(), 1
-        while i < len(text) and depth:
-            depth += {"{": 1, "}": -1}.get(text[i], 0)
+        closing = "}" if opening == "{" else ")"
+        i, depth, quoted = match.end(), 0, False
+        while i < len(text):
+            char = text[i]
+            if depth == 0 and not quoted and char == closing:
+                break
+            if char == '"' and depth == 0:
+                quoted = not quoted
+            depth += {"{": 1, "}": -1}.get(char, 0)
             i += 1
-        entries.append({"type": etype, "key": key, "fields": parse_fields(text[match.end():i - 1])})
+        entries.append({"type": etype, "key": key, "fields": parse_fields(text[match.end():i])})
     return entries
 
 
@@ -156,7 +163,7 @@ def check_year(given: str, rec: dict) -> tuple[str, Optional[str]]:
     if not years or any(str(y) in given for y in years):
         return "PASS", None
     shown = ", ".join(str(y) for y in sorted(years))
-    latest = max(dates)
+    latest = max(dates, key=lambda date: (date[0], date[1] or 0))
     if str(latest[0] + 1) in given and (latest[1] or 0) >= 11:
         return "PASS", (f"year {given} vs record dates {shown}: the record's latest date is late "
                         f"{latest[0]}, so {given} may be the volume year; confirm with the issue")

@@ -81,13 +81,13 @@ def crop_with_poppler(pdf: Path, page: int, box, dpi: int, out: Path) -> tuple[i
     width_pt, height_pt = page_size_from_pdfinfo(info.stdout, page)
     x, y, w, h = pixel_window(box, width_pt, height_pt, dpi)
     stem = out.with_suffix("")
-    command = ["pdftoppm", "-f", str(page), "-l", str(page), "-r", str(dpi),
+    command = ["pdftoppm", "-cropbox", "-f", str(page), "-l", str(page), "-r", str(dpi),
                "-x", str(x), "-y", str(y), "-W", str(w), "-H", str(h),
                "-png", "-singlefile", str(pdf), str(stem)]
     result = subprocess.run(command, capture_output=True, text=True)
     if result.returncode != 0:
         raise ValueError(result.stderr.strip() or "pdftoppm failed")
-    written = stem.with_suffix(".png")
+    written = stem.parent / f"{stem.name}.png"
     if written != out:
         written.replace(out)
     return w, h

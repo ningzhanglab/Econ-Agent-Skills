@@ -6,6 +6,11 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-11-19
+
+- **Changed (link editions):** the combined URL routes all four skills through a shorter index. Standalone terms and homework go straight to pages that include the skill and task rules. Downstream Markdown pages use full links, and edition codes also cover the link generator.
+- **Fixed:** Poppler uses the visible PDF page and handles dotted PNG names. The reference checker reads parenthesized BibTeX entries and compares Crossref dates with mixed precision. CI installs the TeX packages required by the English notes template. [Maintenance log](logs/2026-11-19-combined-link-and-review-fixes.md).
+
 ## 2026-11-18
 
 - **Added (econ-present):** `scripts/crop_figure.py` saves one figure from a PDF page as a PNG, using PyMuPDF or Poppler. The slide then holds only that figure, not a whole page trimmed in TeX. `SKILL.md` names it and asks for the saved image to be opened to check that every panel is whole. This answers cropping failures in both real-paper runs (Jones 2026; Bai 2025, "Melons as Lemons").
