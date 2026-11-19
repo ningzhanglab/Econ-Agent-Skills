@@ -25,15 +25,20 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from bisect import bisect_right
 from pathlib import Path
 
-DEP_RE = re.compile(r"\\(input|include|includegraphics)(?:\s*\[[^\]]*\])?\s*\{([^{}]+)\}")
+DEP_RE = re.compile(
+    r"\\(?:(?P<command>input|include|includegraphics\*?)(?:\s*\[[^\]]*\])?\s*\{(?P<braced>[^{}]+)\}"
+    r"|input\s+(?P<unbraced>[^\s{}\\]+))"
+)
 EXTENSIONS = {
     "input": (".tex",),
     "include": (".tex",),
     "includegraphics": (".pdf", ".png", ".jpg", ".jpeg", ".eps"),
 }
 UNSUPPORTED_RE = re.compile(r"\\(?:graphicspath|bibliography|addbibresource)\b")
+DOCUMENT_CLASS_RE = re.compile(r"\\documentclass\s*(?:\[[^]]*\]\s*)?\{([^{}]+)\}")
 
 
 def _active_lines(source: str):
@@ -61,41 +66,45 @@ def _resolve_dependencies(tex: Path) -> tuple[list[str], set[Path]]:
             continue
         included.add(current)
 
-        for line_number, active in _active_lines(source):
-            if UNSUPPORTED_RE.search(active):
+        active_lines = [line for _, line in _active_lines(source)]
+        for line_number, line in enumerate(active_lines, 1):
+            if UNSUPPORTED_RE.search(line):
                 errors.append(
                     f"{current.name}:{line_number}: unsupported dynamic bibliography/"
                     "graphicspath; manually verify the complete bundle"
                 )
-            for match in DEP_RE.finditer(active):
-                command, name = match.groups()
-                names = [part.strip() for part in name.split(",")]
-                for part in names:
-                    if not part or any(ch in part for ch in ("\\", "#", "~")):
-                        errors.append(
-                            f"{current.name}:{line_number}: dynamic {command} reference "
-                            f"{part!r}; manual verification required"
-                        )
-                        continue
-                    ref = Path(part)
-                    raw = root / ref
-                    choices = ([raw] if ref.suffix else
-                               [raw.with_suffix(ext) for ext in EXTENSIONS[command]])
-                    if not all(p.resolve().is_relative_to(root) for p in choices):
-                        errors.append(
-                            f"{current.name}:{line_number}: {command} path outside bundle: {part}"
-                        )
-                        continue
-                    found = next((p.resolve() for p in choices if p.is_file()), None)
-                    if found is None:
-                        errors.append(
-                            f"{current.name}:{line_number}: missing {command} dependency: {part}"
-                        )
-                        continue
-                    included.add(found)
-                    # Crucial: binary .pdf/.png/.jpg/.eps assets must NOT be decoded as TeX.
-                    if command in ("input", "include"):
-                        pending.append(found)
+        active = "\n".join(active_lines)
+        line_starts = [newline.end() for newline in re.finditer("\n", active)]
+        for match in DEP_RE.finditer(active):
+            command = (match["command"] or "input").rstrip("*")
+            name = match["braced"] or match["unbraced"]
+            line_number = bisect_right(line_starts, match.start()) + 1
+            for part in (item.strip() for item in name.split(",")):
+                if not part or any(ch in part for ch in ("\\", "#", "~")):
+                    errors.append(
+                        f"{current.name}:{line_number}: dynamic {command} reference "
+                        f"{part!r}; manual verification required"
+                    )
+                    continue
+                ref = Path(part)
+                raw = root / ref
+                choices = ([raw] if ref.suffix else
+                           [raw.with_suffix(ext) for ext in EXTENSIONS[command]])
+                if not all(p.resolve().is_relative_to(root) for p in choices):
+                    errors.append(
+                        f"{current.name}:{line_number}: {command} path outside bundle: {part}"
+                    )
+                    continue
+                found = next((p.resolve() for p in choices if p.is_file()), None)
+                if found is None:
+                    errors.append(
+                        f"{current.name}:{line_number}: missing {command} dependency: {part}"
+                    )
+                    continue
+                included.add(found)
+                # Binary figure assets must remain out of the source queue.
+                if command in ("input", "include"):
+                    pending.append(found)
     return errors, included
 
 
@@ -115,7 +124,11 @@ def is_pdf(path: Path) -> bool:
 
 def choose_engine(source: str) -> str:
     # Never silently compile Chinese prose using a plain PDFLaTeX configuration.
-    if re.search(r"\\documentclass(?:\[[^]]+\])?\{ctexart\}", source) or re.search(r"[\u3400-\u9fff]", source):
+    active = "\n".join(line for _, line in _active_lines(source))
+    document_class = DOCUMENT_CLASS_RE.search(active)
+    if document_class and document_class[1] in ("ctexart", "ctexbeamer"):
+        return "-xelatex"
+    if re.search(r"[\u3400-\u9fff]", active):
         return "-xelatex"
     return "-pdf"
 
@@ -158,7 +171,10 @@ def compile_in_scratch(tex: Path) -> tuple[bool, str]:
 
 FRAME_RE = re.compile(r"\\begin\{frame\}")
 SLIDE_HEADING_RE = re.compile(r"^## Slide (\d+)(?::\s*(.*))?$")
-UNCOUNTABLE_RE = re.compile(r"\\(?:AtBeginSection|AtBeginSubsection|pause|only<|onslide|uncover<|input|include)\b")
+UNCOUNTABLE_RE = re.compile(
+    r"\\(?:AtBeginSection|AtBeginSubsection|pause|onslide|input|include)\b"
+    r"|\\(?:only|uncover)\s*<|\\begin\{frame\}\s*<"
+)
 
 
 def _braced(text: str, start: int) -> tuple[str, int] | None:
@@ -210,9 +226,10 @@ def content_file_problems(tex: Path) -> list[str]:
         markdown = content.read_text(encoding="utf-8")
     except (UnicodeError, OSError) as exc:
         return [f"{content.name}: cannot read: {exc}"]
-    if not re.search(r"\\documentclass(?:\[[^\]]*\])?\{(?:ctex)?beamer\}", source):
-        return []
     active = "\n".join(line for _, line in _active_lines(source))
+    document_class = DOCUMENT_CLASS_RE.search(active)
+    if not document_class or document_class[1] not in ("beamer", "ctexbeamer"):
+        return []
     if UNCOUNTABLE_RE.search(active):
         print(f"NOTE: {content.name} not checked: the deck uses overlays, section "
               "frames or nested inputs, so frames cannot be counted from the source")

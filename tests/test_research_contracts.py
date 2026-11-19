@@ -87,6 +87,14 @@ class ReferenceCheckerTests(unittest.TestCase):
         status, _ = vr.compare({"journal": "Journal of Economic Behavior & Organization"}, record)
         self.assertEqual(status, "PASS")
 
+    def test_title_word_order_matters_but_punctuation_and_case_do_not(self):
+        fields = {"title": "Algorithmic Intelligence, Artificial Pricing, and Collusion"}
+        status, notes = vr.compare(fields, RECORD)
+        self.assertEqual(status, "WARN")
+        self.assertIn(RECORD["title"][0], notes[0])
+        punctuation_only = {"title": "ARTIFICIAL INTELLIGENCE: Algorithmic Pricing and Collusion"}
+        self.assertEqual(vr.compare(punctuation_only, RECORD), ("PASS", []))
+
     def test_volume_year_after_late_december_print_date_passes_with_note(self):
         # Shape of Crossref's record for QJE 137(1) (2022 volume): print date 2021-12-24, no 2022 date.
         record = dict(RECORD, **{"published-print": {"date-parts": [[2021, 12, 24]]},

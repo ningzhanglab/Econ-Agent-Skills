@@ -64,6 +64,7 @@ class LinkEditionTests(unittest.TestCase):
                 source = Path("tasks") / f"{task}.md"
                 bundle = le.render(skill, task)
                 self.assertIn(f"{le.RAW_BASE}/link/econ-learn/{task}.md", index)
+                self.assertIn(f"{le.RAW_BASE}/link/econ-learn/tasks/{task}.md", index)
                 self.assertIn("](#included-task-procedure)", bundle)
                 self.assertIn("## How to teach", bundle)
                 self.assertIn(le.absolute_links((skill / source).read_text(), skill / source, skill), bundle)

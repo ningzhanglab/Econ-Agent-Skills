@@ -39,7 +39,6 @@ Use whichever of these the environment can reach. If a source fails or is unreac
 - If results are dominated by one subfield, the query is inheriting its vocabulary; rewrite and merge.
 - Papers you already know of may be used as **search seeds**: look each one up by title and keep it only if a source confirms it. Say in the coverage line that some entries came from seed lookups rather than open search.
 - Sort by citation count only together with a title or abstract filter (for OpenAlex, `filter=title.search:…` or `title_and_abstract.search:…`). A free-text search sorted by citations returns highly cited papers from other fields.
-- When the user asks for the "most important" or "key" papers, rank them as the skill's Defaults say.
 
 ## Screen
 
@@ -73,7 +72,7 @@ Common cases in economics:
 - **A record is incomplete.** Some records lack authors or pages (handbook chapters often do). Fill the gap from another record of the same work, such as its working-paper version, and say where each field came from.
 - **Older work has no DOI.** Classic book chapters, conference volumes and pre-1990s working papers may have no DOI and weak database coverage. Check RePEc/IDEAS, the publisher's catalogue or a library catalogue; if none confirms the details, cite it only with the **UNVERIFIED** label, never with details filled in from memory.
 
-The [reference checker](../scripts/verify_references.py) does steps 1–2 for DOIs and `.bib` files against Crossref. Run it from this skill's folder:
+The [reference checker](../scripts/verify_references.py) looks up the DOI in Crossref and compares the title, year, first author, volume and pages when available. Check the remaining authors and any unresolved fields against the record. Run it from this skill's folder:
 
 ```text
 python3 scripts/verify_references.py --doi 10.1257/aer.20190623
@@ -96,7 +95,7 @@ Citation counts differ across sources. Name the source of any count, and never m
 
 ## Reading-list format
 
-Order by relevance, then year (newest first). For each paper:
+Use the ranking in the skill's Defaults. For each paper:
 
 ```text
 [n] Relevance 5 · Authors (Year). Title. Venue. DOI or identifier.

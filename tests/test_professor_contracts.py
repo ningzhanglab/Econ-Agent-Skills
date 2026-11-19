@@ -108,8 +108,8 @@ class CourseContracts(unittest.TestCase):
             main = root / "lecture.tex"
             main.write_text(
                 "\\section{Savings}\n"
-                "\\includegraphics{figures/policy}\n"
-                "\\input{chapters/methods}\n", encoding="utf-8"
+                "\\includegraphics*\n  [width=.8\\textwidth]\n  {figures/policy}\n"
+                "\\input chapters/methods\n", encoding="utf-8"
             )
             (root / "chapters/methods.tex").write_text(
                 "\\frametitle{Numerical errors}\n"
@@ -122,6 +122,7 @@ class CourseContracts(unittest.TestCase):
             self.assertEqual(len(records), 3)
             self.assertEqual(records[0]["asset_status"], "ASSET_LOCATED_NOT_VISUALLY_REVIEWED")
             self.assertEqual(records[0]["asset"], "figures/policy.pdf")
+            self.assertEqual(records[0]["line"], 2)
             self.assertEqual(records[1]["asset_status"], "ASSET_NOT_FOUND")
             self.assertEqual(records[2]["asset_status"], "INLINE_FIGURE_NOT_VISUALLY_REVIEWED")
             self.assertTrue(all(not x["visually_inspected"] for x in records))
@@ -149,6 +150,8 @@ class CourseContracts(unittest.TestCase):
         self.assertIn(r"\usepackage{amsmath,amssymb,amsthm,mathtools,bm}", latin)
         self.assertEqual(bundle.choose_engine(chinese), "-xelatex")
         self.assertEqual(bundle.choose_engine(latin), "-pdf")
+        chinese_deck = "\\documentclass\n  [aspectratio=169]{ctexbeamer}\nEnglish-only draft."
+        self.assertEqual(bundle.choose_engine(chinese_deck), "-xelatex")
 
     def test_missing_asset_and_directory_escape(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -176,6 +179,22 @@ class CourseContracts(unittest.TestCase):
             errors, dependencies = bundle._resolve_dependencies(tex)
             self.assertEqual(errors, [])
             self.assertEqual(len(dependencies), 2)
+
+    def test_wrapped_graphics_and_unbraced_input_report_missing_dependencies(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tex = Path(tmp) / "talk.tex"
+            tex.write_text(
+                "\\includegraphics* % Place at source size.\n"
+                "  [width=.8\\textwidth]\n"
+                "  {figures/missing.pdf}\n"
+                "% \\includegraphics{figures/example.pdf}\n"
+                "\\input sections/missing\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(bundle.missing_dependencies(tex), [
+                "talk.tex:1: missing includegraphics dependency: figures/missing.pdf",
+                "talk.tex:5: missing input dependency: sections/missing",
+            ])
 
     def test_nested_input_missing_figure_is_detected(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -235,11 +254,11 @@ class CourseContracts(unittest.TestCase):
                 "\\documentclass{article}\n"
                 "\\usepackage{graphicx}\n"
                 "\\begin{document}\n"
-                "\\input{chapters/part}\n"
+                "\\input chapters/part\n"
                 "\\end{document}\n", encoding="utf-8"
             )
             (root / "chapters/part.tex").write_text(
-                r"\includegraphics[width=2cm]{figures/figure.pdf}", encoding="utf-8"
+                "\\includegraphics*\n  [width=2cm]\n  {figures/figure.pdf}\n", encoding="utf-8"
             )
             result = subprocess.run(
                 ["latexmk", "-pdf", "-interaction=nonstopmode", "-halt-on-error", tex.name],
@@ -269,7 +288,7 @@ class CourseContracts(unittest.TestCase):
 
     def test_slides_content_file_matches_frames(self):
         deck = (
-            "\\documentclass{beamer}\n\\begin{document}\n"
+            "\\documentclass\n  [aspectratio=169]{beamer}\n\\begin{document}\n"
             "\\begin{frame}\n  \\titlepage\n\\end{frame}\n"
             "\\begin{frame}{Is a Better Computer $A_t$ or $B_t$?}\n  text\n\\end{frame}\n"
             "% \\begin{frame}{Commented Out}\n"
@@ -294,9 +313,14 @@ class CourseContracts(unittest.TestCase):
             self.assertTrue(any("4 slide sections" in x for x in bundle.content_file_problems(tex)))
             content.write_text(good.replace("Freezing Removes", "Robustness of"), encoding="utf-8")
             self.assertTrue(any("Slide 3 is titled" in x for x in bundle.content_file_problems(tex)))
-            tex.write_text(deck.replace("  text", "  text\\pause", 1), encoding="utf-8")
             content.write_text(good + "\n## Slide 4: Extra\n", encoding="utf-8")
-            self.assertEqual(bundle.content_file_problems(tex), [])  # overlays: not countable, skipped
+            for deck_with_overlays in (
+                deck.replace("  text", "  text\\pause", 1),
+                deck.replace("  text", "  \\only<+->{text}", 1),
+                deck.replace("\\begin{frame}{Is a Better", "\\begin{frame}<1-2>{Is a Better"),
+            ):
+                tex.write_text(deck_with_overlays, encoding="utf-8")
+                self.assertEqual(bundle.content_file_problems(tex), [])
         doc = (PRESENT / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("_content.md", doc)
 

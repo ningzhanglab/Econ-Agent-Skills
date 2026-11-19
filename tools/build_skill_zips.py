@@ -11,7 +11,8 @@ Repository maintenance files (logs, tests, CHANGELOG) are never included.
 Local junk such as .DS_Store, __pycache__ and LaTeX build files is skipped.
 Inside a Git checkout only files Git tracks are included (with their current
 content), so an untracked private file left in a skill folder is never zipped.
-Outside Git (a plain copy of the folder) every non-junk file is included.
+If Git cannot list the files in a checkout, packaging stops. Outside Git (a
+plain copy of the folder), every non-junk file is included.
 
 Standard library only. Read-only on skills/; writes only into --out.
 """
@@ -42,7 +43,10 @@ def tracked_files(skill_dir: Path) -> set[str] | None:
             ["git", "-C", str(skill_dir), "ls-files", "-z"],
             capture_output=True, check=True,
         )
-    except (OSError, subprocess.CalledProcessError):
+    except (OSError, subprocess.CalledProcessError) as error:
+        directory = skill_dir.resolve()
+        if any((parent / ".git").exists() for parent in (directory, *directory.parents)):
+            raise ValueError(f"{skill_dir}: could not list Git-tracked files") from error
         return None
     return {name for name in done.stdout.decode("utf-8").split("\0") if name}
 
@@ -69,10 +73,11 @@ def included_files(skill_dir: Path) -> list[Path]:
 def build_zip(skill_dir: Path, out_dir: Path) -> Path:
     if not (skill_dir / "SKILL.md").is_file():
         raise ValueError(f"{skill_dir} has no SKILL.md")
+    files = included_files(skill_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     target = out_dir / f"{skill_dir.name}.zip"
     with zipfile.ZipFile(target, "w", compression=zipfile.ZIP_DEFLATED) as zf:
-        for path in included_files(skill_dir):
+        for path in files:
             arcname = f"{skill_dir.name}/{path.relative_to(skill_dir).as_posix()}"
             info = zipfile.ZipInfo(arcname, date_time=FIXED_TIME)
             info.compress_type = zipfile.ZIP_DEFLATED
@@ -94,7 +99,11 @@ def main(argv: list[str] | None = None) -> int:
         print(f"ERROR: unknown skill(s): {', '.join(unknown)}; available: {', '.join(available)}")
         return 1
     for name in wanted:
-        target = build_zip(SKILLS / name, Path(args.out))
+        try:
+            target = build_zip(SKILLS / name, Path(args.out))
+        except ValueError as error:
+            print(f"ERROR: {error}", file=sys.stderr)
+            return 1
         with zipfile.ZipFile(target) as zf:
             count = len(zf.namelist())
         print(f"OK: {target} ({count} files)")

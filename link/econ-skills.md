@@ -2,7 +2,7 @@
 
 # Econ Agent Skills
 
-Use this table to open the pages needed for the current request. The term and homework pages already include the main `econ-learn` instructions.
+Use this table to open the pages needed for the current request. For terms or homework, use the combined page the first time. If it's unavailable, try the main `econ-learn` page and the task page linked below. If you already read the main `econ-learn` instructions in this chat, open only the task page when you still need its procedure.
 
 Use multiple skills in task order. To explain a paper and place it in the literature, use `econ-learn` and then `econ-research`. For a referee report, assess the paper with `econ-learn`, position it with `econ-research`, then structure the report with `econ-write`.
 
@@ -12,8 +12,8 @@ When first using a skill, start the reply with one `Skill edition:` line listing
 
 | The user wants to… | Open |
 | --- | --- |
-| Explain a standalone term or a screenshot from a book, paper or website | [econ-learn (term or screenshot)](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/term-or-screenshot.md) |
-| Solve homework or a past exam, or prepare for an exam | [econ-learn (homework and exams)](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/homework-exam.md) |
+| Explain a standalone term or a screenshot from a book, paper or website | [econ-learn with task](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/term-or-screenshot.md) · [Task page](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/tasks/term-or-screenshot.md) |
+| Solve homework or a past exam, or prepare for an exam | [econ-learn with task](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/homework-exam.md) · [Task page](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/tasks/homework-exam.md) |
 | Understand a lecture, model, derivation or paper, or organize course material | [econ-learn](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn.md) |
 | Build or revise slides for an audience | [econ-present](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-present.md) |
 | Edit, review or structure the user's own writing | [econ-write](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-write.md) |

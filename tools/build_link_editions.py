@@ -41,7 +41,7 @@ NOTE = """> **Edition code: `{code}`**
 > When first using this skill, start the reply with `Skill edition: {code}`. When using the combined index, follow its format for skill names and multiple codes. End the reply with one line naming the skill files you actually read.
 """
 
-INDEX_NOTE = """Use this table to open the pages needed for the current request. The term and homework pages already include the main `econ-learn` instructions.
+INDEX_NOTE = """Use this table to open the pages needed for the current request. For terms or homework, use the combined page the first time. If it's unavailable, try the main `econ-learn` page and the task page linked below. If you already read the main `econ-learn` instructions in this chat, open only the task page when you still need its procedure.
 
 Use multiple skills in task order. To explain a paper and place it in the literature, use `econ-learn` and then `econ-research`. For a referee report, assess the paper with `econ-learn`, position it with `econ-research`, then structure the report with `econ-write`.
 
@@ -150,11 +150,11 @@ def render(skill_dir: Path, task: str | None = None) -> str:
 
 
 def render_index() -> str:
-    routes = [
-        ("Explain a standalone term or a screenshot from a book, paper or website",
-         "econ-learn (term or screenshot)", Path("econ-learn") / f"{TERM_TASK}.md"),
-        ("Solve homework or a past exam, or prepare for an exam",
-         "econ-learn (homework and exams)", Path("econ-learn") / f"{HOMEWORK_TASK}.md"),
+    learn_routes = [
+        ("Explain a standalone term or a screenshot from a book, paper or website", TERM_TASK),
+        ("Solve homework or a past exam, or prepare for an exam", HOMEWORK_TASK),
+    ]
+    other_routes = [
         ("Understand a lecture, model, derivation or paper, or organize course material",
          "econ-learn", Path("econ-learn.md")),
         ("Build or revise slides for an audience", "econ-present", Path("econ-present.md")),
@@ -162,6 +162,13 @@ def render_index() -> str:
         ("Develop a research question, find or verify references, or synthesize the literature",
          "econ-research", Path("econ-research.md")),
     ]
+    rows = []
+    for request, task in learn_routes:
+        bundle = Path("econ-learn") / f"{task}.md"
+        procedure = bundle.parent / "tasks" / bundle.name
+        rows.append(f"| {request} | [econ-learn with task]({link_url(bundle)})"
+                    f" · [Task page]({link_url(procedure)}) |")
+    rows.extend(f"| {request} | [{label}]({link_url(path)}) |" for request, label, path in other_routes)
     return "\n".join([
         f"{GENERATED}. Do not edit. -->",
         "",
@@ -170,7 +177,7 @@ def render_index() -> str:
         INDEX_NOTE,
         "| The user wants to… | Open |",
         "| --- | --- |",
-        *(f"| {request} | [{label}]({link_url(path)}) |" for request, label, path in routes),
+        *rows,
         "",
     ])
 

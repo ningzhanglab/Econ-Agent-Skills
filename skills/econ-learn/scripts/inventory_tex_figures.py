@@ -11,11 +11,14 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from bisect import bisect_right
 from pathlib import Path
 
 COMMANDS = re.compile(
-    r"\\(?P<kind>includegraphics|input|include|section|subsection|frametitle)"
-    r"(?:\s*\[[^\]]*\])?\s*\{(?P<name>[^{}]+)\}"
+    r"\\(?:(?P<kind>includegraphics\*?|input|include|section|subsection|frametitle)"
+    r"(?:\s*\[[^\]]*\])?\s*\{(?P<braced>[^{}]+)\}"
+    r"|input\s+(?P<unbraced>[^\s{}\\]+)|(?P<graphicspath>graphicspath\b)"
+    r"|(?P<inline>begin\{(?:tikzpicture|axis)\}))"
 )
 IMAGE_EXT = (".pdf", ".png", ".jpg", ".jpeg", ".eps", ".svg")
 
@@ -54,38 +57,41 @@ def inventory(tex: Path) -> dict:
         except (UnicodeError, OSError) as exc:
             warnings.append(f"{rel}: cannot read TeX: {exc}")
             return
-        for lineno, line in enumerate(lines, 1):
-            active = re.split(r"(?<!\\)%", line, maxsplit=1)[0]
-            if r"\graphicspath" in active:
+        active = "\n".join(re.split(r"(?<!\\)%", line, maxsplit=1)[0] for line in lines)
+        line_starts = [newline.end() for newline in re.finditer("\n", active)]
+        for match in COMMANDS.finditer(active):
+            lineno = bisect_right(line_starts, match.start()) + 1
+            if match["graphicspath"]:
                 warnings.append(f"{rel}:{lineno}: graphicspath requires manual lookup")
-            for m in COMMANDS.finditer(active):
-                kind, name = m.group("kind"), m.group("name").strip()
-                if kind in ("section", "subsection", "frametitle"):
-                    section = name
-                elif kind == "includegraphics":
-                    status, asset = resolve(name, IMAGE_EXT)
-                    figures.append({
-                        "source_tex": rel, "line": lineno, "section": section,
-                        "reference": name,
-                        "asset": str(asset.relative_to(root)) if asset else None,
-                        "asset_status": status,
-                        "visually_inspected": False,
-                        "rendered_pdf_page_reviewed": None,
-                    })
-                else:
-                    status, target = resolve(name, (".tex",))
-                    if target is None:
-                        warnings.append(f"{rel}:{lineno}: {kind} {name}: {status}")
-                    else:
-                        scan(target, section)
-            if r"\begin{tikzpicture}" in active or r"\begin{axis}" in active:
+                continue
+            if match["inline"]:
                 figures.append({
                     "source_tex": rel, "line": lineno, "section": section,
                     "reference": "inline TikZ/PGFPlots", "asset": None,
                     "asset_status": "INLINE_FIGURE_NOT_VISUALLY_REVIEWED",
                     "visually_inspected": False,
-                    "rendered_pdf_page_reviewed": None,
                 })
+                continue
+            kind = (match["kind"] or "input").rstrip("*")
+            name = (match["braced"] or match["unbraced"]).strip()
+            if kind in ("section", "subsection", "frametitle"):
+                section = name
+            elif kind == "includegraphics":
+                status, asset = resolve(name, IMAGE_EXT)
+                figures.append({
+                    "source_tex": rel, "line": lineno, "section": section,
+                    "reference": name,
+                    "asset": str(asset.relative_to(root)) if asset else None,
+                    "asset_status": status,
+                    "rendered_pdf_page_reviewed": None,
+                    "visually_inspected": False,
+                })
+            else:
+                status, target = resolve(name, (".tex",))
+                if target is None:
+                    warnings.append(f"{rel}:{lineno}: {kind} {name}: {status}")
+                else:
+                    scan(target, section)
 
     scan(tex)
     return {

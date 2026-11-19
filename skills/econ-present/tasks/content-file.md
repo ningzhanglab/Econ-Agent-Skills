@@ -11,4 +11,4 @@ A Markdown file beside the deck (the deck's name with `_content.md`) lets the us
 
 When the user returns it edited, apply their text to the matching slides in the `.tex`, recompile and regenerate the file, so the three stay in step.
 
-The [bundle checker](../scripts/check_tex_bundle.py) fails when the sections and the frames differ in number or in title; it does not compare the body text.
+The [bundle checker](../scripts/check_tex_bundle.py) compares section numbers and titles with countable TeX frames. If it skips the count because of overlays, section frames or nested inputs, check the sections against the compiled PDF pages. Check the body text against the `.tex`.

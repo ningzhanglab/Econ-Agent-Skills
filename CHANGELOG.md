@@ -8,6 +8,9 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-19
 
+- **Changed:** the combined link offers a task-only page once `econ-learn` is loaded and points to the separate pages if a combined page is unavailable. The literature task uses the skill's ranking default.
+- **Fixed:** the TeX helpers handle wrapped and starred graphics, literal unbraced inputs, and common Beamer overlay forms in the bundle checker. Reference verification flags reordered titles. Packaging stops when the checkout's tracked files cannot be listed, and CI checks link freshness before TeX installation. [Follow-up audit](logs/2026-11-19-follow-up-skill-audit.md).
+
 - **Changed (link editions):** the combined URL routes all four skills through a shorter index. Standalone terms and homework go straight to pages that include the skill and task rules. Downstream Markdown pages use full links, and edition codes also cover the link generator.
 - **Fixed:** Poppler uses the visible PDF page and handles dotted PNG names. The reference checker reads parenthesized BibTeX entries and compares Crossref dates with mixed precision. CI installs the TeX packages required by the English notes template. [Maintenance log](logs/2026-11-19-combined-link-and-review-fixes.md).
 

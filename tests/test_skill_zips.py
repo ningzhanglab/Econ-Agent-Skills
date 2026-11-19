@@ -6,6 +6,7 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location("build_skill_zips", ROOT / "tools" / "build_skill_zips.py")
@@ -78,6 +79,23 @@ class SkillZipTests(unittest.TestCase):
             subprocess.run(["git", "init", "-q", str(Path(tmp) / "repo")], check=True)
             with self.assertRaises(ValueError):
                 bz.build_zip(skill, Path(tmp) / "dist")
+
+    def test_unavailable_git_index_leaves_existing_archive_untouched(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            skill = root / "repo" / "skills" / "one"
+            skill.mkdir(parents=True)
+            (root / "repo" / ".git").write_text("gitdir: /worktree-metadata\n", encoding="utf-8")
+            (skill / "SKILL.md").write_text("Sample skill.", encoding="utf-8")
+            (skill / "untracked.txt").write_text("Keep this out of the ZIP.", encoding="utf-8")
+            out = root / "dist"
+            out.mkdir()
+            archive = out / "one.zip"
+            archive.write_bytes(b"previous archive")
+            with mock.patch.object(bz.subprocess, "run", side_effect=FileNotFoundError("git")):
+                with self.assertRaisesRegex(ValueError, "could not list Git-tracked files"):
+                    bz.build_zip(skill, out)
+            self.assertEqual(archive.read_bytes(), b"previous archive")
 
     def test_unknown_skill_name_fails(self):
         self.assertEqual(bz.main(["--skill", "no-such-skill", "--out", tempfile.gettempdir()]), 1)

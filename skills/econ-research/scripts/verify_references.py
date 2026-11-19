@@ -181,7 +181,7 @@ def compare(fields: dict, rec: dict) -> tuple[str, list[str]]:
         sim = similarity(fields["title"], canon_title)
         if sim < 0.5:
             return "FAIL", [f"title does not match record: {canon_title!r}"]
-        if sim < 0.85:
+        if normalize(fields["title"]) != normalize(canon_title):
             status = "WARN"
             notes.append(f"title differs; record: {canon_title!r}")
     if fields.get("year"):
