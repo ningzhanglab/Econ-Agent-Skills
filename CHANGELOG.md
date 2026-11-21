@@ -8,6 +8,8 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-20
 
+- **Changed (link editions):** the Project router block is shorter (2,153 → 1,575 bytes; the text outside the nine URLs roughly halved), with the per-message rule kept. Page addresses are unchanged; re-paste the block to get the shorter text. [Shorter router](logs/2026-11-20-shorter-router.md).
+
 - **Fixed (link editions):** after the user saw skills skipped on later messages in a chat, the router picks a page for every message, not only the first, and every reply that follows a page starts with `Skill: <page> · <code>` (replacing the first-use `Skill edition:` line). **Re-paste the README router block.** [Route every message](logs/2026-11-20-route-every-message.md).
 
 - **Changed (econ-learn):** the course, versions, large-file and learning-log pages are rewritten shorter (3,900 → 1,446 words), keeping their rules and dropping cloud-drive procedure; the `course` route page is 25 KB instead of 43 KB. **(econ-write):** "It is not a tool for hiding AI assistance" is removed; the once-only disclosure reminder stays. [Trim log](logs/2026-11-20-trim-course-pages-and-write-sentence.md).

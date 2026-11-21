@@ -10,12 +10,12 @@ Pick the page again for every message, including later messages in the same chat
 
 | The user wants to… | Open |
 | --- | --- |
-| Explain a term or concept, or a screenshot of equations from a book, paper or website | [term](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/term.md) |
-| Solve homework or a past-exam question, or prepare for an exam | [homework](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/homework.md) |
-| Explain why something holds, a mechanism or a model's design; a derivation, proof or skipped step | [explain](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/explain.md) |
-| Understand a research paper or one part of it | [paper](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/paper.md) |
-| Teach a whole lecture, write lecture notes or a Handbook, connect lectures, or save another requested file | [lecture](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/lecture.md) |
-| Organize or index a course, resume from saved maps, or save a study log | [course](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/course.md) |
-| Build, revise or recheck slides for an audience | [slides](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/slides.md) |
-| Edit, review or structure the user's own writing | [writing](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/writing.md) |
-| Develop a research question, find or verify references, or synthesize the literature | [research](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/research.md) |
+| A term, concept, or screenshot of equations | [term](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/term.md) |
+| Homework, a past exam, or exam prep | [homework](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/homework.md) |
+| Why something holds, a mechanism, a derivation or proof | [explain](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/explain.md) |
+| A research paper or part of one | [paper](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/paper.md) |
+| A whole lecture, notes, linking lectures, or another file | [lecture](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/lecture.md) |
+| Organizing a course, or a study log | [course](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/course.md) |
+| Slides for an audience | [slides](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/slides.md) |
+| Editing or reviewing my own writing | [writing](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/writing.md) |
+| A research question, the literature, or checking references | [research](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/research.md) |

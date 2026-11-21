@@ -86,9 +86,9 @@ class LinkEditionTests(unittest.TestCase):
     def test_index_and_readme_router_list_every_route(self):
         index = le.render_index()
         router = le.render_router()
-        self.assertLess(len(router.encode("utf-8")), 2500, "the router is pasted into Project instructions")
+        self.assertLess(len(router.encode("utf-8")), 1600, "the router is pasted into Project instructions; keep it short")
         # Later messages in a chat must pick their page again (observed: agents skipped the skill mid-chat).
-        self.assertIn("For every message, including later ones in the same chat", router)
+        self.assertIn("For every message, later ones included", router)
         for name, *_ in le.ROUTES:
             self.assertIn(le.route_url(name), index)
             self.assertIn(le.route_url(name), router)

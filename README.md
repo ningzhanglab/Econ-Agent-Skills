@@ -17,19 +17,19 @@ No installation needed. Paste the block below into your Project's instructions. 
 
 <!-- link-router -->
 ```text
-Econ Agent Skills. For every message, including later ones in the same chat, pick the page below that matches it and follow it. Open it if it has not been opened in this chat, even when another page was; reuse it if it has. Start each reply that follows a page with the `Skill:` line that page gives. If a page cannot be opened, say so and open https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. Write all math in LaTeX when teaching economics, including single symbols in sentences.
+Econ Agent Skills. For every message, later ones included, open the page below that fits it (unless already opened in this chat) and follow it. Start each such reply with the page's `Skill:` line. If a page fails to open, say so. Write all math in LaTeX, even single symbols.
 
-- Explain a term or concept, or a screenshot of equations from a book, paper or website: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/term.md
-- Solve homework or a past-exam question, or prepare for an exam: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/homework.md
-- Explain why something holds, a mechanism or a model's design; a derivation, proof or skipped step: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/explain.md
-- Understand a research paper or one part of it: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/paper.md
-- Teach a whole lecture, write lecture notes or a Handbook, connect lectures, or save another requested file: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/lecture.md
-- Organize or index a course, resume from saved maps, or save a study log: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/course.md
-- Build, revise or recheck slides for an audience: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/slides.md
-- Edit, review or structure the user's own writing: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/writing.md
-- Develop a research question, find or verify references, or synthesize the literature: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/research.md
+- A term, concept, or screenshot of equations: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/term.md
+- Homework, a past exam, or exam prep: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/homework.md
+- Why something holds, a mechanism, a derivation or proof: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/explain.md
+- A research paper or part of one: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/paper.md
+- A whole lecture, notes, linking lectures, or another file: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/lecture.md
+- Organizing a course, or a study log: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/course.md
+- Slides for an audience: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/slides.md
+- Editing or reviewing my own writing: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/writing.md
+- A research question, the literature, or checking references: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/research.md
 
-A request with several parts uses each matching page, in task order (a referee report: paper, then research, then writing).
+A message with several kinds of request: use each page, in order.
 ```
 <!-- /link-router -->
 
