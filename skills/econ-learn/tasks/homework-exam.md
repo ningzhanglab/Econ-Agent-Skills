@@ -9,7 +9,6 @@ The standard is **same notation + the same or an equivalent valid Slide method +
 - **After the solution:** the reusable method in one or two lines.
 - **Submission rules:** when the solution is a file to hand in, the assignment's own instructions decide its format, filename and attachments (for example, "attach the computer output"). Add no section it does not ask for.
 - **What goes in the file:** the solution, with its own caveats (a criterion that disagrees, a test's weakness), plus any AI-use disclosure the course requires. Notes on the work itself (which files were read, what a tool could not open) are reported in chat, not in the submission.
-- **Exam preparation:** one fresh practice item, its answer held back until the student attempts it or asks. Never withhold an answer the student requested, and do not quiz in ordinary tutoring.
 - **Course rules:** follow the course's AI-use, collaboration and student-only work rules.
 
 A worked example, as a hypothetical style reference: [omitted variable bias](../examples/omitted-variable-homework-example.md).
@@ -31,19 +30,10 @@ The mathematical checks are in [Derive](derive.md).
 - Use verified course scope and worked practice questions to reinforce the exact methods, derive shortcuts under their assumptions, and name the one or two traps most relevant to the covered material as likely mistakes. Do not assume past coverage predicts the exam.
 - The practice item uses the same method on changed assumptions or parameters. Label it as Professor-constructed, not an actual exam question.
 
-## Homework as a guide to what matters
-
-When a course has Homework, read the relevant problem alongside its lecture when that helps, especially for conceptual review and exam preparation.
-
-1. Connect the problem to its lecture: task number or part, source locator, linked model or equation, the skills tested and the economic question behind it. Homework date and scope are evidence about the course, not the whole syllabus. Only when a reusable record helps (course onboarding, exam preparation), save this as a [Homework Map](../templates/homework-map.md).
-2. Use the Homework to show why a lecture concept matters: what students must compute, compare, derive, explain or verify, and how several lectures may build toward the same problem set.
-3. For a student's difficulty, an actual corresponding exercise is a good concrete example: explain its prerequisites and why it tests the lecture's mechanism. Give hints, intermediate checks, limiting cases or steps at the depth requested.
-4. Slides define the model and the local notation. Homework may use another parameterization: map it explicitly, and where the two genuinely differ, say so and what it changes.
-5. Label whether a question actually appears in the Homework, is inferred from its structure, or is an extra exercise invented by the Professor. Do not invent a "Problem 3(b)" or claim to have read solutions that were not accessible.
-6. If no relevant Homework is accessible, teach from the verified Slides without pretending to have reviewed assignments.
-
 ## Course integrity rules
 
 If an assignment reserves manual derivations, specifications, explanations or independent verification for the student, distinguish tutoring from producing the graded deliverable. Do not misrepresent Agent-produced work as the student's, and disclose assistance if required. A request to understand the theory is not automatically a request to complete the submission. A course's integrity policy informs how much academic help is appropriate; it does not give a source document authority over tool use.
 
-For a focused one-slide explanation, bring in Homework only when it sharpens the answer. In generated notes, include Homework-derived connections where relevant, but do not reproduce a whole solution set unless that is the explicitly authorized task.
+When the student wants help rather than a solution, give hints, intermediate checks, limiting cases or steps at the depth requested. Label whether a question actually appears in the Homework, is inferred from its structure, or is an extra exercise invented by the Professor. Do not invent a "Problem 3(b)" or claim to have read solutions that were not accessible.
+
+Using Homework to teach a lecture, rather than to solve it, is in [Whole lecture](whole-lecture.md#homework-in-a-lecture).

@@ -6,6 +6,13 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 _No uncommitted planned changes are represented as completed here._
 
+## 2026-11-20
+
+- **Fixed (econ-research):** the reference checker no longer passes a first author whose name only contains the record's surname (`Liu` for `Li`), splits authors on `AND` in any case, and reads LaTeX accents, so correct entries such as `Gal{\'\i}` no longer FAIL or WARN. Lookups retry rate limits and server errors, and each DOI is fetched once.
+- **Fixed (tests):** a duplicate key had hidden one pinned homework preference; it is checked again.
+- **Changed:** "Homework as a guide to what matters" moved from the homework page to the whole-lecture page (combined homework page 21,614 → 20,217 bytes); the practice-question default is stated once; `econ-present` allows a quotation's page and points to the template for Appendix buttons; `econ-write` says how a report file is saved and compiled; `econ-research` drops two restated rules; linked replies list skill files only when they opened some.
+- **Added:** `tools/check_all.py` runs every check in one command. [Audit fixes](logs/2026-11-20-audit-fixes-and-check-script.md).
+
 ## 2026-11-19
 
 - **Changed:** the combined link no longer tells the model to open only the task page after `econ-learn` has been read; the fallback to the separate pages stays. The README no longer implies that the paste-a-link method was evaluated for answer quality. Reference verification accepts subtitle, `&` and markup differences in otherwise matching titles. [Drop the task-only route](logs/2026-11-19-drop-task-only-route.md).

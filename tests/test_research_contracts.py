@@ -150,6 +150,75 @@ class ReferenceCheckerTests(unittest.TestCase):
         finally:
             vr.fetch_crossref = original
 
+    def test_first_author_matches_whole_surname_only(self):
+        rec = {"title": ["Growth and Trade"], "author": [{"family": "Li"}]}
+        for author in ("Liu, Wei and Li, Hong", "Williams, Ann", "Smith, A AND Li, H"):
+            status, notes = vr.compare({"title": "Growth and Trade", "author": author}, rec)
+            self.assertEqual(status, "WARN", author)
+        for author in ("Li, Hong and Liu, Wei", "Hong Li"):
+            self.assertEqual(vr.compare({"title": "Growth and Trade", "author": author}, rec)[0], "PASS", author)
+        multi = {"title": ["Growth and Trade"], "author": [{"family": "Van Reenen"}]}
+        self.assertEqual(vr.compare({"title": "Growth and Trade", "author": "Van Reenen, John"}, multi)[0], "PASS")
+
+    def test_latex_accents_match_unicode_record(self):
+        rec = {"title": ["Política Monetaria y Ciclo"], "author": [{"family": "Galí"}]}
+        for title, author in ((r"Pol{\'\i}tica Monetaria y Ciclo", r"Gal{\'\i}, Jordi"),
+                              (r"Pol\'{\i}tica Monetaria y Ciclo", r"Gal\'{i}, Jordi"),
+                              (r"Pol{\'i}tica Monetaria y Ciclo", r"Gal\'i, Jordi")):
+            self.assertEqual(vr.compare({"title": title, "author": author}, rec), ("PASS", []), title)
+        rec2 = {"title": ["Trade"], "author": [{"family": "Acemoğlu"}]}
+        self.assertEqual(vr.compare({"title": "Trade", "author": r"Acemo{\u{g}}lu, Daron"}, rec2)[0], "PASS")
+
+    def test_rate_limit_is_retried_then_succeeds(self):
+        calls, waits = [], []
+
+        class Response(io.BytesIO):
+            def __enter__(self):
+                return self
+            def __exit__(self, *exc):
+                return False
+
+        def opener(req, timeout):
+            calls.append(req.full_url)
+            if len(calls) < 3:
+                raise vr.urllib.error.HTTPError(req.full_url, 429 if len(calls) == 1 else 503,
+                                                "busy", {"Retry-After": "1"}, None)
+            return Response(b'{"message": {"title": ["X"]}}')
+
+        self.assertEqual(vr.fetch_crossref(GOOD_DOI, opener=opener, sleep=waits.append), {"title": ["X"]})
+        self.assertEqual(len(calls), 3)
+        self.assertEqual(waits, [1.0, 1.0])
+
+    def test_client_error_is_not_retried_and_gives_up_after_three_tries(self):
+        calls = []
+
+        def bad_request(req, timeout):
+            calls.append(1)
+            raise vr.urllib.error.HTTPError(req.full_url, 400, "bad", {}, None)
+        with self.assertRaises(vr.urllib.error.HTTPError):
+            vr.fetch_crossref(GOOD_DOI, opener=bad_request, sleep=lambda s: None)
+        self.assertEqual(len(calls), 1)
+
+        calls.clear()
+        def offline(req, timeout):
+            calls.append(1)
+            raise OSError("offline")
+        with self.assertRaises(OSError):
+            vr.fetch_crossref(GOOD_DOI, opener=offline, sleep=lambda s: None)
+        self.assertEqual(len(calls), vr.ATTEMPTS)
+
+    def test_each_doi_is_looked_up_once(self):
+        calls = []
+
+        def counting(doi):
+            calls.append(doi)
+            return fake_fetch(doi)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "refs.bib"
+            path.write_text(BIB, encoding="utf-8")
+            vr.run([GOOD_DOI], path, counting)
+        self.assertEqual(calls.count(GOOD_DOI), 1)
+
     def test_user_agent_carries_no_contact_details(self):
         self.assertNotIn("@", vr.USER_AGENT)
         self.assertNotIn("mailto", vr.USER_AGENT)

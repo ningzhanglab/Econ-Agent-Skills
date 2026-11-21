@@ -52,14 +52,14 @@ Slides are what the presenter shows to an audience, not a study document. The te
 | --- | --- |
 | The argument: question, mechanism, results, conclusion | Which version of the paper was read, and whether its equations were read as typeset or rebuilt from text ([Settle the source](#settle-the-source-before-building)) |
 | The paper's notation, unchanged | The paper page or section behind each slide |
-| One full citation on the title slide; a page for a direct quotation. No source line on slides that reproduce the paper's own figures or tables (see [Figures](#each-slide)) | Every number computed rather than copied, with the check |
+| One full citation on the title slide; a direct quotation carries its page in parentheses after the quotation. No source line on slides that reproduce the paper's own figures or tables (see [Figures](#each-slide)) | Every number computed rather than copied, with the check |
 | Your own derivations, in Appendix slides | Reading advice and the reusable lesson, if useful |
 | Your judgment, only if the user asks, as a Discussion slide | Anything left unverified |
 
 Never put these on a slide:
 
 - notes about how the paper was read or extracted;
-- a source line on a text-only slide, or under a figure or table taken from the paper being presented (section, page and table numbers go in the handover);
+- a source line on a text-only slide (a quotation's page in parentheses is not one), or under a figure or table taken from the paper being presented (section, page and table numbers go in the handover);
 - per-bullet labels such as "Paper states", "Derived (my check)" or "Caveat (paper)", and page tags on every bullet;
 - material written for the student: intuition checks, reading-order advice, "reusable lesson" lines;
 - long disclaimers, or first person ("my judgment").
@@ -105,7 +105,7 @@ A deck is a talk, not a summary of the paper. A summary lists what the paper con
 - **Figures:** use an original figure only if it was actually inspected (open the PDF page as an image; crop the figure from the page with [crop_figure.py](scripts/crop_figure.py) rather than redrawing it or trimming the page in TeX, then open the saved image to see that every panel is whole and nothing from the rest of the page is left in), and leave it without a source line when the talk is about that one paper: the title slide already names it. Add a one-line source only when the figure is recomputed from the paper's formula ("Computed from Jones (2026), p. 10"), comes from another paper or dataset, or is mixed with figures from other sources; one line for a pair of figures is enough. Every figure carries a one-sentence message. Cropped figures go in a folder beside the deck and are cited by relative path in `\includegraphics` (no `\graphicspath`); load `graphicx`.
 - **Tables:** show only the rows and columns the argument needs (usually the main coefficient, its standard error and N), with the paper's variable names and the numbers copied exactly; `\alert{}` the main coefficient and state in the first line what it means in units, in the paper's own interpretation or computed from the table and traced in the handover. Prefer the paper's figure for the same result if it has one. No source line for the paper's own table; if only some rows or columns are kept, the full table goes to Appendix only when it is likely to be asked about. A table built from other sources gets a one-line source.
 - **Numbers:** only numbers that appear in the paper or are computed from it; each must be traceable in the handover.
-- **Appendix links.** Every Appendix slide is one click from the main slide it supports and one click back, so the presenter can answer a question and return. Label both frames (`\begin{frame}[label=m-gain]{...}`), end the main slide with `\vfill\hfill\hyperlink{a-gain}{\beamergotobutton{Appendix: steps}}`, and end the Appendix slide with `\vfill\hfill\hyperlink{m-gain}{\beamerreturnbutton{Back}}`. Several Appendix slides may return to the same main slide. An Appendix slide that no main slide points to is linked or cut.
+- **Appendix links.** Every Appendix slide is one click from the main slide it supports and one click back, so the presenter can answer a question and return: label both frames and end each with a button, as the [slides template](templates/simple-slides.tex) does. Several Appendix slides may return to the same main slide. An Appendix slide that no main slide points to is linked or cut.
 
 ## Literature and assessment
 

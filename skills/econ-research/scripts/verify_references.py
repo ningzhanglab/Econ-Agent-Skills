@@ -11,7 +11,11 @@ For each DOI, fetch the Crossref record and report:
   WARN  the record exists but a field differs (the canonical value is shown);
   FAIL  no record for the DOI, or the title does not match the record;
   SKIP  a .bib entry without a DOI (check it by hand);
-  ERROR the lookup itself failed (network, rate limit): the entry is unchecked.
+  ERROR the lookup itself failed (network, rate limit) after retries: the
+        entry is unchecked.
+
+A rate limit, server error or network failure is retried up to three times
+with a short wait. Each DOI is looked up once per run.
 
 Notes under a PASS (a venue that differs, or a year one after a late-year print
 date) must be reported to the user; they are not errors by themselves.
@@ -29,6 +33,7 @@ import html
 import json
 import re
 import sys
+import time
 import unicodedata
 import urllib.error
 import urllib.parse
@@ -41,17 +46,46 @@ USER_AGENT = "econ-research-reference-checker/0.1"
 Fetcher = Callable[[str], Optional[dict]]
 
 
-def fetch_crossref(doi: str, timeout: float = 20.0) -> Optional[dict]:
-    """Return the Crossref 'message' for a DOI, or None if Crossref has no record."""
+ATTEMPTS = 3
+MAX_WAIT = 10.0
+
+
+def retry_wait(err: Exception, attempt: int) -> Optional[float]:
+    """Seconds to wait before retrying after err, or None if it should not be retried."""
+    if isinstance(err, urllib.error.HTTPError):
+        if err.code != 429 and err.code < 500:
+            return None
+        header = (err.headers or {}).get("Retry-After", "")
+        if header.strip().isdigit():
+            return min(float(header), MAX_WAIT)
+    return min(2.0 ** attempt, MAX_WAIT)
+
+
+def fetch_crossref(doi: str, timeout: float = 20.0, opener=urllib.request.urlopen,
+                   sleep=time.sleep) -> Optional[dict]:
+    """Return the Crossref 'message' for a DOI, or None if Crossref has no record.
+
+    A rate limit (429), a server error (5xx) or a network failure is retried with
+    a short wait, up to ATTEMPTS tries; the last failure is raised.
+    """
     url = CROSSREF + urllib.parse.quote(doi, safe="/")
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            return json.load(resp).get("message")
-    except urllib.error.HTTPError as err:
-        if err.code == 404:
-            return None
-        raise
+    for attempt in range(ATTEMPTS):
+        try:
+            with opener(req, timeout=timeout) as resp:
+                return json.load(resp).get("message")
+        except urllib.error.HTTPError as err:
+            if err.code == 404:
+                return None
+            wait = retry_wait(err, attempt)
+            if wait is None or attempt == ATTEMPTS - 1:
+                raise
+        except (urllib.error.URLError, TimeoutError, OSError) as err:
+            if attempt == ATTEMPTS - 1:
+                raise
+            wait = retry_wait(err, attempt)
+        sleep(wait)
+    return None
 
 
 def clean_doi(raw: str) -> str:
@@ -60,10 +94,19 @@ def clean_doi(raw: str) -> str:
     return doi.lower()
 
 
+# LaTeX accents keep their base letter: {\'e}, \'{e}, \"o, \c{c}, \u{g}, {\'\i}.
+LATEX_ACCENT = re.compile(r"\\[`'^\"~=.]\s*|\\[cuvHkdbrt](?![a-zA-Z])\s*")
+LATEX_LETTER = re.compile(r"\\(ss|ae|AE|oe|OE|aa|AA|[ijoOlL])(?![a-zA-Z])")
+
+
 def normalize(text: str) -> str:
-    text = unicodedata.normalize("NFKD", text or "")
+    text = LATEX_ACCENT.sub("", text or "")
+    text = LATEX_LETTER.sub(lambda m: m.group(1), text)
+    text = unicodedata.normalize("NFKD", text)
     text = "".join(c for c in text if not unicodedata.combining(c))
-    text = re.sub(r"\\[a-zA-Z]+|[{}$\\]", " ", text)
+    text = re.sub(r"\\[a-zA-Z]+", " ", text)
+    text = re.sub(r"[{}]", "", text)
+    text = re.sub(r"[$\\]", " ", text)
     return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
 
 
@@ -206,9 +249,10 @@ def compare(fields: dict, rec: dict) -> tuple[str, list[str]]:
             notes.append(note)
     authors = rec.get("author") or []
     if fields.get("author") and authors:
-        bib_first = normalize(fields["author"].split(" and ")[0])
-        rec_family = normalize(authors[0].get("family", ""))
-        if rec_family and rec_family not in bib_first:
+        bib_first = normalize(re.split(r"\s+and\s+", fields["author"], flags=re.I)[0]).split()
+        rec_family = normalize(authors[0].get("family", "")).split()
+        n = len(rec_family)
+        if n and not any(bib_first[i:i + n] == rec_family for i in range(len(bib_first) - n + 1)):
             status = "WARN"
             notes.append(f"first author vs record {authors[0].get('family')!r}")
     journal = fields.get("journal") or fields.get("booktitle")
@@ -243,7 +287,19 @@ def check_doi(doi: str, fields: dict, fetch: Fetcher) -> dict:
     return {"doi": doi, "status": status, "notes": notes, "record": describe(rec)}
 
 
+def cached(fetch: Fetcher) -> Fetcher:
+    """Look each DOI up once per run; a failed lookup is not cached."""
+    seen: dict[str, Optional[dict]] = {}
+
+    def lookup(doi: str) -> Optional[dict]:
+        if doi not in seen:
+            seen[doi] = fetch(doi)
+        return seen[doi]
+    return lookup
+
+
 def run(dois: list[str], bib: Optional[Path], fetch: Fetcher) -> list[dict]:
+    fetch = cached(fetch)
     results = []
     for doi in dois:
         results.append({"key": None, **check_doi(clean_doi(doi), {}, fetch)})

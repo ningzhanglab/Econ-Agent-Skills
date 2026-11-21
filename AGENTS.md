@@ -85,7 +85,7 @@ For a logged change, in the same commit series:
 1. Read the target skill's `SKILL.md` and the task page or guide you will change.
 2. Decide where the change goes (see above) and what done looks like.
 3. Make the smallest coherent change.
-4. Run `python3 tools/build_all.py`, `python3 tests/validate_skills.py` and `python3 -m unittest discover -s tests`. Record the actual outcomes.
+4. Run `python3 tools/check_all.py`. It runs `tools/build_all.py`, `tests/validate_skills.py`, the unit tests and `git diff --check` in order and prints each outcome. Record the actual outcomes.
 5. Record the change as the table above requires.
 6. Review the touched files, commit, and report the links.
 

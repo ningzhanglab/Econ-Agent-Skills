@@ -73,7 +73,7 @@ Use the [combined entry](link/econ-skills.md) for a Project or a chat that cover
 **All four skills from one link.** Paste this in your Project instructions or put it before a request in a new chat.
 
 ```text
-Use the Econ Agent Skills at https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. Open the skill pages and rules needed for my request. When first using a skill, start with a Skill edition: line naming the skill and its code. List the skill files you actually read in one line at the end. If a required page cannot be opened, name it and pause the part of the task that depends on it. Write all math in LaTeX when teaching economics, including single symbols in sentences.
+Use the Econ Agent Skills at https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. Open the skill pages and rules needed for my request. When first using a skill, start with a Skill edition: line naming the skill and its code. When a reply opens skill pages, list them in one line at the end. If a required page cannot be opened, name it and pause the part of the task that depends on it. Write all math in LaTeX when teaching economics, including single symbols in sentences.
 ```
 
 For a standalone term, screenshot, homework or exam, the combined entry opens one page holding both the teaching skill and the task procedure, and the homework page links to the required field guide. For a one-off request, replace `[your request]` in a direct prompt below.
@@ -219,7 +219,7 @@ Econ-Agent-Skills/
 │   └── econ-research/       # SKILL.md, tasks/, scripts/verify_references.py
 ├── link/                    # generated pages for the paste-a-link method (do not edit)
 ├── tools/                   # build_all.py, sync_shared.py, build_link_editions.py,
-│                            # build_skill_zips.py, list_defaults.py
+│                            # build_skill_zips.py, list_defaults.py, check_all.py
 ├── tests/                   # structural tests and manual evaluation cases
 ├── logs/                    # dated development logs (not student learning logs)
 └── .github/workflows/       # checks on every push; zips attached to each release
@@ -229,7 +229,7 @@ Every `SKILL.md` has the same parts: Mission, Guarantees, Defaults, routing and 
 
 ## Maintaining
 
-- After any edit under `skills/` or `shared/`: `python3 tools/build_all.py`, then `python3 tests/validate_skills.py` and `python3 -m unittest discover -s tests`.
+- After any edit under `skills/` or `shared/`: `python3 tools/check_all.py`, which rebuilds the generated files and then runs `tests/validate_skills.py`, the unit tests and `git diff --check`.
 - [AGENTS.md](AGENTS.md) says where a change goes and how to record it: a preference change is one line in [CHANGELOG.md](CHANGELOG.md); a behavior change also gets a dated entry in [logs/](logs/README.md).
 - Manual evaluation cases: [teaching](tests/professor-evaluation.md), [writing](tests/writing-evaluation.md), [research](tests/research-evaluation.md).
 - Private slides, homework, learning logs and course records stay in your own drive ([Storage Policy](STORAGE_POLICY.md)).

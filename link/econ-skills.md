@@ -8,7 +8,7 @@ Use multiple skills in task order. To explain a paper and place it in the litera
 
 All four skills are available through this index. Reuse instructions already read in this chat and open additional pages as needed. If a required page cannot be opened, name it and pause the part that depends on it.
 
-When first using a skill, start the reply with one `Skill edition:` line listing each newly used skill and its page's code. End with one line naming the skill files actually read.
+When first using a skill, start the reply with one `Skill edition:` line listing each newly used skill and its page's code. When a reply opened skill pages, end it with one line naming them; a reply that only reuses pages already read needs no such line.
 
 | The user wants to… | Open |
 | --- | --- |

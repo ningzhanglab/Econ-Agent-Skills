@@ -34,7 +34,6 @@ PREFERENCES = {
         "Near-miss folder",
     ],
     "econ-learn/tasks/learning-log.md": ["Default is on demand, not continuous"],
-    "econ-learn/tasks/homework-exam.md": ["same notation + the same or an equivalent valid Slide method + sufficient steps"],
     "econ-present/SKILL.md": [
         "a reading-group talk to PhD students",
         "no default length or slide count",
@@ -57,6 +56,7 @@ PREFERENCES = {
         "never list papers, years or journals from memory",
     ],
     "econ-learn/tasks/homework-exam.md": [
+        "same notation + the same or an equivalent valid Slide method + sufficient steps",
         "Plain wording",
         "hand the written text to `econ-write`",
         "the assignment's own instructions decide its format, filename and attachments",

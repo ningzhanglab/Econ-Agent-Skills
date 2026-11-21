@@ -268,8 +268,9 @@ class CourseContracts(unittest.TestCase):
             self.assertEqual(bundle.validate(tex, compile_requested=True), [])
 
     def test_no_extra_chart_or_homework_without_source(self):
-        doc = (SKILL / "tasks/homework-exam.md").read_text(encoding="utf-8").lower()
-        self.assertIn("only when", doc)
+        doc = (SKILL / "tasks/whole-lecture.md").read_text(encoding="utf-8").lower()
+        self.assertIn("only when it sharpens the answer", doc)
+        self.assertIn("only when a reusable record helps", doc)
         self.assertIn("only when", (SKILL / "guides/figures.md").read_text(encoding="utf-8").lower())
         self.assertIn("homework", doc)
         self.assertIn("untrusted", (SKILL / "guides/sources-and-versions.md").read_text(encoding="utf-8").lower())
