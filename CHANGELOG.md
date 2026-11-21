@@ -8,6 +8,8 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-20
 
+- **Changed (econ-learn):** the course, versions, large-file and learning-log pages are rewritten shorter (3,900 → 1,446 words), keeping their rules and dropping cloud-drive procedure; the `course` route page is 25 KB instead of 43 KB. **(econ-write):** "It is not a tool for hiding AI assistance" is removed; the once-only disclosure reminder stays. [Trim log](logs/2026-11-20-trim-course-pages-and-write-sentence.md).
+
 - **Changed (link editions):** paste-a-link is now one fetch per request. Nine self-contained pages in `link/route/` each hold a skill's `SKILL.md` plus every task page, guide and template that kind of request needs (16–47 KB). A router block in the README, generated from the same table, goes into the Project instructions. Replies no longer end with a list of files read; the `Skill edition:` line stays. Old addresses still work. **Re-paste the README router block into your Project.** [Link-first routes](logs/2026-11-20-link-first-routes.md).
 
 - **Fixed (econ-learn scripts):** the Word equation reader keeps a delimiter's separator, so E(Y|X) is no longer read as (Y, X). The figure inventory names the right section for `\section*`, Beamer `\begin{frame}{Title}` and titles with nested braces. A test now fails if a pinned-preference file is listed twice. [Helper-script audit](logs/2026-11-20-helper-script-audit.md).

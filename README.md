@@ -201,7 +201,7 @@ Example prompts: "Make slides to present this paper in our reading group." · "R
 - **Math, numbers and citations are untouched,** including LaTeX labels and citation keys. Conditions and caveats stay, and causal language is flagged, not silently changed.
 - **Nothing is invented:** no references, results or robustness checks the draft does not contain.
 - Conventions for papers, theses, referee reports and homework write-ups are in [Economics Writing Conventions](skills/econ-write/guides/econ-conventions.md); the prose patterns, adapted from the MIT-licensed [humanizer](https://github.com/blader/humanizer) skill, are in [AI-Sounding Patterns](skills/econ-write/guides/ai-tells.md).
-- Course and journal rules on AI assistance still apply; the skill is for clarity, not for hiding assistance.
+- Course and journal rules on AI assistance still apply: when one requires disclosure, the skill reminds you once and leaves the decision to you.
 
 Example prompts: "Tighten the introduction in `paper.tex`, keep all terms as they are." · "Review my results section, don't rewrite it." · "Help me structure a referee report from these notes."
 

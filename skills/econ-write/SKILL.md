@@ -81,8 +81,6 @@ Academic register is fine; the target is prose a specialist reads quickly, with 
 
 If the skill a request needs is not installed, say so in one line and point to the Econ-Agent-Skills README for how to install it or paste its link, then help only as far as this skill's own rules allow.
 
-This skill improves clarity. It is not a tool for hiding AI assistance.
-
 ## Guides
 
 | Task | Guide |
