@@ -80,6 +80,16 @@ class DocxMathReader(unittest.TestCase):
         self.assertIn("$∑_{j=1}^q b_j$", text)
         self.assertEqual(counts["equations"], 2)
 
+    def test_delimiter_separator_keeps_the_conditioning_bar(self):
+        def delim(props):
+            xml = (f"<m:oMath {NS}><m:d>{props}<m:e>{run('Y')}</m:e><m:e>{run('X')}</m:e></m:d></m:oMath>")
+            return reader.math_to_text(reader.ET.fromstring(xml))
+        self.assertEqual(delim(""), "(Y|X)")
+        self.assertEqual(delim('<m:dPr><m:begChr m:val="["/><m:endChr m:val="]"/></m:dPr>'), "[Y|X]")
+        self.assertEqual(delim('<m:dPr><m:sepChr m:val="│"/></m:dPr>'), "(Y|X)")
+        self.assertEqual(delim('<m:dPr><m:sepChr m:val=","/></m:dPr>'), "(Y,X)")
+        self.assertEqual(delim("<m:dPr><m:sepChr/></m:dPr>"), "(YX)")
+
     def test_equation_text_is_not_duplicated_outside_the_math(self):
         with tempfile.TemporaryDirectory() as folder:
             text, _ = reader.read_docx(make_docx(folder))

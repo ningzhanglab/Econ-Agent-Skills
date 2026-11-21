@@ -8,6 +8,8 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-20
 
+- **Fixed (econ-learn scripts):** the Word equation reader keeps a delimiter's separator, so E(Y|X) is no longer read as (Y, X). The figure inventory names the right section for `\section*`, Beamer `\begin{frame}{Title}` and titles with nested braces. A test now fails if a pinned-preference file is listed twice. [Helper-script audit](logs/2026-11-20-helper-script-audit.md).
+
 - **Fixed (econ-research):** the reference checker no longer passes a first author whose name only contains the record's surname (`Liu` for `Li`), splits authors on `AND` in any case, and reads LaTeX accents, so correct entries such as `Gal{\'\i}` no longer FAIL or WARN. Lookups retry rate limits and server errors, and each DOI is fetched once.
 - **Fixed (tests):** a duplicate key had hidden one pinned homework preference; it is checked again.
 - **Changed:** "Homework as a guide to what matters" moved from the homework page to the whole-lecture page (combined homework page 21,614 → 20,217 bytes); the practice-question default is stated once; `econ-present` allows a quotation's page and points to the template for Appendix buttons; `econ-write` says how a report file is saved and compiled; `econ-research` drops two restated rules; linked replies list skill files only when they opened some.

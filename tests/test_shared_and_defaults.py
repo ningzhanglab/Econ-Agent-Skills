@@ -103,6 +103,15 @@ class SharedText(unittest.TestCase):
 
 
 class Preferences(unittest.TestCase):
+    def test_no_file_is_listed_twice(self):
+        # A repeated dict key silently replaces the earlier list of phrases.
+        import ast
+        tree = ast.parse(Path(__file__).read_text(encoding="utf-8"))
+        node = next(n.value for n in tree.body
+                    if isinstance(n, ast.Assign) and getattr(n.targets[0], "id", "") == "PREFERENCES")
+        keys = [k.value for k in node.keys]
+        self.assertEqual(len(keys), len(set(keys)), "merge the repeated PREFERENCES entries")
+
     def test_requested_preferences_are_still_stated(self):
         for rel, phrases in PREFERENCES.items():
             text = (SKILLS / rel).read_text(encoding="utf-8")

@@ -14,9 +14,11 @@ import re
 from bisect import bisect_right
 from pathlib import Path
 
+BRACED = r"(?:[^{}]|\{[^{}]*\})+"  # one level of nested braces, as in \section{The \emph{Data}}
 COMMANDS = re.compile(
-    r"\\(?:(?P<kind>includegraphics\*?|input|include|section|subsection|frametitle)"
-    r"(?:\s*\[[^\]]*\])?\s*\{(?P<braced>[^{}]+)\}"
+    r"\\(?:(?P<kind>includegraphics\*?|input|include|section\*?|subsection\*?|frametitle)"
+    rf"(?:\s*\[[^\]]*\])?\s*\{{(?P<braced>{BRACED})\}}"
+    rf"|begin\{{frame\}}(?:\s*<[^>]*>)?(?:\s*\[[^\]]*\])?(?:\s*<[^>]*>)?\s*\{{(?P<frame>{BRACED})\}}"
     r"|input\s+(?P<unbraced>[^\s{}\\]+)|(?P<graphicspath>graphicspath\b)"
     r"|(?P<inline>begin\{(?:tikzpicture|axis)\}))"
 )
@@ -71,6 +73,9 @@ def inventory(tex: Path) -> dict:
                     "asset_status": "INLINE_FIGURE_NOT_VISUALLY_REVIEWED",
                     "visually_inspected": False,
                 })
+                continue
+            if match["frame"]:
+                section = match["frame"].strip()
                 continue
             kind = (match["kind"] or "input").rstrip("*")
             name = (match["braced"] or match["unbraced"]).strip()

@@ -84,7 +84,13 @@ def math_to_text(node: ET.Element) -> str:
         elif tag == "d":
             begin = _property(c, "dPr", "begChr", "(")
             end = _property(c, "dPr", "endChr", ")")
-            out.append(begin + ", ".join(math_to_text(e) for e in _children(c, "e")) + end)
+            # An omitted separator is a vertical bar (ECMA-376 sepChr; Word draws U+2502),
+            # as in E(Y|X). A sepChr element without a value means no separator.
+            holder = c.find(M + "dPr")
+            sep_node = holder.find(M + "sepChr") if holder is not None else None
+            sep = "|" if sep_node is None else sep_node.get(M + "val", "")
+            sep = "|" if sep == "│" else sep
+            out.append(begin + sep.join(math_to_text(e) for e in _children(c, "e")) + end)
         elif tag == "rad":
             degree = _part(c, "deg")
             out.append("sqrt" + ("[" + degree + "]" if degree else "") + "(" + _part(c, "e") + ")")
