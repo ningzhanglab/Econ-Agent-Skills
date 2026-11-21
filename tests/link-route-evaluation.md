@@ -1,10 +1,10 @@
 # Link Route Evaluation (manual)
 
-Checks the paste-a-link method in a real chat Project: does each request fetch the one route page it should, and is the answer as good as with installed skills? Run it after a change to `tools/build_link_editions.py` or the README router block.
+Checks the paste-a-link method in a real chat Project: does each request fetch the one route page it should, and is the answer as good as with installed skills? Run it after a change to `tools/build_link_editions.py` or the README prompts.
 
 ## Setup
 
-1. Paste the current router block from the README ("All four skills in a Project") into the Project instructions, replacing any older Econ Agent Skills text.
+1. Paste the one-link prompt from the README ("Start here") into the Project instructions, replacing any older Econ Agent Skills text. To test the longer router block instead, paste that and note which one was used.
 2. Start a **new chat** for cases 1–5, so no page is reused from an earlier request. Case 6 deliberately stays in one chat, to check that later messages still pick their page.
 3. Use your own course files only where a case asks for them. Never copy private course material into this repository; record only what the table asks.
 

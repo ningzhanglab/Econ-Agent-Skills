@@ -13,7 +13,17 @@ Jobs that cross skills are handed over in a stated order. A referee report, for 
 
 ## Start here: use the skills in a chat Project
 
-No installation needed. Paste the block below into your Project's instructions. Each request then opens one page from this repository that holds everything that kind of request needs: the skill's rules, the task procedure, the guides and any template. The pages update when this repository changes; the addresses stay the same, so the block only needs pasting again when the [change log](CHANGELOG.md) says the router changed.
+No installation needed. Paste this into your Project's instructions:
+
+```text
+Use the Econ Agent Skills: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. For every message, later ones included, open the page that index lists for it (unless already opened in this chat) and follow it. Start each such reply with the page's `Skill:` line. Write all math in LaTeX, even single symbols.
+```
+
+The link is an index of nine pages, one per kind of request. Each page holds everything that kind of request needs: the skill's rules, the task procedure, the guides and any template. The agent reads the index once per chat, then one page for each kind of request. The pages update when this repository changes, so you never need to paste the prompt again. Outside a Project, paste the same text at the start of a chat, followed by your request.
+
+**How to tell it worked.** Every reply that used a skill starts with one line such as `Skill: homework · f1a201`: the page it followed and that page's code. If a reply about economics has no such line, it did not use a skill; ask it to. If the code differs from the one on line 3 of the page, the chat app read an older cached copy.
+
+**If the index often fails to open or comes back stale,** paste this longer block instead. It lists the pages directly, which saves the index fetch, but it needs pasting again when the [change log](CHANGELOG.md) says the router changed.
 
 <!-- link-router -->
 ```text
@@ -32,14 +42,6 @@ Econ Agent Skills. For every message, later ones included, open the page below t
 A message with several kinds of request: use each page, in order.
 ```
 <!-- /link-router -->
-
-**How to tell it worked.** Every reply that used a skill starts with one line such as `Skill: homework · f1a201`: the page it followed and that page's code. If a reply about economics has no such line, it did not use a skill; ask it to. If the code differs from the one on line 3 of the page, the chat app read an older cached copy.
-
-**Outside a Project,** start a chat with:
-
-```text
-Use the Econ Agent Skills at https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md: open the page that matches my request and follow it. Write all math in LaTeX. Then: [your request]
-```
 
 The pages are generated into [link/](link/): one per kind of request in [link/route/](link/route/), the index [link/econ-skills.md](link/econ-skills.md), and one main page per skill as a fallback. Old addresses from earlier versions (`econ-teaching`, `econ-writing`, the earlier combined pages) still lead to the right page.
 

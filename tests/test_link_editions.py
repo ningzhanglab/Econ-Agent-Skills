@@ -96,6 +96,14 @@ class LinkEditionTests(unittest.TestCase):
         self.assertEqual(readme, le.readme_with_router(readme), "run python3 tools/build_link_editions.py")
         self.assertIn(router, readme)
 
+    def test_readme_one_link_prompt_keeps_the_every_message_rule(self):
+        # The main setup is one link to the index; the rule against skipping skills on
+        # later messages must be in the pasted prompt and on the index page itself.
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        index_url = le.link_url(Path(f"{le.INDEX_NAME}.md"))
+        self.assertIn(f"Use the Econ Agent Skills: {index_url}. For every message, later ones included", readme)
+        self.assertIn("Pick the page again for every message", le.render_index())
+
     def test_old_combined_pages_point_to_their_route(self):
         for old, name in le.MOVED.items():
             text = (ROOT / "link" / old).read_text(encoding="utf-8")

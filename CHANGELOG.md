@@ -8,6 +8,8 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-20
 
+- **Changed (README, at the user's request):** the recommended Project setup is again one link, to the index, in a short prompt (about 380 bytes) that carries the every-message rule and never needs re-pasting; the longer router block that lists all nine pages is the alternative when the index fetch is unreliable. A test keeps the rule in the prompt and on the index page.
+
 - **Changed (link editions):** the Project router block is shorter (2,153 → 1,575 bytes; the text outside the nine URLs roughly halved), with the per-message rule kept. Page addresses are unchanged; re-paste the block to get the shorter text. [Shorter router](logs/2026-11-20-shorter-router.md).
 
 - **Fixed (link editions):** after the user saw skills skipped on later messages in a chat, the router picks a page for every message, not only the first, and every reply that follows a page starts with `Skill: <page> · <code>` (replacing the first-use `Skill edition:` line). **Re-paste the README router block.** [Route every message](logs/2026-11-20-route-every-message.md).
