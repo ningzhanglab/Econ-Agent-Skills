@@ -2,19 +2,20 @@
 
 # Econ Agent Skills
 
-Use this table to open the pages needed for the current request. For terms or homework, open the combined page. If it is unavailable, open the main `econ-learn` page and the task page linked beside it instead.
+Open the one page in this table that matches the request and follow it: each page holds the skill's rules together with every procedure and guide that kind of request needs. If the request has several parts, open each page and work in task order (a referee report: paper, then research, then writing).
 
-Use multiple skills in task order. To explain a paper and place it in the literature, use `econ-learn` and then `econ-research`. For a referee report, assess the paper with `econ-learn`, position it with `econ-research`, then structure the report with `econ-write`.
+If a page cannot be opened, open the skill's main page instead ([econ-learn](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn.md), [econ-present](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-present.md), [econ-research](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md), [econ-write](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-write.md)) and the pages it links; name any page that still cannot be opened and pause the part that depends on it.
 
-All four skills are available through this index. Reuse instructions already read in this chat and open additional pages as needed. If a required page cannot be opened, name it and pause the part that depends on it.
-
-When first using a skill, start the reply with one `Skill edition:` line listing each newly used skill and its page's code. When a reply opened skill pages, end it with one line naming them; a reply that only reuses pages already read needs no such line.
+When first using a skill in a chat, start the reply with the `Skill edition:` line its page asks for.
 
 | The user wants to… | Open |
 | --- | --- |
-| Explain a standalone term or a screenshot from a book, paper or website | [econ-learn with task](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/term-or-screenshot.md) · [Task page](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/tasks/term-or-screenshot.md) |
-| Solve homework or a past exam, or prepare for an exam | [econ-learn with task](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/homework-exam.md) · [Task page](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/tasks/homework-exam.md) |
-| Understand a lecture, model, derivation or paper, or organize course material | [econ-learn](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn.md) |
-| Build or revise slides for an audience | [econ-present](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-present.md) |
-| Edit, review or structure the user's own writing | [econ-write](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-write.md) |
-| Develop a research question, find or verify references, or synthesize the literature | [econ-research](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md) |
+| Explain a term or concept, or a screenshot of equations from a book, paper or website | [term](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/term.md) |
+| Solve homework or a past-exam question, or prepare for an exam | [homework](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/homework.md) |
+| Explain why something holds, a mechanism or a model's design; a derivation, proof or skipped step | [explain](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/explain.md) |
+| Understand a research paper or one part of it | [paper](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/paper.md) |
+| Teach a whole lecture, write lecture notes or a Handbook, connect lectures, or save another requested file | [lecture](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/lecture.md) |
+| Organize or index a course, resume from saved maps, or save a study log | [course](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/course.md) |
+| Build, revise or recheck slides for an audience | [slides](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/slides.md) |
+| Edit, review or structure the user's own writing | [writing](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/writing.md) |
+| Develop a research question, find or verify references, or synthesize the literature | [research](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/research.md) |

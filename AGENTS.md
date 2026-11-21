@@ -22,7 +22,7 @@ After any edit under `skills/` or `shared/`, `git add` new files and run:
 python3 tools/build_all.py
 ```
 
-It copies `shared/` into the skills, then rebuilds `link/`. Never edit a generated copy (`tasks/deliver-file.md`, a skill's `scripts/check_tex_bundle.py`, the text between `<!-- shared:... -->` markers, anything in `link/`); the tests fail when a copy differs from its source.
+It copies `shared/` into the skills, then rebuilds `link/`. Never edit a generated copy (`tasks/deliver-file.md`, a skill's `scripts/check_tex_bundle.py`, the text between `<!-- shared:... -->` markers, anything in `link/`, the router block between `<!-- link-router -->` markers in `README.md`); the tests fail when a copy differs from its source.
 
 ## Guarantees to preserve
 

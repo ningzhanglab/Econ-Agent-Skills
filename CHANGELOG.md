@@ -8,6 +8,8 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-20
 
+- **Changed (link editions):** paste-a-link is now one fetch per request. Nine self-contained pages in `link/route/` each hold a skill's `SKILL.md` plus every task page, guide and template that kind of request needs (16–47 KB). A router block in the README, generated from the same table, goes into the Project instructions. Replies no longer end with a list of files read; the `Skill edition:` line stays. Old addresses still work. **Re-paste the README router block into your Project.** [Link-first routes](logs/2026-11-20-link-first-routes.md).
+
 - **Fixed (econ-learn scripts):** the Word equation reader keeps a delimiter's separator, so E(Y|X) is no longer read as (Y, X). The figure inventory names the right section for `\section*`, Beamer `\begin{frame}{Title}` and titles with nested braces. A test now fails if a pinned-preference file is listed twice. [Helper-script audit](logs/2026-11-20-helper-script-audit.md).
 
 - **Fixed (econ-research):** the reference checker no longer passes a first author whose name only contains the record's surname (`Liu` for `Li`), splits authors on `AND` in any case, and reads LaTeX accents, so correct entries such as `Gal{\'\i}` no longer FAIL or WARN. Lookups retry rate limits and server errors, and each DOI is fetched once.

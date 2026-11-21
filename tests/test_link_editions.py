@@ -56,19 +56,47 @@ class LinkEditionTests(unittest.TestCase):
             # Codes appear only on the skill pages, so reporting one shows the page was opened.
             self.assertNotIn(le.edition_code(ROOT / "skills" / name), text, name)
 
-    def test_frequent_requests_include_the_task_and_skill_in_one_page(self):
-        skill = ROOT / "skills" / "econ-learn"
+    def test_every_route_page_holds_its_files_and_fits_one_fetch(self):
+        for name, _, skill_name, files in le.ROUTES:
+            with self.subTest(route=name):
+                skill = ROOT / "skills" / skill_name
+                page = (ROOT / "link" / "route" / f"{name}.md").read_text(encoding="utf-8")
+                included = {(skill / rel).resolve(): le.anchor_for(rel) for rel in files}
+                self.assertLessEqual(len(page.encode("utf-8")), le.ROUTE_BUDGET)
+                self.assertIn(f"Skill edition: {le.edition_code(skill)}", page)
+                self.assertIn(le.absolute_links(le.skill_body(skill), skill / "SKILL.md", skill, included), page)
+                for rel in files:
+                    text = (skill / rel).read_text(encoding="utf-8")
+                    if rel.endswith(".md"):
+                        self.assertIn(le.absolute_links(text, skill / rel, skill, included), page)
+                        # A file on this page is never sent to another fetch.
+                        self.assertNotIn(le.link_url(le.link_path(skill_name, Path(rel))), page)
+                    else:
+                        self.assertIn(text.rstrip(), page)
+
+    def test_every_task_page_and_guide_is_on_some_route(self):
+        for name in le.bz.skill_names():
+            skill = ROOT / "skills" / name
+            routed = {rel for _, _, s, files in le.ROUTES if s == name for rel in files}
+            for folder in ("tasks", "guides"):
+                for path in sorted((skill / folder).glob("*.md")):
+                    self.assertIn(path.relative_to(skill).as_posix(), routed, f"{name}: add it to a route")
+
+    def test_index_and_readme_router_list_every_route(self):
         index = le.render_index()
-        for task in le.LEARN_TASKS:
-            with self.subTest(task=task):
-                source = Path("tasks") / f"{task}.md"
-                bundle = le.render(skill, task)
-                self.assertIn(f"{le.RAW_BASE}/link/econ-learn/{task}.md", index)
-                self.assertIn(f"{le.RAW_BASE}/link/econ-learn/tasks/{task}.md", index)
-                self.assertIn("](#included-task-procedure)", bundle)
-                self.assertIn("## How to teach", bundle)
-                self.assertIn(le.absolute_links((skill / source).read_text(), skill / source, skill), bundle)
-                self.assertIn(f"Edition code: `{le.edition_code(skill)}`", bundle)
+        router = le.render_router()
+        self.assertLess(len(router.encode("utf-8")), 2500, "the router is pasted into Project instructions")
+        for name, *_ in le.ROUTES:
+            self.assertIn(le.route_url(name), index)
+            self.assertIn(le.route_url(name), router)
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertEqual(readme, le.readme_with_router(readme), "run python3 tools/build_link_editions.py")
+        self.assertIn(router, readme)
+
+    def test_old_combined_pages_point_to_their_route(self):
+        for old, name in le.MOVED.items():
+            text = (ROOT / "link" / old).read_text(encoding="utf-8")
+            self.assertIn(le.route_url(name), text)
 
     def test_edition_code_is_shown_and_follows_every_file(self):
         for name in le.bz.skill_names():

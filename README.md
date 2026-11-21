@@ -2,7 +2,7 @@
 
 Four Agent Skills for economics PhD work: understanding material, presenting it, writing, and finding the literature. They are plain Markdown folders that follow the [Agent Skills open specification](https://agentskills.io/specification).
 
-> **Status: v2.** A blind comparison on three synthetic teaching cases scored v2 41, v1 40 and no skill 37 out of 42. Later comparisons ran the skill files on a real course assignment and on published economics papers. The paste-a-link method has been checked only for whether pages open, not for answer quality. See the [rebuild](logs/2026-11-16-v2-rebuild-four-skills.md), [homework comparison](logs/2026-11-17-econ-learn-homework-source-and-submission.md) and [slides comparison](logs/2026-11-18-econ-present-melons-rerun.md).
+> **Status: v2.** A blind comparison on three synthetic teaching cases scored v2 41, v1 40 and no skill 37 out of 42. Later comparisons ran the skill files on a real course assignment and on published economics papers. The paste-a-link method, now one page per kind of request, has been checked only for whether pages open, not for answer quality ([cases to run](tests/link-route-evaluation.md)). See the [rebuild](logs/2026-11-16-v2-rebuild-four-skills.md), [homework comparison](logs/2026-11-17-econ-learn-homework-source-and-submission.md) and [slides comparison](logs/2026-11-18-econ-present-melons-rerun.md).
 >
 > **Renamed in v2:** `econ-teaching` is now `econ-learn`, `econ-writing` is now `econ-write`, and slides moved to the new `econ-present`. Reinstall each skill under its new name. Old paste-a-link addresses lead to a page that points to the new one.
 
@@ -68,15 +68,29 @@ Once installed, the skill turns on by itself when a question fits it, and it can
 
 ### Try a skill without installing
 
-Use the [combined entry](link/econ-skills.md) for a Project or a chat that covers several kinds of economics work. The four direct links are also available for single-skill chats. Link editions have the same rules as the installed skills and use full addresses for task pages, guides and templates.
+The paste-a-link method reads each skill from GitHub. Each kind of request has one page in [link/route/](link/route/) that holds the skill's rules together with every procedure, guide and template that request needs, so the agent fetches one page per request. Link pages have the same rules as the installed skills.
 
-**All four skills from one link.** Paste this in your Project instructions or put it before a request in a new chat.
+**All four skills in a Project (recommended).** Paste this block into the Project instructions. It lists the pages directly, so each request costs one fetch. The page addresses stay the same when the skills change, so the block only needs pasting again when this README says the block itself changed.
 
+<!-- link-router -->
 ```text
-Use the Econ Agent Skills at https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. Open the skill pages and rules needed for my request. When first using a skill, start with a Skill edition: line naming the skill and its code. When a reply opens skill pages, list them in one line at the end. If a required page cannot be opened, name it and pause the part of the task that depends on it. Write all math in LaTeX when teaching economics, including single symbols in sentences.
-```
+Econ Agent Skills. For each request, open the one page below that matches it and follow it; that page holds everything the request needs. The first time a skill is used in this chat, start the reply with the `Skill edition:` line the page asks for. If a page cannot be opened, say so and open https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. Write all math in LaTeX when teaching economics, including single symbols in sentences.
 
-For a standalone term, screenshot, homework or exam, the combined entry opens one page holding both the teaching skill and the task procedure, and the homework page links to the required field guide. For a one-off request, replace `[your request]` in a direct prompt below.
+- Explain a term or concept, or a screenshot of equations from a book, paper or website: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/term.md
+- Solve homework or a past-exam question, or prepare for an exam: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/homework.md
+- Explain why something holds, a mechanism or a model's design; a derivation, proof or skipped step: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/explain.md
+- Understand a research paper or one part of it: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/paper.md
+- Teach a whole lecture, write lecture notes or a Handbook, connect lectures, or save another requested file: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/lecture.md
+- Organize or index a course, resume from saved maps, or save a study log: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/course.md
+- Build, revise or recheck slides for an audience: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/slides.md
+- Edit, review or structure the user's own writing: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/writing.md
+- Develop a research question, find or verify references, or synthesize the literature: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/research.md
+
+A request with several parts uses each matching page, in task order (a referee report: paper, then research, then writing).
+```
+<!-- /link-router -->
+
+The same table is also a page, the [combined entry](link/econ-skills.md), which a chat outside a Project can be pointed to. For a one-off request with one skill, replace `[your request]` in a direct prompt below.
 
 econ-learn:
 
@@ -102,7 +116,7 @@ econ-research:
 Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If a required page cannot be opened, name it and pause the part that depends on it. Then: [your request]
 ```
 
-**Checking what loaded.** In a new chat outside a Project, paste the prompt again. The first reply for a skill should include its six-character code, and the final line should list the files read. Compare the code with the opened skill page. Web readers can return an older cached page or fail to fetch a required page. The code helps identify the version, and the file list tells you which pages the agent reports reading.
+**Checking what loaded.** The first reply that uses a skill starts with `Skill edition:` and a six-character code. Compare it with the code at the top of the page. A web reader can return an older cached page; a different code shows that it did.
 
 ### Updates
 
@@ -119,7 +133,7 @@ For the maintainer. Download links always point to the newest **published releas
 3. Click **Publish release**. The *Attach skill zips to release* workflow builds the four zips and attaches them to the release, usually within a couple of minutes. Check that the release page lists `econ-learn.zip`, `econ-present.zip`, `econ-write.zip` and `econ-research.zip`.
 4. If the change matters, tell the people you shared with to download again from the same link.
 
-After changing any file in a skill, in `shared/`, or in the link generator, run `python3 tools/build_all.py` and commit what it writes. It copies the shared text into the skills, then rebuilds `link/`. The edition code covers the skill files and the link generator. Tests check that the generated pages match their sources.
+After changing any file in a skill, in `shared/`, or in the link generator, run `python3 tools/build_all.py` and commit what it writes. It copies the shared text into the skills, then rebuilds `link/` and the Project router block above. A new task page or guide must be added to a route in `ROUTES` in `tools/build_link_editions.py`; a test fails otherwise. The edition code covers the skill files and the link generator. Tests check that the generated pages match their sources.
 
 To build the zips locally instead: `python3 tools/build_skill_zips.py` (writes to `dist/`, which Git ignores; inside a Git checkout it includes only files Git tracks).
 
@@ -231,7 +245,7 @@ Every `SKILL.md` has the same parts: Mission, Guarantees, Defaults, routing and 
 
 - After any edit under `skills/` or `shared/`: `python3 tools/check_all.py`, which rebuilds the generated files and then runs `tests/validate_skills.py`, the unit tests and `git diff --check`.
 - [AGENTS.md](AGENTS.md) says where a change goes and how to record it: a preference change is one line in [CHANGELOG.md](CHANGELOG.md); a behavior change also gets a dated entry in [logs/](logs/README.md).
-- Manual evaluation cases: [teaching](tests/professor-evaluation.md), [writing](tests/writing-evaluation.md), [research](tests/research-evaluation.md).
+- Manual evaluation cases: [teaching](tests/professor-evaluation.md), [writing](tests/writing-evaluation.md), [research](tests/research-evaluation.md), [link routes in a Project](tests/link-route-evaluation.md).
 - Private slides, homework, learning logs and course records stay in your own drive ([Storage Policy](STORAGE_POLICY.md)).
 
 ## Roadmap
