@@ -5,7 +5,7 @@ Checks the paste-a-link method in a real chat Project: does each request fetch t
 ## Setup
 
 1. Paste the current router block from the README ("All four skills in a Project") into the Project instructions, replacing any older Econ Agent Skills text.
-2. Start a **new chat** for each case, so no page is reused from an earlier request.
+2. Start a **new chat** for cases 1–5, so no page is reused from an earlier request. Case 6 deliberately stays in one chat, to check that later messages still pick their page.
 3. Use your own course files only where a case asks for them. Never copy private course material into this repository; record only what the table asks.
 
 ## Cases
@@ -17,18 +17,20 @@ Checks the paste-a-link method in a real chat Project: does each request fetch t
 | 3 | A homework problem from one of your courses, attached, with "请帮我做这道题，输出 .tex 和 .pdf" | `route/homework.md` | — |
 | 4 | A published paper's PDF, attached, with "这篇论文讲了什么？" | `route/paper.md` | — |
 | 5 | The same paper, with "给读书会做一个 slides" | `route/slides.md` | — |
+| 6 | **One chat, three messages in a row:** "什么是 moral hazard？", then a homework problem attached with "请帮我做这道题", then "把上面的解答改得更简洁" | `route/term.md`, then `route/homework.md`, then `route/writing.md` | The third may reuse `homework.md` if it treats the request as part of the solution |
 
 ## Record for each case
 
-| # | Edition line shown? Code matches the page? | Pages the agent says it fetched | Extra fetches beyond the expected page | Answer quality (1–5) and the main problem, if any |
+| # | `Skill:` line shown on every reply? Code matches the page? | Pages the agent says it fetched | Extra fetches beyond the expected page | Answer quality (1–5) and the main problem, if any |
 | --- | --- | --- | --- | --- |
 | 1 | | | | |
 | 2 | | | | |
 | 3 | | | | |
 | 4 | | | | |
 | 5 | | | | |
+| 6 | | | | |
 
-To see the current code of a page, open it in a browser: the code is on the third line.
+Each reply that follows a page starts with `Skill: <page> · <code>`. To see the current code of a page, open it in a browser: the code is on the third line. A missing `Skill:` line on a later reply in case 6 is the failure this case looks for.
 
 ## Reading the result
 

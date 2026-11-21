@@ -63,7 +63,8 @@ class LinkEditionTests(unittest.TestCase):
                 page = (ROOT / "link" / "route" / f"{name}.md").read_text(encoding="utf-8")
                 included = {(skill / rel).resolve(): le.anchor_for(rel) for rel in files}
                 self.assertLessEqual(len(page.encode("utf-8")), le.ROUTE_BUDGET)
-                self.assertIn(f"Skill edition: {le.edition_code(skill)}", page)
+                self.assertIn(f"`Skill: {name} · {le.edition_code(skill)}`", page)
+                self.assertIn("when a later message in the chat asks for another kind", page)
                 self.assertIn(le.absolute_links(le.skill_body(skill), skill / "SKILL.md", skill, included), page)
                 for rel in files:
                     text = (skill / rel).read_text(encoding="utf-8")
@@ -86,6 +87,8 @@ class LinkEditionTests(unittest.TestCase):
         index = le.render_index()
         router = le.render_router()
         self.assertLess(len(router.encode("utf-8")), 2500, "the router is pasted into Project instructions")
+        # Later messages in a chat must pick their page again (observed: agents skipped the skill mid-chat).
+        self.assertIn("For every message, including later ones in the same chat", router)
         for name, *_ in le.ROUTES:
             self.assertIn(le.route_url(name), index)
             self.assertIn(le.route_url(name), router)
@@ -104,7 +107,7 @@ class LinkEditionTests(unittest.TestCase):
             self.assertRegex(code, r"^[0-9a-f]{6}$")
             text = le.render(ROOT / "skills" / name)
             self.assertIn(f"Edition code: `{code}`", text)
-            self.assertIn(f"Skill edition: {code}", text)
+            self.assertIn(f"`Skill: {name} · {code}`", text)
         with tempfile.TemporaryDirectory() as tmp:
             skill = Path(tmp) / "demo-skill"
             (skill / "references").mkdir(parents=True)

@@ -74,7 +74,7 @@ The paste-a-link method reads each skill from GitHub. Each kind of request has o
 
 <!-- link-router -->
 ```text
-Econ Agent Skills. For each request, open the one page below that matches it and follow it; that page holds everything the request needs. The first time a skill is used in this chat, start the reply with the `Skill edition:` line the page asks for. If a page cannot be opened, say so and open https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. Write all math in LaTeX when teaching economics, including single symbols in sentences.
+Econ Agent Skills. For every message, including later ones in the same chat, pick the page below that matches it and follow it. Open it if it has not been opened in this chat, even when another page was; reuse it if it has. Start each reply that follows a page with the `Skill:` line that page gives. If a page cannot be opened, say so and open https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. Write all math in LaTeX when teaching economics, including single symbols in sentences.
 
 - Explain a term or concept, or a screenshot of equations from a book, paper or website: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/term.md
 - Solve homework or a past-exam question, or prepare for an exam: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/route/homework.md
@@ -116,7 +116,7 @@ econ-research:
 Follow https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md and open the files it names for my request. Start your answer with the edition code shown at the top of that page. If a required page cannot be opened, name it and pause the part that depends on it. Then: [your request]
 ```
 
-**Checking what loaded.** The first reply that uses a skill starts with `Skill edition:` and a six-character code. Compare it with the code at the top of the page. A web reader can return an older cached page; a different code shows that it did.
+**Checking what loaded.** Every reply that follows a skill page starts with a line such as `Skill: homework · 0156d7`: the page it followed and that page's six-character code. A reply without the line did not use a skill page; ask it to. A code that differs from the one at the top of the page means a web reader returned an older cached copy.
 
 ### Updates
 

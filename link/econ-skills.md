@@ -6,7 +6,7 @@ Open the one page in this table that matches the request and follow it: each pag
 
 If a page cannot be opened, open the skill's main page instead ([econ-learn](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn.md), [econ-present](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-present.md), [econ-research](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md), [econ-write](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-write.md)) and the pages it links; name any page that still cannot be opened and pause the part that depends on it.
 
-When first using a skill in a chat, start the reply with the `Skill edition:` line its page asks for.
+Pick the page again for every message, including later messages in the same chat: open it if it has not been opened in this chat, or reuse it if it has. Start each reply that follows a page with the `Skill:` line that page gives.
 
 | The user wants to… | Open |
 | --- | --- |

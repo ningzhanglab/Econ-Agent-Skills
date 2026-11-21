@@ -71,24 +71,24 @@ NOTE = """> **Edition code: `{code}`**
 >
 > You are reading this skill from a link. Open the task pages and guides required for the request. If a required page cannot be opened, name it and pause the part that depends on it.
 >
-> When first using this skill in a chat, start the reply with `Skill edition: {code}`.
+> Start every reply that follows this page with the line `Skill: {name} · {code}`.
 """
 
 ROUTE_NOTE = """> **Edition code: `{code}`**
 >
 > You are reading this skill from a link. This page holds `SKILL.md` and {listed}: everything this kind of request needs. Links to those files point to their section below. Open another page only when the request needs something this page names only as a link; if it cannot be opened, name it and pause the part that depends on it.
 >
-> When first using this skill in a chat, start the reply with `Skill edition: {code}`.
+> Start every reply that follows this page with the line `Skill: {name} · {code}`. This page covers one kind of request: when a later message in the chat asks for another kind, open that kind's page before answering.
 """
 
 INDEX_NOTE = """Open the one page in this table that matches the request and follow it: each page holds the skill's rules together with every procedure and guide that kind of request needs. If the request has several parts, open each page and work in task order (a referee report: paper, then research, then writing).
 
 If a page cannot be opened, open the skill's main page instead ({fallbacks}) and the pages it links; name any page that still cannot be opened and pause the part that depends on it.
 
-When first using a skill in a chat, start the reply with the `Skill edition:` line its page asks for.
+Pick the page again for every message, including later messages in the same chat: open it if it has not been opened in this chat, or reuse it if it has. Start each reply that follows a page with the `Skill:` line that page gives.
 """
 
-ROUTER = """Econ Agent Skills. For each request, open the one page below that matches it and follow it; that page holds everything the request needs. The first time a skill is used in this chat, start the reply with the `Skill edition:` line the page asks for. If a page cannot be opened, say so and open {index}. Write all math in LaTeX when teaching economics, including single symbols in sentences.
+ROUTER = """Econ Agent Skills. For every message, including later ones in the same chat, pick the page below that matches it and follow it. Open it if it has not been opened in this chat, even when another page was; reuse it if it has. Start each reply that follows a page with the `Skill:` line that page gives. If a page cannot be opened, say so and open {index}. Write all math in LaTeX when teaching economics, including single symbols in sentences.
 
 {rows}
 
@@ -179,7 +179,7 @@ def skill_body(skill_dir: Path) -> str:
 def render(skill_dir: Path) -> str:
     """The skill's main page: SKILL.md with full addresses, for the fallback route."""
     main = skill_dir / "SKILL.md"
-    note = NOTE.format(code=edition_code(skill_dir))
+    note = NOTE.format(code=edition_code(skill_dir), name=skill_dir.name)
     body = absolute_links(skill_body(skill_dir), main, skill_dir)
     return "\n".join([generated_header(skill_dir, Path("SKILL.md")), "", note, body, ""])
 
@@ -197,7 +197,7 @@ def render_route(name: str, skill: str, files: tuple[str, ...]) -> str:
     skill_dir = SKILLS / skill
     included = {(skill_dir / rel).resolve(): anchor_for(rel) for rel in files}
     listed = ", ".join(f"`{rel}`" for rel in files)
-    note = ROUTE_NOTE.format(code=edition_code(skill_dir), listed=listed)
+    note = ROUTE_NOTE.format(code=edition_code(skill_dir), listed=listed, name=name)
     sections = []
     for rel in files:
         path = skill_dir / rel

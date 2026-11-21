@@ -8,6 +8,8 @@ _No uncommitted planned changes are represented as completed here._
 
 ## 2026-11-20
 
+- **Fixed (link editions):** after the user saw skills skipped on later messages in a chat, the router picks a page for every message, not only the first, and every reply that follows a page starts with `Skill: <page> · <code>` (replacing the first-use `Skill edition:` line). **Re-paste the README router block.** [Route every message](logs/2026-11-20-route-every-message.md).
+
 - **Changed (econ-learn):** the course, versions, large-file and learning-log pages are rewritten shorter (3,900 → 1,446 words), keeping their rules and dropping cloud-drive procedure; the `course` route page is 25 KB instead of 43 KB. **(econ-write):** "It is not a tool for hiding AI assistance" is removed; the once-only disclosure reminder stays. [Trim log](logs/2026-11-20-trim-course-pages-and-write-sentence.md).
 
 - **Changed (link editions):** paste-a-link is now one fetch per request. Nine self-contained pages in `link/route/` each hold a skill's `SKILL.md` plus every task page, guide and template that kind of request needs (16–47 KB). A router block in the README, generated from the same table, goes into the Project instructions. Replies no longer end with a list of files read; the `Skill edition:` line stays. Old addresses still work. **Re-paste the README router block into your Project.** [Link-first routes](logs/2026-11-20-link-first-routes.md).
