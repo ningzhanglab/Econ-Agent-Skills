@@ -61,7 +61,7 @@ class LinkEditionTests(unittest.TestCase):
             with self.subTest(route=name):
                 skill = ROOT / "skills" / skill_name
                 page = (ROOT / "link" / "route" / f"{name}.md").read_text(encoding="utf-8")
-                included = {(skill / rel).resolve(): le.anchor_for(rel) for rel in files}
+                included = {(skill / rel).resolve(): le.anchor_for(rel) for rel in ("SKILL.md", *files)}
                 self.assertLessEqual(len(page.encode("utf-8")), le.ROUTE_BUDGET)
                 self.assertIn(f"`Skill: {name} · {le.edition_code(skill)}`", page)
                 self.assertIn("when a later message in the chat asks for another kind", page)
@@ -74,6 +74,15 @@ class LinkEditionTests(unittest.TestCase):
                         self.assertNotIn(le.link_url(le.link_path(skill_name, Path(rel))), page)
                     else:
                         self.assertIn(text.rstrip(), page)
+
+    def test_routes_keep_local_defaults_and_delivery_on_the_page(self):
+        lecture = (ROOT / "link/route/lecture.md").read_text(encoding="utf-8")
+        course = (ROOT / "link/route/course.md").read_text(encoding="utf-8")
+        homework = (ROOT / "link/route/homework.md").read_text(encoding="utf-8")
+        self.assertIn('[requested documents default](#defaults)', lecture)
+        self.assertIn('[Deliver a file](#included-tasks-deliver-file-md)', course)
+        self.assertLess(len(homework.encode("utf-8")), 48_000)
+        self.assertNotIn('## Included: templates/simple-notes.tex', homework)
 
     def test_every_task_page_and_guide_is_on_some_route(self):
         for name in le.bz.skill_names():

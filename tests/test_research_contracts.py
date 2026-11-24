@@ -2,6 +2,7 @@
 import contextlib
 import importlib.util
 import io
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -71,6 +72,61 @@ class ReferenceCheckerTests(unittest.TestCase):
             results = vr.run([], path, fake_fetch)
         self.assertEqual([(result["key"], result["status"]) for result in results], [("grouped", "PASS")])
 
+    def test_quoted_latex_accent_does_not_hide_the_doi(self):
+        record = {"title": ["Market Design"], "author": [{"family": "Müller"}]}
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "refs.bib"
+            path.write_text(
+                r'@article{accent, author = "M{\"u}ller, Ann", title = {Market Design}, '
+                f'doi = {{{GOOD_DOI}}}}}', encoding="utf-8",
+            )
+            result, = vr.run([], path, lambda doi: record if doi == GOOD_DOI else None)
+            self.assertEqual((result["doi"], result["status"]), (GOOD_DOI, "PASS"))
+
+    def test_malformed_field_is_an_error_and_next_entry_is_checked(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "refs.bib"
+            path.write_text(
+                '@article{broken, year = {2020} doi = {10.0/broken}}\n'
+                f'@article{{next, doi = {{{GOOD_DOI}}}}}\n', encoding="utf-8",
+            )
+            broken, valid = vr.run([], path, fake_fetch)
+            self.assertEqual((broken["key"], broken["status"]), ("broken", "ERROR"))
+            self.assertIn("after year", broken["notes"][0])
+            self.assertEqual((valid["key"], valid["status"]), ("next", "PASS"))
+
+    def test_missing_opening_delimiter_is_reported_and_valid_entry_still_checked(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "refs.bib"
+            path.write_text(
+                '  @article broken, title={Test}, doi={10.0/example}\n'
+                f'  @article{{next, doi = {{{GOOD_DOI}}}}}\n', encoding="utf-8",
+            )
+            broken, valid = vr.run([], path, fake_fetch)
+            self.assertEqual(broken["status"], "ERROR")
+            self.assertIn("after @article", broken["notes"][0])
+            self.assertEqual((valid["key"], valid["status"]), ("next", "PASS"))
+
+    def test_bibliography_cli_reports_wrong_file_and_explicit_empty_result(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "refs.bib"
+            cases = (
+                (b"@article broken, title={Test}\n", 2, "ERROR", "after @article"),
+                (b"A plain text file.\n", 2, "ERROR", "no BibTeX entry"),
+                (b"\xff\n", 2, "ERROR", "cannot read bibliography"),
+                (b"\n", 0, "SKIP", "nothing checked"),
+                (b"% @article{example, title={Example}}\n@comment{No records.}\n", 0, "SKIP", "nothing checked"),
+            )
+            for content, expected_exit, expected_status, note in cases:
+                with self.subTest(content=content):
+                    path.write_bytes(content)
+                    with contextlib.redirect_stdout(io.StringIO()) as output:
+                        status = vr.main(["--bib", str(path), "--json"])
+                    result, = json.loads(output.getvalue())
+                    self.assertEqual(status, expected_exit)
+                    self.assertEqual(result["status"], expected_status)
+                    self.assertIn(note, result["notes"][0])
+
     def test_doi_cleaning(self):
         self.assertEqual(vr.clean_doi(" {https://doi.org/10.1257/AER.20190623} "), GOOD_DOI)
         self.assertEqual(vr.clean_doi("doi:10.1257/aer.20190623"), GOOD_DOI)
@@ -132,6 +188,11 @@ class ReferenceCheckerTests(unittest.TestCase):
     def test_online_year_is_accepted(self):
         record = dict(RECORD, **{"published-online": {"date-parts": [[2019, 11, 3]]}})
         self.assertEqual(vr.compare({"year": "2019"}, record), ("PASS", []))
+
+    def test_year_must_match_the_entire_field(self):
+        self.assertEqual(vr.compare({"year": "12020"}, RECORD)[0], "WARN")
+        record = {"issued": {"date-parts": [[2020, 12]]}}
+        self.assertEqual(vr.compare({"year": "12021"}, record)[0], "WARN")
 
     def test_renamed_journal_is_a_note_not_a_warn(self):
         record = dict(RECORD, **{"container-title": ["ILR Review"], "short-container-title": ["ILR Review"]})

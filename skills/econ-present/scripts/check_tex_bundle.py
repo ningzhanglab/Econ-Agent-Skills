@@ -3,12 +3,17 @@ r"""Validate a downloaded TeX/PDF bundle.
 
 Check all *static* \input, \include and \includegraphics dependencies, including
 nested TeX inputs. Distinguish binary image/PDF assets from readable .tex files.
-Optionally compile an isolated copy containing only required source/assets.
+Optionally rebuild from an isolated copy. Compare the supplied PDF with that
+build's rendered pages, or write the fresh PDF beside the source. To verify a
+download of a checked bundle, compare the files by SHA-256 without rebuilding.
 
 Usage (from the skill's folder):
   python3 scripts/check_tex_bundle.py "/path/Agent Outputs/Notes.tex" --compile
+  python3 scripts/check_tex_bundle.py "/path/Agent Outputs/Notes.tex" --build-pdf
+  python3 scripts/check_tex_bundle.py "/path/Agent Outputs/Notes.tex" --verify-copy /path/download
 
-Stdlib only for dependency checking; --compile needs latexmk and TeX packages.
+Rebuilding needs latexmk and TeX packages. Page comparison uses Poppler's
+pdftoppm when PDF bytes differ; it checks appearance, not interactive links.
 This is a conservative check: dynamic TeX macros, \graphicspath, external
 bibliographies, custom classes and shell escape require independent verification.
 It does not interact with Google Drive or prove visual/economic accuracy.
@@ -20,6 +25,8 @@ titles in the same order. Body text is not compared.
 from __future__ import annotations
 
 import argparse
+import filecmp
+import hashlib
 import re
 import shutil
 import subprocess
@@ -122,6 +129,40 @@ def is_pdf(path: Path) -> bool:
         return fh.read(5) == b"%PDF-"
 
 
+def sha256_file(path: Path) -> bytes:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.digest()
+
+
+def verify_copy(root: Path, files: set[Path], copy_dir: Path) -> list[str]:
+    copy_dir = copy_dir.resolve()
+    if not copy_dir.is_dir():
+        return [f"downloaded bundle directory not found: {copy_dir}"]
+    if copy_dir == root:
+        return ["use a separate directory for the downloaded bundle"]
+    errors = []
+    for original in sorted(files):
+        if not original.is_relative_to(root):
+            errors.append(f"{original}: local file outside the bundle")
+            continue
+        rel = original.relative_to(root)
+        downloaded = copy_dir / rel
+        if not downloaded.resolve().is_relative_to(copy_dir):
+            errors.append(f"{rel}: downloaded path outside the bundle")
+            continue
+        try:
+            if not downloaded.is_file():
+                errors.append(f"{rel}: missing from downloaded bundle")
+            elif sha256_file(original) != sha256_file(downloaded):
+                errors.append(f"{rel}: SHA-256 mismatch with downloaded copy")
+        except OSError as exc:
+            errors.append(f"{rel}: cannot compare files: {exc}")
+    return errors
+
+
 def choose_engine(source: str) -> str:
     # Never silently compile Chinese prose using a plain PDFLaTeX configuration.
     active = "\n".join(line for _, line in _active_lines(source))
@@ -133,13 +174,36 @@ def choose_engine(source: str) -> str:
     return "-pdf"
 
 
-def compile_in_scratch(tex: Path) -> tuple[bool, str]:
+def compare_pdf_pages(reference: Path, compiled: Path, scratch: Path) -> tuple[bool, str]:
+    if filecmp.cmp(reference, compiled, shallow=False):
+        return True, "supplied PDF equals the scratch build"
+    renderer = shutil.which("pdftoppm")
+    if not renderer:
+        return False, "PDF match unchecked: install Poppler (pdftoppm) or use --build-pdf"
+    pages = []
+    for pdf, name in ((reference, "supplied"), (compiled, "fresh")):
+        result = subprocess.run(
+            [renderer, "-r", "120", "-png", str(pdf), str(scratch / name)],
+            capture_output=True, text=True, timeout=120, check=False,
+        )
+        rendered = sorted(scratch.glob(f"{name}-*.png"))
+        if result.returncode != 0 or not rendered:
+            return False, f"cannot render {name} PDF: {result.stderr.strip()}"
+        pages.append(rendered)
+    supplied, fresh = pages
+    if len(supplied) != len(fresh):
+        return False, f"supplied PDF has {len(supplied)} pages, scratch build has {len(fresh)}"
+    for number, (old, new) in enumerate(zip(supplied, fresh), 1):
+        if not filecmp.cmp(old, new, shallow=False):
+            return False, f"supplied PDF differs from the scratch build on page {number}"
+    return True, f"rendered pages match the scratch build ({len(fresh)} pages)"
+
+
+def compile_in_scratch(tex: Path, included: set[Path], *, reference: Path | None = None,
+                       output: Path | None = None) -> tuple[bool, str]:
     exe = shutil.which("latexmk")
     if not exe:
         return False, "latexmk not installed"
-    problems, included = _resolve_dependencies(tex)
-    if problems:
-        return False, "; ".join(problems)
     root = tex.parent.resolve()
     engine = choose_engine(tex.read_text(encoding="utf-8"))
 
@@ -160,13 +224,28 @@ def compile_in_scratch(tex: Path) -> tuple[bool, str]:
                 cmd, cwd=run_dir, capture_output=True, text=True,
                 timeout=120, check=False,
             )
+            compiled = run_dir / (tex.stem + ".pdf")
+            if result.returncode != 0 or not is_pdf(compiled):
+                return False, (result.stdout + "\n" + result.stderr)[-3500:]
+            label = "XeLaTeX" if engine == "-xelatex" else "PDFLaTeX"
+            print(f"PASS: scratch compilation ({label})")
+            log = compiled.with_suffix(".log")
+            if log.is_file():
+                for line in log.read_text(encoding="utf-8", errors="replace").splitlines():
+                    if line.startswith((r"Overfull \hbox", r"Overfull \vbox")):
+                        print(f"WARNING: {line}")
+            if reference is not None:
+                return compare_pdf_pages(reference.resolve(), compiled, Path(temp))
+            if output is not None:
+                # Publish only after a successful build. Stage on the same filesystem.
+                with tempfile.TemporaryDirectory(prefix=".econ-pdf-", dir=output.parent) as stage:
+                    ready = Path(stage) / output.name
+                    shutil.copyfile(compiled, ready)
+                    ready.replace(output)
+                return True, f"fresh PDF written: {output}"
         except (subprocess.TimeoutExpired, OSError) as exc:
             return False, str(exc)
-        compiled = run_dir / (tex.stem + ".pdf")
-        if result.returncode != 0 or not is_pdf(compiled):
-            return False, (result.stdout + "\n" + result.stderr)[-3500:]
-        label = "XeLaTeX" if engine == "-xelatex" else "PDFLaTeX"
-        return True, f"scratch compilation OK ({label})"
+        return True, "scratch build completed"
 
 
 FRAME_RE = re.compile(r"\\begin\{frame\}")
@@ -250,35 +329,52 @@ def content_file_problems(tex: Path) -> list[str]:
     return problems
 
 
-def validate(tex: Path, compile_requested: bool = False) -> list[str]:
+def validate(tex: Path, compile_requested: bool = False, *, build_pdf: bool = False,
+             copy_dir: Path | None = None) -> list[str]:
     if not tex.is_file() or tex.suffix.lower() != ".tex":
         return [f"TeX source not found: {tex}"]
-    errors = missing_dependencies(tex)
+    errors, included = _resolve_dependencies(tex)
     errors.extend(content_file_problems(tex))
     pdf = tex.with_suffix(".pdf")
-    if not is_pdf(pdf):
-        errors.append(f"matching compiled PDF not found or invalid: {pdf.name}")
-    if not errors and compile_requested:
-        ok, message = compile_in_scratch(tex)
+    if not build_pdf and not is_pdf(pdf):
+        errors.append(f"PDF missing or invalid: {pdf.name}")
+    if errors:
+        return errors
+    if copy_dir is not None:
+        root = tex.parent.resolve()
+        files = included | {root / pdf.name}
+        errors = verify_copy(root, files, copy_dir)
+        if not errors:
+            print(f"PASS: SHA-256 match for {len(files)} bundle files against the downloaded copy")
+    elif compile_requested or build_pdf:
+        ok, message = compile_in_scratch(
+            tex, included, reference=pdf if compile_requested else None,
+            output=pdf if build_pdf else None,
+        )
         if not ok:
-            errors.append("scratch compile failed: " + message)
+            errors.append(message)
         else:
-            print(message)
+            print(f"PASS: {message}")
     return errors
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("tex", type=Path, help="TeX file downloaded along with its figures and matching PDF")
-    parser.add_argument("--compile", action="store_true", help="compile a fresh copy in a temporary directory")
+    parser.add_argument("tex", type=Path, help="TeX source file beside its figures")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--compile", action="store_true", help="compare the existing PDF with a scratch build")
+    mode.add_argument("--build-pdf", action="store_true", help="write or replace the sibling PDF after a successful scratch build")
+    mode.add_argument("--verify-copy", type=Path, metavar="DIR",
+                      help="compare a checked local bundle with its downloaded copy by SHA-256")
     args = parser.parse_args()
-    errors = validate(args.tex, args.compile)
+    errors = validate(args.tex, args.compile, build_pdf=args.build_pdf, copy_dir=args.verify_copy)
     if errors:
         for error in errors:
             print("FAIL:", error, file=sys.stderr)
         return 1
-    suffix = " and scratch compilation" if args.compile else ""
-    print(f"PASS: TeX/PDF pair, static nested dependencies{suffix}")
+    print("PASS: static nested dependencies and PDF presence")
+    if not (args.compile or args.build_pdf or args.verify_copy):
+        print("NOTE: PDF content unchecked; use --compile to compare it with a fresh build")
     return 0
 
 

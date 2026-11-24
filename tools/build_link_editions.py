@@ -40,9 +40,8 @@ ROUTES = (
     ("term", "A term, concept, or screenshot of equations",
      "econ-learn", ("tasks/term-or-screenshot.md",)),
     ("homework", "Homework, a past exam, or exam prep",
-     "econ-learn", ("tasks/homework-exam.md", "guides/macroeconomics.md", "guides/microeconomics.md",
-                    "guides/econometrics.md", "guides/time-series.md", "tasks/deliver-file.md",
-                    "templates/simple-notes.tex", "templates/simple-notes-cn.tex")),
+     "econ-learn", ("tasks/homework-exam.md", "tasks/deliver-file.md", "guides/macroeconomics.md",
+                    "guides/microeconomics.md", "guides/econometrics.md", "guides/time-series.md")),
     ("explain", "Why something holds, a mechanism, a derivation or proof",
      "econ-learn", ("tasks/explain.md", "tasks/derive.md")),
     ("paper", "A research paper or part of one",
@@ -52,8 +51,8 @@ ROUTES = (
                     "guides/figures.md", "guides/reading-sources.md",
                     "templates/simple-notes.tex", "templates/simple-notes-cn.tex")),
     ("course", "Organizing a course, or a study log",
-     "econ-learn", ("tasks/course.md", "tasks/learning-log.md", "guides/sources-and-versions.md",
-                    "guides/large-files.md")),
+     "econ-learn", ("tasks/course.md", "tasks/learning-log.md", "tasks/deliver-file.md",
+                    "guides/sources-and-versions.md", "guides/large-files.md")),
     ("slides", "Slides for an audience",
      "econ-present", ("tasks/deliver-file.md", "tasks/revise-deck.md", "tasks/content-file.md",
                       "templates/simple-slides.tex", "templates/simple-handout.tex")),
@@ -79,12 +78,12 @@ NOTE = """> **Edition code: `{code}`**
 
 ROUTE_NOTE = """> **Edition code: `{code}`**
 >
-> You are reading this skill from a link. This page holds `SKILL.md` and {listed}: everything this kind of request needs. Links to those files point to their section below. Open another page only when the request needs something this page names only as a link; if it cannot be opened, name it and pause the part that depends on it.
+> Use the workflow for this request. Read an included guide only when its situation applies and a delivery section or template only for the requested file. {listed} are on this page. Follow an external link only for a needed resource. If it cannot be opened, name it and pause the part that depends on it.
 >
 > Start every reply that follows this page with the line `Skill: {name} · {code}`. This page covers one kind of request: when a later message in the chat asks for another kind, open that kind's page before answering.
 """
 
-INDEX_NOTE = """Open the one page in this table that matches the request and follow it: each page holds the skill's rules together with every procedure and guide that kind of request needs. If the request has several parts, open each page and work in task order (a referee report: paper, then research, then writing).
+INDEX_NOTE = """Open the page for what the user wants to do this turn. Continue with the same source and page for a focused follow-up when they still fit. If the request has several parts, open the relevant pages in task order (a referee report: paper, then research, then writing) and carry the verified source and coverage forward.
 
 If a page cannot be opened, open the skill's main page instead ({fallbacks}) and the pages it links; name any page that still cannot be opened and pause the part that depends on it.
 
@@ -198,7 +197,8 @@ def route_url(name: str) -> str:
 def render_route(name: str, skill: str, files: tuple[str, ...]) -> str:
     """One page holding SKILL.md and every file the request needs, linked to each other by anchors."""
     skill_dir = SKILLS / skill
-    included = {(skill_dir / rel).resolve(): anchor_for(rel) for rel in files}
+    main = skill_dir / "SKILL.md"
+    included = {(skill_dir / rel).resolve(): anchor_for(rel) for rel in ("SKILL.md", *files)}
     listed = ", ".join(f"`{rel}`" for rel in files)
     note = ROUTE_NOTE.format(code=edition_code(skill_dir), listed=listed, name=name)
     sections = []
@@ -214,7 +214,8 @@ def render_route(name: str, skill: str, files: tuple[str, ...]) -> str:
         generated_header(skill_dir, Path("SKILL.md"), *(Path(rel) for rel in files)),
         "",
         note,
-        absolute_links(skill_body(skill_dir), skill_dir / "SKILL.md", skill_dir, included),
+        f'<a id="{included[main.resolve()]}"></a>',
+        absolute_links(skill_body(skill_dir), main, skill_dir, included),
         "",
         *sections,
     ])

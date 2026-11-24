@@ -79,7 +79,7 @@ python3 scripts/verify_references.py --doi 10.1257/aer.20190623
 python3 scripts/verify_references.py --bib references.bib
 ```
 
-It reports PASS, WARN (a field differs; the record's value is shown), FAIL (no record, or the title does not match), SKIP (no DOI) or ERROR (the lookup failed, so the entry is **unchecked**, not verified). Report the notes printed under a PASS too: a venue that differs from the record, or a year one after a late-December print date, which is usually the volume year. Exit status is 2 if any lookup failed, 1 if any entry failed, 0 otherwise. It cannot check entries without a DOI; check those by hand and say so.
+It reports PASS, WARN (a field differs), FAIL (no record or the title does not match), SKIP (no DOI or an empty bibliography) or ERROR (a lookup, file read or BibTeX parse failed). Report notes under PASS too, including a different venue or a possible volume year after a late-December print date. Exit status is 2 for any ERROR, 1 for any FAIL otherwise, and 0 otherwise. Expand macros and concatenated fields before checking them. Check unchecked entries by hand and report their status.
 
 Before calling a FAIL entry fabricated, search its title and authors: a mistyped DOI and a non-existent paper both fail. Report "the DOI is wrong; the paper exists as …" or "no paper with this title and authors was found in these sources; it may be fabricated". Check entries without a DOI field by field: a source may confirm the authors and title but not the edition or year, and the report should say exactly which fields were confirmed. Do not edit the user's file unless asked; list the corrections instead.
 
@@ -88,10 +88,10 @@ Citation counts differ across sources. Name the source of any count, and never m
 ## Read
 
 - Read the most relevant papers as far as access allows: the introduction, the identification or model section and the main results, at least.
-- Record what was read: **full text**, **abstract only** or **metadata only**, and which version.
-- A paywalled paper is summarized from its abstract and labeled so. Do not describe its body.
+- Record the [version and reading coverage](../SKILL.md#guarantees).
+- When only the abstract is accessible, summarize it at that coverage.
 - Check that an "abstract" is one. Database abstract fields sometimes hold only a publication line ("Published in volume 90, issue 5 …") or text from another version. Say where the abstract came from (publisher, Crossref, OpenAlex, a working-paper page); if it is not the authors' abstract, or its version is unclear, say so or label the paper metadata only.
-- If a PDF is reachable but cannot be read in this environment (no text extraction, a scanned file), say so and keep the abstract-only or metadata-only label. Ask before downloading files when the environment requires it.
+- If some pages are missing or unreadable, name the coverage you actually obtained. Ask before downloading files when the environment requires it.
 
 ## Reading-list format
 
@@ -99,7 +99,7 @@ Use the ranking in the skill's Defaults. For each paper:
 
 ```text
 [n] Relevance 5 · Authors (Year). Title. Venue. DOI or identifier.
-    Verified: Crossref (or source) · Read: full text / abstract only / metadata only · Version: published / working paper
+    Verified: Crossref (or source) · Read: selected sections read (Introduction, §3, §5) · Version: published / working paper
     Claim: what the paper finds, in your own words, with the key magnitude if read.
     Approach: data and identification, or model, in one line.
     Bears on the question: one or two sentences.

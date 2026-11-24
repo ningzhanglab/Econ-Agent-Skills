@@ -33,8 +33,8 @@ A `.tex` that compiled once can still be unusable if it points to figures or sub
 
 - Keep figures in a stable folder beside the `.tex` and cite them by relative path. No absolute temporary paths, unexplained network links or missing macro files.
 - Deliver every file the `.tex` needs through `\input`, `\include` and `\includegraphics`.
-- The [bundle checker](../scripts/check_tex_bundle.py) checks literal relative `\input`, `\include` and `\includegraphics` dependencies (including binary PDF, PNG and JPG assets), the matching PDF and, with `--compile`, a scratch compilation. It rejects dynamic bibliography and `\graphicspath` references, which need manual review. It is not a general TeX dependency solver, and it is not evidence that an upload succeeded.
-- A strong check after uploading: download the `.tex`, the `.pdf` and the declared dependencies into a clean directory, compile there and look at the PDF.
+- The [bundle checker](../scripts/check_tex_bundle.py) follows literal `\input`, `\include` and `\includegraphics`. Use `--build-pdf` for a fresh PDF, following the overwrite default above. Use `--compile` to compare an existing PDF's pages with a clean build. It needs Poppler when PDF bytes differ. Check PDF links separately. Unsupported dependencies such as bibliographies or `\graphicspath` need a clean manual build.
+- Download the bundle to a separate directory with its relative paths intact. Run `check_tex_bundle.py LOCAL.tex --verify-copy DOWNLOAD_DIR` to compare the source, PDF and static dependencies with the checked local bundle by SHA-256. Check other attachments separately. Without a checked baseline, use `--compile` on the download or compare after a clean manual build.
 
 ## Compile and check
 

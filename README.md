@@ -19,7 +19,7 @@ No installation needed. Paste this into your Project's instructions:
 Use the Econ Agent Skills: https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-skills.md. For every message, later ones included, open the page that index lists for it (unless already opened in this chat) and follow it. Start each such reply with the page's `Skill:` line. Write all math in LaTeX, even single symbols.
 ```
 
-The link is an index of nine pages, one per kind of request. Each page holds everything that kind of request needs: the skill's rules, the task procedure, the guides and any template. The agent reads the index once per chat, then one page for each kind of request. The pages update when this repository changes, so you never need to paste the prompt again. Outside a Project, paste the same text at the start of a chat, followed by your request.
+The link is an index of nine task pages. Each page starts with the skill rules and task workflow. Guides, file delivery and templates apply when the request needs them. A focused follow-up can reuse the same page and verified source material. The pages update when this repository changes. Outside a Project, paste the same text at the start of a chat, followed by your request.
 
 **How to tell it worked.** Every reply that used a skill starts with one line such as `Skill: homework · f1a201`: the page it followed and that page's code. If a reply about economics has no such line, it did not use a skill; ask it to. If the code differs from the one on line 3 of the page, the chat app read an older cached copy.
 
@@ -103,7 +103,7 @@ Task pages: [term or screenshot](skills/econ-learn/tasks/term-or-screenshot.md),
 - **Files:** with no format named, a matching `.tex` and compiled `.pdf` in `Agent Outputs/`. A homework file follows the assignment's own format and filename rules. LaTeX notes start from the [English template](skills/econ-learn/templates/simple-notes.tex) or the [Chinese template](skills/econ-learn/templates/simple-notes-cn.tex).
 - **Whole courses,** on request: syllabus order kept apart from inferred prerequisites, notation tracked per lecture, coverage marked honestly. Saved maps are navigation, never a substitute for reopening the slides.
 - **Learning logs** only when you ask ("记录今天的学习"), as a short private Markdown file in `Agent Outputs/Learning Logs/`.
-- **Helper scripts** (read-only on your sources): [file grouping](skills/econ-learn/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-learn/scripts/inventory_tex_figures.py), [Word equation reader](skills/econ-learn/scripts/read_docx_math.py), [TeX bundle checker](skills/econ-learn/scripts/check_tex_bundle.py).
+- **Helper scripts:** [file grouping](skills/econ-learn/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-learn/scripts/inventory_tex_figures.py), [Word equation reader](skills/econ-learn/scripts/read_docx_math.py), and the [TeX bundle checker](skills/econ-learn/scripts/check_tex_bundle.py), which can rebuild a PDF or verify a downloaded copy against a checked local bundle.
 
 Example prompts: "Explain the intuition behind the Euler equation on slide 12, in the lecturer's notation." · "Solve PS2 part (b) using the method from the lecture." · "用中文解释第 12 页的贝尔曼方程，符号保持和 slides 一样。" · "What is elasticity?"
 
@@ -148,7 +148,7 @@ Example prompts: "What's the literature on minimum wages and employment? Ten mos
 
 - Teaching: a blind comparison on three synthetic cases scored this version 41, the previous version 40 and no skill 37 out of 42 ([log](logs/2026-11-16-v2-rebuild-four-skills.md)). On a real assignment, only the skill looked for the course's own material ([log](logs/2026-11-17-econ-learn-homework-source-and-submission.md)).
 - Slides: on a published paper, decks built with the skill scored 14 and 15 out of 16 against 8 for no skill ([log](logs/2026-11-16-econ-present-real-paper-comparison.md)); a rerun on a second paper compared skill versions ([log](logs/2026-11-18-econ-present-melons-rerun.md)).
-- The Project link setup works in the maintainer's own Project. The recorded cases are in [tests/link-route-evaluation.md](tests/link-route-evaluation.md).
+- The Project link setup has worked in the maintainer's Project. Use the [Project test cases](tests/link-route-evaluation.md) to check the current edition, source reuse and file delivery.
 
 ## For the maintainer
 
@@ -173,4 +173,4 @@ Econ-Agent-Skills/
 - Publish the first release, so the download links work, and check that an installed skill is chosen on its own in a real client.
 - Repeat the teaching comparison on real lectures and homework, with more than one run per case.
 - Run the writing and research evaluation cases on real drafts and topics.
-- A fifth skill for work on your own research object (model, proof, data, code) is foreseen in the design and not built.
+- The [own-research pilot](tests/own-research-pilot.md) tests work on the user's own research object with a public measurement case. It is a maintainer evaluation.

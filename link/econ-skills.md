@@ -2,7 +2,7 @@
 
 # Econ Agent Skills
 
-Open the one page in this table that matches the request and follow it: each page holds the skill's rules together with every procedure and guide that kind of request needs. If the request has several parts, open each page and work in task order (a referee report: paper, then research, then writing).
+Open the page for what the user wants to do this turn. Continue with the same source and page for a focused follow-up when they still fit. If the request has several parts, open the relevant pages in task order (a referee report: paper, then research, then writing) and carry the verified source and coverage forward.
 
 If a page cannot be opened, open the skill's main page instead ([econ-learn](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn.md), [econ-present](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-present.md), [econ-research](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-research.md), [econ-write](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-write.md)) and the pages it links; name any page that still cannot be opened and pause the part that depends on it.
 

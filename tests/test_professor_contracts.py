@@ -252,8 +252,36 @@ class CourseContracts(unittest.TestCase):
             tex.write_text(r"\graphicspath{{figures/}}", encoding="utf-8")
             self.assertTrue(any("unsupported" in x for x in bundle.missing_dependencies(tex)))
 
-    @unittest.skipUnless(shutil.which("latexmk") and shutil.which("pdflatex"),
-                         "TeX engine not available")
+    def test_download_hashes_cover_source_pdf_and_nested_dependencies(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "local"
+            (root / "sections").mkdir(parents=True)
+            (root / "figures").mkdir()
+            tex = root / "notes.tex"
+            tex.write_text(r"\input{sections/body}", encoding="utf-8")
+            (root / "sections/body.tex").write_text(r"\includegraphics{figures/plot.png}", encoding="utf-8")
+            (root / "figures/plot.png").write_bytes(b"plot 1")
+            (root / "notes.pdf").write_bytes(b"%PDF-" + b"A" * 1200)
+            downloaded = Path(tmp) / "downloaded"
+            shutil.copytree(root, downloaded)
+            self.assertEqual(bundle.validate(tex, copy_dir=downloaded), [])
+
+            (downloaded / "notes.pdf").write_bytes(b"%PDF-" + b"B" * 1200)
+            (downloaded / "notes.tex").write_text(r"\input{sections/none}", encoding="utf-8")
+            (downloaded / "sections/body.tex").unlink()
+            (downloaded / "figures/plot.png").write_bytes(b"plot 2")
+            self.assertEqual(bundle.validate(tex, copy_dir=downloaded), [
+                "figures/plot.png: SHA-256 mismatch with downloaded copy",
+                "notes.pdf: SHA-256 mismatch with downloaded copy",
+                "notes.tex: SHA-256 mismatch with downloaded copy",
+                "sections/body.tex: missing from downloaded bundle",
+            ])
+            self.assertEqual(bundle.validate(tex, copy_dir=root), [
+                "use a separate directory for the downloaded bundle",
+            ])
+
+    @unittest.skipUnless(all(shutil.which(tool) for tool in ("latexmk", "pdflatex", "pdftoppm")),
+                         "TeX or Poppler not available")
     def test_figure_pdf_and_nested_input_compile_together(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -295,7 +323,8 @@ class CourseContracts(unittest.TestCase):
         self.assertIn("homework", doc)
         self.assertIn("untrusted", (SKILL / "guides/sources-and-versions.md").read_text(encoding="utf-8").lower())
 
-    @unittest.skipUnless(shutil.which("latexmk") and shutil.which("pdflatex"), "TeX engine not available")
+    @unittest.skipUnless(all(shutil.which(tool) for tool in ("latexmk", "pdflatex", "pdftoppm")),
+                         "TeX or Poppler not available")
     def test_default_english_template_compiles_cleanly(self):
         with tempfile.TemporaryDirectory() as tmp:
             dest = Path(tmp) / "simple-notes.tex"
@@ -305,6 +334,31 @@ class CourseContracts(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stdout[-2000:])
             self.assertTrue(bundle.is_pdf(dest.with_suffix(".pdf")))
             self.assertEqual(bundle.validate(dest, compile_requested=True), [])
+
+    @unittest.skipUnless(all(shutil.which(tool) for tool in ("latexmk", "pdflatex", "pdftoppm")),
+                         "TeX or Poppler not available")
+    def test_stale_pdf_fails_and_failed_build_preserves_previous_pdf(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tex = Path(tmp) / "notes.tex"
+            pdf = tex.with_suffix(".pdf")
+            source = r"\documentclass{article}\begin{document}Result: %s.\end{document}"
+            tex.write_text(source % 10, encoding="utf-8")
+            self.assertEqual(bundle.validate(tex, build_pdf=True), [])
+            old_pdf = pdf.read_bytes()
+
+            tex.write_text(source % 20, encoding="utf-8")
+            self.assertEqual(bundle.validate(tex, compile_requested=True), [
+                "supplied PDF differs from the scratch build on page 1",
+            ])
+            self.assertEqual(pdf.read_bytes(), old_pdf)
+            self.assertEqual(bundle.validate(tex, build_pdf=True), [])
+            self.assertEqual(bundle.validate(tex, compile_requested=True), [])
+            new_pdf = pdf.read_bytes()
+            self.assertNotEqual(new_pdf, old_pdf)
+
+            tex.write_text(source % r"\unknowncommand", encoding="utf-8")
+            self.assertTrue(bundle.validate(tex, build_pdf=True))
+            self.assertEqual(pdf.read_bytes(), new_pdf)
 
 
     def test_slides_content_file_matches_frames(self):

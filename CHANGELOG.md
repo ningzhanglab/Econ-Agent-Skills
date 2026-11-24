@@ -4,6 +4,11 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 ## Unreleased
 
+- **Fixed and changed:** the BibTeX checker distinguishes malformed input from an empty bibliography, the TeX checker verifies downloaded copies by SHA-256, and the Project evaluation counts necessary and repeated reads separately. [Final audit fixes](logs/2026-11-24-final-audit-fixes.md).
+
+- **Fixed:** the TeX bundle checker detects stale PDFs against a clean build and can produce the delivery PDF directly. The BibTeX checker preserves quoted LaTeX accents, reports parse failures and compares complete year fields. Research reading coverage names the sections or pages read when coverage is partial.
+- **Changed:** follow-ups and local edits use the relevant material, handoffs carry inspected source coverage, and Project pages put task procedures ahead of optional resources. Lecture Defaults and course file delivery stay on their route pages. Added an own-research workflow pilot. [Workflow and helper fixes](logs/2026-11-24-workflow-and-helper-fixes.md).
+
 - **Changed (econ-learn, econ-write and econ-present, at the user's request):** replaced the shared English article template with the supplied homework and report version, which includes theorem, table and citation support.
 
 - **Changed (econ-learn, econ-write and econ-present, at the user's request):** the notes, report and prose handout templates use the same left-aligned article layout, without a running header and with page numbers centered at the bottom. The Beamer template centers frame numbers. The corresponding link editions include their templates. [Template update](logs/2026-11-23-report-and-presentation-templates.md).

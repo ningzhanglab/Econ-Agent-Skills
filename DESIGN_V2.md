@@ -24,9 +24,9 @@ Each design choice below answers a failure recorded in the logs.
 | `econ-write` | the user | referees and readers | nothing; only clarity |
 | `econ-research` | the literature | the user, deciding | verified references and labeled assessment |
 
-A new task goes to the skill whose row it fits. A new skill is justified only by a new row. One is foreseen and not built: work on the user's own research object (solving their model, checking their proof, data and estimation code), where every result must come from an actual derivation or run.
+A new task goes to the skill whose row it fits. A new skill is justified only by a new row. Work on the user's own research object (solving their model, checking their proof, data or estimation code) is being evaluated in an [own-research pilot](tests/own-research-pilot.md). Its contract requires an actual derivation or run for each result.
 
-Jobs that cross skills are named in each skill's "Other skills" section, with the order of the handoff (for example a referee report: assess with `econ-learn`, position with `econ-research`, structure with `econ-write`).
+Jobs that cross skills are named in each skill's "Other skills" section, with the order of the handoff (for example a referee report: assess with `econ-learn`, position with `econ-research`, structure with `econ-write`). The [reading guarantee](shared/guarantees.md) defines what moves across steps. A narrow request uses the relevant part of its workflow. Whole-source checks apply when the request or the impact of a change warrants them.
 
 ## The shape of a skill
 

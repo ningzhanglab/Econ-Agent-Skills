@@ -8,7 +8,7 @@ A synthesis tells the user what a set of verified papers jointly establishes, wh
 2. **Approach:** data and source of variation, or the model and its key assumption.
 3. **Main result:** direction and magnitude, with units, for the main specification.
 4. **Scope:** population, period, setting; partial or general equilibrium; short or long run.
-5. **What was read:** full text, abstract only or metadata only, and which version.
+5. **What was read:** report each paper's [version and reading coverage](../SKILL.md#guarantees).
 
 Keep each paper's terms as the authors use them. When two papers use different names for one object, or one name for different objects, say so instead of merging them.
 

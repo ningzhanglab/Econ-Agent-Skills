@@ -10,9 +10,9 @@ For each DOI, fetch the Crossref record and report:
         and pages (when given) agree with it; notes may still follow;
   WARN  the record exists but a field differs (the canonical value is shown);
   FAIL  no record for the DOI, or the title does not match the record;
-  SKIP  a .bib entry without a DOI (check it by hand);
-  ERROR the lookup itself failed (network, rate limit) after retries: the
-        entry is unchecked.
+  SKIP  an entry without a DOI, or a bibliography with no entries;
+  ERROR the lookup failed after retries, or the entry could not be parsed:
+        the entry is unchecked.
 
 A rate limit, server error or network failure is retried up to three times
 with a short wait. Each DOI is looked up once per run.
@@ -23,7 +23,7 @@ date) must be reported to the user; they are not errors by themselves.
 Standard library only. Read-only on the .bib file. Sends only the DOI to
 Crossref, with a generic User-Agent and no personal details. It cannot prove
 a paper says what a summary claims; it only confirms bibliographic metadata.
-Exit status is 2 if any lookup ERRORs (the check is incomplete), otherwise 1
+Exit status is 2 if any entry ERRORs (the check is incomplete), otherwise 1
 if any entry FAILs, otherwise 0.
 """
 from __future__ import annotations
@@ -131,55 +131,104 @@ def similarity(a: str, b: str) -> float:
     return len(ta & tb) / len(ta | tb)
 
 
+ENTRY_START = re.compile(r"^[ \t]*%[^\n]*|^[ \t]*@(\w+)(?:\s*([({]))?|@(\w+)\s*([({])", re.M)
+ENTRY_KEY = re.compile(r"\s*([^,\s{}()]+)\s*,")
+FIELD = re.compile(r"([A-Za-z][\w-]*)\s*=\s*")
+SPACE = re.compile(r"\s*")
+BARE_VALUE = re.compile(r'[^\s,#{}()"]+')
+RECOVERY = re.compile(r"^[ \t]*@\w+", re.M)
+CHECKED_FIELDS = {"author", "booktitle", "doi", "journal", "pages", "title", "volume", "year"}
+
+
+def group_end(text: str, start: int, closing: str) -> int:
+    """Find a delimiter outside nested braces and escaped characters."""
+    depth, i = 0, start + 1
+    while i < len(text):
+        char = text[i]
+        if char == "\\":
+            i += 2
+            continue
+        if char == closing and depth == 0:
+            return i
+        if char == "{":
+            depth += 1
+        if char == "}":
+            depth -= 1
+        if depth < 0:
+            break
+        i += 1
+    raise ValueError(f"missing closing {closing!r}")
+
+
+def parse_fields(text: str, i: int, closing: str) -> tuple[dict, int]:
+    fields = {}
+    while True:
+        i = SPACE.match(text, i).end()
+        if text[i:i + 1] == closing:
+            return fields, i + 1
+        match = FIELD.match(text, i)
+        if not match:
+            raise ValueError(f"expected a field or {closing!r}")
+        name, i = match[1].lower(), match.end()
+        delimiter = text[i:i + 1]
+        if delimiter in ('"', "{"):
+            end = group_end(text, i, '"' if delimiter == '"' else "}")
+            value, i = text[i + 1:end], end + 1
+        else:
+            bare = BARE_VALUE.match(text, i)
+            if not bare:
+                raise ValueError(f"missing value for {name}")
+            value, i = bare[0], bare.end()
+            if name in CHECKED_FIELDS and re.fullmatch(r"[A-Za-z][\w-]*", value):
+                raise ValueError(f"unexpanded BibTeX macro in {name}")
+        fields[name] = " ".join(value.split())
+        i = SPACE.match(text, i).end()
+        separator = text[i:i + 1]
+        if separator == "#":
+            raise ValueError(f"BibTeX concatenation in {name}; expand the field first")
+        if separator == closing:
+            return fields, i + 1
+        if separator != ",":
+            raise ValueError(f"expected ',' or {closing!r} after {name}")
+        i += 1
+
+
 def parse_bib(text: str) -> list[dict]:
-    """Minimal BibTeX parser: returns [{'type', 'key', 'fields': {name: value}}]."""
-    entries = []
-    for match in re.finditer(r"@(\w+)\s*([({])\s*([^,\s]+)\s*,", text):
-        etype, opening, key = match.groups()
-        etype = etype.lower()
-        if etype in {"comment", "preamble", "string"}:
+    """Read literal fields and keep parse errors with their entry and source line."""
+    entries, pos = [], 0
+    saw_header = False
+    while match := ENTRY_START.search(text, pos):
+        start_type, start_delimiter, inline_type, inline_delimiter = match.groups()
+        etype = start_type or inline_type
+        pos = match.end()
+        if etype is None:
+            continue
+        saw_header = True
+        line = text.count("\n", 0, match.start()) + 1
+        opening = start_delimiter or inline_delimiter
+        if opening is None:
+            entries.append({"key": f"line {line}", "error": f"line {line}: missing '{{' or '(' after @{etype}"})
             continue
         closing = "}" if opening == "{" else ")"
-        i, depth, quoted = match.end(), 0, False
-        while i < len(text):
-            char = text[i]
-            if depth == 0 and not quoted and char == closing:
+        key = ENTRY_KEY.match(text, pos)
+        try:
+            if etype.lower() in {"comment", "preamble", "string"}:
+                pos = group_end(text, pos - 1, closing) + 1
+                continue
+            if not key:
+                raise ValueError("missing entry key or comma after key")
+            fields, pos = parse_fields(text, key.end(), closing)
+            entries.append({"key": key[1], "fields": fields})
+        except ValueError as err:
+            entries.append({"key": key[1] if key else f"line {line}", "error": f"line {line}: {err}"})
+            following = RECOVERY.search(text, match.end())
+            pos = following.start() if following else len(text)
+    if not saw_header:
+        for line, content in enumerate(text.splitlines(), 1):
+            if content.strip() and not content.lstrip().startswith("%"):
+                entries.append({"key": f"line {line}", "error": f"line {line}: no BibTeX entry or directive found"})
                 break
-            if char == '"' and depth == 0:
-                quoted = not quoted
-            depth += {"{": 1, "}": -1}.get(char, 0)
-            i += 1
-        entries.append({"type": etype, "key": key, "fields": parse_fields(text[match.end():i])})
     return entries
-
-
-def parse_fields(body: str) -> dict:
-    fields, i = {}, 0
-    pattern = re.compile(r"\s*([A-Za-z][\w-]*)\s*=\s*")
-    while True:
-        m = pattern.match(body, i)
-        if not m:
-            break
-        name, i = m.group(1).lower(), m.end()
-        if i < len(body) and body[i] == "{":
-            depth, start = 1, i + 1
-            i += 1
-            while i < len(body) and depth:
-                depth += {"{": 1, "}": -1}.get(body[i], 0)
-                i += 1
-            value = body[start:i - 1]
-        elif i < len(body) and body[i] == '"':
-            end = body.find('"', i + 1)
-            value, i = body[i + 1:end], end + 1
-        else:
-            m2 = re.match(r"[^,]*", body[i:])
-            value, i = m2.group(0), i + m2.end()
-        fields[name] = " ".join(value.split())
-        comma = body.find(",", i)
-        if comma == -1:
-            break
-        i = comma + 1
-    return fields
 
 
 DATE_KEYS = ("published-print", "published-online", "issued", "published")
@@ -217,11 +266,12 @@ def check_year(given: str, rec: dict) -> tuple[str, Optional[str]]:
     """
     dates = record_dates(rec)
     years = {y for y, _ in dates}
-    if not years or any(str(y) in given for y in years):
+    given = given.strip()
+    if not years or given in {str(year) for year in years}:
         return "PASS", None
     shown = ", ".join(str(y) for y in sorted(years))
     latest = max(dates, key=lambda date: (date[0], date[1] or 0))
-    if str(latest[0] + 1) in given and (latest[1] or 0) >= 11:
+    if given == str(latest[0] + 1) and (latest[1] or 0) >= 11:
         return "PASS", (f"year {given} vs record dates {shown}: the record's latest date is late "
                         f"{latest[0]}, so {given} may be the volume year; confirm with the issue")
     return "WARN", f"year {given} vs record {record_year(rec)} (record dates: {shown})"
@@ -304,7 +354,20 @@ def run(dois: list[str], bib: Optional[Path], fetch: Fetcher) -> list[dict]:
     for doi in dois:
         results.append({"key": None, **check_doi(clean_doi(doi), {}, fetch)})
     if bib:
-        for entry in parse_bib(bib.read_text(encoding="utf-8")):
+        try:
+            entries = parse_bib(bib.read_text(encoding="utf-8-sig"))
+        except (OSError, UnicodeError) as err:
+            results.append({"key": bib.name, "doi": None, "status": "ERROR",
+                            "notes": [f"cannot read bibliography: {err}"]})
+            return results
+        if not entries:
+            results.append({"key": bib.name, "doi": None, "status": "SKIP",
+                            "notes": ["no bibliography entries; nothing checked"]})
+        for entry in entries:
+            if "error" in entry:
+                results.append({"key": entry["key"], "doi": None, "status": "ERROR",
+                                "notes": [entry["error"]]})
+                continue
             doi = entry["fields"].get("doi")
             if not doi:
                 results.append({"key": entry["key"], "doi": None, "status": "SKIP",
