@@ -163,7 +163,8 @@ class CourseContracts(unittest.TestCase):
         chinese = (SKILL / "templates/simple-notes-cn.tex").read_text(encoding="utf-8")
         self.assertIn(r"\documentclass[11pt,letterpaper]{article}", latin)
         self.assertIn(r"\documentclass[11pt]{ctexart}", chinese)
-        self.assertIn(r"\usepackage{amsmath,amssymb,graphicx}", latin)
+        self.assertIn(r"\usepackage{amsmath,amssymb,amsthm,mathtools,bm}", latin)
+        self.assertIn(r"\usepackage{graphicx}", latin)
         for template in (latin, chinese):
             self.assertIn("nohead,footskip=.32in", template)
             self.assertIn(r"\pagestyle{plain}", template)
