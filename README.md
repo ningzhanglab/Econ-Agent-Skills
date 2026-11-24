@@ -5,7 +5,7 @@ Four Agent Skills for economics PhD work: understanding material, presenting it,
 | Skill | Use it to | The agent may add |
 | --- | --- | --- |
 | [econ-learn](skills/econ-learn/SKILL.md) | Understand material someone else wrote: lecture slides, homework, exams, a paper, a screenshot of equations, or a bare term | Explanation, derivation and figures, each labeled by source |
-| [econ-present](skills/econ-present/SKILL.md) | Build a slide deck for an audience from a paper or a lecture | Structure and delivery only |
+| [econ-present](skills/econ-present/SKILL.md) | Build a slide deck for an audience from a paper or a lecture | Structure, delivery and checked source-derived material |
 | [econ-write](skills/econ-write/SKILL.md) | Edit, review and structure your own economics writing | Nothing; only clarity |
 | [econ-research](skills/econ-research/SKILL.md) | Develop a research question and work with the literature | Verified references and labeled assessment |
 
@@ -115,8 +115,9 @@ Example prompts: "Explain the intuition behind the Euler equation on slide 12, i
 - **The deck is for the audience; the handover is for you:** the version read, the page behind each slide and every computed number go into the handover in chat, not onto the slides.
 - **House style, each line adjustable:** "Topic: point" titles; Appendix slides with a subtitle, one click from the slide they support and back; no default length; Beamer 16:9 as `.tex` and `.pdf`; a content file or speaker notes only on request.
 - **Nothing from memory:** a related-literature slide lists only papers the source cites or papers verified with `econ-research`.
-- A [figure cropper](skills/econ-present/scripts/crop_figure.py) saves one figure from a PDF page as an image (needs PyMuPDF or Poppler).
-- Slides use a centered frame number at the bottom. A requested prose handout starts from the [LaTeX handout template](skills/econ-present/templates/simple-handout.tex).
+- Slides default to a PhD seminar audience. The talk can open with the key finding and reorder the paper to make the argument easier to follow.
+- Prefer original figures. The [figure cropper](skills/econ-present/scripts/crop_figure.py) extracts them from PDF pages, and a checked, labeled redraw can replace a hard-to-read figure.
+- Slides show the current frame and total at the bottom right (e.g., 3 / 12). The Beamer source includes any files needed to rebuild the deck. A requested prose handout starts from the [LaTeX handout template](skills/econ-present/templates/simple-handout.tex).
 
 Example prompts: "Make slides to present this paper in our reading group." · "Recheck my deck against the published version."
 

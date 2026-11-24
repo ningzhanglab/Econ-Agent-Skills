@@ -13,4 +13,4 @@ A Markdown file beside the deck (the deck's name with `_content.md`) lets the us
 
 When the user returns it edited, apply their text to the matching slides in the `.tex`, recompile and regenerate the file, so the three stay in step.
 
-The [bundle checker](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-present/scripts/check_tex_bundle.py) compares section numbers and titles with countable TeX frames. If it skips the count because of overlays, section frames or nested inputs, check the sections against the compiled PDF pages. Check the body text against the `.tex`.
+Use the [bundle checker](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-present/scripts/check_tex_bundle.py) to compare section numbers and titles with countable TeX frames. If the checker is unavailable or skips the count because of overlays, section frames or nested inputs, compare the section numbers and titles with the compiled PDF pages. Check the body text against the `.tex`.

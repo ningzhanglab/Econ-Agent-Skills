@@ -3,12 +3,16 @@
 
 \usepackage{amsmath,amssymb}
 % Add \usepackage{graphicx} or pgfplots only when the deck includes figures; call figures by relative path, e.g. \includegraphics[width=\linewidth]{figures/fig1.png} (no \graphicspath).
+% For a figure slide, center the image and left-align the explanation:
+% {\centering
+%   \includegraphics[width=.8\linewidth]{figures/fig1.png}\par}
+% {\raggedright The explanatory sentence goes here.\par}
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{headline}{}
 \setbeamertemplate{footline}{%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{page number in head/foot}%
-    \usebeamerfont{page number in head/foot}\insertframenumber
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=1em]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}\insertframenumber{} / \inserttotalframenumber
   \end{beamercolorbox}%
 }
 
@@ -24,6 +28,7 @@
 \end{frame}
 
 \begin{frame}{Introduction}
+  % Put the takeaway first when it makes a stronger opening.
   \begin{itemize}
     \item The question the paper asks
     \item Why it matters
@@ -61,7 +66,7 @@
 
 \begin{frame}[label=a-derivation]{Appendix}
   \framesubtitle{Derivation of Proposition 1}
-  Secondary derivations and long algebra go here; steps of the core argument stay in the main slides.
+  Show the full derivation or the supporting steps needed to check the main result.
 
   \vfill\hfill\hyperlink{m-core}{\beamerreturnbutton{Back}}
 \end{frame}

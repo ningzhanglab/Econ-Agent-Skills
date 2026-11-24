@@ -4,6 +4,8 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 ## Unreleased
 
+- **Changed (econ-present, at the user's request):** the questionnaire updates the default audience, story order, equation density, derivation placement, figure treatment, bottom-right frame counter and delivery checks. [Presentation preferences](logs/2026-11-24-econ-present-questionnaire.md).
+
 - **Fixed and changed:** the BibTeX checker distinguishes malformed input from an empty bibliography, the TeX checker verifies downloaded copies by SHA-256, and the Project evaluation counts necessary and repeated reads separately. [Final audit fixes](logs/2026-11-24-final-audit-fixes.md).
 
 - **Fixed:** the TeX bundle checker detects stale PDFs against a clean build and can produce the delivery PDF directly. The BibTeX checker preserves quoted LaTeX accents, reports parse failures and compares complete year fields. Research reading coverage names the sections or pages read when coverage is partial.

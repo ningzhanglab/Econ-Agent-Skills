@@ -36,10 +36,11 @@ PREFERENCES = {
     ],
     "econ-learn/tasks/learning-log.md": ["Default is on demand, not continuous"],
     "econ-present/SKILL.md": [
-        "a reading-group talk to PhD students",
+        "Default to a PhD seminar audience",
         "no default length or slide count",
         "Beamer, 16:9",
-        "no running header and a centered frame number at the bottom",
+        "no running header and a bottom-right frame counter showing the current frame and total",
+        "center the figure and left-align the explanatory sentence below it by default",
         "so the PDF has one page per slide",
         "a content file (`_content.md`), speaker notes, a handout version",
         "[handout template](templates/simple-handout.tex)",
@@ -48,13 +49,16 @@ PREFERENCES = {
         "written exactly the same on every slide of that section",
         "Appendix slides share the title \"Appendix\" and carry a subtitle",
         "title it \"Outline\", not \"Roadmap\"",
-        "There is no Discussion slide unless the user asks for one",
-        "The body follows the paper's own section order",
+        "A Discussion slide, only on request",
+        "Reorder the source when it makes the argument easier to understand",
+        "The opening may show the key finding",
         "There is no fixed bullet count",
         "a short paragraph of two or three sentences",
-        "at most two displayed equations",
+        "usually at most two displayed equations",
+        "Keep the main derivation steps in the talk. Put the full derivation or necessary supporting details in the Appendix.",
         "one click from the main slide it supports and one click back",
-        "leave it without a source line when the talk is about that one paper",
+        "Leave a reused original without a source line when presenting its own paper",
+        "Redrawn from [figure number or page]",
         "A deck is a talk, not a summary of the paper",
         "never list papers, years or journals from memory",
     ],
@@ -129,6 +133,8 @@ class Preferences(unittest.TestCase):
         self.assertIn(r"\beamergotobutton", template)
         self.assertIn(r"\beamerreturnbutton", template)
         self.assertNotIn(r"\insertsection", template)  # footer shows the page number only
+        self.assertIn("right,rightskip=", template)
+        self.assertIn(r"\insertframenumber{} / \inserttotalframenumber", template)
 
 
 if __name__ == "__main__":
