@@ -2,11 +2,11 @@
 
 Use this when the user asks to revise or "recheck" a deck, or wants it for a different length or audience. Everything in [SKILL.md](../SKILL.md) still applies.
 
-A deck for a different length or audience is a new deck. Plan it again from [Plan the story first](../SKILL.md#plan-the-story-first) and reuse slides where they fit.
+A new length or audience changes the plan. Revisit [Plan the story first](../SKILL.md#plan-the-story-first) and reuse slides that still fit.
 
 Keep a copy of the old `.tex` before editing and keep its filename for the new one. Confirm the source version, then use the scope the user requested.
 
-- **A local revision.** Read and verify the affected slides, source passages and any affected numbering or links. Compile the whole deck for delivery. Inspect the changed and affected pages in the rebuilt PDF. Global layout changes, a changed source or a request to recheck the whole deck call for a full review.
+- **A local revision.** Edit the requested slides and adjust affected cross-references, numbering or links. Read the supporting source passages, compile the whole deck for delivery and inspect the affected pages in the rebuilt PDF. Use a full review when the source changes, when a global layout change affects all slides, or when the user asks to recheck the whole deck.
 - **A full review.** Re-verify against the current source. If the source changed, check the numbers, equations, figures and page references against the new version. Place a missed item carrying the argument where the main sequence needs it. Put supporting detail in the Appendix.
 
-In the handover, say what changed and what was checked. Report a local review as local.
+When the content file is part of the requested revision, update it through [Content File](content-file.md). State the scope and changes in the handover.

@@ -111,11 +111,11 @@ Example prompts: "Explain the intuition behind the Euler equation on slide 12, i
 
 [Econ Present](skills/econ-present/SKILL.md) makes what an audience sees.
 
-- **A talk, not a summary:** planned as a story from the question to the answer, in the source's order, with the core argument built step by step in the main slides.
-- **The deck is for the audience; the handover is for you:** the version read, the page behind each slide and every computed number go into the handover in chat, not onto the slides.
+- Build the core argument step by step in the main slides. Open with the key finding or reorder the source when it helps the audience follow the argument.
+- The handover records the version read, the source behind each slide and how added computations or derivations were checked.
 - **House style, each line adjustable:** "Topic: point" titles; Appendix slides with a subtitle, one click from the slide they support and back; no default length; Beamer 16:9 as `.tex` and `.pdf`; a content file or speaker notes only on request.
-- **Nothing from memory:** a related-literature slide lists only papers the source cites or papers verified with `econ-research`.
-- Slides default to a PhD seminar audience. The talk can open with the key finding and reorder the paper to make the argument easier to follow.
+- Research talks normally include a Related Literature slide organized by question or mechanism. Use references cited by the source or verified with `econ-research`.
+- Slides default to a PhD seminar audience.
 - Prefer original figures. The [figure cropper](skills/econ-present/scripts/crop_figure.py) extracts them from PDF pages, and a checked, labeled redraw can replace a hard-to-read figure.
 - Slides show the current frame and total at the bottom right (e.g., 3 / 12). The Beamer source includes any files needed to rebuild the deck. A requested prose handout starts from the [LaTeX handout template](skills/econ-present/templates/simple-handout.tex).
 

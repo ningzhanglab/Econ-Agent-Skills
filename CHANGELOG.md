@@ -4,6 +4,10 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 ## Unreleased
 
+- **Improved (econ-present):** streamlined source intake and the handover, clarified evidence for literature comparisons and table takeaways, and aligned editable slide content with frames across overlays. [Workflow review](logs/2026-11-24-econ-present-workflow-review.md).
+
+- **Changed (econ-present, at the user's request):** research talks normally include a dedicated Related Literature slide, and equations default to standard displays with emphasis used sparingly.
+
 - **Changed (econ-present, at the user's request):** the questionnaire updates the default audience, story order, equation density, derivation placement, figure treatment, bottom-right frame counter and delivery checks. [Presentation preferences](logs/2026-11-24-econ-present-questionnaire.md).
 
 - **Fixed and changed:** the BibTeX checker distinguishes malformed input from an empty bibliography, the TeX checker verifies downloaded copies by SHA-256, and the Project evaluation counts necessary and repeated reads separately. [Final audit fixes](logs/2026-11-24-final-audit-fixes.md).

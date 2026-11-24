@@ -36,11 +36,20 @@
   \end{itemize}
 \end{frame}
 
-% Titles are "Topic: point"; the topic is the same on every slide of a section.
+% Research paper talks use this slide unless the talk is very short or the user opts out.
+\begin{frame}{Related Literature}
+  \begin{itemize}
+    \item \textbf{Research question or mechanism.} Explain the prior result and cite the relevant work inline.
+    \item \textbf{Contribution.} How this paper builds on that work and what it adds.
+  \end{itemize}
+\end{frame}
+
+% Use "Topic: point" for section slides and keep the topic consistent within each section.
 \begin{frame}[label=m-core]{The Model: The Main Result}
+  % Use the source's actual result label where one exists.
   \textbf{Proposition 1.} The paper's statement of the result, in its own words:
   \[
-    \alert{Y} = F(X_1, X_2)
+    Y = F(X_1, X_2)
   \]
   \begin{itemize}
     \item Define each symbol where it first appears

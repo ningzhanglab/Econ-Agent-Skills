@@ -6,11 +6,11 @@ Use this only when the user asks for a content file, or returns one they edited.
 
 A Markdown file beside the deck (the deck's name with `_content.md`) lets the user revise the wording:
 
-- One `## Slide N: Title` section per slide, in order, with N matching the page of the compiled PDF and the text matching the `.tex` exactly.
+- One `## Slide N: Title` section per frame, in order, with the text matching the `.tex` exactly. Number by frame so each section maps to one edit location. The default deck has one PDF page per frame. When overlays or other page breaks change that mapping, give the PDF page or range below the section heading and show overlay changes in their displayed order.
 - Math stays in LaTeX (`$...$` inline, `$$` blocks), with the deck's own macros written out in standard LaTeX so a Markdown editor can render them.
 - Bold marks `\textbf` or `\alert`; sub-bullets are indented list items; tables are Markdown tables; figures are relative image links.
 - Each Appendix button is its own line: `*Button: Appendix: steps → Slide 61*`.
 
 When the user returns it edited, apply their text to the matching slides in the `.tex`, recompile and regenerate the file, so the three stay in step.
 
-Use the [bundle checker](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-present/scripts/check_tex_bundle.py) to compare section numbers and titles with countable TeX frames. If the checker is unavailable or skips the count because of overlays, section frames or nested inputs, compare the section numbers and titles with the compiled PDF pages. Check the body text against the `.tex`.
+Use the [bundle checker](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-present/scripts/check_tex_bundle.py) to compare section numbers and titles with countable TeX frames. If the checker is unavailable or skips the count, use the TeX source and rendered pages together to verify the frame-to-page mapping. Check the body text against the `.tex`.
