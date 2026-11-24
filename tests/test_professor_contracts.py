@@ -163,7 +163,10 @@ class CourseContracts(unittest.TestCase):
         chinese = (SKILL / "templates/simple-notes-cn.tex").read_text(encoding="utf-8")
         self.assertIn(r"\documentclass[11pt,letterpaper]{article}", latin)
         self.assertIn(r"\documentclass[11pt]{ctexart}", chinese)
-        self.assertIn(r"\usepackage{amsmath,amssymb,amsthm,mathtools,bm}", latin)
+        self.assertIn(r"\usepackage{amsmath,amssymb,graphicx}", latin)
+        for template in (latin, chinese):
+            self.assertIn("nohead,footskip=.32in", template)
+            self.assertIn(r"\pagestyle{plain}", template)
         self.assertEqual(bundle.choose_engine(chinese), "-xelatex")
         self.assertEqual(bundle.choose_engine(latin), "-pdf")
         chinese_deck = "\\documentclass\n  [aspectratio=169]{ctexbeamer}\nEnglish-only draft."

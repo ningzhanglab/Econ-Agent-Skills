@@ -4,7 +4,7 @@ A short, chronological summary of meaningful changes to the Econ Agent Skills re
 
 ## Unreleased
 
-_No uncommitted planned changes are represented as completed here._
+- **Changed (econ-learn, econ-write and econ-present, at the user's request):** the notes, report and prose handout templates use the same left-aligned article layout, without a running header and with page numbers centered at the bottom. The Beamer template centers frame numbers. The corresponding link editions include their templates. [Template update](logs/2026-11-23-report-and-presentation-templates.md).
 
 ## 2026-11-20
 

@@ -7,7 +7,7 @@
 - **Order:** the instructor's order.
 - **Each block opens with its main result,** then derives it.
 - **Included:** only relevant Homework, extensions and self-checks. No fixed length, chapter structure or section list.
-- **As a file:** only when asked ([Deliver a file](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn/tasks/deliver-file.md)), from the [notes template](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-learn/templates/simple-notes.tex), or the [Chinese template](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/skills/econ-learn/templates/simple-notes-cn.tex) with XeLaTeX when the text is Chinese.
+- **As a file:** only when asked. Follow the [requested documents default](https://raw.githubusercontent.com/ningzhanglab/Econ-Agent-Skills/main/link/econ-learn.md) (section "defaults") and use XeLaTeX for the Chinese notes template.
 
 ## Build the lesson
 

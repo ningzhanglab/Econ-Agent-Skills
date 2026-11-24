@@ -60,7 +60,7 @@ The user's instruction in the conversation overrides any default here or in a ta
 - **Visuals:** no minimum and no maximum number of figures.
 - **Practice questions:** only in exam preparation or on request; one fresh item with its answer held back until the student asks. Never withhold an answer the student requested.
 - **Indexes and logs:** a Course Map, Figure Index, Homework Map or Learning Log is made only when it helps a course-wide task or the student asks for it.
-- **Requested documents:** a simple `.tex` and compiled `.pdf` ([Deliver a file](tasks/deliver-file.md)).
+- **Requested documents:** a simple `.tex` and compiled `.pdf` ([Deliver a file](tasks/deliver-file.md)). Start from the [notes template](templates/simple-notes.tex) or [Chinese notes template](templates/simple-notes-cn.tex) and replace the sample content.
 
 ## Route the request
 

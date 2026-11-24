@@ -100,7 +100,7 @@ Teaches like an economics PhD professor, not a slide summarizer. The source defi
 
 Task pages: [term or screenshot](skills/econ-learn/tasks/term-or-screenshot.md), [paper](skills/econ-learn/tasks/paper.md), [explain](skills/econ-learn/tasks/explain.md), [derive](skills/econ-learn/tasks/derive.md), [homework and exams](skills/econ-learn/tasks/homework-exam.md), [whole lecture](skills/econ-learn/tasks/whole-lecture.md), [cross-lecture](skills/econ-learn/tasks/cross-lecture.md), [course](skills/econ-learn/tasks/course.md), [learning log](skills/econ-learn/tasks/learning-log.md). Guides: [Macroeconomics](skills/econ-learn/guides/macroeconomics.md), [Microeconomics](skills/econ-learn/guides/microeconomics.md), [Econometrics](skills/econ-learn/guides/econometrics.md), [Time Series](skills/econ-learn/guides/time-series.md), [Figures](skills/econ-learn/guides/figures.md), [Reading sources](skills/econ-learn/guides/reading-sources.md), [Sources and versions](skills/econ-learn/guides/sources-and-versions.md), [Large files](skills/econ-learn/guides/large-files.md).
 
-- **Files:** with no format named, a matching `.tex` and compiled `.pdf` in `Agent Outputs/`. A homework file follows the assignment's own format and filename rules.
+- **Files:** with no format named, a matching `.tex` and compiled `.pdf` in `Agent Outputs/`. A homework file follows the assignment's own format and filename rules. LaTeX notes start from the [English template](skills/econ-learn/templates/simple-notes.tex) or the [Chinese template](skills/econ-learn/templates/simple-notes-cn.tex).
 - **Whole courses,** on request: syllabus order kept apart from inferred prerequisites, notation tracked per lecture, coverage marked honestly. Saved maps are navigation, never a substitute for reopening the slides.
 - **Learning logs** only when you ask ("记录今天的学习"), as a short private Markdown file in `Agent Outputs/Learning Logs/`.
 - **Helper scripts** (read-only on your sources): [file grouping](skills/econ-learn/scripts/group_course_sources.py), [TeX figure inventory](skills/econ-learn/scripts/inventory_tex_figures.py), [Word equation reader](skills/econ-learn/scripts/read_docx_math.py), [TeX bundle checker](skills/econ-learn/scripts/check_tex_bundle.py).
@@ -116,6 +116,7 @@ Example prompts: "Explain the intuition behind the Euler equation on slide 12, i
 - **House style, each line adjustable:** "Topic: point" titles; Appendix slides with a subtitle, one click from the slide they support and back; no default length; Beamer 16:9 as `.tex` and `.pdf`; a content file or speaker notes only on request.
 - **Nothing from memory:** a related-literature slide lists only papers the source cites or papers verified with `econ-research`.
 - A [figure cropper](skills/econ-present/scripts/crop_figure.py) saves one figure from a PDF page as an image (needs PyMuPDF or Poppler).
+- Slides use a centered frame number at the bottom. A requested prose handout starts from the [LaTeX handout template](skills/econ-present/templates/simple-handout.tex).
 
 Example prompts: "Make slides to present this paper in our reading group." · "Recheck my deck against the published version."
 
@@ -125,6 +126,7 @@ Example prompts: "Make slides to present this paper in our reading group." · "R
 
 - **Terminology, math, numbers and citations stay exactly as you wrote them,** including LaTeX labels and citation keys. Conditions and caveats stay; suspected errors are flagged, not fixed in the prose.
 - **Nothing is invented:** no references, results or robustness checks the draft does not contain.
+- New homework and report files can start from the [LaTeX report template](skills/econ-write/templates/simple-report.tex).
 - Guides: [Terminology and Notation](skills/econ-write/guides/terminology-and-notation.md), [Economics Writing Conventions](skills/econ-write/guides/econ-conventions.md), [AI-Sounding Patterns](skills/econ-write/guides/ai-tells.md) (adapted from the MIT-licensed [humanizer](https://github.com/blader/humanizer) skill).
 - When a course or journal requires disclosure of AI use, it reminds you once and leaves the decision to you.
 

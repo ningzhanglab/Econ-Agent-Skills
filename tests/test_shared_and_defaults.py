@@ -27,6 +27,7 @@ PREFERENCES = {
         "Open with the direct answer to the question asked",
         "economic meaning in plain words",
         "state the reusable method in one or two lines",
+        "[notes template](templates/simple-notes.tex)",
     ],
     "econ-learn/tasks/deliver-file.md": [
         "a matching editable `.tex` and compiled `.pdf`",
@@ -38,8 +39,10 @@ PREFERENCES = {
         "a reading-group talk to PhD students",
         "no default length or slide count",
         "Beamer, 16:9",
+        "no running header and a centered frame number at the bottom",
         "so the PDF has one page per slide",
         "a content file (`_content.md`), speaker notes, a handout version",
+        "[handout template](templates/simple-handout.tex)",
         "at most once in a conversation",
         "Every title has the form \"Topic: point\"",
         "written exactly the same on every slide of that section",
@@ -66,6 +69,7 @@ PREFERENCES = {
     "econ-write/SKILL.md": [
         "Terminology stays exactly as written",
         "The draft keeps its own language and form",
+        "[report template](templates/simple-report.tex)",
         "Keep a copy of the previous version unless the user says to overwrite it",
         "remind the user once",
     ],

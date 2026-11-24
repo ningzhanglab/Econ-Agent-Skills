@@ -32,6 +32,11 @@ SKILLS = ROOT / "skills"
 FILES = {
     "deliver-file.md": ["econ-learn/tasks/deliver-file.md", "econ-present/tasks/deliver-file.md"],
     "scripts/check_tex_bundle.py": ["econ-learn/scripts/check_tex_bundle.py", "econ-present/scripts/check_tex_bundle.py"],
+    "templates/simple-handout.tex": [
+        "econ-learn/templates/simple-notes.tex",
+        "econ-present/templates/simple-handout.tex",
+        "econ-write/templates/simple-report.tex",
+    ],
 }
 BLOCKS = ("guarantees", "defaults")
 

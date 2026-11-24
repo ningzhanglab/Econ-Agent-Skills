@@ -5,7 +5,12 @@
 % Add \usepackage{graphicx} or pgfplots only when the deck includes figures; call figures by relative path, e.g. \includegraphics[width=\linewidth]{figures/fig1.png} (no \graphicspath).
 
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}\insertframenumber
+  \end{beamercolorbox}%
+}
 
 \title{Paper Title}
 \subtitle{Author (Year), Journal}
